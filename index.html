@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Golden Properties — Journey To Your Perfect Home</title>
+  <link rel="icon" type="image/png" href="/assest/Golden-Properties-Luxury-Logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+            poppins: ['Poppins', 'sans-serif']
+          },
+          colors: {
+            ink: '#161514',
+            sand: '#F3F0EB',
+            paper: '#FBFAF7',
+            copper: '#A8774A',
+            copperLight: '#C9996B',
+            muted: '#77716A'
+          },
+          keyframes: {
+            spinSlow: { to: { transform: 'rotate(360deg)' } },
+            pingSoft: { '0%': { transform: 'scale(1)', opacity: '.6' }, '100%': { transform: 'scale(2.8)', opacity: '0' } }
+          },
+          animation: {
+            'spin-slow': 'spinSlow 16s linear infinite',
+            'ping-soft': 'pingSoft 2.4s cubic-bezier(0,0,.2,1) infinite'
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.13/dist/lenis.css" />
+
+  <style type="text/tailwindcss">
+    @layer components {
+      .container-x { @apply max-w-[1160px] mx-auto px-4 md:px-7; }
+      .section-title { @apply text-[24px] sm:text-[30px] md:text-[36px] leading-[1.18] font-light tracking-[-0.03em] text-ink; }
+      .section-desc { @apply text-[13px] md:text-[14px] leading-[1.7] text-muted max-w-[360px]; }
+      .card { @apply bg-paper rounded-[18px] border border-ink/[0.07]; }
+      .img-zoom { @apply absolute inset-0 transition-transform duration-[1200ms] ease-[cubic-bezier(.2,.8,.2,1)] group-hover:scale-[1.05]; }
+      .heart-btn { @apply absolute top-3.5 right-3.5 z-10 w-9 h-9 rounded-full bg-white/90 backdrop-blur grid place-items-center hover:scale-110 transition; }
+      .arrow-btn { @apply shrink-0 w-9 h-9 rounded-full bg-copper grid place-items-center transition duration-500 group-hover:rotate-45; }
+      .footer-link { @apply text-[13px] text-white/55 hover:text-white transition; }
+    }
+  </style>
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      font-family: 'Poppins', sans-serif;
+      font-style: normal !important;
+    }
+
+    html,
+    body,
+    em,
+    i {
+      font-family: 'Poppins', sans-serif !important;
+      font-style: normal !important;
+    }
+
+    input,
+    button,
+    select,
+    textarea {
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+    }
+
+    body {
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: #A8774A;
+      color: #fff;
+    }
+
+    /* Hide scrollbar */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Eyebrow label */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #77716A;
+      font-weight: 500;
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 22px;
+      height: 1px;
+      background: #A8774A;
+    }
+
+    .eyebrow.light {
+      color: rgba(255, 255, 255, .55);
+    }
+
+    /* Split text */
+    .split-line {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: bottom;
+      padding: 0 .04em .12em 0;
+      margin-bottom: -.12em;
+    }
+
+    .split-line.is-el {
+      vertical-align: middle;
+    }
+
+    .split-word {
+      display: inline-block;
+      will-change: transform;
+    }
+
+    /* Inline image pill in heading */
+    .pill-img {
+      display: inline-block;
+      width: 92px;
+      height: 44px;
+      border-radius: 999px;
+      overflow: hidden;
+      vertical-align: middle;
+    }
+
+    .pill-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (min-width: 768px) {
+      .pill-img {
+        width: 140px;
+        height: 62px;
+      }
+    }
+
+    /* Marquee outline text */
+    .outline-text {
+      color: transparent;
+      -webkit-text-stroke: 1px #161514;
+    }
+
+    /* Nav states */
+    #nav .nav-inner {
+      color: #fff;
+      --star: #161514;
+      transition: all .6s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    #nav .nav-cta {
+      background: #fff;
+      color: #161514;
+    }
+
+    #nav.is-scrolled .nav-inner {
+      color: #161514;
+      --star: #fff;
+      max-width: 980px;
+      background: rgba(251, 250, 247, .82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 12px 40px -16px rgba(0, 0, 0, .18);
+    }
+
+    #nav.is-scrolled .nav-cta {
+      background: #161514;
+      color: #fff;
+    }
+
+
+
+    .heart-btn.active svg {
+      fill: #E5484D;
+      stroke: #E5484D;
+    }
+  </style>
+</head>
+
+<body class="font-poppins bg-sand text-ink">
+
+  <!-- Custom cursor (desktop) -->
+  <div id="cursor"
+    class="fixed top-0 left-0 z-[100] w-0 h-0 rounded-full bg-copper pointer-events-none grid place-items-center text-white text-[12px] font-medium overflow-hidden">
+    <span id="cursorText" class="opacity-0">View</span>
+  </div>
+
+  <!-- ================= NAV ================= -->
+  <header id="nav" class="fixed top-5 md:top-7 inset-x-5 md:inset-x-10 z-50">
+    <div class="nav-inner max-w-[1240px] mx-auto h-20 sm:h-22 md:h-24 px-4 pl-6 md:pl-8 rounded-full flex items-center justify-between">
+      <a href="/index.html" class="nav-anim flex items-center py-1.5" aria-label="Golden Properties">
+        <img src="/assest/Golden-Properties-Luxury-Logo.png" alt="Golden Properties" class="h-12 sm:h-14 md:h-16 lg:h-[72px] w-auto object-contain" />
+      </a>
+
+      <ul class="hidden md:flex items-center gap-10 text-[14px]">
+        <li class="nav-anim"><a href="about.html" class="hover:opacity-60 transition">About Us</a></li>
+        <li class="nav-anim"><a href="properties.html" class="hover:opacity-60 transition">Properties</a></li>
+        <li class="nav-anim"><a href="blogs.html" class="hover:opacity-60 transition">Blog</a></li>
+      </ul>
+
+      <a href="#contact"
+        class="nav-anim nav-cta hidden md:inline-flex items-center gap-2 pl-5 pr-2 py-2 rounded-full text-[13px] font-medium transition">
+        Contact Us
+        <span class="w-7 h-7 rounded-full bg-copper grid place-items-center"><svg width="12" height="12" fill="none"
+            stroke="#fff" stroke-width="2">
+            <path d="M2 10 10 2M4 2h6v6" />
+          </svg></span>
+      </a>
+
+      <button id="menuBtn" class="md:hidden w-11 h-11 rounded-full grid place-items-center" aria-label="Menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M3 8h16M3 14h16" />
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="md:hidden hidden mt-3 bg-paper text-ink rounded-3xl p-3 shadow-2xl">
+      <a href="about.html" class="block px-4 py-3.5 rounded-2xl hover:bg-sand">About Us</a>
+      <a href="properties.html" class="block px-4 py-3.5 rounded-2xl hover:bg-sand">Properties</a>
+      <a href="blogs.html" class="block px-4 py-3.5 rounded-2xl hover:bg-sand">Blog</a>
+      <a href="#contact" class="block mt-1 px-4 py-3.5 rounded-2xl bg-copper text-white text-center hover:bg-copperLight transition">Contact Us</a>
+    </div>
+  </header>
+
+  <!-- ================= HERO (VIDEO) ================= -->
+  <section id="hero" class="p-3 md:p-4">
+    <div
+      class="hero-wrap relative overflow-hidden rounded-[20px] md:rounded-[26px] h-[68svh] min-h-[440px] max-h-[560px] bg-ink">
+      <video class="hero-media absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline
+        preload="auto"
+        poster="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=2000&q=80">
+        <!-- Apni video yahan rakho: videos/hero.mp4 -->
+        <source src="videos/hero.mp4" type="video/mp4" />
+        <source src="https://videos.pexels.com/video-files/7578552/7578552-uhd_2560_1440_30fps.mp4" type="video/mp4" />
+      </video>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-black/35"></div>
+
+      <!-- Sound toggle button (top-left) -->
+      <button id="videoSoundBtn" aria-label="Toggle Sound"
+        class="absolute top-4 left-4 md:top-6 md:left-6 z-20 w-9 h-9 rounded-full bg-black/45 hover:bg-black/65 backdrop-blur-md text-white grid place-items-center transition duration-300">
+        <svg id="soundMutedIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <line x1="23" y1="9" x2="17" y2="15"></line>
+          <line x1="17" y1="9" x2="23" y2="15"></line>
+        </svg>
+        <svg id="soundActiveIcon" class="hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        </svg>
+      </button>
+
+      <div class="hero-content relative z-10 h-full flex items-end">
+        <div class="w-full px-5 pb-8 md:px-10 md:pb-10 grid lg:grid-cols-[1.6fr_1fr] gap-6 lg:gap-10 items-end">
+          <h1
+            class="hero-title split text-white font-light tracking-[-0.035em] leading-[1.06] text-[32px] sm:text-[44px] lg:text-[54px]">
+            Journey To Your<br /><span class="font-normal">Perfect Home</span></h1>
+          <div class="hero-sub lg:pb-3">
+            <div class="h-px w-12 bg-white/50 mb-4"></div>
+            <p class="text-white/80 text-[13px] md:text-[14px] leading-[1.65] max-w-[340px]">Let our expert team guide
+              you through the magic of real estate and helping you find the perfect home where your dreams take flight
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STATS / LEGACY STRIP ================= -->
+  <section class="bg-paper border-y border-ink/[0.08] py-8 md:py-10">
+    <div class="container-x">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-y-6 gap-x-6 md:gap-x-10 items-center">
+        <!-- 40+ Years of legacy -->
+        <div class="flex items-start gap-3.5 border-l-2 border-copper pl-3.5 md:pl-4" data-aos="fade-up">
+          <div>
+            <div
+              class="text-[26px] sm:text-[30px] md:text-[34px] font-normal leading-none tracking-[-0.03em] text-ink">
+              <span data-count="40">0</span><span class="text-copper font-light">+</span>
+            </div>
+            <p class="mt-2 text-[13px] sm:text-[14px] text-muted font-normal">
+              Years of legacy
+            </p>
+          </div>
+        </div>
+
+        <!-- 200+ Projects -->
+        <div class="flex items-start gap-3.5 border-l-2 border-copper pl-3.5 md:pl-4" data-aos="fade-up"
+          data-aos-delay="80">
+          <div>
+            <div
+              class="text-[26px] sm:text-[30px] md:text-[34px] font-normal leading-none tracking-[-0.03em] text-ink">
+              <span data-count="200">0</span><span class="text-copper font-light">+</span>
+            </div>
+            <p class="mt-2 text-[13px] sm:text-[14px] text-muted font-normal">
+              Projects
+            </p>
+          </div>
+        </div>
+
+        <!-- 30K+ Families -->
+        <div class="flex items-start gap-3.5 border-l-2 border-copper pl-3.5 md:pl-4" data-aos="fade-up"
+          data-aos-delay="160">
+          <div>
+            <div
+              class="text-[26px] sm:text-[30px] md:text-[34px] font-normal leading-none tracking-[-0.03em] text-ink">
+              <span data-count="30">0</span><span class="text-copper font-light">K+</span>
+            </div>
+            <p class="mt-2 text-[13px] sm:text-[14px] text-muted font-normal">
+              Families
+            </p>
+          </div>
+        </div>
+
+        <!-- 20+ Cities -->
+        <div class="flex items-start gap-3.5 border-l-2 border-copper pl-3.5 md:pl-4" data-aos="fade-up"
+          data-aos-delay="240">
+          <div>
+            <div
+              class="text-[26px] sm:text-[30px] md:text-[34px] font-normal leading-none tracking-[-0.03em] text-ink">
+              <span data-count="20">0</span><span class="text-copper font-light">+</span>
+            </div>
+            <p class="mt-2 text-[13px] sm:text-[14px] text-muted font-normal">
+              Cities
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MARQUEE ================= -->
+  <section class="py-6 md:py-8 overflow-hidden border-b border-ink/10">
+    <div class="marquee-track flex w-max text-[18px] md:text-[24px] font-light tracking-[-0.02em] whitespace-nowrap">
+    </div>
+  </section>
+
+  <!-- ================= 01 ABOUT ================= -->
+  <section id="about" class="relative py-14 md:py-20 overflow-hidden text-white border-y border-white/20"
+    style="background: linear-gradient(135deg, #7F5128 0%, #A8774A 38%, #BE8C59 68%, #88572D 100%);">
+    <div class="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-white/10 rounded-full blur-[90px]"></div>
+    <div class="container-x relative z-10">
+      <div class="text-center mb-4 md:mb-5" data-aos="fade-up">
+        <span class="inline-flex items-center gap-2.5 text-[11px] tracking-[0.24em] uppercase text-white/75 font-medium">
+          <span class="w-5 h-px bg-white/60"></span>
+          01 — About Us
+          <span class="w-5 h-px bg-white/60"></span>
+        </span>
+      </div>
+      <div class="max-w-[840px] mx-auto text-center px-4">
+        <p class="scrub-text text-[17px] sm:text-[19px] md:text-[23px] font-normal leading-[1.75] md:leading-[1.85] tracking-[-0.01em] text-white">
+          At <span class="font-semibold text-white">Golden Properties</span>, we believe a building is only as good as what it leaves behind, the neighbourhoods it shapes, the businesses it grows, the families it holds. For four decades, that belief has guided every decision we make: where we build, how we build, and what we refuse to compromise on along the way.
+        </p>
+        <div class="mt-8 flex justify-center" data-aos="fade-up" data-aos-delay="100">
+          <a href="about.html" class="inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-white text-ink text-[13px] font-semibold hover:bg-paper hover:shadow-lg transition duration-300 group">
+            <span>Read Our Full Story &amp; Legacy</span>
+            <span class="w-6 h-6 rounded-full bg-copper text-white grid place-items-center group-hover:translate-x-0.5 transition-transform">
+              <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8 8 2M3 2h5v5"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 02 PROPERTY (SLIDER) ================= -->
+  <section id="property" class="bg-paper py-14 md:py-20 overflow-hidden border-b border-ink/[0.08]">
+    <div class="container-x">
+      <div class="grid lg:grid-cols-[1.4fr_1fr] gap-5 md:gap-8 items-end mb-6 md:mb-8">
+        <div>
+          <span class="eyebrow">02 — Collection</span>
+          <h2 class="section-title split mt-2.5 md:mt-3">Discover Your Perfect<br class="hidden sm:block" /> Property Match</h2>
+        </div>
+
+        <div class="flex flex-col md:items-end gap-4" data-aos="fade-up">
+          <p class="section-desc md:text-right max-w-[400px]">
+            Embark on a journey of discovery through exclusive collections of homes and luxury properties to fulfill your aspirations.
+          </p>
+
+          <div class="flex items-center gap-3.5 shrink-0">
+            <a href="properties.html" class="inline-flex items-center gap-2 text-[13px] font-medium hover:text-copper transition group">
+              <span class="border-b border-ink group-hover:border-copper pb-0.5 transition">View all properties</span>
+              <span class="w-6 h-6 rounded-full border border-ink/20 grid place-items-center group-hover:bg-copper group-hover:border-copper group-hover:text-white transition">
+                <svg width="9" height="9" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7 7 2M3 2h4v4"/></svg>
+              </span>
+            </a>
+
+            <!-- Navigation Arrow Buttons -->
+            <div class="flex items-center gap-2">
+              <button id="propPrevBtn" aria-label="Previous Property"
+                class="w-9 h-9 rounded-full border border-ink/20 bg-paper hover:bg-copper hover:text-white hover:border-copper flex items-center justify-center transition-all duration-300 active:scale-95 shadow-sm">
+                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
+              <button id="propNextBtn" aria-label="Next Property"
+                class="w-9 h-9 rounded-full border border-ink/20 bg-paper hover:bg-copper hover:text-white hover:border-copper flex items-center justify-center transition-all duration-300 active:scale-95 shadow-sm">
+                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Property Slider Track -->
+      <div id="propSlider"
+        class="flex gap-4 md:gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar pb-4 pt-1 cursor-grab active:cursor-grabbing select-none"
+        data-cursor>
+
+        <!-- Dynamic Loading Skeleton Cards (Replaced dynamically by properties from Database) -->
+        <div class="card relative shrink-0 w-[78%] sm:w-[280px] md:w-[310px] lg:w-[330px] rounded-[18px] bg-paper border border-ink/[0.08] p-3 animate-pulse">
+          <div class="aspect-[16/11] w-full rounded-[14px] bg-ink/10"></div>
+          <div class="p-2 space-y-2 mt-2">
+            <div class="h-4 bg-ink/10 rounded w-1/2"></div>
+            <div class="h-4 bg-ink/10 rounded w-3/4"></div>
+            <div class="h-3 bg-ink/10 rounded w-1/3"></div>
+          </div>
+        </div>
+        <div class="card relative shrink-0 w-[78%] sm:w-[280px] md:w-[310px] lg:w-[330px] rounded-[18px] bg-paper border border-ink/[0.08] p-3 animate-pulse">
+          <div class="aspect-[16/11] w-full rounded-[14px] bg-ink/10"></div>
+          <div class="p-2 space-y-2 mt-2">
+            <div class="h-4 bg-ink/10 rounded w-1/2"></div>
+            <div class="h-4 bg-ink/10 rounded w-3/4"></div>
+            <div class="h-3 bg-ink/10 rounded w-1/3"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom View All Button -->
+      <div class="mt-8 md:mt-10 flex justify-center" data-aos="fade-up">
+        <a href="properties.html" class="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-copper text-white hover:bg-copperDark text-xs sm:text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-xl hover:scale-105 group">
+          <span>View All Properties Collection</span>
+          <span class="w-6 h-6 rounded-full bg-white/20 text-white grid place-items-center group-hover:translate-x-1 transition-transform">
+            <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8 8 2M3 2h5v5"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 03 SEGMENTS ================= -->
+  <section id="segments" class="relative scroll-mt-20 md:scroll-mt-24 pt-20 pb-20 md:pt-28 md:pb-28 overflow-hidden text-white border-y border-white/20"
+    style="background: linear-gradient(135deg, #7F5128 0%, #A8774A 38%, #BE8C59 68%, #88572D 100%);">
+    
+    <!-- Ambient top glow -->
+    <div class="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[360px] bg-white/10 rounded-full blur-[100px]"></div>
+
+    <div class="container-x relative z-10">
+      <!-- Eyebrow -->
+      <div class="text-center mb-2.5 sm:mb-3" data-aos="fade-up">
+        <span class="inline-flex items-center gap-2.5 text-[11px] tracking-[0.24em] uppercase text-white/75 font-medium">
+          <span class="w-5 h-px bg-white/60"></span>
+          03 — Defining Segments
+          <span class="w-5 h-px bg-white/60"></span>
+        </span>
+      </div>
+
+      <!-- Section Title -->
+      <div class="text-center mb-5 md:mb-6" data-aos="fade-up" data-aos-delay="40">
+        <h2 class="text-white text-[28px] sm:text-[36px] md:text-[44px] font-light tracking-[-0.025em] leading-[1.15]">
+          At Your Favourite <span class="font-normal">Segments</span>
+        </h2>
+      </div>
+
+      <!-- Lead Statement -->
+      <div class="max-w-[780px] mx-auto text-center mb-10 md:mb-14 px-4" data-aos="fade-up" data-aos-delay="80">
+        <p class="text-[13px] sm:text-[15px] md:text-[16px] font-normal leading-[1.75] text-white/85">
+          For over four decades, <span class="font-semibold text-white">Golden Properties</span> has built across four defining segments: thoughtful residential communities, future-ready commercial destinations, prime plotted developments, and bespoke luxury villas. Every project, regardless of scale, is held to the same standard of design, construction, and delivery.
+        </p>
+      </div>
+
+      <!-- 4 Segments Grid (Matching Reference UI) -->
+      <div class="border-y border-white/20 max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2">
+        
+        <!-- Segment 1: Residential -->
+        <a href="properties.html?type=Residential" class="segment-card group relative block text-center py-12 md:py-16 px-6 sm:px-10 border-b border-white/20 md:border-r hover:bg-white/[0.05] transition-all duration-500 cursor-pointer" data-cursor>
+          <!-- Location Pin Icon -->
+          <div class="mb-3.5 sm:mb-4 flex justify-center text-white/80 group-hover:text-white group-hover:scale-110 transition-all duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+              <circle cx="12" cy="9" r="2.5"/>
+            </svg>
+          </div>
+
+          <!-- Title -->
+          <h3 class="text-white text-[19px] sm:text-[22px] md:text-[24px] font-normal tracking-[0.22em] uppercase leading-snug">
+            Residential
+          </h3>
+
+          <!-- Subtitle -->
+          <p class="mt-2.5 sm:mt-3 text-[11px] sm:text-[12px] tracking-[0.18em] uppercase text-white/80 font-normal leading-relaxed max-w-[380px] mx-auto">
+            The Ultra Luxury Segment
+          </p>
+          <p class="mt-1 text-[10px] sm:text-[11px] tracking-[0.14em] uppercase text-white/60 font-light">
+            High-Rise Towers • Penthouses • Premium Living
+          </p>
+
+          <!-- Round Arrow Button -->
+          <div class="mt-6 sm:mt-7 flex justify-center">
+            <span class="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/40 bg-white/10 backdrop-blur-sm grid place-items-center text-white transition-all duration-300 group-hover:bg-white group-hover:text-copper group-hover:border-white group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)]">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:translate-x-0.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Segment 2: Commercial -->
+        <a href="properties.html?type=Commercial" class="segment-card group relative block text-center py-12 md:py-16 px-6 sm:px-10 border-b border-white/20 hover:bg-white/[0.05] transition-all duration-500 cursor-pointer" data-cursor>
+          <!-- Location Pin Icon -->
+          <div class="mb-3.5 sm:mb-4 flex justify-center text-white/80 group-hover:text-white group-hover:scale-110 transition-all duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+              <circle cx="12" cy="9" r="2.5"/>
+            </svg>
+          </div>
+
+          <!-- Title -->
+          <h3 class="text-white text-[19px] sm:text-[22px] md:text-[24px] font-normal tracking-[0.22em] uppercase leading-snug">
+            Commercial
+          </h3>
+
+          <!-- Subtitle -->
+          <p class="mt-2.5 sm:mt-3 text-[11px] sm:text-[12px] tracking-[0.18em] uppercase text-white/80 font-normal leading-relaxed max-w-[380px] mx-auto">
+            Grade-A Retail & High-Street Hubs
+          </p>
+          <p class="mt-1 text-[10px] sm:text-[11px] tracking-[0.14em] uppercase text-white/60 font-light">
+            Future-Ready Offices • SCOs • Business Parks
+          </p>
+
+          <!-- Round Arrow Button -->
+          <div class="mt-6 sm:mt-7 flex justify-center">
+            <span class="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/40 bg-white/10 backdrop-blur-sm grid place-items-center text-white transition-all duration-300 group-hover:bg-white group-hover:text-copper group-hover:border-white group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)]">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:translate-x-0.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Segment 3: Plots -->
+        <a href="properties.html?type=Plots" class="segment-card group relative block text-center py-12 md:py-16 px-6 sm:px-10 border-b md:border-b-0 border-white/20 md:border-r hover:bg-white/[0.05] transition-all duration-500 cursor-pointer" data-cursor>
+          <!-- Location Pin Icon -->
+          <div class="mb-3.5 sm:mb-4 flex justify-center text-white/80 group-hover:text-white group-hover:scale-110 transition-all duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+              <circle cx="12" cy="9" r="2.5"/>
+            </svg>
+          </div>
+
+          <!-- Title -->
+          <h3 class="text-white text-[19px] sm:text-[22px] md:text-[24px] font-normal tracking-[0.22em] uppercase leading-snug">
+            Plots
+          </h3>
+
+          <!-- Subtitle -->
+          <p class="mt-2.5 sm:mt-3 text-[11px] sm:text-[12px] tracking-[0.18em] uppercase text-white/80 font-normal leading-relaxed max-w-[380px] mx-auto">
+            Gated Townships & Freehold Land
+          </p>
+          <p class="mt-1 text-[10px] sm:text-[11px] tracking-[0.14em] uppercase text-white/60 font-light">
+            Prime Residential Plots • Strategic Corridors
+          </p>
+
+          <!-- Round Arrow Button -->
+          <div class="mt-6 sm:mt-7 flex justify-center">
+            <span class="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/40 bg-white/10 backdrop-blur-sm grid place-items-center text-white transition-all duration-300 group-hover:bg-white group-hover:text-copper group-hover:border-white group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)]">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:translate-x-0.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Segment 4: Villas -->
+        <a href="properties.html?type=Villas" class="segment-card group relative block text-center py-12 md:py-16 px-6 sm:px-10 hover:bg-white/[0.05] transition-all duration-500 cursor-pointer" data-cursor>
+          <!-- Location Pin Icon -->
+          <div class="mb-3.5 sm:mb-4 flex justify-center text-white/80 group-hover:text-white group-hover:scale-110 transition-all duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+              <circle cx="12" cy="9" r="2.5"/>
+            </svg>
+          </div>
+
+          <!-- Title -->
+          <h3 class="text-white text-[19px] sm:text-[22px] md:text-[24px] font-normal tracking-[0.22em] uppercase leading-snug">
+            Villas
+          </h3>
+
+          <!-- Subtitle -->
+          <p class="mt-2.5 sm:mt-3 text-[11px] sm:text-[12px] tracking-[0.18em] uppercase text-white/80 font-normal leading-relaxed max-w-[380px] mx-auto">
+            Exclusive Independent Luxury Estates
+          </p>
+          <p class="mt-1 text-[10px] sm:text-[11px] tracking-[0.14em] uppercase text-white/60 font-light">
+            Private Sanctuaries • Bespoke Architecture • Lawns
+          </p>
+
+          <!-- Round Arrow Button -->
+          <div class="mt-6 sm:mt-7 flex justify-center">
+            <span class="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/40 bg-white/10 backdrop-blur-sm grid place-items-center text-white transition-all duration-300 group-hover:bg-white group-hover:text-copper group-hover:border-white group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)]">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:translate-x-0.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 04 STORIES ================= -->
+  <section id="stories" class="bg-paper py-14 md:py-20 border-b border-ink/[0.08]">
+    <div class="container-x">
+      <div class="grid lg:grid-cols-[1.5fr_1fr] gap-6 lg:gap-12 items-end mb-8 md:mb-10">
+        <div>
+          <span class="eyebrow">04 — Journal</span>
+          <h2 class="section-title split mt-2.5 md:mt-3">Uncover The Latest<br class="hidden md:block" /> Trends And Stories</h2>
+        </div>
+        <p class="section-desc" data-aos="fade-up">Stay informed and updated with the latest trends, home improvement
+          ideas, and our clients story who have achieved their real estate dreams</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+        <article class="reveal relative rounded-[18px] overflow-hidden h-[320px] md:h-[350px] group" data-cursor>
+          <div class="img-zoom"><img class="parallax-img w-full h-full object-cover"
+              src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1000&q=80"
+              alt="Story" /></div>
+          <div class="absolute left-3 right-3 bottom-3 bg-ink/75 backdrop-blur-xl rounded-[14px] p-3.5 md:p-4 text-white">
+            <div class="flex items-start justify-between gap-2.5">
+              <span class="text-[10px] uppercase tracking-[.18em] text-copperLight font-medium">Unique House</span>
+              <span class="w-8 h-8 rounded-full bg-copper grid place-items-center shrink-0 transition duration-300 group-hover:rotate-45"><svg width="13" height="13" fill="none" stroke="#fff"
+                  stroke-width="2">
+                  <path d="M4 12 12 4M6 4h6v6" />
+                </svg></span>
+            </div>
+            <h3 class="mt-1 text-[14px] font-medium leading-snug pr-2">Rustic Castle Retreat in the French Countryside
+              Offers a Fairytale Escape</h3>
+            <p class="mt-2.5 text-[11px] text-white/50">10 hours ago</p>
+          </div>
+        </article>
+        <article class="reveal relative rounded-[18px] overflow-hidden h-[320px] md:h-[350px] group" data-cursor>
+          <div class="img-zoom"><img class="parallax-img w-full h-full object-cover"
+              src="https://images.unsplash.com/photo-1515263487990-61b07816b324?auto=format&fit=crop&w=1000&q=80"
+              alt="Story" /></div>
+          <div class="absolute left-3 right-3 bottom-3 bg-ink/75 backdrop-blur-xl rounded-[14px] p-3.5 md:p-4 text-white">
+            <div class="flex items-start justify-between gap-2.5">
+              <span class="text-[10px] uppercase tracking-[.18em] text-copperLight font-medium">Modern Living</span>
+              <span class="w-8 h-8 rounded-full bg-copper grid place-items-center shrink-0 transition duration-300 group-hover:rotate-45"><svg width="13" height="13" fill="none" stroke="#fff"
+                  stroke-width="2">
+                  <path d="M4 12 12 4M6 4h6v6" />
+                </svg></span>
+            </div>
+            <h3 class="mt-1 text-[14px] font-medium leading-snug pr-2">Timber Facades Are Redefining Urban Apartment
+              Design This Year</h3>
+            <p class="mt-2.5 text-[11px] text-white/50">1 day ago</p>
+          </div>
+        </article>
+        <article class="reveal relative rounded-[18px] overflow-hidden h-[320px] md:h-[350px] group" data-cursor>
+          <div class="img-zoom"><img class="parallax-img w-full h-full object-cover"
+              src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&q=80"
+              alt="Story" /></div>
+          <div class="absolute left-3 right-3 bottom-3 bg-ink/75 backdrop-blur-xl rounded-[14px] p-3.5 md:p-4 text-white">
+            <div class="flex items-start justify-between gap-2.5">
+              <span class="text-[10px] uppercase tracking-[.18em] text-copperLight font-medium">Client Story</span>
+              <span class="w-8 h-8 rounded-full bg-copper grid place-items-center shrink-0 transition duration-300 group-hover:rotate-45"><svg width="13" height="13" fill="none" stroke="#fff"
+                  stroke-width="2">
+                  <path d="M4 12 12 4M6 4h6v6" />
+                </svg></span>
+            </div>
+            <h3 class="mt-1 text-[14px] font-medium leading-snug pr-2">How One Family Found Their Forever Home by the
+              Coast</h3>
+            <p class="mt-2.5 text-[11px] text-white/50">3 days ago</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 05 TESTIMONIALS ================= -->
+  <section id="testimonials" class="relative py-16 md:py-24 overflow-hidden text-white border-b border-white/20"
+    style="background: linear-gradient(135deg, #7F5128 0%, #A8774A 38%, #BE8C59 68%, #88572D 100%);">
+    
+    <!-- Ambient top glow -->
+    <div class="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[360px] bg-white/10 rounded-full blur-[100px]"></div>
+
+    <div class="container-x relative z-10">
+      <div class="text-center mb-8 md:mb-12">
+        <span class="inline-flex items-center gap-2.5 text-[11px] tracking-[0.24em] uppercase text-white/75 font-medium">
+          <span class="w-5 h-px bg-white/60"></span>
+          05 — Testimonials
+          <span class="w-5 h-px bg-white/60"></span>
+        </span>
+        <h2 class="text-white text-[28px] sm:text-[36px] md:text-[44px] font-light tracking-[-0.025em] leading-[1.15] mt-3">
+          Don't Trust Us, <span class="font-normal">Trust Their Voice</span>
+        </h2>
+        <p class="text-white/80 text-[13px] sm:text-[14px] leading-[1.7] mx-auto mt-3 max-w-[460px]" data-aos="fade-up">
+          Discover heartfelt accounts of joy and fulfillment as our valued clients embark on the quest for their dream homes
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-12 gap-5 md:gap-6">
+        <div class="md:col-span-7 relative bg-white/95 backdrop-blur-md rounded-[20px] p-6 md:p-8 pt-10 md:pt-12 text-ink shadow-[0_12px_32px_rgba(0,0,0,0.16)] border border-white/40" data-aos="fade-up">
+          <img class="absolute -top-6 left-6 md:left-7 w-12 h-12 rounded-full object-cover ring-[3px] ring-white shadow-md"
+            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80"
+            alt="Rachel" />
+          <p class="text-[13px] sm:text-[14px] font-normal leading-[1.7] text-ink/85">Choosing this real estate service
+            was the best decision I ever made. Their team demonstrated exceptional professionalism and expertise. I
+            highly recommend their services to anyone!</p>
+          <div class="mt-5 flex items-end justify-between border-t border-ink/[0.07] pt-3.5">
+            <div>
+              <p class="text-[14px] font-semibold text-ink">Rachel Hadid</p>
+              <div class="stars mt-1.5 flex gap-1 text-copper" data-rating="5"></div>
+            </div><span class="quote-icon"></span>
+          </div>
+        </div>
+
+        <div class="md:col-span-5 relative bg-white/95 backdrop-blur-md rounded-[20px] p-6 md:p-8 pt-10 md:pt-12 text-ink shadow-[0_12px_32px_rgba(0,0,0,0.16)] border border-white/40" data-aos="fade-up"
+          data-aos-delay="100">
+          <img class="absolute -top-6 left-6 md:left-7 w-12 h-12 rounded-full object-cover ring-[3px] ring-white shadow-md"
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
+            alt="Louis" />
+          <p class="text-[13px] sm:text-[14px] font-normal leading-[1.7] text-ink/85">Their expert negotiation skills
+            helped me sell my property at a great price in no time. I would definitely work with them again.</p>
+          <div class="mt-5 flex items-end justify-between border-t border-ink/[0.07] pt-3.5">
+            <div>
+              <p class="text-[14px] font-semibold text-ink">Louis Padtrige</p>
+              <div class="stars mt-1.5 flex gap-1 text-copper" data-rating="4.5"></div>
+            </div><span class="quote-icon"></span>
+          </div>
+        </div>
+
+        <div class="md:col-span-5 relative bg-white/95 backdrop-blur-md rounded-[20px] p-6 md:p-8 pt-10 md:pt-12 text-ink shadow-[0_12px_32px_rgba(0,0,0,0.16)] border border-white/40" data-aos="fade-up">
+          <img class="absolute -top-6 left-6 md:left-7 w-12 h-12 rounded-full object-cover ring-[3px] ring-white shadow-md"
+            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80"
+            alt="Anastasia" />
+          <p class="text-[13px] sm:text-[14px] font-normal leading-[1.7] text-ink/85">They patiently answered all our
+            questions, provided valuable insights, and helped us secure our dream home within our budget.</p>
+          <div class="mt-5 flex items-end justify-between border-t border-ink/[0.07] pt-3.5">
+            <div>
+              <p class="text-[14px] font-semibold text-ink">Anastasia Baldwin</p>
+              <div class="stars mt-1.5 flex gap-1 text-copper" data-rating="4.5"></div>
+            </div><span class="quote-icon"></span>
+          </div>
+        </div>
+
+        <div class="md:col-span-7 relative bg-white/95 backdrop-blur-md rounded-[20px] p-6 md:p-8 pt-10 md:pt-12 text-ink shadow-[0_12px_32px_rgba(0,0,0,0.16)] border border-white/40" data-aos="fade-up"
+          data-aos-delay="100">
+          <img class="absolute -top-6 left-6 md:left-7 w-12 h-12 rounded-full object-cover ring-[3px] ring-white shadow-md"
+            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
+            alt="Harry" />
+          <p class="text-[13px] sm:text-[14px] font-normal leading-[1.7] text-ink/85">They presented us with a stunning
+            selection of homes that perfectly matched our preferences. The team's attention to detail and in-depth
+            knowledge of the local market truly impressed us!</p>
+          <div class="mt-5 flex items-end justify-between border-t border-ink/[0.07] pt-3.5">
+            <div>
+              <p class="text-[14px] font-semibold text-ink">Harry Jenda</p>
+              <div class="stars mt-1.5 flex gap-1 text-copper" data-rating="5"></div>
+            </div><span class="quote-icon"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA + FOOTER ================= -->
+  <footer id="contact" class="w-full bg-ink text-white overflow-hidden">
+    <div class="container-x pt-14 md:pt-20">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-10">
+        <div>
+          <span class="eyebrow light">Let's Talk</span>
+          <h2 class="split mt-5 text-[26px] sm:text-[32px] md:text-[38px] font-light tracking-[-0.03em] leading-[1.12]">Ready To
+            Work<br /><span>With Us?</span></h2>
+          <p class="mt-4 text-white/60 text-[13px] md:text-[14px] max-w-[400px] leading-[1.65]" data-aos="fade-up">
+            Experience seamless advisory and bespoke service tailored to your property goals.</p>
+        </div>
+        <a href="mailto:hello@goldenproperties.com"
+          class="cta-badge relative w-[100px] h-[100px] shrink-0 rounded-full bg-copper grid place-items-center group">
+          <svg class="absolute inset-0 animate-spin-slow w-full h-full" viewBox="0 0 100 100">
+            <defs>
+              <path id="circ2" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0" />
+            </defs>
+            <text font-size="10.5" letter-spacing="3.8" fill="#fff" font-family="Poppins">
+              <textPath href="#circ2">CONTACT US • CONTACT US • </textPath>
+            </text>
+          </svg>
+          <svg class="transition duration-500 group-hover:rotate-45" width="22" height="22" fill="none" stroke="#fff"
+            stroke-width="2">
+            <path d="M7 21 21 7M10 7h11v11" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="my-10 md:my-12 h-px bg-white/10"></div>
+
+      <div class="grid lg:grid-cols-[1.3fr_2fr] gap-8 md:gap-10 pb-12 md:pb-16">
+        <div data-aos="fade-up">
+          <a href="/index.html" class="inline-block py-2" aria-label="Golden Properties">
+            <img src="/assest/Golden-Properties-Luxury-Logo.png" alt="Golden Properties" class="h-16 sm:h-20 md:h-24 w-auto object-contain" />
+          </a>
+          <p class="mt-3.5 text-[13px] text-white/55 leading-[1.65] max-w-[290px]">A cutting-edge real estate boutique
+            offering a refined and immersive experience for discovering landmark properties.</p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <p class="text-[12px] uppercase tracking-[.18em] text-white/40 mb-4">Home</p>
+            <ul class="space-y-2.5 text-[13px]">
+              <li><a href="about.html" class="footer-link">About Us</a></li>
+              <li><a href="#property" class="footer-link">Collection</a></li>
+              <li><a href="#stories" class="footer-link">Blog &amp; News</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-[12px] uppercase tracking-[.18em] text-white/40 mb-4">Security</p>
+            <ul class="space-y-2.5 text-[13px]">
+              <li><a href="#" class="footer-link">Privacy Policy</a></li>
+              <li><a href="#" class="footer-link">User Agreements</a></li>
+              <li><a href="#" class="footer-link">Copyright</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-[12px] uppercase tracking-[.18em] text-white/40 mb-4">Social Media</p>
+            <ul class="space-y-2.5 text-[13px]">
+              <li><a href="#" class="footer-link">Instagram</a></li>
+              <li><a href="#" class="footer-link">Facebook</a></li>
+              <li><a href="#" class="footer-link">Twitter</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brand Signature Banner (Giant Full Width Display) -->
+    <div class="w-full overflow-hidden border-t border-white/10 pt-6 sm:pt-8 md:pt-10 pb-2 sm:pb-3 md:pb-4 text-center select-none">
+      <p class="font-bold tracking-[-0.035em] leading-none text-white/15 text-[11.8vw] sm:text-[11.5vw] md:text-[11.2vw] whitespace-nowrap px-1 transition-colors duration-500 hover:text-white/25">
+        Golden Properties
+      </p>
+    </div>
+
+    <div class="container-x">
+      <div
+        class="pt-5 pb-8 md:pb-10 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-[11px] text-white/40">
+        <p>© 2026 Golden Properties. All rights reserved.</p>
+        <a href="#hero" class="hover:text-white transition">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Action Buttons (Call & Message) -->
+  <div class="fixed bottom-5 right-5 z-40 flex flex-col gap-2.5">
+    <a href="tel:+911234567890" aria-label="Call Us"
+      class="w-10 h-10 rounded-full bg-copper hover:bg-copperLight text-white shadow-[0_6px_20px_rgba(168,119,74,0.35)] flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-300">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+      </svg>
+    </a>
+    <a href="#contact" aria-label="Inquire / Message Us"
+      class="w-10 h-10 rounded-full bg-copper hover:bg-copperLight text-white shadow-[0_6px_20px_rgba(168,119,74,0.35)] flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-300">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        <line x1="9" y1="10" x2="15" y2="10"></line>
+        <line x1="12" y1="7" x2="12" y2="13"></line>
+      </svg>
+    </a>
+  </div>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* ---------- Lenis ---------- */
+    const lenis = new Lenis({ duration: 1.25, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(t => lenis.raf(t * 1000));
+    gsap.ticker.lagSmoothing(0);
+
+    const menu = document.getElementById('mobileMenu');
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        if (id.length > 1 && document.querySelector(id)) {
+          e.preventDefault();
+          lenis.scrollTo(id, { offset: id === '#hero' ? 0 : -30, duration: 1.6 });
+          menu.classList.add('hidden');
+        }
+      });
+    });
+    document.getElementById('menuBtn').addEventListener('click', () => menu.classList.toggle('hidden'));
+
+    /* ---------- Video sound toggle ---------- */
+    const soundBtn = document.getElementById('videoSoundBtn');
+    const heroVid = document.querySelector('.hero-media');
+    if (soundBtn && heroVid) {
+      soundBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        heroVid.muted = !heroVid.muted;
+        document.getElementById('soundMutedIcon').classList.toggle('hidden', !heroVid.muted);
+        document.getElementById('soundActiveIcon').classList.toggle('hidden', heroVid.muted);
+      });
+    }
+
+    /* ---------- Nav state on scroll ---------- */
+    const nav = document.getElementById('nav');
+    lenis.on('scroll', ({ scroll }) => nav.classList.toggle('is-scrolled', scroll > 80));
+
+    /* ---------- AOS ---------- */
+    AOS.init({ duration: 1000, easing: 'ease-out-cubic', once: true, offset: 70 });
+
+    /* ---------- Split helper (keeps <br>, <em>, images) ---------- */
+    function splitWords(el) {
+      const nodes = [...el.childNodes];
+      el.innerHTML = '';
+      nodes.forEach(n => {
+        if (n.nodeType === 3) {
+          n.textContent.split(/(\s+)/).forEach(part => {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { el.appendChild(document.createTextNode(' ')); return; }
+            const line = document.createElement('span'); line.className = 'split-line';
+            const w = document.createElement('span'); w.className = 'split-word'; w.textContent = part;
+            line.appendChild(w); el.appendChild(line);
+          });
+        } else if (n.nodeType === 1 && n.tagName !== 'BR') {
+          const line = document.createElement('span');
+          line.className = 'split-line' + (n.classList.contains('pill-img') ? ' is-el' : '');
+          n.classList.add('split-word'); line.appendChild(n); el.appendChild(line);
+        } else el.appendChild(n);
+      });
+      return el.querySelectorAll('.split-word');
+    }
+
+    /* ---------- Hero intro ---------- */
+    const heroWords = splitWords(document.querySelector('.hero-title'));
+    gsap.timeline({ defaults: { ease: 'power4.out' } })
+      .from('.hero-wrap', { clipPath: 'inset(10% 8% 10% 8% round 40px)', duration: 1.6, ease: 'power4.inOut', clearProps: 'clipPath' })
+      .from('.hero-media', { scale: 1.35, duration: 2.2, ease: 'power3.out' }, 0)
+      .from('.nav-anim', { y: -24, opacity: 0, duration: .9, stagger: .07 }, .7)
+      .from(heroWords, { yPercent: 115, duration: 1.2, stagger: .08 }, .8)
+      .from('.hero-sub', { y: 30, opacity: 0, duration: 1 }, 1.15);
+
+    // Hero scroll: video parallax + content fade
+    gsap.to('.hero-media', { yPercent: 14, ease: 'none', scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true } });
+    gsap.to('.hero-content', { yPercent: -18, opacity: 0, ease: 'none', scrollTrigger: { trigger: '#hero', start: '20% top', end: 'bottom top', scrub: true } });
+
+    /* ---------- Marquee (speeds up with scroll velocity) ---------- */
+    const items = ['Resident House', 'Studio Apartment', 'Countryside', 'Farmland House', 'Luxury Villa', 'Penthouse'];
+    const star = '<svg class="w-3.5 h-3.5 md:w-4 md:h-4 text-copper shrink-0" viewBox="0 0 32 32"><path d="M16 2c1.3 7.6 6.4 12.7 14 14-7.6 1.3-12.7 6.4-14 14-1.3-7.6-6.4-12.7-14-14 7.6-1.3 12.7-6.4 14-14Z" fill="currentColor"/></svg>';
+    const group = items.map((t, i) => `<span class="${i % 2 ? 'outline-text' : ''}">${t}</span>${star}`).join('');
+    const track = document.querySelector('.marquee-track');
+    track.innerHTML = `<div class="flex items-center gap-8 md:gap-12 pr-8 md:pr-12">${group}</div>`.repeat(2);
+    const marquee = gsap.to(track, { xPercent: -50, repeat: -1, duration: 32, ease: 'none' });
+    let boost = 0;
+    lenis.on('scroll', ({ velocity }) => { boost = Math.min(Math.abs(velocity) / 3, 6); });
+    gsap.ticker.add(() => { boost *= 0.93; marquee.timeScale(1 + boost); });
+
+    /* ---------- Section title reveal ---------- */
+    document.querySelectorAll('.split:not(.hero-title)').forEach(el => {
+      gsap.from(splitWords(el), {
+        yPercent: 115, duration: 1.2, stagger: .06, ease: 'power4.out',
+        scrollTrigger: { trigger: el, start: 'top 85%' }
+      });
+    });
+
+    /* ---------- Property Card Slider (Automatic + Manual) ---------- */
+    const propSlider = document.getElementById('propSlider');
+    const propPrevBtn = document.getElementById('propPrevBtn');
+    const propNextBtn = document.getElementById('propNextBtn');
+
+    if (propSlider && propPrevBtn && propNextBtn) {
+      const getStep = () => {
+        const card = propSlider.querySelector('.card');
+        if (!card) return 360;
+        const gap = parseFloat(window.getComputedStyle(propSlider).gap) || 24;
+        return card.offsetWidth + gap;
+      };
+
+      const slideNext = () => {
+        const step = getStep();
+        const maxScroll = propSlider.scrollWidth - propSlider.clientWidth;
+        if (propSlider.scrollLeft >= maxScroll - 15) {
+          propSlider.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          const next = propSlider.scrollLeft + step;
+          if (next >= maxScroll - 15) {
+            propSlider.scrollTo({ left: maxScroll, behavior: 'smooth' });
+          } else {
+            propSlider.scrollBy({ left: step, behavior: 'smooth' });
+          }
+        }
+      };
+
+      const slidePrev = () => {
+        const step = getStep();
+        if (propSlider.scrollLeft <= 15) {
+          const maxScroll = propSlider.scrollWidth - propSlider.clientWidth;
+          propSlider.scrollTo({ left: maxScroll, behavior: 'smooth' });
+        } else {
+          const prev = propSlider.scrollLeft - step;
+          if (prev <= 15) {
+            propSlider.scrollTo({ left: 0, behavior: 'smooth' });
+          } else {
+            propSlider.scrollBy({ left: -step, behavior: 'smooth' });
+          }
+        }
+      };
+
+      // Automatic sliding (every 3.2 seconds)
+      let autoSlideTimer = null;
+      const startAutoSlide = () => {
+        if (!autoSlideTimer) {
+          autoSlideTimer = setInterval(slideNext, 3200);
+        }
+      };
+
+      const stopAutoSlide = () => {
+        if (autoSlideTimer) {
+          clearInterval(autoSlideTimer);
+          autoSlideTimer = null;
+        }
+      };
+
+      const restartAutoSlide = () => {
+        stopAutoSlide();
+        startAutoSlide();
+      };
+
+      propNextBtn.addEventListener('click', () => {
+        slideNext();
+        restartAutoSlide();
+      });
+
+      propPrevBtn.addEventListener('click', () => {
+        slidePrev();
+        restartAutoSlide();
+      });
+
+      // Start automatic sliding
+      startAutoSlide();
+
+      // Pause on hover or touch so user can inspect card
+      propSlider.addEventListener('mouseenter', stopAutoSlide);
+      propSlider.addEventListener('mouseleave', startAutoSlide);
+      propSlider.addEventListener('touchstart', stopAutoSlide, { passive: true });
+      propSlider.addEventListener('touchend', startAutoSlide, { passive: true });
+
+      // Drag to scroll on desktop
+      let isDown = false;
+      let startX = 0;
+      let scrollLeft = 0;
+
+      propSlider.addEventListener('mousedown', (e) => {
+        if (e.target.closest('button') || e.target.closest('a')) return;
+        isDown = true;
+        stopAutoSlide();
+        startX = e.pageX - propSlider.offsetLeft;
+        scrollLeft = propSlider.scrollLeft;
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (isDown) {
+          isDown = false;
+          startAutoSlide();
+        }
+      });
+
+      propSlider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - propSlider.offsetLeft;
+        const walk = (x - startX) * 1.6;
+        propSlider.scrollLeft = scrollLeft - walk;
+      });
+    }
+
+    // Dynamic Property Loading for Home Page Slider
+    async function loadHomeProperties() {
+      try {
+        let properties = null;
+        try {
+          const res = await fetch('/api/properties');
+          if (res.ok) properties = await res.json();
+        } catch (e) {}
+        if (!properties || !properties.length) {
+          try {
+            const fallbackRes = await fetch('/data/properties.json');
+            if (fallbackRes.ok) properties = await fallbackRes.json();
+          } catch (e) {}
+        }
+
+
+        if (!properties || !properties.length) return;
+
+        const slider = document.getElementById('propSlider');
+        if (!slider) return;
+
+        // Display max 10 latest properties on home page
+        const displayProps = properties.slice(0, 10);
+
+        let cardsHtml = displayProps.map(p => {
+          const statusBadge = (p.status || 'Active').split(',')[0].trim();
+          const bhkRaw = p.bhk || '3,4';
+          const bhkText = bhkRaw.toLowerCase().includes('bhk') ? bhkRaw : `${bhkRaw} BHK`;
+          const projectUrl = `/project/${p.slug || p.id}`;
+          const propName = p.name || p.title || 'Landmark Residence';
+          const propImg = p.image || 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80';
+
+          return `
+            <div class="card relative shrink-0 w-[78%] sm:w-[280px] md:w-[310px] lg:w-[330px] snap-start rounded-[18px] bg-paper border border-ink/[0.08] p-3 shadow-[0_4px_16px_rgba(22,21,20,0.03)] hover:shadow-[0_10px_28px_rgba(22,21,20,0.07)] transition-all duration-500 group flex flex-col justify-between">
+              <a href="${projectUrl}" class="relative aspect-[16/11] w-full overflow-hidden rounded-[14px] bg-ink/5 block">
+                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  src="${propImg}"
+                  alt="${propName}" />
+                <div class="absolute bottom-2.5 left-2.5 z-10 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/95 backdrop-blur-md border border-ink/10 text-ink text-[11px] font-medium shadow-sm">
+                  <svg class="w-3 h-3 shrink-0 text-copper" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M4 22V4c0-1.1.9-2 2-2h12c1.1 0 2 .9 2 2v18H4zm4-16H6v2h2V6zm0 4H6v2h2v-2zm0 4H6v2h2v-2zm0 4H6v2h2v-2zm4-12h-2v2h2V6zm0 4h-2v2h2v-2zm0 4h-2v2h2v-2zm0 4h-2v2h2v-2zm4-12h-2v2h2V6zm0 4h-2v2h2v-2zm0 4h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
+                  </svg>
+                  <span>${statusBadge}</span>
+                </div>
+                ${p.featured ? '<div class="absolute top-2.5 left-2.5 z-10 px-2 py-0.5 rounded-md bg-copper text-white text-[9.5px] font-bold uppercase tracking-wider shadow-sm">Featured</div>' : ''}
+              </a>
+
+              <div class="px-1 pt-3 pb-0.5 flex flex-col justify-between flex-1">
+                <div>
+                  <p class="text-[17px] sm:text-[18px] font-semibold text-copper tracking-tight">
+                    ${p.price || '₹ On Request'}
+                  </p>
+                  <h3 class="text-[14px] sm:text-[15px] font-medium text-ink mt-1.5 leading-snug line-clamp-1 group-hover:text-copper transition-colors">
+                    <a href="${projectUrl}">${propName}</a>
+                  </h3>
+                  <p class="text-[12px] text-muted mt-0.5 capitalize line-clamp-1">
+                    ${p.location || (p.city || 'Gurugram')}
+                  </p>
+                </div>
+                <div class="mt-3 pt-2.5 border-t border-ink/[0.07] flex items-center justify-between text-[12px] sm:text-[13px] font-medium text-ink">
+                  <div class="flex items-center gap-1.5">
+                    <svg class="w-4 h-4 text-copper shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="5" width="18" height="14" rx="2" />
+                      <path d="M3 12h18" />
+                      <rect x="6" y="8" width="4" height="2" rx="0.5" />
+                      <rect x="14" y="8" width="4" height="2" rx="0.5" />
+                    </svg>
+                    <span>${bhkText}</span>
+                  </div>
+                  <a href="${projectUrl}" class="w-6 h-6 rounded-full border border-ink/15 grid place-items-center text-ink group-hover:bg-copper group-hover:text-white group-hover:border-copper transition" title="Explore Project Details">
+                    <svg width="9" height="9" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7 7 2M3 2h4v4"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        // View All Card at the end of the slider
+        cardsHtml += `
+          <div class="card relative shrink-0 w-[78%] sm:w-[280px] md:w-[310px] lg:w-[330px] snap-start rounded-[18px] bg-gradient-to-br from-sand to-sandDark/70 border border-copper/30 p-6 shadow-[0_4px_16px_rgba(22,21,20,0.03)] hover:shadow-[0_10px_28px_rgba(22,21,20,0.07)] transition-all duration-500 group flex flex-col justify-between text-center items-center">
+            <div class="my-auto py-6">
+              <div class="w-14 h-14 rounded-full bg-copper/15 text-copper grid place-items-center mx-auto mb-4 group-hover:bg-copper group-hover:text-white transition-all duration-300">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+              <span class="text-[11px] font-bold text-copper uppercase tracking-wider">Full Collection</span>
+              <h3 class="text-lg font-semibold text-ink group-hover:text-copper transition mt-1">Explore All Properties</h3>
+              <p class="text-[12px] text-muted mt-2">Browse our complete collection of ${properties.length} luxury residences across Delhi NCR.</p>
+            </div>
+            <a href="properties.html" class="w-full py-2.5 rounded-xl bg-copper text-white text-xs font-semibold hover:bg-copperDark transition shadow-sm">
+              View All Properties (${properties.length}) →
+            </a>
+          </div>
+        `;
+
+        slider.innerHTML = cardsHtml;
+
+        if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+      } catch (err) {
+        console.warn('Backend note: using default static cards on home slider.', err);
+      }
+    }
+    loadHomeProperties();
+
+    /* ---------- Image clip reveal ---------- */
+    gsap.utils.toArray('.reveal').forEach(el => {
+      gsap.fromTo(el, { clipPath: 'inset(100% 0% 0% 0%)' }, {
+        clipPath: 'inset(0% 0% 0% 0%)', duration: 1.5, ease: 'power4.inOut', clearProps: 'clipPath',
+        scrollTrigger: { trigger: el, start: 'top 88%' }
+      });
+    });
+
+    /* ---------- Image parallax ---------- */
+    gsap.utils.toArray('.parallax-img').forEach(img => {
+      gsap.fromTo(img, { yPercent: -7, scale: 1.18 }, {
+        yPercent: 7, scale: 1.18, ease: 'none',
+        scrollTrigger: { trigger: img.closest('.group'), start: 'top bottom', end: 'bottom top', scrub: true }
+      });
+    });
+
+    /* ---------- Scrub text highlight ---------- */
+    document.querySelectorAll('.scrub-text').forEach(el => {
+      const words = el.textContent.trim().split(/\s+/).filter(Boolean);
+      el.innerHTML = words.map(w => `<span class="sw inline-block">${w}</span>`).join(' ');
+      gsap.fromTo(el.querySelectorAll('.sw'), { opacity: .18 }, {
+        opacity: 1, stagger: .1, ease: 'none',
+        scrollTrigger: { trigger: el, start: 'top 80%', end: 'bottom 45%', scrub: true }
+      });
+    });
+
+    /* ---------- Counters ---------- */
+    document.querySelectorAll('[data-count]').forEach(el => {
+      const end = parseFloat(el.dataset.count), dec = +(el.dataset.decimals || 0), obj = { v: 0 };
+      gsap.to(obj, {
+        v: end, duration: 2.2, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 90%', once: true },
+        onUpdate: () => el.textContent = obj.v.toFixed(dec)
+      });
+    });
+
+    /* ---------- Segment cards stagger reveal ---------- */
+    gsap.utils.toArray('.segment-card').forEach((card, i) => {
+      gsap.from(card, {
+        y: 50,
+        opacity: 0,
+        duration: 1.1,
+        delay: i * 0.14,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: '#segments', start: 'top 82%' }
+      });
+    });
+
+    /* ---------- CTA animation ---------- */
+    gsap.from('.cta-badge', { scale: 0, rotate: -140, duration: 1.2, ease: 'back.out(1.5)', scrollTrigger: { trigger: '#contact', start: 'top 80%' } });
+
+    /* ---------- Injected icons ---------- */
+    const heartSVG = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#161514" stroke-width="1.8"><path d="M12 21s-7.5-4.6-9.5-9.2C1 8 3.4 4 7.3 4c2 0 3.5 1.1 4.7 2.7C13.2 5.1 14.7 4 16.7 4 20.6 4 23 8 21.5 11.8 19.5 16.4 12 21 12 21Z"/></svg>';
+    document.querySelectorAll('.heart-btn').forEach(b => {
+      b.innerHTML = heartSVG;
+      b.addEventListener('click', e => {
+        e.stopPropagation();
+        b.classList.toggle('active');
+        gsap.fromTo(b, { scale: .7 }, { scale: 1, duration: .5, ease: 'back.out(3)' });
+      });
+    });
+
+    document.querySelectorAll('.quote-icon').forEach(q => q.innerHTML =
+      '<svg class="w-14 h-11 text-ink/10" viewBox="0 0 64 48"><path d="M2 46V28C2 13 9 5 23 2l2 5c-8 3-11 8-11 15h10v24H2Zm36 0V28C38 13 45 5 59 2l2 5c-8 3-11 8-11 15h10v24H38Z" fill="none" stroke="currentColor" stroke-width="3"/></svg>');
+
+    document.querySelectorAll('.stars').forEach(box => {
+      const r = parseFloat(box.dataset.rating);
+      for (let i = 1; i <= 5; i++) {
+        const fill = r >= i ? 100 : (r > i - 1 ? 50 : 0);
+        box.insertAdjacentHTML('beforeend', `<svg width="16" height="16" viewBox="0 0 24 24">
+        <path d="M12 2l3 6.6 7.2.7-5.4 4.8 1.6 7.1L12 17.6 5.6 21.2l1.6-7.1L1.8 9.3 9 8.6 12 2z" fill="#E4DED5"/>
+        <path d="M12 2l3 6.6 7.2.7-5.4 4.8 1.6 7.1L12 17.6 5.6 21.2l1.6-7.1L1.8 9.3 9 8.6 12 2z" fill="#E8A33D" style="clip-path:inset(0 ${100 - fill}% 0 0)"/></svg>`);
+      }
+    });
+
+    /* ---------- Custom cursor (desktop only) ---------- */
+    const cursor = document.getElementById('cursor');
+    if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      gsap.set(cursor, { xPercent: -50, yPercent: -50, width: 10, height: 10 });
+      const xTo = gsap.quickTo(cursor, 'x', { duration: .45, ease: 'power3' });
+      const yTo = gsap.quickTo(cursor, 'y', { duration: .45, ease: 'power3' });
+      window.addEventListener('mousemove', e => { xTo(e.clientX); yTo(e.clientY); });
+      document.querySelectorAll('[data-cursor]').forEach(el => {
+        el.addEventListener('mouseenter', () => { gsap.to(cursor, { width: 84, height: 84, duration: .4 }); gsap.to('#cursorText', { opacity: 1, duration: .3 }); });
+        el.addEventListener('mouseleave', () => { gsap.to(cursor, { width: 10, height: 10, duration: .4 }); gsap.to('#cursorText', { opacity: 0, duration: .2 }); });
+      });
+    } else {
+      cursor.remove();
+    }
+
+    window.addEventListener('load', () => { ScrollTrigger.refresh(); AOS.refresh(); });
+  </script>
+</body>
+
+</html>

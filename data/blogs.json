@@ -1,0 +1,53 @@
+[
+  {
+    "id": "gurugram-outlook-2026",
+    "title": "Gurugram Real Estate Outlook 2026: The Super-Luxury Paradigm Shift",
+    "category": "MARKET INSIGHTS",
+    "date": "12 October 2026",
+    "readTime": "6 Min Read",
+    "badge": "COVER ESSAY • GURUGRAM",
+    "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=85",
+    "subLocation": "Golf Course Road & Dwarka Expressway Enclaves",
+    "excerpt": "An in-depth analysis of emerging infrastructure corridors, ultra-luxury enclave appreciation, and why institutional capital is concentrating along Golf Course Road and Dwarka Expressway.",
+    "featured": true,
+    "author": {
+      "name": "Aarav Sharma",
+      "role": "Principal Research Analyst",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
+    }
+  },
+  {
+    "id": "nri-investment-guide-2026",
+    "title": "NRI Investment Blueprint 2026: Navigating FEMA, TDS & High-Yield Assets",
+    "category": "LEGAL & TAX",
+    "date": "08 October 2026",
+    "readTime": "8 Min Read",
+    "badge": "REGULATORY BRIEF",
+    "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
+    "subLocation": "Cross-Border Wealth Advisory",
+    "excerpt": "A definitive fiduciary guide for non-resident investors seeking Grade-A commercial assets, REIT allocations, and repatriable capital structuring in India.",
+    "featured": false,
+    "author": {
+      "name": "Pooja Malhotra",
+      "role": "Senior Fiduciary Consultant",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80"
+    }
+  },
+  {
+    "id": "biophilic-architecture-luxury",
+    "title": "Biophilic Architecture: How Sustainable Estates Command 24% Premium",
+    "category": "ARCHITECTURE",
+    "date": "02 October 2026",
+    "readTime": "5 Min Read",
+    "badge": "DESIGN REPORT",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+    "subLocation": "Green Building Innovations",
+    "excerpt": "Exploring why modern HNIs prioritize Net-Zero carbon villas, indoor micro-forests, and IGBC Platinum rated residences over traditional luxury.",
+    "featured": false,
+    "author": {
+      "name": "Devansh Singhania",
+      "role": "Head of Architectural Advisory",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
+    }
+  }
+]

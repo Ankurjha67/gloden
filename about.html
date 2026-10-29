@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Golden Properties | 40+ Years of Real Estate Legacy</title>
+  <link rel="icon" type="image/png" href="/assest/Golden-Properties-Luxury-Logo.png" />
+  <meta name="description"
+    content="Learn about Golden Properties - over four decades of trusted institutional real estate advisory, landmark developments, and channel partnerships across India." />
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            copper: '#A8774A',
+            copperLight: '#C9996B',
+            copperDark: '#7F5128',
+            ink: '#161514',
+            paper: '#FBFAF7',
+            sand: '#F3F0EB',
+            sandDark: '#EBE7E1',
+            muted: '#6E6B65',
+          },
+          animation: {
+            'spin-slow': 'spin 18s linear infinite',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- AOS (Animate on Scroll) -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.13/dist/lenis.css" />
+
+  <style>
+    /* Selection */
+    ::selection {
+      background: #A8774A;
+      color: #fff;
+    }
+
+    /* Container standard */
+    .container-x {
+      max-width: 1240px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .container-x {
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+    }
+
+    /* Nav states */
+    #nav .nav-inner {
+      color: #fff;
+      --star: #161514;
+      transition: all .6s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    #nav .nav-cta {
+      background: #fff;
+      color: #161514;
+    }
+
+    #nav.is-scrolled .nav-inner {
+      color: #161514;
+      --star: #fff;
+      max-width: 980px;
+      background: rgba(251, 250, 247, .85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 12px 40px -16px rgba(0, 0, 0, .18);
+    }
+
+    #nav.is-scrolled .nav-cta {
+      background: #161514;
+      color: #fff;
+    }
+
+    .footer-link {
+      color: rgba(255, 255, 255, 0.7);
+      transition: color 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: #C9996B;
+    }
+  </style>
+</head>
+
+<body class="font-poppins bg-paper text-ink selection:bg-copper selection:text-white">
+
+  <!-- Custom Cursor -->
+  <div id="cursor"
+    class="fixed top-0 left-0 z-[100] w-0 h-0 rounded-full bg-copper pointer-events-none grid place-items-center text-white text-[12px] font-medium overflow-hidden">
+    <span id="cursorText" class="opacity-0">View</span>
+  </div>
+
+  <!-- ================= NAV ================= -->
+  <header id="nav" class="fixed top-5 md:top-7 inset-x-5 md:inset-x-10 z-50">
+    <div class="nav-inner max-w-[1240px] mx-auto h-20 sm:h-22 md:h-24 px-4 pl-6 md:pl-8 rounded-full flex items-center justify-between">
+      <a href="index.html" class="flex items-center py-1.5" aria-label="Golden Properties">
+        <img src="/assest/Golden-Properties-Luxury-Logo.png" alt="Golden Properties" class="h-12 sm:h-14 md:h-16 lg:h-[72px] w-auto object-contain" />
+      </a>
+
+      <ul class="hidden md:flex items-center gap-10 text-[14px]">
+        <li><a href="index.html" class="hover:opacity-60 transition">Home</a></li>
+        <li>
+          <a href="about.html" class="text-copperLight font-medium flex items-center gap-1.5 transition">
+            About Us
+            <span class="w-1.5 h-1.5 rounded-full bg-copper"></span>
+          </a>
+        </li>
+        <li><a href="properties.html" class="hover:opacity-60 transition">Properties</a></li>
+        <li><a href="blogs.html" class="hover:opacity-60 transition">Blog</a></li>
+      </ul>
+
+      <a href="index.html#contact"
+        class="nav-cta hidden md:inline-flex items-center gap-2 pl-5 pr-2 py-2 rounded-full text-[13px] font-medium transition">
+        Contact Us
+        <span class="w-7 h-7 rounded-full bg-copper grid place-items-center">
+          <svg width="12" height="12" fill="none" stroke="#fff" stroke-width="2">
+            <path d="M2 10 10 2M4 2h6v6" />
+          </svg>
+        </span>
+      </a>
+
+      <button id="menuBtn" class="md:hidden w-11 h-11 rounded-full grid place-items-center" aria-label="Menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M3 8h16M3 14h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile dropdown menu -->
+    <div id="mobileMenu" class="md:hidden hidden mt-3 bg-paper text-ink rounded-3xl p-3 shadow-2xl">
+      <a href="index.html" class="block px-4 py-3 rounded-2xl hover:bg-sand">Home</a>
+      <a href="about.html" class="block px-4 py-3 rounded-2xl bg-copper/10 text-copper font-medium">About Us</a>
+      <a href="properties.html" class="block px-4 py-3 rounded-2xl hover:bg-sand">Properties</a>
+      <a href="blogs.html" class="block px-4 py-3 rounded-2xl hover:bg-sand">Blog</a>
+      <a href="index.html#contact" class="block mt-2 px-4 py-3 rounded-2xl bg-copper text-white text-center hover:bg-copperLight transition">Contact Us</a>
+    </div>
+  </header>
+
+  <!-- ================= TOP HERO BANNER ================= -->
+  <!-- Patterned dark luxury hero matching properties.html -->
+  <section class="relative w-full pt-32 pb-16 sm:pt-36 sm:pb-20 md:pt-40 md:pb-24 overflow-hidden bg-[#0F0E0D] text-white">
+    <!-- Starfield/Grid Background Texture -->
+    <div class="absolute inset-0 opacity-[0.14] pointer-events-none"
+      style="background-image: radial-gradient(#C9996B 1px, transparent 1px); background-size: 24px 24px;"></div>
+    
+    <!-- Warm Ambient Radial Glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-copper/20 rounded-full blur-[130px] pointer-events-none"></div>
+
+    <div class="container-x relative z-10 text-center">
+      <span class="inline-flex items-center gap-2 text-[11px] sm:text-[12px] uppercase tracking-[0.28em] text-copperLight font-semibold mb-3.5" data-aos="fade-up">
+        <span class="w-4 h-px bg-copperLight"></span>
+        ABOUT US
+        <span class="w-4 h-px bg-copperLight"></span>
+      </span>
+
+      <h1 class="text-[36px] sm:text-[48px] md:text-[62px] font-normal tracking-tight leading-tight text-white" data-aos="fade-up" data-aos-delay="40">
+        About <span class="text-copperLight font-semibold">Golden Properties</span>
+      </h1>
+
+      <p class="mt-4 text-[14px] sm:text-[15.5px] text-white/70 max-w-[620px] mx-auto font-light leading-relaxed" data-aos="fade-up" data-aos-delay="80">
+        Discover four decades of institutional advisory, visionary leadership, and India's finest landmark developments.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= BREADCRUMB BAR ================= -->
+  <div class="w-full bg-[#EFECE6] border-y border-ink/[0.07] py-3.5">
+    <div class="container-x flex items-center justify-between text-[12px] text-ink/70">
+      <div class="flex items-center gap-2">
+        <a href="index.html" class="hover:text-copper transition">Home</a>
+        <span class="text-ink/30">/</span>
+        <span class="text-copper font-medium">About Us</span>
+      </div>
+      <div class="text-[12px] text-ink/60 font-medium">
+        40+ Years of Fiduciary Trust
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MAIN EDITORIAL STORY ================= -->
+  <main class="w-full bg-paper py-14 sm:py-20 md:py-24">
+    <div class="container-x">
+      
+      <!-- Section Tag & Title -->
+      <div class="mb-8 sm:mb-10" data-aos="fade-up">
+        <span class="inline-flex items-center gap-2 text-[11px] tracking-[0.24em] uppercase text-copper font-medium mb-2">
+          <span class="w-4 h-px bg-copper"></span>
+          01 — Our Story &amp; Heritage
+        </span>
+        <h2 class="text-[28px] sm:text-[38px] md:text-[46px] font-normal tracking-[-0.02em] text-ink">
+          About Golden Properties
+        </h2>
+      </div>
+
+      <!-- Story Paragraphs (Matching Reference structure with Golden Properties data) -->
+      <div class="space-y-5 sm:space-y-6 text-[14px] sm:text-[15px] md:text-[15.5px] leading-[1.85] text-ink/80 font-normal w-full" data-aos="fade-up" data-aos-delay="40">
+        <p>
+          <strong class="font-semibold text-ink">Golden Properties Pvt. Ltd.</strong> was established over four decades ago with a pioneering vision to bring institutional transparency, bespoke advisory, and uncompromising excellence to India’s prime real estate landscape. What started as an ambitious advisory office has grown into one of the most trusted and respected real estate firms across Gurugram, Delhi NCR, and beyond.
+        </p>
+
+        <p>
+          Through consistent hard work, unyielding integrity, and a client-first approach, the company has built a distinguished reputation for reliability and market excellence. Today, Golden Properties proudly operates with a robust network of seasoned consultants and real estate professionals, actively consulting across 200+ landmark residential and commercial projects.
+        </p>
+
+        <p>
+          Our platform not only showcases top-tier developments but also educates and empowers buyers and investors about each project’s unique lifestyle benefits, valuation metrics, and growth potential. Backed by an experienced team of senior advisors, we guide clients seamlessly from their initial inquiry all the way to private site tours, legal documentation, deal closure, and registration.
+        </p>
+
+        <p>
+          We are proud channel partners with North India’s and the country's most iconic developers — including <strong class="text-ink font-medium">DLF Limited, Godrej Properties, Emaar India, Signature Global, M3M India, BPTP, Puri Constructions, Birla Estates, Adani Realty, Central Park, Conscient, and Sobha</strong>.
+        </p>
+
+        <p>
+          And we’re not stopping there — our forthcoming real estate intelligence platform and digital suite will bring the latest market trends, new launch updates, and institutional property insights directly to our clients’ fingertips.
+        </p>
+      </div>
+
+      <!-- Highlights & 40 Years of Legacy Emblem Row (Exact match to reference design) -->
+      <div class="mt-14 sm:mt-18 pt-12 sm:pt-16 border-t border-ink/[0.08] grid lg:grid-cols-[1.3fr_1fr] gap-10 md:gap-14 items-center">
+        
+        <!-- Left 3 Key Highlights -->
+        <div class="space-y-6 sm:space-y-8" data-aos="fade-up">
+          
+          <div class="flex items-start gap-4">
+            <span class="w-3 h-3 rounded-full bg-copper shrink-0 mt-2 shadow-[0_0_8px_rgba(168,119,74,0.4)]"></span>
+            <div>
+              <p class="text-[15px] sm:text-[16px] font-semibold text-ink tracking-tight">
+                Transparent Dealings &amp; Complete Fiduciary Care
+                <span class="font-normal text-muted block sm:inline sm:ml-1">— 100% verified documentation, transparent commission structures, and zero hidden clauses.</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <span class="w-3 h-3 rounded-full bg-copper shrink-0 mt-2 shadow-[0_0_8px_rgba(168,119,74,0.4)]"></span>
+            <div>
+              <p class="text-[15px] sm:text-[16px] font-semibold text-ink tracking-tight">
+                Proprietary Market Intelligence &amp; Portfolio Advisory
+                <span class="font-normal text-muted block sm:inline sm:ml-1">— Comprehensive CRM tools, rental yield forecasting, and bespoke wealth management support.</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <span class="w-3 h-3 rounded-full bg-copper shrink-0 mt-2 shadow-[0_0_8px_rgba(168,119,74,0.4)]"></span>
+            <div>
+              <p class="text-[15px] sm:text-[16px] font-semibold text-ink tracking-tight">
+                Trusted by Industry Leaders
+                <span class="font-normal text-muted block sm:inline sm:ml-1">— Award-winning channel partner network officially recognized by India’s tier-1 developer conglomerates.</span>
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: 40 Years of Legacy Emblem (Exact composition matching reference screenshot) -->
+        <div class="flex justify-center lg:justify-end" data-aos="fade-up" data-aos-delay="100">
+          <div class="relative w-[300px] sm:w-[340px] aspect-square flex items-center justify-center">
+            <svg viewBox="0 0 340 340" class="w-full h-full drop-shadow-xl">
+              <defs>
+                <linearGradient id="legGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#C9996B"/>
+                  <stop offset="50%" stop-color="#A8774A"/>
+                  <stop offset="100%" stop-color="#7F5128"/>
+                </linearGradient>
+                <linearGradient id="legRibbon" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#8E5E34"/>
+                  <stop offset="50%" stop-color="#A8774A"/>
+                  <stop offset="100%" stop-color="#704420"/>
+                </linearGradient>
+              </defs>
+
+              <!-- Outer dashed circular accent -->
+              <circle cx="170" cy="170" r="142" fill="none" stroke="#A8774A" stroke-width="1.6" stroke-dasharray="4 4" opacity="0.6"/>
+              
+              <!-- Main solid circular badge -->
+              <circle cx="170" cy="170" r="130" fill="#FBFAF7" stroke="url(#legGold)" stroke-width="3.5"/>
+              <circle cx="170" cy="170" r="120" fill="none" stroke="#161514" stroke-width="1" opacity="0.12"/>
+
+              <!-- Text: YEARS OF -->
+              <text x="170" y="105" text-anchor="middle" font-family="Poppins" font-size="15" font-weight="700" letter-spacing="4" fill="#161514">YEARS OF</text>
+
+              <!-- Giant Number: 40+ -->
+              <text x="170" y="186" text-anchor="middle" font-family="Poppins" font-size="82" font-weight="800" letter-spacing="-2" fill="url(#legGold)">40<tspan font-size="46" font-weight="600" dy="-24">+</tspan></text>
+
+              <!-- Ribbon tails -->
+              <path d="M42 236 L72 210 L72 246 Z" fill="#583416"/>
+              <path d="M298 236 L268 210 L268 246 Z" fill="#583416"/>
+              <path d="M42 236 L24 252 L54 260 Z" fill="#3D220B"/>
+              <path d="M298 236 L316 252 L286 260 Z" fill="#3D220B"/>
+
+              <!-- Ribbon main curved banner -->
+              <path d="M60 216 Q170 230 280 216 L272 258 Q170 272 68 258 Z" fill="url(#legRibbon)"/>
+              <path d="M60 216 Q170 230 280 216" fill="none" stroke="#FFE4CB" stroke-width="1.5" opacity="0.6"/>
+              <path d="M68 258 Q170 272 272 258" fill="none" stroke="#FFE4CB" stroke-width="1.5" opacity="0.6"/>
+
+              <!-- Text inside Ribbon: LEGACY -->
+              <text x="170" y="244" text-anchor="middle" font-family="Poppins" font-size="20" font-weight="800" letter-spacing="5" fill="#FFFFFF">LEGACY</text>
+
+              <!-- Subtle stars under ribbon -->
+              <g fill="#A8774A" transform="translate(170, 282)">
+                <polygon points="0,-5 1.5,-1.5 5.5,-1.5 2.2,0.8 3.5,4.8 0,2.4 -3.5,4.8 -2.2,0.8 -5.5,-1.5 -1.5,-1.5" />
+                <polygon points="-22,-5 -20.5,-1.5 -16.5,-1.5 -19.8,0.8 -18.5,4.8 -22,2.4 -25.5,4.8 -24.2,0.8 -27.5,-1.5 -23.5,-1.5" />
+                <polygon points="22,-5 23.5,-1.5 27.5,-1.5 24.2,0.8 25.5,4.8 22,2.4 18.5,4.8 19.8,0.8 16.5,-1.5 20.5,-1.5" />
+              </g>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ================= BOTTOM 3 PILLAR CARDS: VISION, MISSION, VALUES ================= -->
+  <!-- Soft-toned band exactly matching the reference design layout -->
+  <section class="w-full bg-[#EBE7E1] border-t border-ink/[0.08] py-14 sm:py-20 md:py-24">
+    <div class="container-x">
+      <div class="text-center mb-10 md:mb-14" data-aos="fade-up">
+        <span class="inline-flex items-center gap-2.5 text-[11px] tracking-[0.24em] uppercase text-copper font-medium">
+          <span class="w-5 h-px bg-copper"></span>
+          Guiding Principles
+          <span class="w-5 h-px bg-copper"></span>
+        </span>
+        <h2 class="text-[26px] sm:text-[34px] md:text-[40px] font-normal tracking-tight text-ink mt-2">
+          The Pillars That Guide Every Engagement
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-7">
+        
+        <!-- Card 1: VISION -->
+        <div class="bg-white rounded-[20px] p-7 sm:p-8 md:p-9 shadow-[0_8px_30px_rgba(22,21,20,0.04)] border border-ink/[0.06] flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300" data-aos="fade-up">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-sand flex items-center justify-center text-copper mb-5">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </div>
+            <h3 class="text-[18px] sm:text-[19px] font-bold text-ink uppercase tracking-[0.12em] mb-4 pb-2.5 border-b border-copper/30">
+              VISION
+            </h3>
+            <p class="text-[13.5px] sm:text-[14px] text-ink/75 leading-[1.8]">
+              Our vision is to be the leading, most trusted real estate service provider and advisory institution in the region, creating the benchmark of excellence for homeowners and real estate professionals across the country.
+            </p>
+            <p class="text-[13.5px] sm:text-[14px] text-ink/75 leading-[1.8] mt-3.5">
+              We are dedicated to shaping vibrant communities and high-yield properties through an expert team of advisors who bring passion, insight, and result-driven commitment to every engagement.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2: MISSION -->
+        <div class="bg-white rounded-[20px] p-7 sm:p-8 md:p-9 shadow-[0_8px_30px_rgba(22,21,20,0.04)] border border-ink/[0.06] flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="80">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-sand flex items-center justify-center text-copper mb-5">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <h3 class="text-[18px] sm:text-[19px] font-bold text-ink uppercase tracking-[0.12em] mb-4 pb-2.5 border-b border-copper/30">
+              MISSION
+            </h3>
+            <p class="text-[13.5px] sm:text-[14px] text-ink/75 leading-[1.8]">
+              To achieve the highest standards of quality, transparency, and fiduciary excellence, consistently delivering optimum customer satisfaction at every step of the real estate journey.
+            </p>
+            <p class="text-[13.5px] sm:text-[14px] text-ink/75 leading-[1.8] mt-3.5">
+              For this, we provide deep local market intelligence, verified project evaluations, and customized investment portfolios across residential, commercial, plots, and luxury developments.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3: VALUES -->
+        <div class="bg-white rounded-[20px] p-7 sm:p-8 md:p-9 shadow-[0_8px_30px_rgba(22,21,20,0.04)] border border-ink/[0.06] flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="160">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-sand flex items-center justify-center text-copper mb-5">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
+            <h3 class="text-[18px] sm:text-[19px] font-bold text-ink uppercase tracking-[0.12em] mb-4 pb-2.5 border-b border-copper/30">
+              VALUES
+            </h3>
+            <p class="text-[13.5px] sm:text-[14px] text-ink/75 leading-[1.8]">
+              Our ethos is built upon uncompromised integrity, ethical transparency, and lasting human relationships. We treat our clients' aspirations as our own personal trust.
+            </p>
+            <p class="text-[13.5px] sm:text-[14px] text-ink/75 leading-[1.8] mt-3.5">
+              Backed by 40+ years of legacy and over 30,000+ satisfied families, our team operates with energetic dedication, positive counsel, and precision to ensure every promise is delivered.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA + FOOTER ================= -->
+  <footer id="contact" class="w-full bg-ink text-white overflow-hidden">
+    <div class="container-x pt-14 md:pt-20">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-10">
+        <div>
+          <span class="inline-flex items-center gap-2 text-[11px] tracking-[0.22em] uppercase text-copperLight font-medium">
+            <span class="w-4 h-px bg-copperLight"></span>
+            Let's Talk
+          </span>
+          <h2 class="mt-5 text-[26px] sm:text-[32px] md:text-[38px] font-light tracking-[-0.03em] leading-[1.12]">
+            Ready To Work<br /><span class="font-normal text-copperLight">With Us?</span>
+          </h2>
+          <p class="mt-4 text-white/60 text-[13px] md:text-[14px] max-w-[400px] leading-[1.65]" data-aos="fade-up">
+            Experience seamless advisory and bespoke service tailored to your property goals.
+          </p>
+        </div>
+        
+        <a href="mailto:hello@goldenproperties.com"
+          class="relative w-[100px] h-[100px] shrink-0 rounded-full bg-copper grid place-items-center group">
+          <svg class="absolute inset-0 animate-spin-slow w-full h-full" viewBox="0 0 100 100">
+            <defs>
+              <path id="circAbout" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0" />
+            </defs>
+            <text font-size="10.5" letter-spacing="3.8" fill="#fff" font-family="Poppins">
+              <textPath href="#circAbout">CONTACT US • CONTACT US • </textPath>
+            </text>
+          </svg>
+          <svg class="transition duration-500 group-hover:rotate-45" width="22" height="22" fill="none" stroke="#fff" stroke-width="2">
+            <path d="M7 21 21 7M10 7h11v11" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="my-10 md:my-12 h-px bg-white/10"></div>
+
+      <div class="grid lg:grid-cols-[1.3fr_2fr] gap-8 md:gap-10 pb-12 md:pb-16">
+        <div data-aos="fade-up">
+          <a href="index.html" class="inline-block py-2" aria-label="Golden Properties">
+            <img src="/assest/Golden-Properties-Luxury-Logo.png" alt="Golden Properties" class="h-16 sm:h-20 md:h-24 w-auto object-contain" />
+          </a>
+          <p class="mt-3.5 text-[13px] text-white/55 leading-[1.65] max-w-[290px]">
+            A cutting-edge real estate boutique offering a refined and immersive experience for discovering landmark properties.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <p class="text-[12px] uppercase tracking-[.18em] text-white/40 mb-4">Navigation</p>
+            <ul class="space-y-2.5 text-[13px]">
+              <li><a href="index.html" class="footer-link">Home</a></li>
+              <li><a href="about.html" class="footer-link text-copperLight font-medium">About Us</a></li>
+              <li><a href="properties.html" class="footer-link">Properties</a></li>
+              <li><a href="blogs.html" class="footer-link">Blog</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-[12px] uppercase tracking-[.18em] text-white/40 mb-4">Security</p>
+            <ul class="space-y-2.5 text-[13px]">
+              <li><a href="#" class="footer-link">Privacy Policy</a></li>
+              <li><a href="#" class="footer-link">User Agreements</a></li>
+              <li><a href="#" class="footer-link">Copyright</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-[12px] uppercase tracking-[.18em] text-white/40 mb-4">Social Media</p>
+            <ul class="space-y-2.5 text-[13px]">
+              <li><a href="#" class="footer-link">Instagram</a></li>
+              <li><a href="#" class="footer-link">Facebook</a></li>
+              <li><a href="#" class="footer-link">Twitter</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brand Signature Banner (Giant Full Width Display) -->
+    <div class="w-full overflow-hidden border-t border-white/10 pt-6 sm:pt-8 md:pt-10 pb-2 sm:pb-3 md:pb-4 text-center select-none">
+      <p class="font-bold tracking-[-0.035em] leading-none text-white/15 text-[11.8vw] sm:text-[11.5vw] md:text-[11.2vw] whitespace-nowrap px-1 transition-colors duration-500 hover:text-white/25">
+        Golden Properties
+      </p>
+    </div>
+
+    <div class="container-x">
+      <div class="pt-5 pb-8 md:pb-10 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-[11px] text-white/40">
+        <p>© 2026 Golden Properties. All rights reserved.</p>
+        <a href="#" id="backToTop" class="hover:text-white transition">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Action Buttons (Call & Message) -->
+  <div class="fixed bottom-5 right-5 z-40 flex flex-col gap-2.5">
+    <a href="tel:+911234567890" aria-label="Call Us"
+      class="w-10 h-10 rounded-full bg-copper hover:bg-copperLight text-white shadow-[0_6px_20px_rgba(168,119,74,0.35)] flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-300">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+      </svg>
+    </a>
+    <a href="index.html#contact" aria-label="Inquire / Message Us"
+      class="w-10 h-10 rounded-full bg-copper hover:bg-copperLight text-white shadow-[0_6px_20px_rgba(168,119,74,0.35)] flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-300">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        <line x1="9" y1="10" x2="15" y2="10"></line>
+        <line x1="12" y1="7" x2="12" y2="13"></line>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 50
+    });
+
+    // Lenis smooth scroll synchronized with GSAP ticker (Identical to index.html)
+    const lenis = new Lenis({
+      duration: 1.25,
+      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      touchMultiplier: 1.5
+    });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(t => lenis.raf(t * 1000));
+    gsap.ticker.lagSmoothing(0);
+
+    // Navbar scroll state
+    const nav = document.getElementById('nav');
+    lenis.on('scroll', ({ scroll }) => {
+      if (scroll > 40) {
+        nav.classList.add('is-scrolled');
+      } else {
+        nav.classList.remove('is-scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Back to top smooth scroll
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+      backToTop.addEventListener('click', (e) => {
+        e.preventDefault();
+        lenis.scrollTo(0, { duration: 1.4 });
+      });
+    }
+
+    // Cursor tracking
+    const cursor = document.getElementById('cursor');
+    if (cursor && window.innerWidth >= 768) {
+      window.addEventListener('mousemove', e => {
+        gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.12, ease: 'power2.out' });
+      });
+    }
+  </script>
+</body>
+
+</html>

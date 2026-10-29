@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/project/:slug", "destination": "/project-details.html" },
+    { "source": "/property/:slug", "destination": "/project-details.html" },
+    { "source": "/blog/:slug", "destination": "/blog-details.html" }
+  ]
+}
+

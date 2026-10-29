@@ -1,0 +1,32 @@
+[
+  {
+    "id": "lead-1792858944367",
+    "name": "Aman Verma",
+    "email": "aman@example.com",
+    "phone": "+91 98765 43210",
+    "property": "DLF The Camellias",
+    "message": "Want a site visit this Sunday.",
+    "status": "New",
+    "createdAt": "24/10/2026, 9:52:24 pm"
+  },
+  {
+    "id": "lead-1",
+    "name": "Rajesh Malhotra",
+    "email": "rajesh.malhotra@example.com",
+    "phone": "+91 98110 23456",
+    "property": "Experion Amarilis Reserve",
+    "message": "Interested in 4 BHK luxury penthouse on high floor. Please share price sheet.",
+    "status": "New",
+    "createdAt": "2026-10-24 14:30"
+  },
+  {
+    "id": "lead-2",
+    "name": "Vikram Sethi",
+    "email": "v.sethi@outlook.com",
+    "phone": "+91 99201 88721",
+    "property": "DLF The Camellias",
+    "message": "Looking for NRI investment advisory on Golf Course Road.",
+    "status": "Contacted",
+    "createdAt": "2026-10-23 11:15"
+  }
+]

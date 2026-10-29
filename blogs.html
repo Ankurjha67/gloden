@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real Estate Journal & Market Insights — Golden Properties</title>
+  <link rel="icon" type="image/png" href="/assest/Golden-Properties-Luxury-Logo.png" />
+  <meta name="description"
+    content="Perspectives on prime real estate, architecture, emerging infrastructure corridors, and fiduciary market intelligence from India's premier advisory boutique." />
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            copper: '#A8774A',
+            copperLight: '#C9996B',
+            copperDark: '#7F5128',
+            ink: '#161514',
+            paper: '#FBFAF7',
+            sand: '#F3F0EB',
+            sandDark: '#EBE7E1',
+            muted: '#6E6B65',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- AOS (Animate on Scroll) & Lenis -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.13/dist/lenis.css" />
+
+  <style>
+    /* Selection */
+    ::selection {
+      background: #A8774A;
+      color: #fff;
+    }
+
+    /* Container standard */
+    .container-x {
+      max-width: 1240px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .container-x {
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+    }
+
+    /* Nav states */
+    #nav .nav-inner {
+      color: #fff;
+      --star: #161514;
+      transition: all .6s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    #nav .nav-cta {
+      background: #fff;
+      color: #161514;
+    }
+
+    #nav.is-scrolled .nav-inner {
+      color: #161514;
+      --star: #fff;
+      max-width: 980px;
+      background: rgba(251, 250, 247, .85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 12px 40px -16px rgba(0, 0, 0, .18);
+    }
+
+    #nav.is-scrolled .nav-cta {
+      background: #161514;
+      color: #fff;
+    }
+
+    .footer-link {
+      color: rgba(255, 255, 255, 0.7);
+      transition: color 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: #C9996B;
+    }
+
+    .category-pill.active {
+      background-color: #161514;
+      color: #ffffff;
+      border-color: #161514;
+    }
+  </style>
+</head>
+
+<body class="font-poppins bg-[#F7F5F0] text-ink selection:bg-copper selection:text-white">
+
+  <!-- ================= NAV ================= -->
+  <header id="nav" class="fixed top-5 md:top-7 inset-x-5 md:inset-x-10 z-50">
+    <div class="nav-inner max-w-[1240px] mx-auto h-20 sm:h-22 md:h-24 px-4 pl-6 md:pl-8 rounded-full flex items-center justify-between">
+      <a href="index.html" class="flex items-center py-1.5" aria-label="Golden Properties">
+        <img src="/assest/Golden-Properties-Luxury-Logo.png" alt="Golden Properties" class="h-12 sm:h-14 md:h-16 lg:h-[72px] w-auto object-contain" />
+      </a>
+
+      <ul class="hidden md:flex items-center gap-10 text-[14px]">
+        <li><a href="index.html" class="hover:opacity-60 transition">Home</a></li>
+        <li><a href="about.html" class="hover:opacity-60 transition">About Us</a></li>
+        <li><a href="properties.html" class="hover:opacity-60 transition">Properties</a></li>
+        <li>
+          <a href="blogs.html" class="text-copperLight font-medium flex items-center gap-1.5 transition">
+            Blog
+            <span class="w-1.5 h-1.5 rounded-full bg-copper"></span>
+          </a>
+        </li>
+      </ul>
+
+      <a href="index.html#contact"
+        class="nav-cta hidden md:inline-flex items-center gap-2 pl-5 pr-2 py-2 rounded-full text-[13px] font-medium transition">
+        Contact Us
+        <span class="w-7 h-7 rounded-full bg-copper grid place-items-center">
+          <svg width="12" height="12" fill="none" stroke="#fff" stroke-width="2">
+            <path d="M2 10 10 2M4 2h6v6" />
+          </svg>
+        </span>
+      </a>
+
+      <button id="menuBtn" class="md:hidden w-11 h-11 rounded-full grid place-items-center" aria-label="Menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M3 8h16M3 14h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile dropdown menu -->
+    <div id="mobileMenu" class="md:hidden hidden mt-3 bg-paper text-ink rounded-3xl p-3 shadow-2xl">
+      <a href="index.html" class="block px-4 py-3 rounded-2xl hover:bg-sand">Home</a>
+      <a href="about.html" class="block px-4 py-3 rounded-2xl hover:bg-sand">About Us</a>
+      <a href="properties.html" class="block px-4 py-3 rounded-2xl hover:bg-sand">Properties</a>
+      <a href="blogs.html" class="block px-4 py-3 rounded-2xl bg-copper/10 text-copper font-medium">Blog</a>
+      <a href="index.html#contact" class="block mt-2 px-4 py-3 rounded-2xl bg-copper text-white text-center hover:bg-copperLight transition">Contact Us</a>
+    </div>
+  </header>
+
+  <!-- ================= TOP HERO BANNER ================= -->
+  <!-- Exact luxury dark pattern hero matching properties.html and about.html -->
+  <section class="relative w-full pt-32 pb-16 sm:pt-36 sm:pb-20 md:pt-40 md:pb-24 overflow-hidden bg-[#0F0E0D] text-white">
+    <!-- Starfield/Grid Background Texture -->
+    <div class="absolute inset-0 opacity-[0.14] pointer-events-none"
+      style="background-image: radial-gradient(#C9996B 1px, transparent 1px); background-size: 24px 24px;"></div>
+    
+    <!-- Warm Ambient Radial Glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-copper/20 rounded-full blur-[130px] pointer-events-none"></div>
+
+    <div class="container-x relative z-10 text-center">
+      <span class="inline-flex items-center gap-2 text-[11px] sm:text-[12px] uppercase tracking-[0.28em] text-copperLight font-semibold mb-3.5" data-aos="fade-up">
+        <span class="w-4 h-px bg-copperLight"></span>
+        EDITORIAL &amp; MARKET INTELLIGENCE
+        <span class="w-4 h-px bg-copperLight"></span>
+      </span>
+
+      <h1 class="text-[34px] sm:text-[46px] md:text-[58px] font-normal tracking-tight leading-tight text-white max-w-[900px] mx-auto" data-aos="fade-up" data-aos-delay="40">
+        The Luxury <span class="text-copperLight font-semibold">Real Estate Journal</span>
+      </h1>
+
+      <p class="mt-4 text-[14px] sm:text-[15.5px] text-white/70 max-w-[640px] mx-auto font-light leading-relaxed" data-aos="fade-up" data-aos-delay="80">
+        Perspectives on prime real estate, architecture, emerging infrastructure corridors, and fiduciary market intelligence from India's premier advisory boutique.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= BREADCRUMB BAR ================= -->
+  <div class="w-full bg-[#EFECE6] border-y border-ink/[0.07] py-3.5">
+    <div class="container-x flex items-center justify-between text-[12px] text-ink/70">
+      <div class="flex items-center gap-2">
+        <a href="index.html" class="hover:text-copper transition">Home</a>
+        <span class="text-ink/30">/</span>
+        <span class="text-copper font-medium">Blog</span>
+      </div>
+      <div class="text-[12px] text-ink/60 font-medium">
+        <span id="articleCount">Showing 6</span> Published Insights • Vol. IV / 2026
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MAIN BLOG LISTING CONTENT ================= -->
+  <main class="w-full py-12 sm:py-16 md:py-20">
+    <div class="container-x space-y-12 sm:space-y-16">
+
+      <!-- ================= 1. FEATURED COVER STORY BANNER ================= -->
+      <section class="w-full" data-aos="fade-up">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="w-2.5 h-2.5 rounded-full bg-copper shadow-sm"></span>
+          <span class="text-[11px] font-semibold tracking-[0.2em] uppercase text-copper">Featured Cover Essay</span>
+        </div>
+
+        <div class="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-ink/[0.08] shadow-[0_8px_30px_rgba(22,21,20,0.06)] hover:shadow-xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 group">
+          <!-- Left: Big Cover Image -->
+          <div class="lg:col-span-7 h-[280px] sm:h-[360px] lg:h-[420px] relative overflow-hidden bg-ink">
+            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=85"
+              alt="Gurugram Real Estate Outlook 2026" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute top-4 left-4 bg-black/70 backdrop-blur-md text-white px-3 py-1 rounded-md text-[10.5px] font-semibold tracking-wider uppercase text-copperLight">
+              COVER ESSAY • GURUGRAM
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 text-white/80 text-[11px] hidden sm:block">
+              Golf Course Road &amp; Dwarka Expressway Enclaves
+            </div>
+          </div>
+
+          <!-- Right: Editorial Content -->
+          <div class="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between bg-white">
+            <div>
+              <div class="flex items-center gap-3 text-[11px] uppercase tracking-wider text-muted font-medium mb-2.5">
+                <span class="text-copper font-semibold">MARKET INSIGHTS</span>
+                <span>•</span>
+                <span>12 October 2026</span>
+                <span>•</span>
+                <span>6 Min Read</span>
+              </div>
+
+              <h2 class="text-[22px] sm:text-[26px] lg:text-[28px] font-semibold text-ink group-hover:text-copper transition leading-snug">
+                <a href="blog-details.html">
+                  Gurugram Real Estate Outlook 2026: The Super-Luxury Paradigm Shift
+                </a>
+              </h2>
+
+              <p class="text-[13.5px] sm:text-[14.5px] text-ink/75 mt-3 leading-relaxed font-normal">
+                An in-depth analysis of emerging infrastructure corridors, ultra-luxury enclave appreciation, and why institutional capital is concentrating along Golf Course Road and Dwarka Expressway.
+              </p>
+
+              <!-- Highlights row -->
+              <div class="mt-5 pt-4 border-t border-ink/[0.07] grid grid-cols-2 gap-3 text-[12px]">
+                <div>
+                  <span class="text-muted block text-[10.5px] uppercase tracking-wider">Appreciation</span>
+                  <strong class="text-emerald-700 font-bold text-[14px]">+24.8% YoY</strong>
+                </div>
+                <div>
+                  <span class="text-muted block text-[10.5px] uppercase tracking-wider">Avg Ticket Size</span>
+                  <strong class="text-ink font-bold text-[14px]">₹7.5 – 15 Cr</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-ink/[0.07] flex items-center justify-between">
+              <a href="blog-details.html"
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-copper text-white text-[12.5px] font-medium hover:bg-copperDark transition shadow-sm">
+                <span>Read Full Article</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+              <span class="text-[11.5px] text-muted">by Golden Advisory Desk</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 2. CATEGORY TABS & SEARCH BAR ================= -->
+      <section class="w-full flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 py-2 border-b border-ink/[0.08]" data-aos="fade-up">
+        <!-- Category Filter Tabs -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar text-[12.5px]">
+          <button class="category-pill active px-4 py-2 rounded-full border border-ink/[0.12] font-medium transition shrink-0" data-category="all">
+            All Insights
+          </button>
+          <button class="category-pill px-4 py-2 rounded-full border border-ink/[0.12] bg-white hover:bg-sand font-medium transition shrink-0" data-category="market">
+            Market Insights
+          </button>
+          <button class="category-pill px-4 py-2 rounded-full border border-ink/[0.12] bg-white hover:bg-sand font-medium transition shrink-0" data-category="corridor">
+            Corridor Analysis
+          </button>
+          <button class="category-pill px-4 py-2 rounded-full border border-ink/[0.12] bg-white hover:bg-sand font-medium transition shrink-0" data-category="luxury">
+            Ultra Luxury Living
+          </button>
+          <button class="category-pill px-4 py-2 rounded-full border border-ink/[0.12] bg-white hover:bg-sand font-medium transition shrink-0" data-category="legal">
+            Fiduciary &amp; RERA
+          </button>
+        </div>
+
+        <!-- Live Search -->
+        <div class="relative w-full md:w-[280px] shrink-0">
+          <input type="text" id="blogSearchInput" placeholder="Search insights, corridors..."
+            class="w-full pl-9 pr-4 py-2 rounded-full border border-ink/[0.12] bg-white text-[12.5px] text-ink focus:outline-none focus:border-copper transition" />
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6E6B65" stroke-width="2" class="absolute left-3 top-1/2 -translate-y-1/2">
+            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </div>
+      </section>
+
+      <!-- ================= 3. ARTICLES GRID (6 CARDS) ================= -->
+      <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" id="blogCardsGrid">
+
+        <!-- Article Card 1 -->
+        <article class="blog-card bg-white rounded-2xl overflow-hidden border border-ink/[0.08] shadow-[0_4px_16px_rgba(22,21,20,0.04)] hover:shadow-xl hover:border-copper/40 transition-all duration-300 flex flex-col justify-between group"
+          data-category="market" data-title="Gurugram Real Estate Outlook 2026: The Super-Luxury Paradigm Shift" data-aos="fade-up" data-aos-delay="0">
+          <div>
+            <div class="relative h-[210px] overflow-hidden bg-ink">
+              <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80"
+                alt="Gurugram Real Estate 2026" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <span class="absolute top-3.5 left-3.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded text-[10px] font-semibold uppercase tracking-wider text-copperLight">
+                MARKET INSIGHTS
+              </span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <div class="flex items-center gap-2 text-[11.5px] text-muted mb-2">
+                <span>12 October 2026</span>
+                <span>•</span>
+                <span>6 Min Read</span>
+              </div>
+              <h3 class="text-[18px] font-semibold text-ink group-hover:text-copper transition leading-snug">
+                <a href="blog-details.html">
+                  Gurugram Real Estate Outlook 2026: The Super-Luxury Paradigm Shift
+                </a>
+              </h3>
+              <p class="text-[13px] text-ink/75 mt-2.5 leading-relaxed line-clamp-3">
+                An in-depth analysis of emerging infrastructure corridors, ultra-luxury enclave appreciation, and why institutional capital is concentrating along Golf Course Road.
+              </p>
+            </div>
+          </div>
+          <div class="px-5 sm:px-6 pb-5 pt-3 border-t border-ink/[0.06] flex items-center justify-between">
+            <a href="blog-details.html" class="inline-flex items-center gap-1.5 text-copper font-medium text-[12.5px] group-hover:translate-x-1 transition-transform">
+              <span>Read Article</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+            <span class="text-[11px] text-muted">by Golden Desk</span>
+          </div>
+        </article>
+
+        <!-- Article Card 2 -->
+        <article class="blog-card bg-white rounded-2xl overflow-hidden border border-ink/[0.08] shadow-[0_4px_16px_rgba(22,21,20,0.04)] hover:shadow-xl hover:border-copper/40 transition-all duration-300 flex flex-col justify-between group"
+          data-category="corridor" data-title="Dwarka Expressway vs Golf Course Extension: Where is Capital Moving?" data-aos="fade-up" data-aos-delay="40">
+          <div>
+            <div class="relative h-[210px] overflow-hidden bg-ink">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+                alt="Dwarka Expressway Corridors" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <span class="absolute top-3.5 left-3.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded text-[10px] font-semibold uppercase tracking-wider text-copperLight">
+                CORRIDOR ANALYSIS
+              </span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <div class="flex items-center gap-2 text-[11.5px] text-muted mb-2">
+                <span>28 September 2026</span>
+                <span>•</span>
+                <span>5 Min Read</span>
+              </div>
+              <h3 class="text-[18px] font-semibold text-ink group-hover:text-copper transition leading-snug">
+                <a href="blog-details.html">
+                  Dwarka Expressway vs Golf Course Extension: Where is Capital Moving?
+                </a>
+              </h3>
+              <p class="text-[13px] text-ink/75 mt-2.5 leading-relaxed line-clamp-3">
+                A granular comparative assessment of upcoming commercial developments, diplomatic enclaves, and long-term rental yields across northern corridors.
+              </p>
+            </div>
+          </div>
+          <div class="px-5 sm:px-6 pb-5 pt-3 border-t border-ink/[0.06] flex items-center justify-between">
+            <a href="blog-details.html" class="inline-flex items-center gap-1.5 text-copper font-medium text-[12.5px] group-hover:translate-x-1 transition-transform">
+              <span>Read Article</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+            <span class="text-[11px] text-muted">by Golden Desk</span>
+          </div>
+        </article>
+
+        <!-- Article Card 3 -->
+        <article class="blog-card bg-white rounded-2xl overflow-hidden border border-ink/[0.08] shadow-[0_4px_16px_rgba(22,21,20,0.04)] hover:shadow-xl hover:border-copper/40 transition-all duration-300 flex flex-col justify-between group"
+          data-category="luxury" data-title="The Anatomy of an Ultra-Luxury Penthouse: Beyond Floor Space" data-aos="fade-up" data-aos-delay="80">
+          <div>
+            <div class="relative h-[210px] overflow-hidden bg-ink">
+              <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80"
+                alt="Ultra Luxury Penthouse" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <span class="absolute top-3.5 left-3.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded text-[10px] font-semibold uppercase tracking-wider text-copperLight">
+                ULTRA LUXURY LIVING
+              </span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <div class="flex items-center gap-2 text-[11.5px] text-muted mb-2">
+                <span>15 September 2026</span>
+                <span>•</span>
+                <span>4 Min Read</span>
+              </div>
+              <h3 class="text-[18px] font-semibold text-ink group-hover:text-copper transition leading-snug">
+                <a href="blog-details.html">
+                  The Anatomy of an Ultra-Luxury Penthouse: Beyond Floor Space
+                </a>
+              </h3>
+              <p class="text-[13px] text-ink/75 mt-2.5 leading-relaxed line-clamp-3">
+                Double-height living pavilions, private lap pools, and smart acoustic insulation standardizing high-end Indian residences.
+              </p>
+            </div>
+          </div>
+          <div class="px-5 sm:px-6 pb-5 pt-3 border-t border-ink/[0.06] flex items-center justify-between">
+            <a href="blog-details.html" class="inline-flex items-center gap-1.5 text-copper font-medium text-[12.5px] group-hover:translate-x-1 transition-transform">
+              <span>Read Article</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+            <span class="text-[11px] text-muted">by Golden Desk</span>
+          </div>
+        </article>
+
+        <!-- Article Card 4 -->
+        <article class="blog-card bg-white rounded-2xl overflow-hidden border border-ink/[0.08] shadow-[0_4px_16px_rgba(22,21,20,0.04)] hover:shadow-xl hover:border-copper/40 transition-all duration-300 flex flex-col justify-between group"
+          data-category="legal" data-title="Why RERA Verification Alone Isn't Enough for Luxury Buyers" data-aos="fade-up" data-aos-delay="0">
+          <div>
+            <div class="relative h-[210px] overflow-hidden bg-ink">
+              <img src="https://images.unsplash.com/photo-1515263487990-61b07816b324?auto=format&fit=crop&w=800&q=80"
+                alt="RERA Due Diligence" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <span class="absolute top-3.5 left-3.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded text-[10px] font-semibold uppercase tracking-wider text-copperLight">
+                FIDUCIARY &amp; RERA
+              </span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <div class="flex items-center gap-2 text-[11.5px] text-muted mb-2">
+                <span>02 September 2026</span>
+                <span>•</span>
+                <span>7 Min Read</span>
+              </div>
+              <h3 class="text-[18px] font-semibold text-ink group-hover:text-copper transition leading-snug">
+                <a href="blog-details.html">
+                  Why RERA Verification Alone Isn't Enough for Luxury Buyers
+                </a>
+              </h3>
+              <p class="text-[13px] text-ink/75 mt-2.5 leading-relaxed line-clamp-3">
+                Understanding title deeds, encumbrance certificates, and developer debt structures before underwriting landmark assets.
+              </p>
+            </div>
+          </div>
+          <div class="px-5 sm:px-6 pb-5 pt-3 border-t border-ink/[0.06] flex items-center justify-between">
+            <a href="blog-details.html" class="inline-flex items-center gap-1.5 text-copper font-medium text-[12.5px] group-hover:translate-x-1 transition-transform">
+              <span>Read Article</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+            <span class="text-[11px] text-muted">by Golden Desk</span>
+          </div>
+        </article>
+
+        <!-- Article Card 5 -->
+        <article class="blog-card bg-white rounded-2xl overflow-hidden border border-ink/[0.08] shadow-[0_4px_16px_rgba(22,21,20,0.04)] hover:shadow-xl hover:border-copper/40 transition-all duration-300 flex flex-col justify-between group"
+          data-category="market" data-title="The Rise of Branded Residences: Global Hospitality Meets Indian Real Estate" data-aos="fade-up" data-aos-delay="40">
+          <div>
+            <div class="relative h-[210px] overflow-hidden bg-ink">
+              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+                alt="Branded Residences" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <span class="absolute top-3.5 left-3.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded text-[10px] font-semibold uppercase tracking-wider text-copperLight">
+                MARKET INSIGHTS
+              </span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <div class="flex items-center gap-2 text-[11.5px] text-muted mb-2">
+                <span>18 August 2026</span>
+                <span>•</span>
+                <span>5 Min Read</span>
+              </div>
+              <h3 class="text-[18px] font-semibold text-ink group-hover:text-copper transition leading-snug">
+                <a href="blog-details.html">
+                  The Rise of Branded Residences: Hospitality Meets Indian Real Estate
+                </a>
+              </h3>
+              <p class="text-[13px] text-ink/75 mt-2.5 leading-relaxed line-clamp-3">
+                How international luxury brand partnerships and bespoke concierge management command 30-40% valuation premiums across NCR.
+              </p>
+            </div>
+          </div>
+          <div class="px-5 sm:px-6 pb-5 pt-3 border-t border-ink/[0.06] flex items-center justify-between">
+            <a href="blog-details.html" class="inline-flex items-center gap-1.5 text-copper font-medium text-[12.5px] group-hover:translate-x-1 transition-transform">
+              <span>Read Article</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+            <span class="text-[11px] text-muted">by Golden Desk</span>
+          </div>
+        </article>
+
+        <!-- Article Card 6 -->
+        <article class="blog-card bg-white rounded-2xl overflow-hidden border border-ink/[0.08] shadow-[0_4px_16px_rgba(22,21,20,0.04)] hover:shadow-xl hover:border-copper/40 transition-all duration-300 flex flex-col justify-between group"
+          data-category="corridor" data-title="A Strategic Guide to Commercial Real Estate Allocation for Family Offices" data-aos="fade-up" data-aos-delay="80">
+          <div>
+            <div class="relative h-[210px] overflow-hidden bg-ink">
+              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
+                alt="Commercial Real Estate Allocation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <span class="absolute top-3.5 left-3.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded text-[10px] font-semibold uppercase tracking-wider text-copperLight">
+                CORRIDOR ANALYSIS
+              </span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <div class="flex items-center gap-2 text-[11.5px] text-muted mb-2">
+                <span>05 August 2026</span>
+                <span>•</span>
+                <span>6 Min Read</span>
+              </div>
+              <h3 class="text-[18px] font-semibold text-ink group-hover:text-copper transition leading-snug">
+                <a href="blog-details.html">
+                  Commercial Real Estate Allocation: Strategies for Family Offices
+                </a>
+              </h3>
+              <p class="text-[13px] text-ink/75 mt-2.5 leading-relaxed line-clamp-3">
+                Evaluating pre-leased Grade-A corporate towers, institutional tenant covenants, and yield compression trends in prime hubs.
+              </p>
+            </div>
+          </div>
+          <div class="px-5 sm:px-6 pb-5 pt-3 border-t border-ink/[0.06] flex items-center justify-between">
+            <a href="blog-details.html" class="inline-flex items-center gap-1.5 text-copper font-medium text-[12.5px] group-hover:translate-x-1 transition-transform">
+              <span>Read Article</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+            <span class="text-[11px] text-muted">by Golden Desk</span>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- Empty Search Fallback State -->
+      <div id="noResults" class="hidden text-center py-16">
+        <p class="text-[18px] font-semibold text-ink">No articles matched your criteria</p>
+        <p class="text-[13px] text-muted mt-1">Try another keyword or select All Insights.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ================= NEWSLETTER SUBSCRIPTION BAR ================= -->
+  <section class="w-full py-14 bg-white border-y border-ink/[0.07]">
+    <div class="container-x">
+      <div class="max-w-[800px] mx-auto text-center space-y-4">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.24em] text-copper">INSTITUTIONAL REAL ESTATE INTELLIGENCE</span>
+        <h3 class="text-[26px] sm:text-[32px] font-semibold text-ink">
+          Receive Private Market Briefings Directly
+        </h3>
+        <p class="text-[14px] text-ink/70 max-w-[560px] mx-auto leading-relaxed">
+          Delivered monthly to India’s leading family offices, CXOs, and global NRI property investors. Zero spam.
+        </p>
+        <form onsubmit="event.preventDefault(); alert('Thank you for subscribing to Golden Properties Intelligence.'); this.reset();" class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-2.5 max-w-[480px] mx-auto">
+          <input type="email" required placeholder="Enter your business or personal email"
+            class="w-full px-4 py-3 rounded-full border border-ink/[0.15] bg-[#FBFAF7] text-[13px] text-ink focus:outline-none focus:border-copper transition" />
+          <button type="submit"
+            class="w-full sm:w-auto px-6 py-3 rounded-full bg-ink hover:bg-copper text-white text-[13px] font-medium transition shrink-0 shadow-sm">
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <!-- Matching official Golden Properties footer -->
+  <footer class="w-full bg-[#0F0E0D] text-white pt-14 sm:pt-16 md:pt-20">
+    <div class="container-x">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr] gap-10 md:gap-14 pb-12 sm:pb-16 border-b border-white/10">
+        <div data-aos="fade-up">
+          <a href="index.html" class="inline-block py-2" aria-label="Golden Properties">
+            <img src="/assest/Golden-Properties-Luxury-Logo.png" alt="Golden Properties" class="h-16 sm:h-20 md:h-24 w-auto object-contain" />
+          </a>
+          <p class="mt-4 text-[13.5px] text-white/55 leading-[1.7] max-w-[340px]">
+            India’s premier real estate advisory boutique, bringing institutional fiduciary standards, bespoke advisory, and landmark residential acquisitions to life.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <p class="text-[12px] uppercase tracking-[.18em] text-white/40 mb-4">Navigation</p>
+            <ul class="space-y-2.5 text-[13px]">
+              <li><a href="index.html" class="footer-link">Home</a></li>
+              <li><a href="about.html" class="footer-link">About Us</a></li>
+              <li><a href="properties.html" class="footer-link">Properties</a></li>
+              <li><a href="blogs.html" class="footer-link text-copperLight font-medium">Blog</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-[12px] uppercase tracking-[.18em] text-white/40 mb-4">Security</p>
+            <ul class="space-y-2.5 text-[13px]">
+              <li><a href="#" class="footer-link">Privacy Policy</a></li>
+              <li><a href="#" class="footer-link">User Agreements</a></li>
+              <li><a href="#" class="footer-link">Copyright</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-[12px] uppercase tracking-[.18em] text-white/40 mb-4">Social Media</p>
+            <ul class="space-y-2.5 text-[13px]">
+              <li><a href="#" class="footer-link">Instagram</a></li>
+              <li><a href="#" class="footer-link">Facebook</a></li>
+              <li><a href="#" class="footer-link">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brand Signature Banner (Giant Full Width Display) -->
+    <div class="w-full overflow-hidden border-t border-white/10 pt-6 sm:pt-8 md:pt-10 pb-2 sm:pb-3 md:pb-4 text-center select-none">
+      <p class="font-bold tracking-[-0.035em] leading-none text-white/15 text-[11.8vw] sm:text-[11.5vw] md:text-[11.2vw] whitespace-nowrap px-1 transition-colors duration-500 hover:text-white/25">
+        Golden Properties
+      </p>
+    </div>
+
+    <div class="container-x">
+      <div class="pt-5 pb-8 md:pb-10 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-[11px] text-white/40">
+        <p>© 2026 Golden Properties Pvt. Ltd. All rights reserved.</p>
+        <a href="#" id="backToTop" class="hover:text-white transition">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Action Buttons -->
+  <div class="fixed bottom-5 right-5 z-40 flex flex-col gap-2.5">
+    <a href="tel:+911234567890" aria-label="Call Us"
+      class="w-10 h-10 rounded-full bg-copper hover:bg-copperLight text-white shadow-[0_6px_20px_rgba(168,119,74,0.35)] flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-300">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+      </svg>
+    </a>
+    <a href="index.html#contact" aria-label="Inquire / Message Us"
+      class="w-10 h-10 rounded-full bg-copper hover:bg-copperLight text-white shadow-[0_6px_20px_rgba(168,119,74,0.35)] flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-300">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        <line x1="9" y1="10" x2="15" y2="10"></line>
+        <line x1="12" y1="7" x2="12" y2="13"></line>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 40
+    });
+
+    // Initialize Lenis smooth scroll
+    const lenis = new Lenis({
+      duration: 1.1,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.5,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Navbar scroll state
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.classList.add('is-scrolled');
+      } else {
+        nav.classList.remove('is-scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Category Filter & Search Functionality
+    const pills = document.querySelectorAll('.category-pill');
+    let cards = document.querySelectorAll('.blog-card');
+    const searchInput = document.getElementById('blogSearchInput');
+    const noResults = document.getElementById('noResults');
+    const articleCount = document.getElementById('articleCount');
+
+    let currentCategory = 'all';
+
+    function filterBlogs() {
+      const query = (searchInput?.value || '').toLowerCase().trim();
+      let visible = 0;
+
+      cards.forEach(card => {
+        const cat = card.dataset.category || '';
+        const title = (card.dataset.title || '').toLowerCase();
+        const matchesCat = currentCategory === 'all' || cat === currentCategory;
+        const matchesSearch = !query || title.includes(query);
+
+        if (matchesCat && matchesSearch) {
+          card.classList.remove('hidden');
+          visible++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      if (noResults) {
+        if (visible === 0) {
+          noResults.classList.remove('hidden');
+        } else {
+          noResults.classList.add('hidden');
+        }
+      }
+
+      if (articleCount) {
+        articleCount.textContent = `Showing ${visible}`;
+      }
+    }
+
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        currentCategory = pill.dataset.category;
+        filterBlogs();
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', filterBlogs);
+    }
+
+    // Dynamic backend connection
+    async function loadDynamicBlogs() {
+      try {
+        const res = await fetch('/api/blogs');
+        if (!res.ok) return;
+        const blogs = await res.json();
+        if (!blogs || !blogs.length) return;
+
+        const grid = document.getElementById('blogCardsGrid');
+        if (grid) {
+          grid.innerHTML = blogs.map((b, idx) => {
+            let catKey = 'market';
+            const catLower = (b.category || '').toLowerCase();
+            if (catLower.includes('corridor')) catKey = 'corridor';
+            else if (catLower.includes('luxury') || catLower.includes('arch')) catKey = 'luxury';
+            else if (catLower.includes('legal') || catLower.includes('tax')) catKey = 'legal';
+
+            return `
+              <article class="blog-card bg-white rounded-2xl overflow-hidden border border-ink/[0.08] shadow-[0_4px_16px_rgba(22,21,20,0.04)] hover:shadow-xl hover:border-copper/40 transition-all duration-300 flex flex-col justify-between group"
+                data-category="${catKey}" data-title="${b.title}" data-aos="fade-up" data-aos-delay="${idx * 40}">
+                <div>
+                  <div class="relative h-[210px] overflow-hidden bg-ink">
+                    <img src="${b.image}" alt="${b.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <span class="absolute top-3.5 left-3.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded text-[10px] font-semibold uppercase tracking-wider text-copperLight">
+                      ${b.category}
+                    </span>
+                  </div>
+                  <div class="p-5 sm:p-6">
+                    <div class="flex items-center gap-2 text-[11.5px] text-muted mb-2">
+                      <span>${b.date}</span>
+                      <span>•</span>
+                      <span>${b.readTime || '5 Min Read'}</span>
+                    </div>
+                    <h3 class="text-[18px] font-semibold text-ink group-hover:text-copper transition leading-snug">
+                      <a href="blog-details.html?id=${b.id}">${b.title}</a>
+                    </h3>
+                    <p class="text-[13px] text-ink/75 mt-2.5 leading-relaxed line-clamp-3">
+                      ${b.excerpt || ''}
+                    </p>
+                  </div>
+                </div>
+                <div class="px-5 sm:px-6 pb-5 pt-3 border-t border-ink/[0.06] flex items-center justify-between">
+                  <a href="blog-details.html?id=${b.id}" class="inline-flex items-center gap-1.5 text-copper font-medium text-[12.5px] group-hover:translate-x-1 transition-transform">
+                    <span>Read Article</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  </a>
+                  <span class="text-[11px] text-muted">${b.author ? 'by ' + b.author.name : 'by Golden Advisory Desk'}</span>
+                </div>
+              </article>
+            `;
+          }).join('');
+
+          cards = document.querySelectorAll('.blog-card');
+          filterBlogs();
+          if (typeof AOS !== 'undefined') AOS.refresh();
+        }
+      } catch (err) {
+        console.warn('Backend API note: using static fallback cards.');
+      }
+    }
+    loadDynamicBlogs();
+
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+      backToTop.addEventListener('click', (e) => {
+        e.preventDefault();
+        lenis.scrollTo(0, { duration: 1.2 });
+      });
+    }
+  </script>
+</body>
+
+</html>

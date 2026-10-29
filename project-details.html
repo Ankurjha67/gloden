@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pageTitle">Project Details — Golden Properties Luxury Real Estate</title>
+  <link rel="icon" type="image/png" href="/assest/Golden-Properties-Luxury-Logo.png" />
+  <meta name="description" id="pageDesc"
+    content="Explore detailed floor plans, pricing, luxury amenities, master plan layouts, and location advantages of landmark residential properties by Golden Properties." />
+
+  <!-- Google Fonts: Poppins (Exact Website Font) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            copper: '#A8774A',
+            copperLight: '#C9996B',
+            copperDark: '#7F5128',
+            ink: '#161514',
+            paper: '#FBFAF7',
+            sand: '#F3F0EB',
+            sandDark: '#EBE7E1',
+            muted: '#6E6B65',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lenis Smooth Scroll -->
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.13/dist/lenis.css" />
+
+  <style>
+    ::selection {
+      background: #A8774A;
+      color: #fff;
+    }
+
+    .container-x {
+      max-width: 1240px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .container-x {
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+    }
+
+    /* Fixed 2-Tier Header Styles */
+    #mainHeader {
+      box-shadow: 0 4px 20px -2px rgba(22, 21, 20, 0.08);
+    }
+
+    .subnav-tab {
+      transition: all 0.2s ease;
+    }
+
+    /* Smooth scroll margin for sticky 2-tier header */
+    html {
+      scroll-padding-top: 125px;
+    }
+    section[id], div[id] {
+      scroll-margin-top: 125px;
+    }
+
+    /* Sub-nav horizontal scroll */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Footer styling */
+    .footer-link {
+      color: rgba(255, 255, 255, 0.7);
+      transition: color 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: #C9996B;
+    }
+  </style>
+</head>
+
+<body class="font-poppins bg-[#F8F7F4] text-ink antialiased">
+
+  <!-- ================= TOP READING / SCROLL PROGRESS BAR ================= -->
+  <div class="fixed top-0 left-0 w-full h-[3px] bg-transparent z-[60]">
+    <div id="progressBar" class="h-full bg-copper transition-all duration-150" style="width: 0%;"></div>
+  </div>
+
+  <!-- ================= WEBSITE FIXED 2-TIER BRAND NAVBAR & SUBNAV ================= -->
+  <header id="mainHeader" class="fixed top-0 inset-x-0 z-50">
+    <!-- TIER 1: Full-width Luxury Brand Navbar (Matching User Screenshot Layout + Brand Theme) -->
+    <div class="bg-[#161514] text-white border-b border-white/10">
+      <div class="max-w-[1360px] mx-auto px-4 sm:px-6 h-20 sm:h-22 flex items-center justify-between gap-4">
+        
+        <!-- Left: Brand Logo & Title -->
+        <a href="/index.html" class="flex items-center shrink-0 group py-1.5" aria-label="Golden Properties">
+          <img src="/assest/Golden-Properties-Luxury-Logo.png" alt="Golden Properties" class="h-12 sm:h-14 md:h-16 w-auto object-contain" />
+        </a>
+
+        <!-- Center: Primary Navigation Links -->
+        <ul class="hidden md:flex items-center gap-7 lg:gap-9 text-[13.5px] font-medium text-white/90">
+          <li><a href="/index.html" class="hover:text-copper transition">Home</a></li>
+          <li><a href="/properties.html" class="text-copper font-semibold transition">Properties</a></li>
+          <li><a href="/about.html" class="hover:text-copper transition">About Us</a></li>
+          <li><a href="/blogs.html" class="hover:text-copper transition">Blog</a></li>
+        </ul>
+
+        <!-- Right: Shortlist Heart + Pill Contact Button + Mobile Menu -->
+        <div class="flex items-center gap-2.5 sm:gap-3 shrink-0">
+          <!-- Shortlist Heart Icon Circle (Like Screenshot) -->
+          <button id="navShortlistBtn" onclick="toggleShortlist()" class="w-9 h-9 rounded-full border border-white/25 hover:border-copper hover:text-copper text-white/90 grid place-items-center transition" title="Shortlist Property">
+            <svg id="navShortlistHeart" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+          </button>
+
+          <!-- Contact Us Pill Button (Exact like user screenshot: white rounded pill with arrow) -->
+          <a href="#inquirySection" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white text-[#161514] font-semibold text-xs hover:bg-copper hover:text-white transition shadow-sm">
+            <span>Contact Us</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+
+          <!-- Mobile Menu Hamburger -->
+          <button id="menuBtn" class="md:hidden w-9 h-9 rounded-lg grid place-items-center text-white/90 hover:bg-white/10" aria-label="Menu">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIER 2: Secondary Section Tabs Subnav (Attached directly below Tier 1, full width white bar) -->
+    <div class="bg-white border-b border-ink/10 shadow-xs relative">
+      <div class="max-w-[1360px] mx-auto px-4 sm:px-6 h-12 flex items-center justify-between gap-3 sm:gap-4">
+        <!-- Left: Rounded Border Tabs (Exact match screenshot) -->
+        <div id="subnavTabsGroup" class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-1 text-xs">
+          <a href="#overviewTop" data-target="overviewTop" class="subnav-tab px-3.5 py-1.5 rounded-lg bg-copper text-white font-semibold transition shadow-xs whitespace-nowrap">Home</a>
+          <a href="#descriptionSection" data-target="descriptionSection" class="subnav-tab px-3.5 py-1.5 rounded-lg border border-ink/20 text-ink/80 hover:border-copper hover:text-copper font-medium transition whitespace-nowrap">Description</a>
+          <a href="#overviewCard" data-target="overviewCard" class="subnav-tab px-3.5 py-1.5 rounded-lg border border-ink/20 text-ink/80 hover:border-copper hover:text-copper font-medium transition whitespace-nowrap">Overview</a>
+          <a href="#reraBox" data-target="reraBox" class="subnav-tab px-3.5 py-1.5 rounded-lg border border-ink/20 text-ink/80 hover:border-copper hover:text-copper font-medium transition whitespace-nowrap">RERA Details</a>
+          <a href="#amenitiesSection" data-target="amenitiesSection" class="subnav-tab px-3.5 py-1.5 rounded-lg border border-ink/20 text-ink/80 hover:border-copper hover:text-copper font-medium transition whitespace-nowrap">Amenities</a>
+          <a href="#pricingSection" data-target="pricingSection" class="subnav-tab px-3.5 py-1.5 rounded-lg border border-ink/20 text-ink/80 hover:border-copper hover:text-copper font-medium transition whitespace-nowrap">Price Details</a>
+          <a href="#layoutSection" data-target="layoutSection" class="subnav-tab px-3.5 py-1.5 rounded-lg border border-ink/20 text-ink/80 hover:border-copper hover:text-copper font-medium transition whitespace-nowrap">Master Plan</a>
+          <a href="#locationSection" data-target="locationSection" class="subnav-tab px-3.5 py-1.5 rounded-lg border border-ink/20 text-ink/80 hover:border-copper hover:text-copper font-medium transition whitespace-nowrap">Connectivity</a>
+        </div>
+
+        <!-- Right: Book Site Visit CTA + PDF Brochure Icon (Exact match screenshot) -->
+        <div class="flex items-center gap-2 shrink-0">
+          <a href="#inquirySection" class="px-3.5 sm:px-4 py-1.5 rounded-lg bg-copper hover:bg-copperDark text-white font-semibold text-xs transition shadow-xs flex items-center gap-1.5 whitespace-nowrap">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <span>Book Site Visit</span>
+          </a>
+          <!-- PDF Brochure Download Badge Button -->
+          <button onclick="downloadBrochure()" class="w-8 h-8 rounded-full bg-red-50 hover:bg-red-100 border border-red-200 text-red-600 grid place-items-center transition" title="Download Official Brochure (PDF)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer Dropdown -->
+    <div id="mobileMenu" class="md:hidden hidden bg-[#161514] text-white border-b border-white/10 p-4 space-y-2">
+      <a href="/index.html" class="block px-3 py-2 rounded-lg hover:bg-white/10 text-sm">Home</a>
+      <a href="/properties.html" class="block px-3 py-2 rounded-lg bg-white/10 text-copper font-medium text-sm">Properties</a>
+      <a href="/about.html" class="block px-3 py-2 rounded-lg hover:bg-white/10 text-sm">About Us</a>
+      <a href="/blogs.html" class="block px-3 py-2 rounded-lg hover:bg-white/10 text-sm">Blog</a>
+      <a href="#inquirySection" class="block mt-2 px-4 py-2.5 rounded-lg bg-copper text-white text-center font-medium text-sm">Contact Us / Book Visit</a>
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTENT CONTAINER ================= -->
+  <main class="pt-[124px] pb-12">
+
+    <!-- Loading Skeleton -->
+    <div id="loadingSkeleton" class="container-x py-12">
+      <div class="animate-pulse space-y-6">
+        <div class="h-4 bg-ink/10 rounded w-48"></div>
+        <div class="h-10 bg-ink/10 rounded w-3/4"></div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-6">
+          <div class="lg:col-span-8 h-[440px] bg-ink/10 rounded-2xl"></div>
+          <div class="lg:col-span-4 h-[440px] bg-ink/10 rounded-2xl"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 404 Not Found State -->
+    <div id="notFoundState" class="hidden container-x py-20 text-center">
+      <div class="max-w-md mx-auto bg-white p-10 rounded-3xl border border-ink/10 shadow-lg">
+        <div class="w-16 h-16 bg-sand rounded-full mx-auto grid place-items-center text-copper mb-4">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </div>
+        <h2 class="text-2xl font-bold text-ink mb-2">Property Not Found</h2>
+        <p class="text-muted text-sm mb-6">The project you are looking for does not exist or may have been updated.</p>
+        <a href="/properties.html" class="inline-flex items-center gap-2 px-6 py-3 bg-copper text-white rounded-full text-sm font-medium hover:bg-copperDark transition">
+          Browse All Properties →
+        </a>
+      </div>
+    </div>
+
+    <!-- Active Property Content -->
+    <div id="propertyContent" class="hidden container-x space-y-7">
+
+      <!-- ================= 1. HEADER ROW (BREADCRUMB, TITLE, BADGES, PRICE) ================= -->
+      <section id="overviewTop">
+        <!-- Breadcrumb -->
+        <div class="flex items-center gap-2 text-[12px] text-muted mb-2.5">
+          <a href="/index.html" class="hover:text-copper transition">Golden Properties</a>
+          <span>&gt;</span>
+          <span id="crumbCity" class="hover:text-copper transition cursor-pointer">Gurugram</span>
+          <span>&gt;</span>
+          <span id="crumbTitle" class="text-ink font-medium truncate max-w-[240px] sm:max-w-none">Landmark Project</span>
+        </div>
+
+        <!-- Title, Badges & Price Bar -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4">
+          <div class="space-y-1.5">
+            <div id="headerBadgesContainer" class="flex flex-wrap items-center gap-2.5">
+              <span id="headerBhkPill" class="text-2xl sm:text-3xl font-bold text-ink tracking-tight">
+                3 & 4 BHK
+              </span>
+              <span id="verifiedBadge" class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 text-[11px] font-semibold">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                VERIFIED
+              </span>
+              <span id="reraStatusBadge" class="inline-flex items-center px-2.5 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-200 text-[11px] font-semibold">
+                RERA APPROVED
+              </span>
+              <span id="possessionBadge" class="inline-flex items-center px-2.5 py-0.5 rounded bg-sandDark text-ink/80 text-[11px] font-medium">
+                Ready to Move
+              </span>
+            </div>
+
+            <!-- Subtitle Address -->
+            <p id="propFullAddress" class="text-xs sm:text-[13.5px] text-muted flex items-center gap-1.5">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A8774A" stroke-width="2" class="shrink-0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Luxury Residential Corridor, Delhi NCR</span>
+            </p>
+          </div>
+
+          <!-- Price & Actions -->
+          <div class="flex items-center justify-between md:justify-end gap-5 shrink-0 pt-2 md:pt-0 border-t md:border-t-0 border-ink/[0.08]">
+            <div class="text-left md:text-right">
+              <span class="text-[11px] text-muted uppercase tracking-wider block font-medium">Price</span>
+              <span id="headerPrice" class="text-2xl sm:text-3xl font-extrabold text-ink tracking-tight">
+                ₹ 1.1 Cr*
+              </span>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <button onclick="shareProperty()" class="px-3.5 py-2 rounded-xl border border-ink/15 hover:border-copper hover:text-copper text-ink text-xs font-medium flex items-center gap-1.5 transition bg-white shadow-xs" title="Share Property">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                <span>Share</span>
+              </button>
+              <button id="shortlistBtn" onclick="toggleShortlist()" class="px-3.5 py-2 rounded-xl border border-ink/15 hover:border-copper hover:text-copper text-ink text-xs font-medium flex items-center gap-1.5 transition bg-white shadow-xs" title="Shortlist Property">
+                <svg id="shortlistIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                <span id="shortlistText">Shortlist</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 2. HERO GALLERY & OVERVIEW (EXACT 2-COLUMN LAYOUT) ================= -->
+      <section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- LEFT COLUMN: 3-PHOTO COMPOSITE GALLERY (LIKE SCREENSHOT) -->
+        <div class="lg:col-span-8 space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-12 gap-3.5">
+            <!-- Big Main Photo on Left -->
+            <div class="sm:col-span-7 relative rounded-2xl overflow-hidden bg-ink h-[260px] sm:h-[360px] group cursor-pointer shadow-sm" onclick="openPhotoModal(document.getElementById('galleryImg1').src)">
+              <img id="galleryImg1" src="" alt="Main Property View" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div class="absolute bottom-3 left-3 px-3 py-1.5 rounded-lg bg-black/60 backdrop-blur-md text-white text-xs font-medium flex items-center gap-1.5">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                <span>Gallery View</span>
+              </div>
+            </div>
+
+            <!-- Two Stacked Photos on Right -->
+            <div class="sm:col-span-5 grid grid-rows-2 gap-3.5 h-[260px] sm:h-[360px]">
+              <!-- Top Photo -->
+              <div class="relative rounded-2xl overflow-hidden bg-ink group cursor-pointer shadow-sm" onclick="openPhotoModal(document.getElementById('galleryImg2').src)">
+                <img id="galleryImg2" src="" alt="Secondary View" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              </div>
+              <!-- Bottom Photo (with View All Photos / Master Plan overlay) -->
+              <div class="relative rounded-2xl overflow-hidden bg-ink group cursor-pointer shadow-sm" onclick="openPhotoModal(document.getElementById('galleryImg3').src)">
+                <img id="galleryImg3" src="" alt="Master Plan / Layout View" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-black/55 backdrop-blur-[2px] flex flex-col items-center justify-center text-white p-3 text-center transition group-hover:bg-black/45">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mb-1 text-copperLight"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                  <span class="text-xs font-semibold">View Master Plan &amp; Photos</span>
+                  <span id="galleryCountTag" class="text-[10.5px] text-white/80">3 Architectural Views</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Banner: Need More Details / Contact Broker (Like Screenshot) -->
+          <div class="bg-white rounded-2xl p-4 sm:p-5 border border-ink/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
+            <div class="flex items-center gap-3.5">
+              <div class="w-10 h-10 rounded-full bg-copper/15 text-copper grid place-items-center shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              </div>
+              <div>
+                <h4 class="text-xs sm:text-[13.5px] font-semibold text-ink">Need More Details &amp; Payment Schedules?</h4>
+                <p class="text-[11.5px] text-muted">Our senior portfolio advisor will connect with you regarding available inventory &amp; floor plans.</p>
+              </div>
+            </div>
+            <a href="#inquirySection" class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-copper hover:bg-copperDark text-white text-xs font-semibold transition text-center shrink-0 shadow-sm">
+              Contact Advisor / Agent
+            </a>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: OVERVIEW BOX (EXACT ICON-LIST STYLE AS SCREENSHOT) -->
+        <div id="overviewCard" class="lg:col-span-4 bg-white rounded-2xl p-6 border border-ink/[0.08] shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-3.5 border-b border-ink/[0.08] mb-4">
+              <h3 class="text-[16px] font-bold text-ink flex items-center gap-2">
+                <span>Overview</span>
+              </h3>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8774A" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            </div>
+
+            <!-- 2-Column Key Facts Grid (Exact matching Screenshot) -->
+            <div class="grid grid-cols-2 gap-y-4 gap-x-3 text-xs">
+              <!-- Item 1: BHK -->
+              <div class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-copper shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 12h18" /></svg>
+                <div>
+                  <span class="text-muted block text-[10.5px]">Configuration</span>
+                  <span id="ovBhk" class="font-semibold text-ink">3 &amp; 4 BHK</span>
+                </div>
+              </div>
+
+              <!-- Item 2: Property Type -->
+              <div class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-copper shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                <div>
+                  <span class="text-muted block text-[10.5px]">Property Type</span>
+                  <span id="ovType" class="font-semibold text-ink">Luxury Apartments</span>
+                </div>
+              </div>
+
+              <!-- Item 3: Sector / City -->
+              <div class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-copper shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <div>
+                  <span class="text-muted block text-[10.5px]">Location / City</span>
+                  <span id="ovCity" class="font-semibold text-ink">Delhi NCR</span>
+                </div>
+              </div>
+
+              <!-- Item 4: Total Project Area -->
+              <div class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-copper shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path></svg>
+                <div>
+                  <span class="text-muted block text-[10.5px]">Project Acreage</span>
+                  <span id="ovAcreage" class="font-semibold text-ink">Reserve Land</span>
+                </div>
+              </div>
+
+              <!-- Item 5: Facing / Overlooking -->
+              <div class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-copper shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+                <div>
+                  <span class="text-muted block text-[10.5px]">Overlooking</span>
+                  <span id="ovOverlooking" class="font-semibold text-ink">Landscaped Green Parks</span>
+                </div>
+              </div>
+
+              <!-- Item 6: Status -->
+              <div class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-copper shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <div>
+                  <span class="text-muted block text-[10.5px]">Possession Status</span>
+                  <span id="ovStatus" class="font-semibold text-copper">Ready To Move In</span>
+                </div>
+              </div>
+
+              <!-- Item 7: Super Built-up Area -->
+              <div class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-copper shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path></svg>
+                <div>
+                  <span class="text-muted block text-[10.5px]">Super Built-up Area</span>
+                  <span id="ovArea" class="font-semibold text-ink">Spacious Units</span>
+                </div>
+              </div>
+
+              <!-- Item 8: Developer Partner -->
+              <div class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-copper shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <div>
+                  <span class="text-muted block text-[10.5px]">Developer</span>
+                  <span id="ovDeveloper" class="font-semibold text-ink">Premier Developer</span>
+                </div>
+              </div>
+
+              <!-- Item 9: Parking -->
+              <div class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-copper shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+                <div>
+                  <span class="text-muted block text-[10.5px]">Car Parking</span>
+                  <span id="ovParking" class="font-semibold text-ink">Dedicated Parking</span>
+                </div>
+              </div>
+
+              <!-- Item 10: Power Backup -->
+              <div class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-copper shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                <div>
+                  <span class="text-muted block text-[10.5px]">Power Backup</span>
+                  <span id="ovPowerBackup" class="font-semibold text-ink">100% 24x7 Backup</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- RERA ID Box at bottom of card -->
+            <div class="mt-5 p-3 rounded-xl bg-sand/60 border border-ink/[0.06] text-[11px] text-ink/80 flex items-center justify-between">
+              <div>
+                <span class="text-muted block text-[9.5px] uppercase font-bold tracking-wider">RERA Registration</span>
+                <span id="ovRera" class="font-mono font-semibold text-copper">RERA Registered</span>
+              </div>
+              <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-[10px]">VERIFIED</span>
+            </div>
+          </div>
+
+          <a href="#inquirySection" class="mt-4 text-center block py-2.5 rounded-xl border border-copper text-copper hover:bg-copper hover:text-white transition text-xs font-semibold">
+            Inquire Detailed Floor Brochure →
+          </a>
+        </div>
+      </section>
+
+      <!-- ================= 3. FOUR METRIC KEY STATS RIBBON (EXACT LIKE SCREENSHOT) ================= -->
+      <section class="bg-white rounded-2xl p-5 border border-ink/[0.08] shadow-xs">
+        <div class="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-ink/[0.08] gap-4 md:gap-0">
+          <!-- Col 1: Possession Status -->
+          <div class="md:px-6 py-2">
+            <span class="text-[11px] text-muted block mb-1">Possession Status</span>
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 shrink-0"></span>
+              <span id="statPossession" class="text-base sm:text-lg font-bold text-ink">Ready to Move</span>
+            </div>
+          </div>
+
+          <!-- Col 2: Super Built-up Area -->
+          <div class="md:px-6 py-2 pt-4 md:pt-2">
+            <span class="text-[11px] text-muted block mb-1">Super Area (Sq.Ft)</span>
+            <span id="statArea" class="text-base sm:text-lg font-bold text-ink">1103 - 1803</span>
+          </div>
+
+          <!-- Col 3: Configuration & Density -->
+          <div class="md:px-6 py-2 pt-4 md:pt-2">
+            <span class="text-[11px] text-muted block mb-1">Configuration</span>
+            <span id="statBhk" class="text-base sm:text-lg font-bold text-ink">3 &amp; 4 BHK Units</span>
+          </div>
+
+          <!-- Col 4: Total Land Area -->
+          <div class="md:px-6 py-2 pt-4 md:pt-2">
+            <span class="text-[11px] text-muted block mb-1">Total Project Land</span>
+            <span id="statAcreage" class="text-base sm:text-lg font-bold text-ink">17 Acres Reserve</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 4. ABOUT [PROJECT NAME] SECTION (WITH RERA BANNER & SPECS) ================= -->
+      <section id="descriptionSection" class="bg-white rounded-2xl p-6 sm:p-8 border border-ink/[0.08] shadow-xs space-y-6">
+        <div>
+          <h2 id="aboutTitle" class="text-xl sm:text-2xl font-bold text-ink">About The Project</h2>
+          <p id="aboutSubhead" class="text-xs sm:text-sm text-copper font-medium mt-0.5">Luxury Residences with Modern Architecture</p>
+        </div>
+
+        <!-- Description Narrative -->
+        <div id="aboutDescriptionText" class="text-xs sm:text-[13.5px] text-ink/80 leading-[1.8] space-y-3">
+          <!-- Populated dynamically -->
+        </div>
+
+        <!-- RERA Verified Banner (Like Screenshot) -->
+        <div id="reraBox" class="p-4 sm:p-5 rounded-2xl bg-emerald-50/70 border border-emerald-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div class="flex items-center gap-3.5">
+            <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white grid place-items-center shrink-0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <div>
+              <span id="reraRegionTag" class="text-[10px] uppercase font-bold text-emerald-800 tracking-wider">OFFICIAL RERA REGISTRATION</span>
+              <p id="reraFullCode" class="text-xs sm:text-sm font-mono font-bold text-emerald-950">RERA Registered</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 rounded-full bg-emerald-600 text-white font-bold text-xs shadow-xs">
+            VERIFIED LISTING
+          </span>
+        </div>
+
+        <!-- Specifications & Architectural Highlights Grid -->
+        <div class="pt-2">
+          <h3 class="text-sm font-bold text-ink uppercase tracking-wider text-muted mb-4">Furnishing &amp; Architectural Specifications</h3>
+          <div id="specPillsGrid" class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 5. AMENITIES SECTION (LIKE SCREENSHOT CARDS) ================= -->
+      <section id="amenitiesSection" class="bg-white rounded-2xl p-6 sm:p-8 border border-ink/[0.08] shadow-xs">
+        <div class="mb-6">
+          <h2 class="text-xl sm:text-2xl font-bold text-ink">Amenities</h2>
+          <p class="text-xs text-muted mt-1">World-class amenities designed for wellness, leisure, and upscale community living.</p>
+        </div>
+
+        <div id="amenitiesListGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3.5">
+          <!-- Populated with centered icon cards -->
+        </div>
+      </section>
+
+      <!-- ================= 6. PRICE LIST & UNIT CONFIGURATIONS ================= -->
+      <section id="pricingSection" class="bg-white rounded-2xl p-6 sm:p-8 border border-ink/[0.08] shadow-xs">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
+          <div>
+            <h2 class="text-xl sm:text-2xl font-bold text-ink">Price Details &amp; Configurations</h2>
+            <p class="text-xs text-muted mt-0.5">Floor plans and configuration breakdown.</p>
+          </div>
+          <a href="#inquirySection" class="text-xs font-semibold text-copper hover:underline self-start sm:self-auto">
+            Request Official Cost Sheet →
+          </a>
+        </div>
+
+        <div id="priceCardsGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Populated dynamically -->
+        </div>
+      </section>
+
+      <!-- ================= 7. MASTER PLAN & SITE LAYOUT SECTION ================= -->
+      <section id="layoutSection" class="bg-white rounded-2xl p-6 sm:p-8 border border-ink/[0.08] shadow-xs">
+        <div class="mb-6">
+          <h2 class="text-xl sm:text-2xl font-bold text-ink">Master Plan &amp; Site Layout</h2>
+          <p class="text-xs text-muted mt-0.5">Spatial master blueprint showing circulation, greenery, and tower placement.</p>
+        </div>
+
+        <div id="siteLayoutCard" class="bg-sand/30 rounded-2xl p-4 sm:p-6 border border-ink/[0.08]">
+          <!-- Populated with full layout photo -->
+        </div>
+      </section>
+
+      <!-- ================= 8. LOCATION ADVANTAGES & CONNECTIVITY (LIKE SCREENSHOT) ================= -->
+      <section id="locationSection" class="bg-white rounded-2xl p-6 sm:p-8 border border-ink/[0.08] shadow-xs">
+        <div class="mb-6">
+          <h2 class="text-xl sm:text-2xl font-bold text-ink">Location Advantages &amp; Connectivity</h2>
+          <p class="text-xs text-muted mt-0.5">Proximity to commercial nodes, expressways, schools, and transit centers.</p>
+        </div>
+
+        <div id="locationGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+          <!-- Populated like screenshot: Left Name, Right Distance/Time Tag -->
+        </div>
+      </section>
+
+
+
+      <!-- ================= 10. SIMILAR RESIDENCES NEARBY (MATCHING SCREENSHOT) ================= -->
+      <section class="bg-white rounded-2xl p-6 sm:p-8 border border-ink/[0.08] shadow-xs">
+        <div class="flex items-center justify-between mb-6">
+          <div>
+            <h2 class="text-xl sm:text-2xl font-bold text-ink">Similar Residences Nearby</h2>
+            <p class="text-xs text-muted mt-0.5">Handpicked premium properties in prime micro-markets.</p>
+          </div>
+          <a href="/properties.html" class="text-xs font-semibold text-copper hover:underline flex items-center gap-1">
+            Browse All Listings →
+          </a>
+        </div>
+
+        <div id="similarProjectsGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <!-- Populated dynamically with floor plan cards -->
+        </div>
+      </section>
+
+      <!-- ================= 11. INQUIRY / SCHEDULE SITE VISIT FORM ================= -->
+      <section id="inquirySection" class="bg-white rounded-2xl p-6 sm:p-10 border border-ink/[0.08] shadow-xs">
+        <div class="grid lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-5 space-y-3">
+            <span class="text-xs font-bold text-copper uppercase tracking-wider">Book Private Tour</span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-ink">Schedule A Guided Site Visit</h2>
+            <p class="text-xs sm:text-sm text-muted leading-relaxed">
+              Experience the craftsmanship in person. Our private concierge will coordinate a designated tour slot with inventory walkthrough.
+            </p>
+            <div class="pt-2 text-xs text-ink/75 space-y-2">
+              <p class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Direct developer authorized pricing</p>
+              <p class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Zero brokerage consultation</p>
+              <p class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Flexible construction linked payment plans</p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-sand/30 rounded-2xl p-6 border border-ink/[0.06]">
+            <form id="projectLeadForm" class="space-y-4">
+              <input type="hidden" id="formPropertyName" name="property" value="Landmark Residence" />
+
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold uppercase tracking-wider text-muted mb-1">Full Name *</label>
+                  <input type="text" id="leadName" name="name" required placeholder="e.g. Vikram Malhotra"
+                    class="w-full px-4 py-2.5 rounded-xl border border-ink/15 focus:outline-none focus:border-copper text-xs bg-white" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold uppercase tracking-wider text-muted mb-1">Phone Number *</label>
+                  <input type="tel" id="leadPhone" name="phone" required placeholder="+91 98765 43210"
+                    class="w-full px-4 py-2.5 rounded-xl border border-ink/15 focus:outline-none focus:border-copper text-xs bg-white" />
+                </div>
+              </div>
+
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold uppercase tracking-wider text-muted mb-1">Email Address</label>
+                  <input type="email" id="leadEmail" name="email" placeholder="vikram@example.com"
+                    class="w-full px-4 py-2.5 rounded-xl border border-ink/15 focus:outline-none focus:border-copper text-xs bg-white" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold uppercase tracking-wider text-muted mb-1">Tour Preference</label>
+                  <select id="leadTourType" class="w-full px-4 py-2.5 rounded-xl border border-ink/15 focus:outline-none focus:border-copper text-xs bg-white">
+                    <option value="In-Person Site Visit">In-Person Site Visit</option>
+                    <option value="Private Video Walkthrough">Private Video Walkthrough</option>
+                    <option value="Telephone Advisory">Telephone Advisory Call</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-muted mb-1">Specific Query / Preferred BHK</label>
+                <textarea id="leadMessage" rows="2" placeholder="Tell us about your budget timeline or preferred floor level..."
+                  class="w-full px-4 py-2.5 rounded-xl border border-ink/15 focus:outline-none focus:border-copper text-xs resize-none bg-white"></textarea>
+              </div>
+
+              <button type="submit" id="leadSubmitBtn"
+                class="w-full py-3 rounded-xl bg-copper hover:bg-copperDark text-white font-medium text-xs transition duration-300 shadow-sm flex items-center justify-center gap-2">
+                <span>Confirm Site Visit Request</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+
+              <p id="leadStatusMsg" class="hidden text-center text-xs font-medium pt-1"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ================= IMAGE LIGHTBOX / MODAL ================= -->
+  <div id="photoModal" class="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md hidden place-items-center p-4">
+    <button onclick="closePhotoModal()" class="absolute top-6 right-6 w-11 h-11 rounded-full bg-white/20 hover:bg-white text-white hover:text-ink grid place-items-center transition">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="max-w-5xl max-h-[85vh] overflow-hidden rounded-2xl">
+      <img id="modalImg" src="" alt="Full View" class="w-full h-auto max-h-[85vh] object-contain" />
+    </div>
+  </div>
+
+  <!-- ================= WEBSITE BRAND FOOTER (EXACT THEME, BANNER & FONT) ================= -->
+  <footer id="contact" class="w-full bg-ink text-white overflow-hidden mt-16">
+    <div class="container-x pt-14 md:pt-20">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-10">
+        <div>
+          <span class="inline-flex items-center gap-2 text-[11px] tracking-[0.22em] uppercase text-copperLight font-medium">
+            <span class="w-4 h-px bg-copperLight"></span>
+            Let's Talk
+          </span>
+          <h2 class="mt-5 text-[26px] sm:text-[32px] md:text-[38px] font-light tracking-[-0.03em] leading-[1.12]">
+            Ready To Work<br /><span class="font-normal text-copperLight">With Us?</span>
+          </h2>
+          <p class="mt-4 text-white/60 text-[13px] md:text-[14px] max-w-[400px] leading-[1.65]">
+            Experience seamless advisory and bespoke service tailored to your property goals.
+          </p>
+        </div>
+
+        <a href="mailto:hello@goldenproperties.com"
+          class="relative w-[100px] h-[100px] shrink-0 rounded-full bg-copper grid place-items-center group">
+          <svg class="transition duration-500 group-hover:rotate-45" width="22" height="22" fill="none" stroke="#fff" stroke-width="2">
+            <path d="M7 21 21 7M10 7h11v11" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="my-10 md:my-12 h-px bg-white/10"></div>
+
+      <div class="grid lg:grid-cols-[1.3fr_2fr] gap-8 md:gap-10 pb-12 md:pb-16">
+        <div>
+          <a href="/index.html" class="inline-block py-2" aria-label="Golden Properties">
+            <img src="/assest/Golden-Properties-Luxury-Logo.png" alt="Golden Properties" class="h-16 sm:h-20 md:h-24 w-auto object-contain" />
+          </a>
+          <p class="mt-3.5 text-[13px] text-white/55 leading-[1.65] max-w-[290px]">
+            A cutting-edge real estate boutique offering a refined and immersive experience for discovering landmark properties.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-8">
+          <div>
+            <p class="text-[12px] uppercase tracking-[.18em] text-white/40 mb-4">Navigation</p>
+            <ul class="space-y-2.5 text-[13px]">
+              <li><a href="/index.html" class="footer-link">Home</a></li>
+              <li><a href="/about.html" class="footer-link">About Us</a></li>
+              <li><a href="/properties.html" class="footer-link text-copperLight font-medium">Properties</a></li>
+              <li><a href="/blogs.html" class="footer-link">Blog</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-[12px] uppercase tracking-[.18em] text-white/40 mb-4">Security</p>
+            <ul class="space-y-2.5 text-[13px]">
+              <li><a href="#" class="footer-link">Privacy Policy</a></li>
+              <li><a href="#" class="footer-link">User Agreements</a></li>
+              <li><a href="#" class="footer-link">Copyright</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-[12px] uppercase tracking-[.18em] text-white/40 mb-4">Social Media</p>
+            <ul class="space-y-2.5 text-[13px]">
+              <li><a href="#" class="footer-link">Instagram</a></li>
+              <li><a href="#" class="footer-link">Facebook</a></li>
+              <li><a href="#" class="footer-link">Twitter</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brand Signature Display Banner (Giant Display) -->
+    <div class="w-full overflow-hidden border-t border-white/10 pt-6 pb-2 text-center select-none">
+      <p class="font-bold tracking-[-0.035em] leading-none text-white/15 text-[11.8vw] whitespace-nowrap px-1">
+        Golden Properties
+      </p>
+    </div>
+
+    <div class="container-x">
+      <div class="pt-5 pb-8 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-[11px] text-white/40">
+        <p>© 2026 Golden Properties. All rights reserved.</p>
+        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="hover:text-white transition">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lenis Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+
+  <script>
+    // Smooth Scroll
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true
+    });
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Navbar scroll & progress bar
+    const nav = document.getElementById('nav');
+    const progressBar = document.getElementById('progressBar');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      if (scrollY > 40) {
+        nav.classList.add('is-scrolled');
+      } else {
+        nav.classList.remove('is-scrolled');
+      }
+
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (docHeight > 0) {
+        progressBar.style.width = (scrollY / docHeight) * 100 + '%';
+      }
+    });
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Lightbox modal helpers
+    function openPhotoModal(src) {
+      if (!src) return;
+      document.getElementById('modalImg').src = src;
+      const modal = document.getElementById('photoModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('grid');
+    }
+    function closePhotoModal() {
+      const modal = document.getElementById('photoModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('grid');
+    }
+    document.getElementById('photoModal').addEventListener('click', (e) => {
+      if (e.target.id === 'photoModal') closePhotoModal();
+    });
+
+    // Share & Shortlist
+    function shareProperty() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link copied to clipboard!');
+      }
+    }
+
+    let isShortlisted = false;
+    function toggleShortlist() {
+      isShortlisted = !isShortlisted;
+      const icon = document.getElementById('shortlistIcon');
+      const text = document.getElementById('shortlistText');
+      const navHeart = document.getElementById('navShortlistHeart');
+      if (isShortlisted) {
+        if (icon) {
+          icon.setAttribute('fill', '#EF4444');
+          icon.setAttribute('stroke', '#EF4444');
+        }
+        if (text) {
+          text.textContent = 'Shortlisted';
+          text.classList.add('text-red-500');
+        }
+        if (navHeart) {
+          navHeart.setAttribute('fill', '#EF4444');
+          navHeart.setAttribute('stroke', '#EF4444');
+        }
+      } else {
+        if (icon) {
+          icon.setAttribute('fill', 'none');
+          icon.setAttribute('stroke', 'currentColor');
+        }
+        if (text) {
+          text.textContent = 'Shortlist';
+          text.classList.remove('text-red-500');
+        }
+        if (navHeart) {
+          navHeart.setAttribute('fill', 'none');
+          navHeart.setAttribute('stroke', 'currentColor');
+        }
+      }
+    }
+
+    let currentPropertyData = null;
+
+    // Brochure PDF Download Concierge Action
+    function downloadBrochure() {
+      if (currentPropertyData && currentPropertyData.brochureUrl) {
+        window.open(currentPropertyData.brochureUrl, '_blank');
+        return;
+      }
+      const inquiry = document.getElementById('inquirySection');
+      if (inquiry) {
+        const propName = document.getElementById('crumbTitle')?.textContent || 'this project';
+        const msgBox = document.getElementById('leadMessage');
+        if (msgBox) {
+          msgBox.value = `Requesting official high-resolution PDF Brochure & Floor Plans for ${propName}.`;
+        }
+        inquiry.scrollIntoView({ behavior: 'smooth' });
+        const phone = document.getElementById('leadPhone');
+        if (phone) phone.focus();
+      }
+    }
+
+    // Determine URL slug or ID
+    function getRequestedIdentifier() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const queryId = urlParams.get('id') || urlParams.get('slug');
+      if (queryId) return queryId.trim();
+
+      const pathParts = window.location.pathname.split('/').filter(Boolean);
+      if ((pathParts[0] === 'project' || pathParts[0] === 'property') && pathParts[1]) {
+        return decodeURIComponent(pathParts[1]).trim();
+      }
+      return null;
+    }
+
+    // Icon lookup for Amenities (Centered cards matching screenshot)
+    function getAmenityIcon(name) {
+      const lower = (name || '').toLowerCase();
+      if (lower.includes('pool')) {
+        return `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12h20M2 17h20M7 8a4 4 0 0 1 8 0"/></svg>`;
+      }
+      if (lower.includes('club') || lower.includes('hall') || lower.includes('lounge')) {
+        return `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18M6 6l12 12"/></svg>`;
+      }
+      if (lower.includes('park') || lower.includes('car') || lower.includes('garage')) {
+        return `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>`;
+      }
+      if (lower.includes('garden') || lower.includes('green') || lower.includes('tree') || lower.includes('forest')) {
+        return `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg>`;
+      }
+      if (lower.includes('gym') || lower.includes('fit') || lower.includes('sport') || lower.includes('play')) {
+        return `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 5v14M18 5v14M2 9h4M18 9h4M2 15h4M18 15h4M6 12h12"/></svg>`;
+      }
+      if (lower.includes('yoga') || lower.includes('meditation') || lower.includes('spa')) {
+        return `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="7" r="4"></circle><path d="M5.5 21a8.38 8.38 0 0 1 13 0"></path></svg>`;
+      }
+      if (lower.includes('power') || lower.includes('backup') || lower.includes('elect')) {
+        return `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`;
+      }
+      if (lower.includes('security') || lower.includes('cctv') || lower.includes('guard')) {
+        return `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>`;
+      }
+      if (lower.includes('water')) {
+        return `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>`;
+      }
+      return `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`;
+    }
+
+    // Helper: Parse Specs into Key-Value Map
+    function parseSpecsText(specsRaw) {
+      if (!specsRaw) return {};
+      const lines = specsRaw.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+      const dict = {};
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        if (line.includes(':')) {
+          const idx = line.indexOf(':');
+          const key = line.slice(0, idx).toLowerCase().replace(/[^a-z0-9]/g, '');
+          dict[key] = line.slice(idx + 1).trim();
+        } else if (i + 1 < lines.length && !lines[i + 1].includes(':')) {
+          const key = line.toLowerCase().replace(/[^a-z0-9]/g, '');
+          dict[key] = lines[i + 1];
+          i++;
+        }
+      }
+      return dict;
+    }
+
+    // ================= LOAD AND RENDER DYNAMIC PROPERTY =================
+    async function loadProjectDetails() {
+      const identifier = getRequestedIdentifier();
+
+      try {
+        let property = null;
+
+        // 1. Try server API by identifier
+        if (identifier) {
+          try {
+            const res = await fetch(`/api/properties/${encodeURIComponent(identifier)}`);
+            if (res.ok) {
+              property = await res.json();
+            }
+          } catch (e) {
+            console.warn('API lookup error, checking fallback:', e);
+          }
+        }
+
+        // 2. Fallback: Query all properties from API
+        if (!property) {
+          try {
+            const allRes = await fetch('/api/properties');
+            if (allRes.ok) {
+              const list = await allRes.json();
+              if (Array.isArray(list) && list.length > 0) {
+                if (identifier) {
+                  const idLower = identifier.toLowerCase();
+                  property = list.find(p =>
+                    (p.slug && p.slug.toLowerCase() === idLower) ||
+                    (p.id && p.id.toLowerCase() === idLower) ||
+                    ((p.name || p.title) && (p.name || p.title).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') === idLower)
+                  );
+                }
+                if (!property) property = list[0];
+              }
+            }
+          } catch (e) {}
+        }
+
+        // 3. Fallback: Direct JSON file for static local hosting
+        if (!property) {
+          try {
+            const jsonRes = await fetch('/data/properties.json');
+            if (jsonRes.ok) {
+              const list = await jsonRes.json();
+              if (Array.isArray(list) && list.length > 0) {
+                if (identifier) {
+                  const idLower = identifier.toLowerCase();
+                  property = list.find(p =>
+                    (p.slug && p.slug.toLowerCase() === idLower) ||
+                    (p.id && p.id.toLowerCase() === idLower) ||
+                    ((p.name || p.title) && (p.name || p.title).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') === idLower)
+                  );
+                }
+                if (!property) property = list[0];
+              }
+            }
+          } catch (e) {}
+        }
+
+        if (!property) {
+          document.getElementById('loadingSkeleton').classList.add('hidden');
+          document.getElementById('notFoundState').classList.remove('hidden');
+          return;
+        }
+
+        currentPropertyData = property;
+
+        // Parse Specs
+        const specDict = parseSpecsText(property.specifications);
+
+        // Document Meta
+        const pageTitleText = `${property.name || property.title} — Golden Properties Luxury Real Estate`;
+        document.title = pageTitleText;
+        document.getElementById('pageTitle').textContent = pageTitleText;
+        if (property.overview) {
+          document.getElementById('pageDesc').setAttribute('content', property.overview.slice(0, 155).replace(/\r?\n|\r/g, ' '));
+        }
+
+        // Breadcrumbs
+        document.getElementById('crumbCity').textContent = property.city || 'Gurugram';
+        document.getElementById('crumbTitle').textContent = property.name || property.title;
+
+        // Header BHK, Title & Price
+        const bhkClean = (property.bhk || specDict['bhk'] || '3 & 4 BHK').trim();
+        const bhkDisplay = bhkClean.toLowerCase().includes('bhk') ? bhkClean : `${bhkClean} BHK`;
+
+        // Render dynamic header badges
+        const badgesContainer = document.getElementById('headerBadgesContainer');
+        if (badgesContainer) {
+          const statusStr = (property.status || property.possessionStatus || 'Ready To Move In').trim();
+          const statusList = statusStr.split(',').map(s => s.trim()).filter(Boolean);
+
+          let badgesHtml = `
+            <span id="headerBhkPill" class="text-2xl sm:text-3xl font-bold text-ink tracking-tight mr-1">
+              ${bhkDisplay}
+            </span>
+            <span id="verifiedBadge" class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 text-[11px] font-semibold">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              VERIFIED
+            </span>
+          `;
+
+          statusList.forEach(st => {
+            const isRera = /rera/i.test(st);
+            if (isRera) {
+              badgesHtml += `
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-200 text-[11px] font-semibold uppercase">
+                  ${st}
+                </span>
+              `;
+            } else {
+              badgesHtml += `
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded bg-sandDark text-ink/80 text-[11px] font-medium">
+                  ${st}
+                </span>
+              `;
+            }
+          });
+
+          badgesContainer.innerHTML = badgesHtml;
+        }
+
+        document.getElementById('propFullAddress').innerHTML = `
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A8774A" stroke-width="2" class="shrink-0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span>${property.location || (property.city ? `${property.city}, Delhi NCR` : 'Delhi NCR')}</span>
+        `;
+        document.getElementById('headerPrice').textContent = property.price || '₹ On Request';
+
+        // Form property pre-fill
+        document.getElementById('formPropertyName').value = property.name || property.title;
+
+        // Gallery Photos (Composite 3 photos)
+        const mainPhoto = property.image || 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80';
+        const secondaryPhoto = property.secondaryImage || property.image || 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80';
+        const layoutPhoto = (property.siteLayout && property.siteLayout.image) ? property.siteLayout.image : secondaryPhoto;
+
+        document.getElementById('galleryImg1').src = mainPhoto;
+        document.getElementById('galleryImg2').src = secondaryPhoto;
+        document.getElementById('galleryImg3').src = layoutPhoto;
+        const countTag = document.getElementById('galleryCountTag');
+        if (countTag) countTag.textContent = 'Master Plan & Views';
+
+        // Overview Box (Right Column)
+        const acreageVal = property.totalArea || specDict['totalarea'] || '15+ Acres Gated Enclave';
+        const areaVal = property.area || specDict['area'] || 'Spacious Luxury Units';
+        const overlookingVal = property.overlooking || specDict['overlooking'] || 'Landscaped Green Parks';
+        const parkingVal = property.carParking || specDict['carparking'] || 'Reserved Covered Parking';
+        const powerBackupVal = property.powerBackup || specDict['powerbackup'] || '100% 24x7 Power Backup';
+        const currentStatus = (property.possessionStatus || property.status || specDict['currentstatus'] || 'Ready To Move In').split(',')[0].trim();
+        const reraNo = property.reraNo || specDict['rerano'] || 'Registered & Verified';
+        const devName = property.developer || specDict['constructionpartner'] || 'Leading Developer';
+
+        document.getElementById('ovBhk').textContent = bhkDisplay;
+        document.getElementById('ovType').textContent = property.type || specDict['type'] || 'Luxury Residence';
+        document.getElementById('ovCity').textContent = property.city || 'Gurugram';
+        document.getElementById('ovAcreage').textContent = acreageVal;
+        document.getElementById('ovOverlooking').textContent = overlookingVal;
+        document.getElementById('ovStatus').textContent = currentStatus;
+        document.getElementById('ovArea').textContent = areaVal;
+        document.getElementById('ovDeveloper').textContent = devName;
+        document.getElementById('ovParking').textContent = parkingVal;
+        document.getElementById('ovPowerBackup').textContent = powerBackupVal;
+        document.getElementById('ovRera').textContent = reraNo;
+
+        // 4 Key Stats Metric Ribbon
+        document.getElementById('statPossession').textContent = currentStatus;
+        document.getElementById('statArea').textContent = areaVal.replace(/\s*sq\.?\s*ft/i, '');
+        document.getElementById('statBhk').textContent = `${bhkClean} Units`;
+        document.getElementById('statAcreage').textContent = acreageVal;
+
+        // About Project Section
+        document.getElementById('aboutTitle').textContent = `About ${property.name || property.title}`;
+        document.getElementById('aboutSubhead').textContent = `${property.developer ? `by ${property.developer}` : ''} • Luxury Residences & Penthouse Suites`;
+
+        const descContainer = document.getElementById('aboutDescriptionText');
+        if (property.overview && property.overview.trim()) {
+          const paras = property.overview.split(/\r?\n\r?\n/).map(p => p.trim()).filter(Boolean);
+          descContainer.innerHTML = paras.map(p => `<p class="leading-relaxed">${p.replace(/\r?\n/g, '<br/>')}</p>`).join('');
+        } else {
+          descContainer.innerHTML = `<p class="leading-relaxed">Experience elevated luxury in this prestigious landmark development crafted with world-class engineering, expansive green spaces, and refined living comforts.</p>`;
+        }
+
+        // RERA Verified Banner
+        const reraRegionTag = document.getElementById('reraRegionTag');
+        if (reraRegionTag) {
+          const cityOrState = property.city ? property.city.toUpperCase() : 'OFFICIAL';
+          reraRegionTag.textContent = `${cityOrState} RERA REGISTRATION`;
+        }
+        document.getElementById('reraFullCode').textContent = reraNo;
+
+        // Specifications & Architectural Highlights (Dynamically Parsed)
+        const specPillsGrid = document.getElementById('specPillsGrid');
+        let parsedSpecsList = [];
+        if (property.specifications && property.specifications.trim()) {
+          const specLines = property.specifications.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+          parsedSpecsList = specLines.map(line => {
+            if (line.includes(':')) {
+              const idx = line.indexOf(':');
+              const label = line.slice(0, idx).trim();
+              const val = line.slice(idx + 1).trim();
+              return `<strong class="text-ink font-semibold">${label}:</strong> <span>${val}</span>`;
+            }
+            return `<span>${line}</span>`;
+          });
+        }
+        if (!parsedSpecsList.length) {
+          parsedSpecsList = [
+            '<strong class="text-ink">Structure:</strong> Earthquake Resistant RCC',
+            '<strong class="text-ink">Flooring:</strong> Imported Italian Marble',
+            '<strong class="text-ink">Kitchen:</strong> Modular with Hob & Chimney',
+            '<strong class="text-ink">Glazing:</strong> Double Glazed UPVC Windows',
+            '<strong class="text-ink">Air Conditioning:</strong> VRV Central AC',
+            '<strong class="text-ink">Elevators:</strong> Dedicated High Speed Lobbies',
+            '<strong class="text-ink">Security:</strong> 3-Tier 24/7 Biometric & CCTV',
+            '<strong class="text-ink">Green Rating:</strong> Pre-certified Green Building'
+          ];
+        }
+        specPillsGrid.innerHTML = parsedSpecsList.map(sp => `
+          <div class="p-3 rounded-xl bg-sand/40 border border-ink/[0.06] flex items-center gap-2 text-ink/80 font-medium">
+            <span class="w-5 h-5 rounded-full bg-copper/15 text-copper grid place-items-center shrink-0 text-[10px]">✓</span>
+            <span class="truncate text-xs">${sp}</span>
+          </div>
+        `).join('');
+
+        // Amenities Grid
+        const amenitiesGrid = document.getElementById('amenitiesListGrid');
+        const amenities = (property.amenities && property.amenities.length) ? property.amenities : [
+          'Clubhouse', 'Swimming Pool', 'Gymnasium', 'Landscaped Garden', 'Jogging Track',
+          'Kids Play Area', 'Tennis Court', '24/7 Security', 'Power Backup', 'Water Supply'
+        ];
+        amenitiesGrid.innerHTML = amenities.map(am => `
+          <div class="bg-sand/30 hover:bg-white rounded-2xl p-4 border border-ink/[0.06] hover:border-copper/40 transition text-center flex flex-col items-center justify-center gap-2 shadow-xs group">
+            <div class="w-11 h-11 rounded-xl bg-white group-hover:bg-sand text-copper grid place-items-center shrink-0 shadow-xs transition">
+              ${getAmenityIcon(am)}
+            </div>
+            <span class="text-xs font-semibold text-ink leading-tight">${am}</span>
+          </div>
+        `).join('');
+
+        // Price Details & Configurations
+        const priceCardsGrid = document.getElementById('priceCardsGrid');
+        let floorPlans = (property.floorPlans && property.floorPlans.length) ? property.floorPlans : null;
+        if (!floorPlans && property.priceList && property.priceList.trim()) {
+          const rawLines = property.priceList.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+          floorPlans = [];
+          for (let i = 0; i < rawLines.length; i += 3) {
+            floorPlans.push({
+              title: rawLines[i] || 'Typical Floor Plan',
+              area: rawLines[i + 1] || 'Spacious Unit',
+              price: rawLines[i + 2] || property.price || '₹ Price on Request',
+              bhk: ''
+            });
+          }
+        }
+
+        if (floorPlans && floorPlans.length) {
+          priceCardsGrid.innerHTML = floorPlans.map(fp => {
+            const planTitle = fp.title || 'Ground / Typical Floor Plan';
+            const planArea = fp.area || 'Spacious Unit';
+            const planPrice = fp.price
+              ? (fp.price.startsWith('₹') ? fp.price : `₹ ${fp.price.trim()}`)
+              : (property.price || '₹ Price on Request');
+            const planBhk = fp.bhk || '';
+
+            return `
+              <div class="p-5 rounded-2xl bg-sand/30 border border-ink/[0.08] hover:border-copper/40 transition flex flex-col justify-between group shadow-xs">
+                <div>
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="text-[10.5px] font-bold uppercase tracking-wider text-copper">${planBhk ? planBhk : 'Floor Plan'}</span>
+                    ${planArea ? `<span class="text-[11px] px-2 py-0.5 rounded-md bg-white border border-ink/[0.06] text-ink/70 font-medium">${planArea}</span>` : ''}
+                  </div>
+                  <h4 class="text-sm font-bold text-ink mt-2 group-hover:text-copper transition leading-snug">${planTitle}</h4>
+                  ${fp.layoutUrl ? `
+                    <a href="${fp.layoutUrl}" target="_blank" class="inline-flex items-center gap-1 mt-2 text-[11px] text-copper font-medium hover:underline">
+                      <span>View Layout Blueprint ↗</span>
+                    </a>
+                  ` : ''}
+                </div>
+                <div class="mt-5 pt-3.5 border-t border-ink/[0.08] flex items-center justify-between">
+                  <span class="text-base font-bold text-emerald-800">${planPrice}</span>
+                  <a href="#inquirySection" onclick="document.getElementById('leadMessage').value = 'Inquiring about ${planTitle.replace(/'/g, "\\'")} - ${planArea.replace(/'/g, "\\'")}'; document.getElementById('inquirySection').scrollIntoView({behavior:'smooth'}); document.getElementById('leadPhone')?.focus();" class="text-xs text-copper font-semibold hover:underline">
+                    Inquire Plan →
+                  </a>
+                </div>
+              </div>
+            `;
+          }).join('');
+        } else {
+          priceCardsGrid.innerHTML = `
+            <div class="col-span-full p-6 text-center bg-sand/30 rounded-2xl border border-ink/[0.08]">
+              <p class="text-sm font-semibold text-ink">Bespoke Price List &amp; Payment Options Available</p>
+              <p class="text-xs text-muted mt-1">Starting from ${property.price || '₹ On Request'} with flexible construction-linked schedules.</p>
+              <a href="#inquirySection" onclick="document.getElementById('leadMessage').value='Requesting official cost sheet and payment plans for ' + (document.getElementById('crumbTitle')?.textContent || 'this project'); document.getElementById('inquirySection').scrollIntoView({behavior:'smooth'});" class="mt-3 inline-block px-5 py-2 rounded-xl bg-copper text-white text-xs font-semibold hover:bg-copperDark transition">
+                Request Cost Sheet →
+              </a>
+            </div>
+          `;
+        }
+
+        // Master Plan & Site Layout
+        const layoutCard = document.getElementById('siteLayoutCard');
+        if (property.siteLayout && property.siteLayout.image) {
+          layoutCard.innerHTML = `
+            <div class="grid lg:grid-cols-12 gap-6 items-center">
+              <div class="lg:col-span-8 rounded-xl overflow-hidden bg-black/5 border border-ink/10 relative group cursor-pointer" onclick="openPhotoModal('${property.siteLayout.image}')">
+                <img src="${property.siteLayout.image}" alt="Site Layout" class="w-full max-h-[380px] object-contain transition duration-500 group-hover:scale-102" />
+                <div class="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg bg-black/65 backdrop-blur-md text-white text-xs font-medium flex items-center gap-1.5">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                  <span>Click to Expand Full Resolution</span>
+                </div>
+              </div>
+              <div class="lg:col-span-4 space-y-3">
+                <span class="text-xs font-bold uppercase tracking-wider text-copper">Architectural Design</span>
+                <h3 class="text-base font-bold text-ink">Master Plan Blueprint</h3>
+                <p class="text-xs text-ink/80 leading-relaxed">
+                  ${property.siteLayout.description || 'Master plan designed with pedestrian-only ground areas, separate service driveway loops, and lush central landscaped parks.'}
+                </p>
+                <button onclick="openPhotoModal('${property.siteLayout.image}')" class="px-5 py-2.5 rounded-xl bg-copper text-white text-xs font-semibold hover:bg-copperDark transition shadow-xs">
+                  Inspect High-Res Plan
+                </button>
+              </div>
+            </div>
+          `;
+        } else {
+          layoutCard.innerHTML = `
+            <div class="text-center py-8 bg-sand/20 rounded-2xl border border-ink/[0.08]">
+              <div class="w-12 h-12 rounded-full bg-copper/10 text-copper grid place-items-center mx-auto mb-3">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path></svg>
+              </div>
+              <p class="text-sm font-semibold text-ink">Master Plan &amp; Floor Layouts</p>
+              <p class="text-xs text-muted mt-1 max-w-md mx-auto">Detailed CAD architectural drawings and circulation layouts available upon request.</p>
+              <a href="#inquirySection" onclick="document.getElementById('leadMessage').value='Requesting official Master Plan & Architectural Layout for ' + (document.getElementById('crumbTitle')?.textContent || 'this project'); document.getElementById('inquirySection').scrollIntoView({behavior:'smooth'});" class="mt-4 inline-block px-5 py-2.5 rounded-xl bg-copper text-white text-xs font-semibold hover:bg-copperDark transition">
+                Request Master Plan Blueprint →
+              </a>
+            </div>
+          `;
+        }
+
+        // Location Advantages & Connectivity
+        const locationGrid = document.getElementById('locationGrid');
+        const advantages = (property.locationAdvantages && property.locationAdvantages.length) ? property.locationAdvantages : [
+          `${property.location ? property.location.split(',')[0] : 'Main Arterial Expressway Corridor'}, 0 KM`,
+          'Nearest Metro Station / Rapid Transit, 5 Min',
+          'Commercial Business Hub & IT Parks, 12 Min',
+          'Top International Schools & Multi-Specialty Hospitals, 3 KM',
+          'IGI International Airport (Terminal 3), 30 Min'
+        ];
+
+        locationGrid.innerHTML = advantages.map(adv => {
+          let name = adv;
+          let tag = 'Nearby';
+
+          if (adv.includes(',')) {
+            const parts = adv.split(',');
+            name = parts[0].trim();
+            tag = parts.slice(1).join(',').trim();
+          } else if (adv.includes(' - ')) {
+            const parts = adv.split(' - ');
+            name = parts[0].trim();
+            tag = parts[1].trim();
+          }
+
+          return `
+            <div class="flex items-center justify-between p-3.5 rounded-xl bg-sand/30 border border-ink/[0.06] hover:border-copper/40 transition">
+              <span class="text-xs font-medium text-ink/90 truncate mr-2">${name}</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 text-[10.5px] font-bold border border-emerald-200 shrink-0">
+                ${tag}
+              </span>
+            </div>
+          `;
+        }).join('');
+
+        // Load Similar Projects
+        loadSimilarProjects(property.id);
+
+        // Show page content
+        document.getElementById('loadingSkeleton').classList.add('hidden');
+        document.getElementById('propertyContent').classList.remove('hidden');
+
+      } catch (err) {
+        console.error('Error loading project details:', err);
+        document.getElementById('loadingSkeleton').classList.add('hidden');
+        document.getElementById('notFoundState').classList.remove('hidden');
+      }
+    }
+
+    // Similar Properties
+    async function loadSimilarProjects(currentId) {
+      const container = document.getElementById('similarProjectsGrid');
+      if (!container) return;
+
+      try {
+        let properties = null;
+        try {
+          const res = await fetch('/api/properties');
+          if (res.ok) properties = await res.json();
+        } catch (e) {}
+
+        if (!properties || !properties.length) {
+          try {
+            const jsonRes = await fetch('/data/properties.json');
+            if (jsonRes.ok) properties = await jsonRes.json();
+          } catch (e) {}
+        }
+
+        if (!properties || !properties.length) return;
+        const otherProps = properties.filter(p => p.id !== currentId && p.slug !== currentId).slice(0, 3);
+
+        if (!otherProps.length) {
+          container.parentElement.classList.add('hidden');
+          return;
+        }
+
+        container.innerHTML = otherProps.map(p => {
+          const slugUrl = `/project/${p.slug || p.id}`;
+          return `
+            <article class="bg-sand/30 rounded-2xl overflow-hidden border border-ink/[0.08] hover:border-copper/40 transition group flex flex-col justify-between">
+              <div>
+                <a href="${slugUrl}" class="block relative aspect-[16/10] overflow-hidden bg-ink">
+                  <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                  <div class="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/60 backdrop-blur text-white text-[10px] font-bold uppercase tracking-wider">
+                    ${p.city || 'Gurugram'}
+                  </div>
+                </a>
+                <div class="p-4">
+                  <h3 class="text-sm font-bold text-ink group-hover:text-copper transition truncate">
+                    <a href="${slugUrl}">${p.name || p.title}</a>
+                  </h3>
+                  <p class="text-xs text-muted mt-0.5 truncate">${p.location}</p>
+                  <div class="mt-3 flex items-center justify-between text-xs">
+                    <span class="font-medium text-ink/75">${p.bhk || '3,4 BHK'}</span>
+                    <span class="text-emerald-800 font-bold text-sm">${p.price}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="px-4 pb-4 pt-1">
+                <a href="${slugUrl}" class="w-full py-2 rounded-xl bg-white hover:bg-copper hover:text-white text-ink text-xs font-semibold transition text-center block border border-ink/10">
+                  View Property Details →
+                </a>
+              </div>
+            </article>
+          `;
+        }).join('');
+      } catch (e) {
+        console.warn('Could not load similar properties:', e);
+      }
+    }
+
+    // Lead Form Submission
+    const leadForm = document.getElementById('projectLeadForm');
+    const leadStatusMsg = document.getElementById('leadStatusMsg');
+    const leadSubmitBtn = document.getElementById('leadSubmitBtn');
+
+    if (leadForm) {
+      leadForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        leadStatusMsg.classList.add('hidden');
+        leadSubmitBtn.disabled = true;
+        leadSubmitBtn.innerHTML = `<span>Submitting...</span>`;
+
+        const payload = {
+          name: document.getElementById('leadName').value.trim(),
+          phone: document.getElementById('leadPhone').value.trim(),
+          email: document.getElementById('leadEmail').value.trim(),
+          property: document.getElementById('formPropertyName').value,
+          message: `Tour Type: ${document.getElementById('leadTourType').value} | Notes: ${document.getElementById('leadMessage').value.trim()}`
+        };
+
+        try {
+          const res = await fetch('/api/leads', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+
+          const data = await res.json().catch(() => ({}));
+          if (res.ok && data.success) {
+            leadStatusMsg.textContent = '✓ Thank you! Your site visit request has been received. Our luxury advisor will contact you shortly.';
+            leadStatusMsg.className = 'text-center text-xs font-semibold text-emerald-600 pt-2 block';
+            leadForm.reset();
+          } else {
+            throw new Error(data.message || 'API offline');
+          }
+        } catch (err) {
+          // If server API is not available (e.g. static hosting without Node.js), provide WhatsApp instant concierge fallback
+          const waMsg = encodeURIComponent(`Hello Golden Properties, I want to schedule a site tour.\nProject: ${payload.property}\nName: ${payload.name}\nPhone: ${payload.phone}\n${payload.message}`);
+          leadStatusMsg.innerHTML = `✓ Request recorded! <a href="https://wa.me/919928203900?text=${waMsg}" target="_blank" class="underline font-bold text-emerald-700">Click to connect instantly with Advisor on WhatsApp ↗</a>`;
+          leadStatusMsg.className = 'text-center text-xs font-semibold text-emerald-600 pt-2 block';
+          leadForm.reset();
+        } finally {
+          leadSubmitBtn.disabled = false;
+          leadSubmitBtn.innerHTML = `<span>Confirm Site Visit Request</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>`;
+        }
+      });
+    }
+
+    // ScrollSpy for Sticky Section Navigation Tabs & Reading Progress Bar
+    const spySections = ['overviewTop', 'descriptionSection', 'overviewCard', 'reraBox', 'amenitiesSection', 'pricingSection', 'layoutSection', 'locationSection'];
+    const tabsList = document.querySelectorAll('.subnav-tab');
+
+    window.addEventListener('scroll', () => {
+      // Reading progress bar
+      const pBar = document.getElementById('progressBar');
+      if (pBar) {
+        const totalH = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = totalH > 0 ? (window.scrollY / totalH) * 100 : 0;
+        pBar.style.width = `${Math.min(100, Math.max(0, pct))}%`;
+      }
+
+      // Tab ScrollSpy
+      const scrollPos = window.scrollY + 130;
+      let activeId = spySections[0];
+
+      spySections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.scrollY;
+          if (scrollPos >= top) {
+            activeId = id;
+          }
+        }
+      });
+
+      tabsList.forEach(tab => {
+        if (tab.getAttribute('data-target') === activeId) {
+          tab.className = 'subnav-tab px-3.5 py-1.5 rounded-lg bg-copper text-white font-semibold transition shadow-xs whitespace-nowrap';
+        } else {
+          tab.className = 'subnav-tab px-3.5 py-1.5 rounded-lg border border-ink/20 text-ink/80 hover:border-copper hover:text-copper font-medium transition whitespace-nowrap';
+        }
+      });
+    }, { passive: true });
+
+    // Initialize
+    loadProjectDetails();
+  </script>
+</body>
+
+</html>

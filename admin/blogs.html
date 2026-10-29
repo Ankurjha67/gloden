@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Editorial Blogs • Golden Properties Admin</title>
+  <link rel="icon" type="image/png" href="/assest/Golden-Properties-Luxury-Logo.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { poppins: ['Poppins', 'sans-serif'] },
+          colors: {
+            copper: '#A8774A',
+            copperDark: '#8E5E34',
+            copperLight: '#C9996B',
+            darkBg: '#0F0E0D',
+            darkCard: '#181715',
+            darkBorder: '#272522'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-poppins bg-[#0A0908] text-gray-200 min-h-screen flex">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="w-64 bg-darkCard border-r border-darkBorder flex flex-col justify-between hidden md:flex shrink-0">
+    <div>
+      <!-- Brand Logo -->
+      <a href="/admin/index.html" class="h-24 px-6 flex items-center border-b border-darkBorder">
+        <img src="/assest/Golden-Properties-Luxury-Logo.png" alt="Golden Properties" class="h-12 sm:h-14 w-auto object-contain" />
+      </a>
+
+      <nav class="p-4 space-y-1.5 text-sm">
+        <a href="/admin/index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:text-white hover:bg-white/5 transition">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+          Dashboard
+        </a>
+        <a href="/admin/properties.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:text-white hover:bg-white/5 transition">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Properties
+        </a>
+        <a href="/admin/blogs.html" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-copper/15 text-copperLight font-medium">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/></svg>
+          Editorial Blogs
+        </a>
+        <a href="/admin/leads.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:text-white hover:bg-white/5 transition">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          Client Inquiries
+        </a>
+      </nav>
+    </div>
+
+    <div class="p-4 border-t border-darkBorder space-y-2">
+      <a href="/blog.html" target="_blank" class="flex items-center justify-between px-4 py-2.5 rounded-xl text-xs text-gray-400 hover:text-white hover:bg-white/5 transition">
+        <span>View Blog Page</span>
+        <span>↗</span>
+      </a>
+      <button onclick="logout()" class="w-full flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs text-red-400 hover:bg-red-500/10 transition">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Sign Out
+      </button>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+    <!-- Header -->
+    <header class="h-20 bg-darkCard/50 backdrop-blur border-b border-darkBorder px-6 sm:px-10 flex items-center justify-between sticky top-0 z-30">
+      <div class="flex items-center gap-4">
+        <a href="/admin/index.html" class="md:hidden flex items-center">
+          <img src="/assest/Golden-Properties-Luxury-Logo.png" alt="Golden Properties" class="h-10 w-auto object-contain" />
+        </a>
+        <h1 class="text-lg font-semibold text-white hidden md:block">Editorial Real Estate Journal</h1>
+      </div>
+
+      <button onclick="openBlogModal()" class="px-4 py-2.5 bg-copper hover:bg-copperDark text-white text-xs font-medium rounded-xl transition shadow flex items-center gap-2">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        <span>Write New Blog</span>
+      </button>
+    </header>
+
+    <!-- Page Body -->
+    <div class="p-6 sm:p-10 space-y-6 max-w-7xl">
+      <!-- Search & Filter bar -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 bg-darkCard p-4 rounded-2xl border border-darkBorder">
+        <div class="relative w-full sm:w-80">
+          <input type="text" id="blogSearchInput" oninput="filterBlogs()" placeholder="Search articles, author, topic..."
+            class="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-2 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-copper transition">
+          <svg class="absolute left-3.5 top-2.5 text-gray-500" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </div>
+
+        <div class="text-xs text-gray-400">
+          Total: <span id="blogsTotalCount" class="font-semibold text-copperLight">0</span> Published Articles
+        </div>
+      </div>
+
+      <!-- Blogs Data Table -->
+      <div class="bg-darkCard rounded-3xl border border-darkBorder overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-white/[0.02] text-gray-400 uppercase tracking-wider text-[11px] border-b border-darkBorder">
+              <tr>
+                <th class="py-4 px-6">Article &amp; Cover</th>
+                <th class="py-4 px-6">Category</th>
+                <th class="py-4 px-6">Author</th>
+                <th class="py-4 px-6">Date &amp; Read Time</th>
+                <th class="py-4 px-6">Badge / Featured</th>
+                <th class="py-4 px-6 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="blogsTableBody" class="divide-y divide-darkBorder">
+              <tr>
+                <td colspan="6" class="py-12 text-center text-gray-500">Loading blogs...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ================= BLOG MODAL (ADD / EDIT) ================= -->
+  <div id="blogModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-darkCard border border-darkBorder rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative">
+      <div class="flex items-center justify-between pb-4 border-b border-darkBorder mb-6">
+        <div>
+          <h2 id="blogModalTitle" class="text-lg font-semibold text-white">Create New Editorial Article</h2>
+          <p class="text-xs text-gray-400">Publish high-value real estate intelligence &amp; market reports</p>
+        </div>
+        <button onclick="closeBlogModal()" class="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white grid place-items-center transition">
+          ✕
+        </button>
+      </div>
+
+      <form id="blogForm" class="space-y-4" onsubmit="handleBlogSubmit(event)">
+        <input type="hidden" id="blogId" value="">
+
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Article Title *</label>
+          <input type="text" id="blogTitle" required placeholder="e.g. Gurugram Real Estate Outlook 2026: The Super-Luxury Shift"
+            class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-copper transition">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Category *</label>
+            <select id="blogCategory" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-copper transition">
+              <option value="MARKET INSIGHTS" class="bg-darkCard">MARKET INSIGHTS</option>
+              <option value="BUYER'S GUIDE" class="bg-darkCard">BUYER'S GUIDE</option>
+              <option value="LEGAL & TAX" class="bg-darkCard">LEGAL & TAX</option>
+              <option value="ARCHITECTURE" class="bg-darkCard">ARCHITECTURE</option>
+              <option value="INVESTMENT BLUEPRINT" class="bg-darkCard">INVESTMENT BLUEPRINT</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Read Time</label>
+            <input type="text" id="blogReadTime" placeholder="e.g. 6 Min Read"
+              class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-copper transition">
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Badge Tag</label>
+            <input type="text" id="blogBadge" placeholder="e.g. COVER ESSAY • GURUGRAM"
+              class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-copper transition">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Sub-Location / Focus Enclave</label>
+          <input type="text" id="blogSubLocation" placeholder="e.g. Golf Course Road & Dwarka Expressway Enclaves"
+            class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-copper transition">
+        </div>
+
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Excerpt / Brief Summary *</label>
+          <textarea id="blogExcerpt" rows="2" required placeholder="A brief 2-3 sentence overview that appears on blog cards..."
+            class="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-copper transition"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Full Article Content (HTML / Text)</label>
+          <textarea id="blogContent" rows="5" placeholder="Write full article here..."
+            class="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-xs text-white font-mono focus:outline-none focus:border-copper transition"></textarea>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Author Name</label>
+            <input type="text" id="authorName" placeholder="e.g. Aarav Sharma"
+              class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-copper transition">
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Author Role</label>
+            <input type="text" id="authorRole" placeholder="e.g. Principal Research Analyst"
+              class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-copper transition">
+          </div>
+        </div>
+
+        <!-- Image Upload or URL -->
+        <div class="border border-white/10 rounded-2xl p-4 bg-white/[0.02] space-y-3">
+          <span class="block text-xs uppercase tracking-wider text-copperLight font-medium">Cover Image</span>
+          
+          <div>
+            <label class="block text-[11px] text-gray-400 mb-1">Upload Photo from Computer (Recommended)</label>
+            <input type="file" id="blogImageFile" accept="image/*"
+              class="w-full text-xs text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-medium file:bg-copper file:text-white hover:file:bg-copperDark transition cursor-pointer">
+          </div>
+
+          <div class="flex items-center gap-3">
+            <span class="h-px bg-white/10 flex-1"></span>
+            <span class="text-[11px] text-gray-500 uppercase">OR Image URL</span>
+            <span class="h-px bg-white/10 flex-1"></span>
+          </div>
+
+          <div>
+            <input type="url" id="blogImageUrl" placeholder="https://images.unsplash.com/..."
+              class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-copper transition">
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 pt-2">
+          <input type="checkbox" id="blogFeatured" class="w-4 h-4 rounded text-copper focus:ring-0 bg-white/10 border-white/20">
+          <label for="blogFeatured" class="text-xs text-gray-300 cursor-pointer">Make this the Featured Top Cover Essay on Blog page</label>
+        </div>
+
+        <div class="flex items-center justify-end gap-3 pt-4 border-t border-darkBorder">
+          <button type="button" onclick="closeBlogModal()" class="px-5 py-2.5 bg-white/5 hover:bg-white/10 text-gray-300 text-xs font-medium rounded-xl transition">
+            Cancel
+          </button>
+          <button type="submit" id="saveBlogBtn" class="px-6 py-2.5 bg-copper hover:bg-copperDark text-white text-xs font-medium rounded-xl transition shadow">
+            Publish Article
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= DELETE BLOG CONFIRMATION MODAL ================= -->
+  <div id="deleteBlogConfirmModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-darkCard border border-darkBorder rounded-3xl max-w-md w-full p-6 sm:p-7 relative text-center space-y-5 shadow-2xl">
+      <div class="w-14 h-14 rounded-2xl bg-red-500/10 border border-red-500/30 text-red-400 grid place-items-center mx-auto">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 6h18m-2 0v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2M10 11v6M14 11v6"/>
+        </svg>
+      </div>
+      <div>
+        <h3 class="text-lg font-bold text-white">Delete Blog Article?</h3>
+        <p class="text-xs text-gray-400 mt-2 leading-relaxed">
+          Are you sure you want to permanently delete <span class="text-white font-semibold" id="deleteBlogName">this article</span>? This action cannot be undone.
+        </p>
+      </div>
+      <div class="flex items-center justify-center gap-3 pt-2">
+        <button type="button" onclick="closeDeleteBlogModal()" class="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 text-xs font-medium transition cursor-pointer">
+          Cancel
+        </button>
+        <button type="button" id="confirmDeleteBlogBtn" onclick="executeDeleteBlog()" class="px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-semibold transition shadow-lg shadow-red-600/30 flex items-center gap-2 cursor-pointer">
+          <span id="confirmDeleteBlogText">Yes, Delete Article</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="fixed bottom-6 right-6 z-50 space-y-2 pointer-events-none"></div>
+
+  <script>
+    if (!localStorage.getItem('golden_admin_token')) {
+      window.location.href = '/admin/login.html';
+    }
+
+    function logout() {
+      localStorage.removeItem('golden_admin_token');
+      localStorage.removeItem('golden_admin_user');
+      window.location.href = '/admin/login.html';
+    }
+
+    let allBlogs = [];
+
+    async function loadBlogs() {
+      try {
+        const res = await fetch('/api/blogs');
+        allBlogs = await res.json();
+        renderBlogs(allBlogs);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    function renderBlogs(list) {
+      document.getElementById('blogsTotalCount').textContent = list.length;
+      const tbody = document.getElementById('blogsTableBody');
+
+      if (!list.length) {
+        tbody.innerHTML = `<tr><td colspan="6" class="py-12 text-center text-gray-500">No blog articles found. Click "+ Write New Blog" to publish one.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = list.map(b => `
+        <tr class="hover:bg-white/[0.02] transition">
+          <td class="py-4 px-6 max-w-xs">
+            <div class="flex items-center gap-3">
+              <img src="${b.image}" class="w-14 h-12 rounded-xl object-cover border border-white/10 shrink-0" alt="${b.title}" />
+              <div class="min-w-0">
+                <div class="font-semibold text-white truncate">${b.title}</div>
+                <div class="text-[11px] text-gray-400 truncate">${b.subLocation || b.excerpt || ''}</div>
+              </div>
+            </div>
+          </td>
+          <td class="py-4 px-6">
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-white/5 text-copperLight border border-white/10">
+              ${b.category}
+            </span>
+          </td>
+          <td class="py-4 px-6 text-gray-300">
+            <div>${b.author ? b.author.name : 'Golden Editorial'}</div>
+            <div class="text-[10px] text-gray-500">${b.author ? b.author.role : ''}</div>
+          </td>
+          <td class="py-4 px-6 text-gray-400">
+            <div>${b.date}</div>
+            <div class="text-[10px] text-gray-500">${b.readTime || ''}</div>
+          </td>
+          <td class="py-4 px-6">
+            ${b.featured ? '<span class="px-2 py-0.5 rounded text-[10px] bg-copper text-white font-bold">COVER ESSAY</span>' : '<span class="text-gray-500 text-[11px]">Standard</span>'}
+          </td>
+          <td class="py-4 px-6 text-right">
+            <div class="flex items-center justify-end gap-2">
+              <button onclick="editBlog('${b.id}')" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-copperLight hover:text-white transition text-xs">
+                Edit
+              </button>
+              <button onclick="deleteBlog('${b.id}')" class="px-3 py-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 transition text-xs">
+                Delete
+              </button>
+            </div>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function filterBlogs() {
+      const q = document.getElementById('blogSearchInput').value.toLowerCase().trim();
+      const filtered = allBlogs.filter(b =>
+        b.title.toLowerCase().includes(q) ||
+        b.category.toLowerCase().includes(q) ||
+        (b.author && b.author.name.toLowerCase().includes(q))
+      );
+      renderBlogs(filtered);
+    }
+
+    function openBlogModal() {
+      document.getElementById('blogForm').reset();
+      document.getElementById('blogId').value = '';
+      document.getElementById('blogModalTitle').textContent = 'Create New Editorial Article';
+      document.getElementById('blogModal').classList.remove('hidden');
+    }
+
+    function closeBlogModal() {
+      document.getElementById('blogModal').classList.add('hidden');
+    }
+
+    function editBlog(id) {
+      const b = allBlogs.find(item => item.id === id);
+      if (!b) return;
+
+      document.getElementById('blogId').value = b.id;
+      document.getElementById('blogModalTitle').textContent = 'Edit Article';
+      document.getElementById('blogTitle').value = b.title || '';
+      document.getElementById('blogCategory').value = b.category || 'MARKET INSIGHTS';
+      document.getElementById('blogReadTime').value = b.readTime || '';
+      document.getElementById('blogBadge').value = b.badge || '';
+      document.getElementById('blogSubLocation').value = b.subLocation || '';
+      document.getElementById('blogExcerpt').value = b.excerpt || '';
+      document.getElementById('blogContent').value = b.content || '';
+      document.getElementById('authorName').value = b.author ? b.author.name : '';
+      document.getElementById('authorRole').value = b.author ? b.author.role : '';
+      document.getElementById('blogImageUrl').value = b.image && b.image.startsWith('http') ? b.image : '';
+      document.getElementById('blogFeatured').checked = !!b.featured;
+
+      document.getElementById('blogModal').classList.remove('hidden');
+    }
+
+    async function handleBlogSubmit(e) {
+      e.preventDefault();
+      const saveBtn = document.getElementById('saveBlogBtn');
+      saveBtn.disabled = true;
+      saveBtn.textContent = 'Publishing...';
+
+      const blogId = document.getElementById('blogId').value;
+      const formData = new FormData();
+      formData.append('title', document.getElementById('blogTitle').value);
+      formData.append('category', document.getElementById('blogCategory').value);
+      formData.append('readTime', document.getElementById('blogReadTime').value);
+      formData.append('badge', document.getElementById('blogBadge').value);
+      formData.append('subLocation', document.getElementById('blogSubLocation').value);
+      formData.append('excerpt', document.getElementById('blogExcerpt').value);
+      formData.append('content', document.getElementById('blogContent').value);
+      formData.append('authorName', document.getElementById('authorName').value);
+      formData.append('authorRole', document.getElementById('authorRole').value);
+      formData.append('imageUrl', document.getElementById('blogImageUrl').value);
+      formData.append('featured', document.getElementById('blogFeatured').checked);
+
+      const fileInput = document.getElementById('blogImageFile');
+      if (fileInput.files.length > 0) {
+        formData.append('imageFile', fileInput.files[0]);
+      }
+
+      try {
+        const url = blogId ? `/api/blogs/${blogId}` : '/api/blogs';
+        const method = blogId ? 'PUT' : 'POST';
+
+        const res = await fetch(url, {
+          method,
+          body: formData
+        });
+
+        if (res.ok) {
+          closeBlogModal();
+          await loadBlogs();
+        } else {
+          alert('Failed to save article.');
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Server error saving article.');
+      } finally {
+        saveBtn.disabled = false;
+        saveBtn.textContent = 'Publish Article';
+      }
+    }
+
+    let pendingDeleteBlogId = null;
+
+    function showToast(msg, isError = false) {
+      const container = document.getElementById('toastContainer');
+      if (!container) return;
+      const t = document.createElement('div');
+      t.className = `px-4 py-3 rounded-2xl shadow-xl text-xs font-medium flex items-center gap-2 transition-all transform duration-300 pointer-events-auto ${isError ? 'bg-red-500/95 text-white' : 'bg-emerald-600 text-white'}`;
+      t.innerHTML = `<span>${isError ? '⚠️' : '✓'}</span><span>${msg}</span>`;
+      container.appendChild(t);
+      setTimeout(() => {
+        t.style.opacity = '0';
+        setTimeout(() => t.remove(), 300);
+      }, 3500);
+    }
+
+    function deleteBlog(id) {
+      pendingDeleteBlogId = id;
+      const blog = allBlogs.find(b => b.id === id || b.slug === id);
+      const title = blog ? (blog.title || 'this article') : 'this article';
+      document.getElementById('deleteBlogName').textContent = `"${title}"`;
+      document.getElementById('deleteBlogConfirmModal').classList.remove('hidden');
+    }
+
+    function closeDeleteBlogModal() {
+      pendingDeleteBlogId = null;
+      document.getElementById('deleteBlogConfirmModal').classList.add('hidden');
+    }
+
+    async function executeDeleteBlog() {
+      if (!pendingDeleteBlogId) return;
+      const btn = document.getElementById('confirmDeleteBlogBtn');
+      const text = document.getElementById('confirmDeleteBlogText');
+      btn.disabled = true;
+      text.textContent = 'Deleting...';
+
+      const targetId = pendingDeleteBlogId;
+      try {
+        const res = await fetch(`/api/blogs/${encodeURIComponent(targetId)}`, {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json' }
+        });
+        const data = await res.json().catch(() => ({}));
+
+        if (res.ok && data.success !== false) {
+          closeDeleteBlogModal();
+          showToast('Blog article deleted successfully!');
+          await loadBlogs();
+        } else {
+          alert(data.message || 'Failed to delete article.');
+        }
+      } catch (err) {
+        console.error('Delete error:', err);
+        alert('Server connection error while deleting.');
+      } finally {
+        btn.disabled = false;
+        text.textContent = 'Yes, Delete Article';
+      }
+    }
+
+    loadBlogs();
+  </script>
+</body>
+</html>

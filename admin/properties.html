@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Properties • Golden Properties Admin</title>
+  <link rel="icon" type="image/png" href="/assest/Golden-Properties-Luxury-Logo.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { poppins: ['Poppins', 'sans-serif'] },
+          colors: {
+            copper: '#A8774A',
+            copperDark: '#8E5E34',
+            copperLight: '#C9996B',
+            darkBg: '#0F0E0D',
+            darkCard: '#181715',
+            darkBorder: '#272522'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-poppins bg-[#0A0908] text-gray-200 min-h-screen flex">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="w-64 bg-darkCard border-r border-darkBorder flex flex-col justify-between hidden md:flex shrink-0">
+    <div>
+      <!-- Brand Logo -->
+      <a href="/admin/index.html" class="h-24 px-6 flex items-center border-b border-darkBorder">
+        <img src="/assest/Golden-Properties-Luxury-Logo.png" alt="Golden Properties" class="h-12 sm:h-14 w-auto object-contain" />
+      </a>
+
+      <nav class="p-4 space-y-1.5 text-sm">
+        <a href="/admin/index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:text-white hover:bg-white/5 transition">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+          Dashboard
+        </a>
+        <a href="/admin/properties.html" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-copper/15 text-copperLight font-medium">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Properties
+        </a>
+        <a href="/admin/blogs.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:text-white hover:bg-white/5 transition">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/></svg>
+          Editorial Blogs
+        </a>
+        <a href="/admin/leads.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:text-white hover:bg-white/5 transition">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          Client Inquiries
+        </a>
+      </nav>
+    </div>
+
+    <div class="p-4 border-t border-darkBorder space-y-2">
+      <a href="/properties.html" target="_blank" class="flex items-center justify-between px-4 py-2.5 rounded-xl text-xs text-gray-400 hover:text-white hover:bg-white/5 transition">
+        <span>View Properties Page</span>
+        <span>↗</span>
+      </a>
+      <button onclick="logout()" class="w-full flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs text-red-400 hover:bg-red-500/10 transition">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Sign Out
+      </button>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+    <!-- Header -->
+    <header class="h-20 bg-darkCard/50 backdrop-blur border-b border-darkBorder px-6 sm:px-10 flex items-center justify-between sticky top-0 z-30">
+      <div class="flex items-center gap-4">
+        <a href="/admin/index.html" class="md:hidden flex items-center">
+          <img src="/assest/Golden-Properties-Luxury-Logo.png" alt="Golden Properties" class="h-10 w-auto object-contain" />
+        </a>
+        <div>
+          <h1 class="text-lg font-semibold text-white hidden md:block">Property Management Portal</h1>
+          <p class="text-xs text-gray-400 hidden md:block">Overview, Amenities, Price Lists, Specifications &amp; Location Advantages</p>
+        </div>
+      </div>
+
+      <button onclick="openPropertyModal()" class="px-4 py-2.5 bg-copper hover:bg-copperDark text-white text-xs font-medium rounded-xl transition shadow flex items-center gap-2">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        <span>+ Add New Property</span>
+      </button>
+    </header>
+
+    <!-- Page Body -->
+    <div class="p-6 sm:p-10 space-y-6 max-w-7xl">
+      <!-- Search & Filter bar -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 bg-darkCard p-4 rounded-2xl border border-darkBorder">
+        <div class="relative w-full sm:w-80">
+          <input type="text" id="searchInput" oninput="filterProperties()" placeholder="Search title, location, amenities..."
+            class="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-2 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-copper transition">
+          <svg class="absolute left-3.5 top-2.5 text-gray-500" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </div>
+
+        <div class="text-xs text-gray-400">
+          Total: <span id="propertyTotalCount" class="font-semibold text-copperLight">0</span> Landmark Projects
+        </div>
+      </div>
+
+      <!-- Properties Data Table -->
+      <div class="bg-darkCard rounded-3xl border border-darkBorder overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-white/[0.02] text-gray-400 uppercase tracking-wider text-[11px] border-b border-darkBorder">
+              <tr>
+                <th class="py-4 px-6">Property / Name &amp; Slug</th>
+                <th class="py-4 px-6">Location &amp; City</th>
+                <th class="py-4 px-6">Price &amp; BHK</th>
+                <th class="py-4 px-6">RERA &amp; Possession</th>
+                <th class="py-4 px-6">Key Specs &amp; Highlights</th>
+                <th class="py-4 px-6 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="propertiesTableBody" class="divide-y divide-darkBorder">
+              <tr>
+                <td colspan="6" class="py-12 text-center text-gray-500">Loading properties...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ================= PROPERTY MODAL (ADD / EDIT ALL FIELDS) ================= -->
+  <div id="propertyModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-darkCard border border-darkBorder rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-y-auto p-6 sm:p-8 relative">
+      <div class="flex items-center justify-between pb-4 border-b border-darkBorder mb-6 sticky top-0 bg-darkCard/95 backdrop-blur z-20">
+        <div>
+          <h2 id="modalTitle" class="text-lg font-semibold text-white">Add Property Information</h2>
+          <p class="text-xs text-gray-400">Manage all fields shown on the public project page (/project/:slug)</p>
+        </div>
+        <button onclick="closePropertyModal()" class="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white grid place-items-center transition">
+          ✕
+        </button>
+      </div>
+
+      <form id="propertyForm" class="space-y-6" onsubmit="handlePropertySubmit(event)">
+        <input type="hidden" id="propId" value="">
+
+        <!-- SECTION 1: IDENTITY & SLUG -->
+        <div class="bg-white/[0.02] border border-white/5 rounded-2xl p-5 space-y-4">
+          <h3 class="text-xs uppercase tracking-wider text-copperLight font-semibold flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-copper"></span> 1. Property Identity &amp; URL Slug
+          </h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Property Name *</label>
+              <input type="text" id="propName" required placeholder="e.g. BPTP Parklands Pride"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-copper transition">
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">
+                Custom URL Slug * <span class="text-[10px] text-gray-400 lowercase">(e.g. /project/bptp-parklands-pride)</span>
+              </label>
+              <input type="text" id="propSlug" required placeholder="e.g. bptp-parklands-pride"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-copperLight font-mono focus:outline-none focus:border-copper transition">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Developer / Builder *</label>
+              <input type="text" id="propDeveloper" required placeholder="e.g. BPTP Limited"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-copper transition">
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Property Type</label>
+              <select id="propType" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-copper transition">
+                <option value="Residential" class="bg-darkCard">Residential</option>
+                <option value="Apartments" class="bg-darkCard">Apartments</option>
+                <option value="Commercial" class="bg-darkCard">Commercial</option>
+                <option value="Villas" class="bg-darkCard">Villas</option>
+                <option value="Plots" class="bg-darkCard">Plots</option>
+                <option value="Penthouse" class="bg-darkCard">Penthouse</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 2: PRICING, CONFIGURATION & AREA -->
+        <div class="bg-white/[0.02] border border-white/5 rounded-2xl p-5 space-y-4">
+          <h3 class="text-xs uppercase tracking-wider text-copperLight font-semibold flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-copper"></span> 2. Pricing, Configuration &amp; Land Area
+          </h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Display Price *</label>
+              <div class="relative flex items-center">
+                <span class="absolute left-3.5 text-emerald-400 font-bold text-sm pointer-events-none select-none">₹</span>
+                <input type="text" id="propPrice" required placeholder="1.1 Cr* or 1.1 - 1.4 Cr*"
+                  class="w-full bg-white/5 border border-white/10 rounded-xl pl-8 pr-4 py-2.5 text-xs text-emerald-400 font-bold focus:outline-none focus:border-copper transition">
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Min Price in Cr (for filter)</label>
+              <input type="number" step="0.01" id="propPriceNumeric" placeholder="e.g. 1.10"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-copper transition">
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Configuration (BHK)</label>
+              <input type="text" id="propBhk" placeholder="e.g. 3 &amp; 4 BHK"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-copper transition">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Super Built-up Area</label>
+              <input type="text" id="propArea" placeholder="e.g. 1103 - 1803 Sq. Ft"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-copper transition">
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Total Project Land / Acreage</label>
+              <input type="text" id="propTotalArea" placeholder="e.g. 17 Acres Reserve"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-copper transition">
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Possession Status</label>
+              <input type="text" id="propPossessionStatus" placeholder="e.g. Ready To Move In"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-copper transition">
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 3: RERA & OVERVIEW SPECIFICS -->
+        <div class="bg-white/[0.02] border border-white/5 rounded-2xl p-5 space-y-4">
+          <h3 class="text-xs uppercase tracking-wider text-copperLight font-semibold flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-copper"></span> 3. RERA &amp; Overview Box Facts
+          </h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">RERA Registration No. *</label>
+              <input type="text" id="propReraNo" placeholder="e.g. HRERA-PKL-FBD-641-2024"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs font-mono text-emerald-400 focus:outline-none focus:border-copper transition">
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Status Badges (comma separated)</label>
+              <input type="text" id="propStatus" placeholder="e.g. VERIFIED, RERA APPROVED, Ready to Move"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-copper transition">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Overlooking / Facing View</label>
+              <input type="text" id="propOverlooking" placeholder="e.g. Landscaped Green Parks"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-copper transition">
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Car Parking</label>
+              <input type="text" id="propCarParking" placeholder="e.g. Reserved Basement"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-copper transition">
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Power Backup</label>
+              <input type="text" id="propPowerBackup" placeholder="e.g. 100% 24x7 Backup"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-copper transition">
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 4: LOCATION -->
+        <div class="bg-white/[0.02] border border-white/5 rounded-2xl p-5 space-y-4">
+          <h3 class="text-xs uppercase tracking-wider text-copperLight font-semibold flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-copper"></span> 4. Location &amp; Region
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="sm:col-span-2">
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Full Location Address *</label>
+              <input type="text" id="propLocation" required placeholder="e.g. Delhi-Faridabad Expressway, Sector 77, Faridabad"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-copper transition">
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">City / Region *</label>
+              <input type="text" id="propCity" list="cityOptions" required placeholder="e.g. Faridabad"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-copper transition">
+              <datalist id="cityOptions">
+                <option value="Gurugram"></option>
+                <option value="Faridabad"></option>
+                <option value="Noida"></option>
+                <option value="Delhi"></option>
+                <option value="Greater Noida"></option>
+                <option value="Mumbai"></option>
+                <option value="Bengaluru"></option>
+              </datalist>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 5: OVERVIEW NARRATIVE -->
+        <div class="bg-white/[0.02] border border-white/5 rounded-2xl p-5 space-y-4">
+          <h3 class="text-xs uppercase tracking-wider text-copperLight font-semibold flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-copper"></span> 5. Project Narrative / Overview
+          </h3>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Overview Description (multi-paragraph)</label>
+            <textarea id="propOverview" rows="4" placeholder="BPTP Parkland Pride, located in the prime area of Faridabad, is a premium residential project offering luxury 2, 3, and 4 BHK apartments..."
+              class="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-copper transition leading-relaxed"></textarea>
+          </div>
+        </div>
+
+        <!-- SECTION 6: FEATURES & AMENITIES -->
+        <div class="bg-white/[0.02] border border-white/5 rounded-2xl p-5 space-y-4">
+          <h3 class="text-xs uppercase tracking-wider text-copperLight font-semibold flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-copper"></span> 6. Features &amp; Amenities
+          </h3>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">List Amenities (one per line or comma-separated)</label>
+            <textarea id="propAmenities" rows="3" placeholder="Green Area&#10;Power backup&#10;Security&#10;CCTV&#10;Clubhouse&#10;Swimming Pool&#10;Gymnasium&#10;Water Supply"
+              class="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-copper transition"></textarea>
+          </div>
+        </div>
+
+        <!-- SECTION 7: PRICE LIST & FLOOR PLANS (CARD BUILDER) -->
+        <div class="bg-white/[0.02] border border-white/5 rounded-2xl p-5 space-y-4">
+          <div class="flex items-center justify-between gap-3 flex-wrap border-b border-white/5 pb-3">
+            <div>
+              <h3 class="text-xs uppercase tracking-wider text-copperLight font-semibold flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-copper"></span> 7. Price List &amp; Floor Configurations
+              </h3>
+              <p class="text-[11px] text-gray-400 mt-0.5">Add each floor plan / unit configuration as a separate card (Title, BHK, Area, Price).</p>
+            </div>
+            <button type="button" onclick="addFloorPlanCard()"
+              class="px-3.5 py-1.5 rounded-xl bg-copper hover:bg-copperDark text-white text-xs font-semibold flex items-center gap-1.5 transition shadow-sm cursor-pointer">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+              <span>+ Add Floor Plan Card</span>
+            </button>
+          </div>
+
+          <!-- Cards List Container -->
+          <div id="floorPlansContainer" class="space-y-3">
+            <!-- Dynamically rendered floor plan cards -->
+          </div>
+
+          <!-- Empty State -->
+          <div id="floorPlansEmptyState" class="hidden p-6 rounded-2xl border border-dashed border-white/10 text-center bg-white/[0.01]">
+            <p class="text-xs text-gray-400">No floor plan cards added yet.</p>
+            <button type="button" onclick="addFloorPlanCard()" class="mt-2 text-xs text-copper font-medium hover:underline inline-flex items-center gap-1">
+              <span>+ Click here to add your first floor plan card</span>
+            </button>
+          </div>
+
+          <input type="hidden" id="propPriceList" name="priceList" value="">
+        </div>
+
+        <!-- SECTION 8: SPECIFICATIONS -->
+        <div class="bg-white/[0.02] border border-white/5 rounded-2xl p-5 space-y-4">
+          <h3 class="text-xs uppercase tracking-wider text-copperLight font-semibold flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-copper"></span> 8. Specifications &amp; Architectural Highlights
+          </h3>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Finishing, Structure &amp; Materials</label>
+            <textarea id="propSpecifications" rows="3" placeholder="Type: Apartments&#10;Area: 1103 - 1803 Sq. Ft&#10;Total Area: 17 Acres&#10;Current Status: Ready To Move In&#10;Construction Partner: BPTP Limited&#10;Rera No.: HRERA-PKL-FBD-641-2024"
+              class="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-copper transition"></textarea>
+          </div>
+        </div>
+
+        <!-- SECTION 9: SITE LAYOUT & MASTER PLAN -->
+        <div class="bg-white/[0.02] border border-white/5 rounded-2xl p-5 space-y-4">
+          <h3 class="text-xs uppercase tracking-wider text-copperLight font-semibold flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-copper"></span> 9. Site Layout &amp; Master Plan Blueprint
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Upload Site Layout Photo</label>
+              <input type="file" id="propSiteLayoutFile" accept="image/*"
+                class="w-full text-xs text-gray-400 file:mr-3 file:py-2 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-medium file:bg-copper file:text-white hover:file:bg-copperDark transition cursor-pointer">
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">OR Layout Image URL</label>
+              <input type="url" id="propSiteLayoutUrl" placeholder="https://..."
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-copper transition">
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Site Layout Notes / Description</label>
+            <input type="text" id="propSiteLayoutDesc" placeholder="e.g. Master plan with pedestrian loops and landscaped greenery"
+              class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-copper transition">
+          </div>
+        </div>
+
+        <!-- SECTION 10: LOCATION ADVANTAGES & CONNECTIVITY -->
+        <div class="bg-white/[0.02] border border-white/5 rounded-2xl p-5 space-y-4">
+          <h3 class="text-xs uppercase tracking-wider text-copperLight font-semibold flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-copper"></span> 10. Location Advantages &amp; Connectivity
+          </h3>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Proximity &amp; Commute Time (one per line, e.g. Destination, Time)</label>
+            <textarea id="propLocationAdvantages" rows="3" placeholder="Delhi-Faridabad Expressway, 0 KM&#10;IGI International Airport (T3), 35 Min&#10;Nearest Metro Station, 5 Min&#10;Top Schools &amp; Hospitals, 3 KM"
+              class="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-copper transition"></textarea>
+          </div>
+        </div>
+
+        <!-- SECTION 11: MEDIA, GALLERY & BROCHURE -->
+        <div class="bg-white/[0.02] border border-white/5 rounded-2xl p-5 space-y-4">
+          <h3 class="text-xs uppercase tracking-wider text-copperLight font-semibold flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-copper"></span> 11. Photos &amp; Official PDF Brochure
+          </h3>
+          
+          <!-- Main Cover Photo -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Main Cover Photo Upload</label>
+              <input type="file" id="propImageFile" accept="image/*"
+                class="w-full text-xs text-gray-400 file:mr-3 file:py-2 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-medium file:bg-copper file:text-white hover:file:bg-copperDark transition cursor-pointer">
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">OR Main Cover Photo URL</label>
+              <input type="url" id="propImageUrl" placeholder="https://images.unsplash.com/..."
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-copper transition">
+            </div>
+          </div>
+
+          <!-- Secondary Gallery Photo -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Secondary Gallery Photo Upload</label>
+              <input type="file" id="propSecondaryImageFile" accept="image/*"
+                class="w-full text-xs text-gray-400 file:mr-3 file:py-2 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-medium file:bg-copper file:text-white hover:file:bg-copperDark transition cursor-pointer">
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">OR Secondary Photo URL</label>
+              <input type="url" id="propSecondaryImageUrl" placeholder="https://images.unsplash.com/..."
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-copper transition">
+            </div>
+          </div>
+
+          <!-- PDF Brochure -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">Official PDF Brochure Upload</label>
+              <input type="file" id="propBrochureFile" accept=".pdf,application/pdf"
+                class="w-full text-xs text-gray-400 file:mr-3 file:py-2 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-medium file:bg-copper file:text-white hover:file:bg-copperDark transition cursor-pointer">
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1">OR Brochure PDF URL</label>
+              <input type="url" id="propBrochureUrl" placeholder="https://.../brochure.pdf"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-copper transition">
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2">
+            <input type="checkbox" id="propFeatured" class="w-4 h-4 rounded text-copper focus:ring-0 bg-white/10 border-white/20">
+            <label for="propFeatured" class="text-xs text-gray-300 cursor-pointer">Mark as Featured Landmark Property</label>
+          </div>
+        </div>
+
+        <!-- Submit Actions -->
+        <div class="flex items-center justify-end gap-3 pt-4 border-t border-darkBorder sticky bottom-0 bg-darkCard/95 backdrop-blur p-2 z-20">
+          <button type="button" onclick="closePropertyModal()" class="px-5 py-2.5 bg-white/5 hover:bg-white/10 text-gray-300 text-xs font-medium rounded-xl transition">
+            Cancel
+          </button>
+          <button type="submit" id="savePropBtn" class="px-6 py-2.5 bg-copper hover:bg-copperDark text-white text-xs font-medium rounded-xl transition shadow">
+            Save Property Details
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= PROPERTY DETAIL PREVIEW MODAL ================= -->
+  <div id="detailViewModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-darkCard border border-darkBorder rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative">
+      <div class="flex items-center justify-between pb-4 border-b border-darkBorder mb-6">
+        <div>
+          <span class="text-[10px] uppercase tracking-widest text-copperLight font-bold" id="detailModalSubtitle">Project Overview</span>
+          <h2 id="detailModalTitle" class="text-xl font-bold text-white">Property Details</h2>
+        </div>
+        <div class="flex items-center gap-3">
+          <a id="detailLivePageLink" href="#" target="_blank" class="px-3 py-1.5 rounded-xl bg-copper hover:bg-copperDark text-white text-xs font-medium flex items-center gap-1.5 transition">
+            <span>View Live Page</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+          </a>
+          <button onclick="closeDetailModal()" class="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white grid place-items-center transition">✕</button>
+        </div>
+      </div>
+      <div id="detailModalContent" class="space-y-6 text-xs text-gray-300">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= DELETE CONFIRMATION MODAL ================= -->
+  <div id="deleteConfirmModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-darkCard border border-darkBorder rounded-3xl max-w-md w-full p-6 sm:p-7 relative text-center space-y-5 shadow-2xl">
+      <div class="w-14 h-14 rounded-2xl bg-red-500/10 border border-red-500/30 text-red-400 grid place-items-center mx-auto">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 6h18m-2 0v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2M10 11v6M14 11v6"/>
+        </svg>
+      </div>
+      <div>
+        <h3 class="text-lg font-bold text-white">Delete Property Listing?</h3>
+        <p class="text-xs text-gray-400 mt-2 leading-relaxed">
+          Are you sure you want to permanently delete <span class="text-white font-semibold" id="deletePropName">this property</span>? This will remove it from the website immediately.
+        </p>
+      </div>
+      <div class="flex items-center justify-center gap-3 pt-2">
+        <button type="button" onclick="closeDeleteModal()" class="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 text-xs font-medium transition cursor-pointer">
+          Cancel
+        </button>
+        <button type="button" id="confirmDeleteBtn" onclick="executeDeleteProperty()" class="px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-semibold transition shadow-lg shadow-red-600/30 flex items-center gap-2 cursor-pointer">
+          <span id="confirmDeleteText">Yes, Delete Property</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="fixed bottom-6 right-6 z-50 space-y-2 pointer-events-none"></div>
+
+  <script>
+    if (!localStorage.getItem('golden_admin_token')) {
+      window.location.href = '/admin/login.html';
+    }
+
+    function logout() {
+      localStorage.removeItem('golden_admin_token');
+      localStorage.removeItem('golden_admin_user');
+      window.location.href = '/admin/login.html';
+    }
+
+    let allProperties = [];
+
+    async function loadProperties() {
+      try {
+        const res = await fetch('/api/properties');
+        allProperties = await res.json();
+        renderProperties(allProperties);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    function renderProperties(list) {
+      document.getElementById('propertyTotalCount').textContent = list.length;
+      const tbody = document.getElementById('propertiesTableBody');
+
+      if (!list.length) {
+        tbody.innerHTML = `<tr><td colspan="6" class="py-12 text-center text-gray-500">No properties found. Click "+ Add New Property" to create one.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = list.map(p => `
+        <tr class="hover:bg-white/[0.02] transition">
+          <td class="py-4 px-6">
+            <div class="flex items-center gap-3">
+              <img src="${p.image}" class="w-14 h-14 rounded-xl object-cover border border-white/10 shrink-0 bg-ink" alt="${p.name || p.title}" />
+              <div>
+                <div class="font-semibold text-white text-[13px] flex items-center gap-2">
+                  <span>${p.name || p.title}</span>
+                  ${p.featured ? '<span class="px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 text-[9px] uppercase font-bold">★ Featured</span>' : ''}
+                </div>
+                <div class="text-[11px] text-gray-400">by ${p.developer || 'Golden Developers'}</div>
+                <a href="/project/${p.slug || p.id}" target="_blank" class="text-[10px] text-copperLight hover:underline font-mono">/project/${p.slug || p.id}</a>
+              </div>
+            </div>
+          </td>
+          <td class="py-4 px-6 text-gray-300 max-w-[190px]">
+            <div class="font-medium text-white truncate">${p.city || 'Gurugram'}</div>
+            <div class="text-[11px] text-gray-400 truncate" title="${p.location}">${p.location}</div>
+          </td>
+          <td class="py-4 px-6">
+            <div class="font-bold text-emerald-400 text-[13px]">${p.price}</div>
+            <div class="text-[11px] text-gray-400 font-medium">${p.bhk || '3,4 BHK'}</div>
+          </td>
+          <td class="py-4 px-6 text-gray-300">
+            <span class="inline-block px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+              ${p.reraNo ? `RERA: ${p.reraNo}` : 'RERA Approved'}
+            </span>
+            <div class="text-[10.5px] text-gray-400 mt-1">${(p.possessionStatus || p.status || 'Ready To Move In').split(',')[0]}</div>
+          </td>
+          <td class="py-4 px-6 text-gray-300">
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <span class="px-2 py-0.5 rounded bg-white/5 text-[10px] text-gray-300">${(p.amenities || []).length} Amenities</span>
+              <span class="px-2 py-0.5 rounded bg-white/5 text-[10px] text-copperLight">${p.area || p.totalArea || ((p.locationAdvantages || []).length + ' Connectivity')}</span>
+            </div>
+            <div class="mt-1 text-[11px] text-gray-500 truncate max-w-[180px]">${p.overview || ''}</div>
+          </td>
+          <td class="py-4 px-6 text-right">
+            <div class="flex items-center justify-end gap-1.5">
+              <a href="/project/${p.slug || p.id}" target="_blank" title="View Live Public Page" class="px-2.5 py-1.5 rounded-lg bg-copper/20 hover:bg-copper text-copperLight hover:text-white transition text-xs flex items-center gap-1">
+                <span>Live ↗</span>
+              </a>
+              <button onclick="viewPropertyDetails('${p.id}')" title="Preview all fields" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-sky-400 hover:text-white transition text-xs">
+                View
+              </button>
+              <button onclick="editProperty('${p.id}')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-copperLight hover:text-white transition text-xs">
+                Edit
+              </button>
+              <button onclick="deleteProperty('${p.id}')" class="px-2.5 py-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 transition text-xs">
+                Delete
+              </button>
+            </div>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function filterProperties() {
+      const q = document.getElementById('searchInput').value.toLowerCase().trim();
+      const filtered = allProperties.filter(p => 
+        (p.name || p.title || '').toLowerCase().includes(q) ||
+        (p.slug || '').toLowerCase().includes(q) ||
+        (p.developer || '').toLowerCase().includes(q) ||
+        (p.location || '').toLowerCase().includes(q) ||
+        (p.city || '').toLowerCase().includes(q) ||
+        (p.reraNo || '').toLowerCase().includes(q) ||
+        (p.bhk || '').toLowerCase().includes(q) ||
+        (p.overview || '').toLowerCase().includes(q) ||
+        (p.amenities || []).some(a => a.toLowerCase().includes(q))
+      );
+      renderProperties(filtered);
+    }
+
+    // ================= PRICE PREFIX HELPERS =================
+    function stripRupee(val) {
+      if (!val) return '';
+      return String(val).replace(/^(₹|rs\.?|inr)\s*/i, '').trim();
+    }
+
+    function formatPriceWithRupee(val) {
+      if (!val) return '';
+      const clean = stripRupee(val);
+      return clean ? `₹ ${clean}` : '';
+    }
+
+    // ================= FLOOR PLANS CARD BUILDER =================
+    function addFloorPlanCard(data = {}) {
+      const container = document.getElementById('floorPlansContainer');
+      const emptyState = document.getElementById('floorPlansEmptyState');
+      if (emptyState) emptyState.classList.add('hidden');
+
+      const card = document.createElement('div');
+      card.className = 'floor-plan-card bg-white/[0.03] hover:bg-white/[0.04] border border-white/10 hover:border-copper/40 rounded-2xl p-4 space-y-3 transition relative group';
+      
+      const title = data.title || '';
+      const bhk = data.bhk || '';
+      const area = data.area || '';
+      const rawPrice = data.price || '';
+      const displayPrice = stripRupee(rawPrice);
+      const layoutUrl = data.layoutUrl || '';
+
+      card.innerHTML = `
+        <div class="flex items-center justify-between gap-3 border-b border-white/5 pb-2.5">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-copper/20 text-copper text-xs font-bold grid place-items-center fp-badge-num">#</span>
+            <span class="text-xs font-semibold text-white fp-preview-title">${title || 'Floor Plan Unit'}</span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 font-medium fp-preview-tag">${formatPriceWithRupee(rawPrice) || 'Pricing'}</span>
+          </div>
+          <button type="button" onclick="removeFloorPlanCard(this)" title="Delete this card" class="px-2.5 py-1 rounded-lg bg-red-500/10 hover:bg-red-500/25 text-red-400 hover:text-red-300 text-xs font-medium transition flex items-center gap-1 cursor-pointer">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            <span>Delete Card</span>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div>
+            <label class="block text-[10.5px] uppercase tracking-wider text-gray-300 font-medium mb-1">Plan / Floor Title *</label>
+            <input type="text" class="fp-title w-full bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-copper transition"
+              placeholder="e.g. Ground / 1st Floor Plan" value="${title.replace(/"/g, '&quot;')}" oninput="updateFloorPlanPreview(this)" required>
+          </div>
+          <div>
+            <label class="block text-[10.5px] uppercase tracking-wider text-gray-300 font-medium mb-1">BHK / Unit Type</label>
+            <input type="text" class="fp-bhk w-full bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-copper transition"
+              placeholder="e.g. 3 BHK or 4 BHK Penthouse" value="${bhk.replace(/"/g, '&quot;')}" oninput="updateFloorPlanPreview(this)">
+          </div>
+          <div>
+            <label class="block text-[10.5px] uppercase tracking-wider text-gray-300 font-medium mb-1">Super Area / Size *</label>
+            <input type="text" class="fp-area w-full bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-copper transition"
+              placeholder="e.g. 1103 Sq. Ft" value="${area.replace(/"/g, '&quot;')}" oninput="updateFloorPlanPreview(this)">
+          </div>
+          <div>
+            <label class="block text-[10.5px] uppercase tracking-wider text-gray-300 font-medium mb-1">Price *</label>
+            <div class="relative flex items-center">
+              <span class="absolute left-3 text-emerald-400 font-bold text-xs pointer-events-none select-none">₹</span>
+              <input type="text" class="fp-price w-full bg-white/5 border border-white/10 rounded-xl pl-7 pr-3 py-2 text-xs text-emerald-400 font-bold placeholder-emerald-400/40 focus:outline-none focus:border-copper transition"
+                placeholder="1.1 Cr" value="${displayPrice.replace(/"/g, '&quot;')}" oninput="updateFloorPlanPreview(this)">
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-0.5">
+          <input type="text" class="fp-layout w-full bg-white/5 border border-white/10 rounded-xl px-3 py-1.5 text-[11px] text-gray-300 placeholder-gray-600 focus:outline-none focus:border-copper transition"
+            placeholder="Optional: Floor plan layout blueprint image URL or link (e.g. /uploads/... or https://...)" value="${layoutUrl.replace(/"/g, '&quot;')}">
+        </div>
+      `;
+
+      container.appendChild(card);
+      renumberFloorPlanCards();
+    }
+
+    function removeFloorPlanCard(btn) {
+      const card = btn.closest('.floor-plan-card');
+      if (card) {
+        card.remove();
+        renumberFloorPlanCards();
+      }
+    }
+
+    function renumberFloorPlanCards() {
+      const cards = document.querySelectorAll('.floor-plan-card');
+      const emptyState = document.getElementById('floorPlansEmptyState');
+      if (cards.length === 0) {
+        if (emptyState) emptyState.classList.remove('hidden');
+      } else {
+        if (emptyState) emptyState.classList.add('hidden');
+      }
+      cards.forEach((card, idx) => {
+        const badge = card.querySelector('.fp-badge-num');
+        if (badge) badge.textContent = `#${idx + 1}`;
+      });
+    }
+
+    function updateFloorPlanPreview(input) {
+      const card = input.closest('.floor-plan-card');
+      if (!card) return;
+      const titleInput = card.querySelector('.fp-title');
+      const bhkInput = card.querySelector('.fp-bhk');
+      const priceInput = card.querySelector('.fp-price');
+      const previewTitle = card.querySelector('.fp-preview-title');
+      const previewTag = card.querySelector('.fp-preview-tag');
+
+      const titleVal = titleInput ? titleInput.value.trim() : '';
+      const bhkVal = bhkInput ? bhkInput.value.trim() : '';
+      const priceVal = priceInput ? priceInput.value.trim() : '';
+
+      if (previewTitle) {
+        previewTitle.textContent = titleVal || bhkVal || 'Floor Plan Unit';
+      }
+      if (previewTag) {
+        previewTag.textContent = priceVal ? formatPriceWithRupee(priceVal) : (bhkVal ? `${bhkVal} Unit` : 'Configuration');
+      }
+    }
+
+    function clearFloorPlansContainer() {
+      const container = document.getElementById('floorPlansContainer');
+      if (container) container.innerHTML = '';
+      renumberFloorPlanCards();
+    }
+
+    function getFloorPlansData() {
+      const cards = document.querySelectorAll('.floor-plan-card');
+      const plans = [];
+      cards.forEach(card => {
+        const title = (card.querySelector('.fp-title')?.value || '').trim();
+        const bhk = (card.querySelector('.fp-bhk')?.value || '').trim();
+        const area = (card.querySelector('.fp-area')?.value || '').trim();
+        const rawPrice = (card.querySelector('.fp-price')?.value || '').trim();
+        const price = formatPriceWithRupee(rawPrice);
+        const layoutUrl = (card.querySelector('.fp-layout')?.value || '').trim();
+
+        if (title || bhk || area || rawPrice) {
+          plans.push({ title, bhk, area, price, layoutUrl });
+        }
+      });
+      return plans;
+    }
+
+    function renderFloorPlanCardsFromProperty(p) {
+      clearFloorPlansContainer();
+      if (p.floorPlans && Array.isArray(p.floorPlans) && p.floorPlans.length > 0) {
+        p.floorPlans.forEach(fp => addFloorPlanCard(fp));
+      } else if (p.priceList && p.priceList.trim()) {
+        const lines = p.priceList.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+        for (let i = 0; i < lines.length; i += 3) {
+          addFloorPlanCard({
+            title: lines[i] || '',
+            area: lines[i + 1] || '',
+            price: lines[i + 2] || '',
+            bhk: ''
+          });
+        }
+      } else {
+        addFloorPlanCard();
+      }
+    }
+
+    function openPropertyModal() {
+      document.getElementById('propertyForm').reset();
+      document.getElementById('propId').value = '';
+      document.getElementById('modalTitle').textContent = 'Add Property Information';
+      clearFloorPlansContainer();
+      addFloorPlanCard();
+      document.getElementById('propertyModal').classList.remove('hidden');
+    }
+
+    // Auto-generate URL slug when typing name in add mode
+    document.getElementById('propName').addEventListener('input', function() {
+      if (!document.getElementById('propId').value) {
+        document.getElementById('propSlug').value = this.value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      }
+    });
+
+    function closePropertyModal() {
+      document.getElementById('propertyModal').classList.add('hidden');
+    }
+
+    function closeDetailModal() {
+      document.getElementById('detailViewModal').classList.add('hidden');
+    }
+
+    function viewPropertyDetails(id) {
+      const p = allProperties.find(item => item.id === id);
+      if (!p) return;
+
+      document.getElementById('detailModalTitle').textContent = p.name || p.title;
+      document.getElementById('detailModalSubtitle').textContent = `${p.developer || 'Golden Developers'} • ${p.location}`;
+      const liveBtn = document.getElementById('detailLivePageLink');
+      if (liveBtn) liveBtn.href = `/project/${p.slug || p.id}`;
+
+      const amenitiesHtml = (p.amenities && p.amenities.length)
+        ? `<div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-2">
+            ${p.amenities.map(a => `<div class="p-2.5 rounded-xl bg-white/5 border border-white/5 flex items-center gap-2 text-gray-200">
+              <span class="text-copper">✓</span> <span class="truncate">${a}</span>
+            </div>`).join('')}
+          </div>`
+        : '<p class="text-gray-500 italic mt-1">No amenities listed yet.</p>';
+
+      const advantagesHtml = (p.locationAdvantages && p.locationAdvantages.length)
+        ? `<ul class="space-y-1.5 mt-2">
+            ${p.locationAdvantages.map(adv => `<li class="flex items-start gap-2 text-gray-300">
+              <span class="text-copperLight font-bold">📍</span> <span>${adv}</span>
+            </li>`).join('')}
+          </ul>`
+        : '<p class="text-gray-500 italic mt-1">No location advantages added yet.</p>';
+
+      const layoutImg = (p.siteLayout && p.siteLayout.image) ? `<div class="mt-3 rounded-2xl overflow-hidden border border-white/10 max-h-64 bg-black">
+        <img src="${p.siteLayout.image}" class="w-full h-full object-contain" alt="Site Layout" />
+      </div>` : '';
+
+      const brochureBtn = p.brochureUrl ? `
+        <a href="${p.brochureUrl}" target="_blank" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-red-500/20 text-red-300 border border-red-500/30 hover:bg-red-500/30 text-xs transition">
+          <span>📄 View / Download PDF Brochure</span>
+        </a>
+      ` : '<span class="text-gray-500 italic text-xs">No PDF brochure attached.</span>';
+
+      const plansList = (p.floorPlans && p.floorPlans.length) ? p.floorPlans : (
+        (p.priceList && p.priceList.trim()) ? (function() {
+          const lines = p.priceList.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+          const res = [];
+          for (let i = 0; i < lines.length; i += 3) {
+            res.push({ title: lines[i] || '', area: lines[i+1] || '', price: lines[i+2] || '', bhk: '' });
+          }
+          return res;
+        })() : []
+      );
+
+      const floorPlansModalHtml = plansList.length ? `
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-2">
+          ${plansList.map(fp => `
+            <div class="p-3.5 rounded-xl bg-white/5 border border-white/10 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-bold text-copper uppercase tracking-wider">${fp.bhk || 'Floor Plan'}</span>
+                <h5 class="text-xs font-semibold text-white mt-1 leading-snug">${fp.title || 'Typical Floor Plan'}</h5>
+                <p class="text-[11px] text-gray-400 mt-0.5">${fp.area || 'Spacious Unit'}</p>
+                ${fp.layoutUrl ? `<a href="${fp.layoutUrl}" target="_blank" class="text-[10.5px] text-copperLight underline block mt-1">View Layout ↗</a>` : ''}
+              </div>
+              <div class="mt-3 pt-2 border-t border-white/5 flex items-center justify-between">
+                <span class="text-xs font-bold text-emerald-400">${fp.price || 'Price on Request'}</span>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      ` : '<p class="text-gray-500 italic text-xs mt-1">No floor plan configurations added.</p>';
+
+      document.getElementById('detailModalContent').innerHTML = `
+        <!-- Main Image Banner & Quick Stats -->
+        <div class="relative rounded-2xl overflow-hidden border border-white/10 h-56 bg-ink">
+          <img src="${p.image}" class="w-full h-full object-cover" />
+          <div class="absolute bottom-3 left-3 bg-black/80 backdrop-blur px-3.5 py-1.5 rounded-xl text-emerald-400 font-bold text-sm border border-white/10">
+            ${p.price}
+          </div>
+          <div class="absolute bottom-3 right-3 bg-black/80 backdrop-blur px-3 py-1 rounded-xl text-xs text-white border border-white/10 font-mono">
+            /project/${p.slug || p.id}
+          </div>
+        </div>
+
+        <!-- 8-Card Key Facts Metric Grid (Matching Project Details Overview) -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="bg-white/[0.03] p-3 rounded-xl border border-white/5">
+            <span class="text-[10px] text-gray-400 uppercase tracking-wider block">BHK Units</span>
+            <span class="text-sm font-semibold text-white">${p.bhk || '3,4 BHK'}</span>
+          </div>
+          <div class="bg-white/[0.03] p-3 rounded-xl border border-white/5">
+            <span class="text-[10px] text-gray-400 uppercase tracking-wider block">Super Built-up Area</span>
+            <span class="text-sm font-semibold text-white">${p.area || '1103 - 1803 Sq. Ft'}</span>
+          </div>
+          <div class="bg-white/[0.03] p-3 rounded-xl border border-white/5">
+            <span class="text-[10px] text-gray-400 uppercase tracking-wider block">Total Project Land</span>
+            <span class="text-sm font-semibold text-white">${p.totalArea || '17 Acres Reserve'}</span>
+          </div>
+          <div class="bg-white/[0.03] p-3 rounded-xl border border-white/5">
+            <span class="text-[10px] text-gray-400 uppercase tracking-wider block">Possession Status</span>
+            <span class="text-sm font-semibold text-copperLight">${(p.possessionStatus || p.status || 'Ready To Move In').split(',')[0]}</span>
+          </div>
+          <div class="bg-white/[0.03] p-3 rounded-xl border border-white/5">
+            <span class="text-[10px] text-gray-400 uppercase tracking-wider block">RERA Number</span>
+            <span class="text-xs font-mono font-bold text-emerald-400 truncate block">${p.reraNo || 'RERA Registered'}</span>
+          </div>
+          <div class="bg-white/[0.03] p-3 rounded-xl border border-white/5">
+            <span class="text-[10px] text-gray-400 uppercase tracking-wider block">Overlooking</span>
+            <span class="text-xs font-semibold text-white truncate block">${p.overlooking || 'Landscaped Green Parks'}</span>
+          </div>
+          <div class="bg-white/[0.03] p-3 rounded-xl border border-white/5">
+            <span class="text-[10px] text-gray-400 uppercase tracking-wider block">Car Parking</span>
+            <span class="text-xs font-semibold text-white truncate block">${p.carParking || 'Reserved Basement'}</span>
+          </div>
+          <div class="bg-white/[0.03] p-3 rounded-xl border border-white/5">
+            <span class="text-[10px] text-gray-400 uppercase tracking-wider block">Power Backup</span>
+            <span class="text-xs font-semibold text-white truncate block">${p.powerBackup || '100% 24x7 Backup'}</span>
+          </div>
+        </div>
+
+        <!-- Overview -->
+        <div class="bg-white/[0.02] p-4 rounded-2xl border border-white/5">
+          <h4 class="text-xs uppercase tracking-wider text-copperLight font-semibold">1. Project Overview &amp; Narrative</h4>
+          <p class="mt-2 text-gray-300 leading-relaxed whitespace-pre-wrap">${p.overview || 'No overview provided.'}</p>
+        </div>
+
+        <!-- Features & Amenities -->
+        <div class="bg-white/[0.02] p-4 rounded-2xl border border-white/5">
+          <h4 class="text-xs uppercase tracking-wider text-copperLight font-semibold">2. Features &amp; Amenities (${(p.amenities || []).length})</h4>
+          ${amenitiesHtml}
+        </div>
+
+        <!-- Price List & Area -->
+        <div class="bg-white/[0.02] p-4 rounded-2xl border border-white/5">
+          <h4 class="text-xs uppercase tracking-wider text-copperLight font-semibold">3. Price Details &amp; Configurations</h4>
+          ${floorPlansModalHtml}
+        </div>
+
+        <!-- Specifications -->
+        <div class="bg-white/[0.02] p-4 rounded-2xl border border-white/5">
+          <h4 class="text-xs uppercase tracking-wider text-copperLight font-semibold">4. Specifications &amp; Architectural Highlights</h4>
+          <pre class="mt-2 text-gray-300 font-sans whitespace-pre-wrap leading-relaxed">${p.specifications || 'Luxury specifications available on brochure.'}</pre>
+        </div>
+
+        <!-- Site Layout -->
+        <div class="bg-white/[0.02] p-4 rounded-2xl border border-white/5">
+          <h4 class="text-xs uppercase tracking-wider text-copperLight font-semibold">5. Site Layout &amp; Master Plan</h4>
+          <p class="mt-1 text-gray-400">${(p.siteLayout && p.siteLayout.description) || 'Master blueprint.'}</p>
+          ${layoutImg}
+        </div>
+
+        <!-- Project Location Advantages -->
+        <div class="bg-white/[0.02] p-4 rounded-2xl border border-white/5">
+          <h4 class="text-xs uppercase tracking-wider text-copperLight font-semibold">6. Location Advantages &amp; Connectivity</h4>
+          ${advantagesHtml}
+        </div>
+
+        <!-- Official Brochure -->
+        <div class="bg-white/[0.02] p-4 rounded-2xl border border-white/5 flex items-center justify-between">
+          <div>
+            <h4 class="text-xs uppercase tracking-wider text-copperLight font-semibold">7. Official PDF Brochure</h4>
+            <p class="text-[11px] text-gray-400 mt-0.5">Connected to the public page brochure download concierge</p>
+          </div>
+          <div>${brochureBtn}</div>
+        </div>
+      `;
+
+      document.getElementById('detailViewModal').classList.remove('hidden');
+    }
+
+    function editProperty(id) {
+      const p = allProperties.find(item => item.id === id);
+      if (!p) return;
+
+      document.getElementById('propId').value = p.id;
+      document.getElementById('modalTitle').textContent = 'Edit Property: ' + (p.name || p.title);
+      document.getElementById('propName').value = p.name || p.title || '';
+      document.getElementById('propSlug').value = p.slug || '';
+      document.getElementById('propDeveloper').value = p.developer || '';
+      document.getElementById('propType').value = p.type || 'Residential';
+      document.getElementById('propPrice').value = stripRupee(p.price || '');
+      document.getElementById('propPriceNumeric').value = p.priceNumeric || '';
+      document.getElementById('propBhk').value = p.bhk || '';
+      document.getElementById('propArea').value = p.area || '';
+      document.getElementById('propTotalArea').value = p.totalArea || '';
+      document.getElementById('propPossessionStatus').value = p.possessionStatus || p.status || '';
+      document.getElementById('propStatus').value = p.status || '';
+      document.getElementById('propReraNo').value = p.reraNo || '';
+      document.getElementById('propOverlooking').value = p.overlooking || '';
+      document.getElementById('propCarParking').value = p.carParking || '';
+      document.getElementById('propPowerBackup').value = p.powerBackup || '';
+      document.getElementById('propLocation').value = p.location || '';
+      document.getElementById('propCity').value = p.city || 'Gurugram';
+      document.getElementById('propOverview').value = p.overview || '';
+      document.getElementById('propAmenities').value = (p.amenities || []).join('\n');
+      renderFloorPlanCardsFromProperty(p);
+      document.getElementById('propSpecifications').value = p.specifications || '';
+      document.getElementById('propSiteLayoutDesc').value = (p.siteLayout && p.siteLayout.description) || '';
+      document.getElementById('propSiteLayoutUrl').value = (p.siteLayout && p.siteLayout.image && p.siteLayout.image.startsWith('http')) ? p.siteLayout.image : '';
+      document.getElementById('propLocationAdvantages').value = (p.locationAdvantages || []).join('\n');
+      document.getElementById('propImageUrl').value = p.image && p.image.startsWith('http') ? p.image : '';
+      document.getElementById('propSecondaryImageUrl').value = p.secondaryImage && p.secondaryImage.startsWith('http') ? p.secondaryImage : '';
+      document.getElementById('propBrochureUrl').value = p.brochureUrl && p.brochureUrl.startsWith('http') ? p.brochureUrl : '';
+      document.getElementById('propFeatured').checked = !!p.featured;
+
+      document.getElementById('propertyModal').classList.remove('hidden');
+    }
+
+    async function handlePropertySubmit(e) {
+      e.preventDefault();
+      const saveBtn = document.getElementById('savePropBtn');
+      saveBtn.disabled = true;
+      saveBtn.textContent = 'Saving Details...';
+
+      const propId = document.getElementById('propId').value;
+      const formData = new FormData();
+      formData.append('name', document.getElementById('propName').value);
+      formData.append('title', document.getElementById('propName').value);
+      formData.append('slug', document.getElementById('propSlug').value);
+      formData.append('developer', document.getElementById('propDeveloper').value);
+      formData.append('type', document.getElementById('propType').value);
+      formData.append('price', formatPriceWithRupee(document.getElementById('propPrice').value));
+      let rawPriceNum = document.getElementById('propPriceNumeric').value;
+      if (!rawPriceNum || isNaN(parseFloat(rawPriceNum))) {
+        const m = (document.getElementById('propPrice').value || '').match(/(\d+(?:\.\d+)?)/);
+        rawPriceNum = m ? m[1] : '0';
+      }
+      formData.append('priceNumeric', rawPriceNum);
+      formData.append('bhk', document.getElementById('propBhk').value);
+      formData.append('area', document.getElementById('propArea').value);
+      formData.append('totalArea', document.getElementById('propTotalArea').value);
+      formData.append('possessionStatus', document.getElementById('propPossessionStatus').value);
+      formData.append('status', document.getElementById('propStatus').value);
+      formData.append('reraNo', document.getElementById('propReraNo').value);
+      formData.append('overlooking', document.getElementById('propOverlooking').value);
+      formData.append('carParking', document.getElementById('propCarParking').value);
+      formData.append('powerBackup', document.getElementById('propPowerBackup').value);
+      formData.append('location', document.getElementById('propLocation').value);
+      formData.append('city', document.getElementById('propCity').value);
+      formData.append('overview', document.getElementById('propOverview').value);
+      formData.append('amenities', document.getElementById('propAmenities').value);
+
+      const floorPlans = getFloorPlansData();
+      formData.append('floorPlans', JSON.stringify(floorPlans));
+      const priceListText = floorPlans.map(fp => `${fp.title || 'Typical Floor Plan'}\n${fp.area || ''}\n${fp.price || ''}`).join('\n\n');
+      formData.append('priceList', priceListText);
+
+      formData.append('specifications', document.getElementById('propSpecifications').value);
+      formData.append('siteLayoutDesc', document.getElementById('propSiteLayoutDesc').value);
+      formData.append('siteLayoutUrl', document.getElementById('propSiteLayoutUrl').value);
+      formData.append('locationAdvantages', document.getElementById('propLocationAdvantages').value);
+      formData.append('imageUrl', document.getElementById('propImageUrl').value);
+      formData.append('secondaryImageUrl', document.getElementById('propSecondaryImageUrl').value);
+      formData.append('brochureUrl', document.getElementById('propBrochureUrl').value);
+      formData.append('featured', document.getElementById('propFeatured').checked);
+
+      const mainFile = document.getElementById('propImageFile');
+      if (mainFile && mainFile.files.length > 0) {
+        formData.append('imageFile', mainFile.files[0]);
+      }
+
+      const secFile = document.getElementById('propSecondaryImageFile');
+      if (secFile && secFile.files.length > 0) {
+        formData.append('secondaryImageFile', secFile.files[0]);
+      }
+
+      const layoutFile = document.getElementById('propSiteLayoutFile');
+      if (layoutFile && layoutFile.files.length > 0) {
+        formData.append('siteLayoutFile', layoutFile.files[0]);
+      }
+
+      const broFile = document.getElementById('propBrochureFile');
+      if (broFile && broFile.files.length > 0) {
+        formData.append('brochureFile', broFile.files[0]);
+      }
+
+      try {
+        const url = propId ? `/api/properties/${propId}` : '/api/properties';
+        const method = propId ? 'PUT' : 'POST';
+
+        const res = await fetch(url, {
+          method,
+          body: formData
+        });
+
+        if (res.ok) {
+          closePropertyModal();
+          await loadProperties();
+        } else {
+          const errData = await res.json().catch(() => ({}));
+          alert(errData.message || 'Failed to save property. Please check input values.');
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Server error saving property.');
+      } finally {
+        saveBtn.disabled = false;
+        saveBtn.textContent = 'Save Property Details';
+      }
+    }
+
+    let pendingDeleteId = null;
+
+    function showToast(msg, isError = false) {
+      const container = document.getElementById('toastContainer');
+      if (!container) return;
+      const t = document.createElement('div');
+      t.className = `px-4 py-3 rounded-2xl shadow-xl text-xs font-medium flex items-center gap-2 transition-all transform duration-300 pointer-events-auto ${isError ? 'bg-red-500/95 text-white' : 'bg-emerald-600 text-white'}`;
+      t.innerHTML = `<span>${isError ? '⚠️' : '✓'}</span><span>${msg}</span>`;
+      container.appendChild(t);
+      setTimeout(() => {
+        t.style.opacity = '0';
+        setTimeout(() => t.remove(), 300);
+      }, 3500);
+    }
+
+    function deleteProperty(id) {
+      pendingDeleteId = id;
+      const prop = allProperties.find(p => p.id === id || p.slug === id);
+      const name = prop ? (prop.name || prop.title || 'this property') : 'this property';
+      document.getElementById('deletePropName').textContent = `"${name}"`;
+      document.getElementById('deleteConfirmModal').classList.remove('hidden');
+    }
+
+    function closeDeleteModal() {
+      pendingDeleteId = null;
+      document.getElementById('deleteConfirmModal').classList.add('hidden');
+    }
+
+    async function executeDeleteProperty() {
+      if (!pendingDeleteId) return;
+      const btn = document.getElementById('confirmDeleteBtn');
+      const text = document.getElementById('confirmDeleteText');
+      btn.disabled = true;
+      text.textContent = 'Deleting...';
+
+      const targetId = pendingDeleteId;
+      try {
+        const res = await fetch(`/api/properties/${encodeURIComponent(targetId)}`, {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json' }
+        });
+        const data = await res.json().catch(() => ({}));
+
+        if (res.ok && data.success !== false) {
+          closeDeleteModal();
+          showToast('Property deleted successfully!');
+          await loadProperties();
+        } else {
+          alert(data.message || 'Failed to delete property. Please try again.');
+        }
+      } catch (err) {
+        console.error('Delete error:', err);
+        alert('Server connection error while deleting.');
+      } finally {
+        btn.disabled = false;
+        text.textContent = 'Yes, Delete Property';
+      }
+    }
+
+    loadProperties();
+  </script>
+</body>
+</html>

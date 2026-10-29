@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore Properties — Golden Properties | Luxury Residences & Landmark Developments</title>
+  <link rel="icon" type="image/png" href="/assest/Golden-Properties-Luxury-Logo.png" />
+  <meta name="description"
+    content="Explore premium real estate properties in Gurugram, Delhi NCR and beyond. Discover luxury apartments, penthouses, plots, and villas with world-class amenities." />
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            copper: '#A8774A',
+            copperLight: '#C9996B',
+            copperDark: '#7F5128',
+            ink: '#161514',
+            paper: '#FBFAF7',
+            sand: '#F3F0EB',
+            sandDark: '#EBE7E1',
+            muted: '#6E6B65',
+          },
+          animation: {
+            'spin-slow': 'spin 18s linear infinite',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- AOS & Lenis Styles -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.13/dist/lenis.css" />
+
+  <style>
+    /* Selection */
+    ::selection {
+      background: #A8774A;
+      color: #fff;
+    }
+
+    /* Container standard */
+    .container-x {
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .container-x {
+        padding-left: 36px;
+        padding-right: 36px;
+      }
+    }
+
+    /* Nav states */
+    #nav .nav-inner {
+      color: #fff;
+      --star: #161514;
+      transition: all .6s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    #nav .nav-cta {
+      background: #fff;
+      color: #161514;
+    }
+
+    #nav.is-scrolled .nav-inner {
+      color: #161514;
+      --star: #fff;
+      max-width: 980px;
+      background: rgba(251, 250, 247, .85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 12px 40px -16px rgba(0, 0, 0, .18);
+    }
+
+    #nav.is-scrolled .nav-cta {
+      background: #161514;
+      color: #fff;
+    }
+
+    .footer-link {
+      color: rgba(255, 255, 255, 0.7);
+      transition: color 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: #C9996B;
+    }
+
+    /* Custom Checkbox */
+    .custom-check {
+      accent-color: #A8774A;
+    }
+
+    /* Custom Thin Scrollbar for Filter Sidebar */
+    .filter-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    .filter-scroll::-webkit-scrollbar-track {
+      background: rgba(22, 21, 20, 0.04);
+      border-radius: 4px;
+    }
+    .filter-scroll::-webkit-scrollbar-thumb {
+      background: #C9996B;
+      border-radius: 4px;
+    }
+    .filter-scroll::-webkit-scrollbar-thumb:hover {
+      background: #A8774A;
+    }
+
+    /* Property Card Exact Image Size (339.5px x 256px) */
+    .property-image-container {
+      width: 100%;
+      height: 220px;
+    }
+    @media (min-width: 640px) {
+      .property-card .property-image-container {
+        width: 339.5px !important;
+        height: 256px !important;
+        flex-shrink: 0 !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="font-poppins bg-[#F7F5F0] text-ink selection:bg-copper selection:text-white">
+
+  <!-- ================= NAV ================= -->
+  <header id="nav" class="fixed top-5 md:top-7 inset-x-5 md:inset-x-10 z-50">
+    <div class="nav-inner max-w-[1240px] mx-auto h-20 sm:h-22 md:h-24 px-4 pl-6 md:pl-8 rounded-full flex items-center justify-between">
+      <a href="index.html" class="flex items-center py-1.5" aria-label="Golden Properties">
+        <img src="/assest/Golden-Properties-Luxury-Logo.png" alt="Golden Properties" class="h-12 sm:h-14 md:h-16 lg:h-[72px] w-auto object-contain" />
+      </a>
+
+      <ul class="hidden md:flex items-center gap-10 text-[14px]">
+        <li><a href="index.html" class="hover:opacity-60 transition">Home</a></li>
+        <li><a href="about.html" class="hover:opacity-60 transition">About Us</a></li>
+        <li>
+          <a href="properties.html" class="text-copperLight font-medium flex items-center gap-1.5 transition">
+            Properties
+            <span class="w-1.5 h-1.5 rounded-full bg-copper"></span>
+          </a>
+        </li>
+        <li><a href="blogs.html" class="hover:opacity-60 transition">Blog</a></li>
+      </ul>
+
+      <a href="index.html#contact"
+        class="nav-cta hidden md:inline-flex items-center gap-2 pl-5 pr-2 py-2 rounded-full text-[13px] font-medium transition">
+        Contact Us
+        <span class="w-7 h-7 rounded-full bg-copper grid place-items-center">
+          <svg width="12" height="12" fill="none" stroke="#fff" stroke-width="2">
+            <path d="M2 10 10 2M4 2h6v6" />
+          </svg>
+        </span>
+      </a>
+
+      <button id="menuBtn" class="md:hidden w-11 h-11 rounded-full grid place-items-center" aria-label="Menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M3 8h16M3 14h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile dropdown menu -->
+    <div id="mobileMenu" class="md:hidden hidden mt-3 bg-paper text-ink rounded-3xl p-3 shadow-2xl">
+      <a href="index.html" class="block px-4 py-3 rounded-2xl hover:bg-sand">Home</a>
+      <a href="about.html" class="block px-4 py-3 rounded-2xl hover:bg-sand">About Us</a>
+      <a href="properties.html" class="block px-4 py-3 rounded-2xl bg-copper/10 text-copper font-medium">Properties</a>
+      <a href="blogs.html" class="block px-4 py-3 rounded-2xl hover:bg-sand">Blog</a>
+      <a href="index.html#contact" class="block mt-2 px-4 py-3 rounded-2xl bg-copper text-white text-center hover:bg-copperLight transition">Contact Us</a>
+    </div>
+  </header>
+
+  <!-- ================= TOP HERO BANNER ================= -->
+  <!-- Patterned dark luxury hero matching reference -->
+  <section class="relative w-full pt-32 pb-16 sm:pt-36 sm:pb-20 md:pt-40 md:pb-24 overflow-hidden bg-[#0F0E0D] text-white">
+    <!-- Starfield/Grid Background Texture -->
+    <div class="absolute inset-0 opacity-[0.14] pointer-events-none"
+      style="background-image: radial-gradient(#C9996B 1px, transparent 1px); background-size: 24px 24px;"></div>
+    
+    <!-- Warm Ambient Radial Glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-copper/20 rounded-full blur-[130px] pointer-events-none"></div>
+
+    <div class="container-x relative z-10 text-center">
+      <span class="inline-flex items-center gap-2 text-[11px] sm:text-[12px] uppercase tracking-[0.28em] text-copperLight font-semibold mb-3.5" data-aos="fade-up">
+        <span class="w-4 h-px bg-copperLight"></span>
+        Property Listings
+        <span class="w-4 h-px bg-copperLight"></span>
+      </span>
+
+      <h1 class="text-[36px] sm:text-[48px] md:text-[62px] font-normal tracking-tight leading-tight text-white" data-aos="fade-up" data-aos-delay="40">
+        Explore <span class="text-copperLight font-semibold">Properties</span>
+      </h1>
+
+      <p class="mt-4 text-[14px] sm:text-[15.5px] text-white/70 max-w-[620px] mx-auto font-light leading-relaxed" data-aos="fade-up" data-aos-delay="80">
+        Discover premium real estate properties with world-class amenities, prime connectivity, and institutional advisory.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= BREADCRUMB BAR ================= -->
+  <div class="w-full bg-[#EFECE6] border-y border-ink/[0.07] py-3.5">
+    <div class="container-x flex items-center justify-between text-[12px] text-ink/70">
+      <div class="flex items-center gap-2">
+        <a href="index.html" class="hover:text-copper transition">Home</a>
+        <span class="text-ink/30">/</span>
+        <span class="text-copper font-medium">Properties</span>
+      </div>
+      <div class="text-[12px] text-ink/60 font-medium">
+        <span id="resultsCount">Showing 10</span> Landmark Properties
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MAIN LISTING SECTION WITH STICKY FILTER ================= -->
+  <main class="w-full py-10 md:py-14">
+    <div class="container-x">
+      <div class="flex flex-col lg:flex-row gap-8 lg:gap-10 items-start">
+        
+        <!-- ================= LEFT STICKY FILTER SIDEBAR ================= -->
+        <!-- Fixed on scroll (sticky top-24) as requested by user, compact so entire content fits -->
+        <aside class="w-full lg:w-[300px] shrink-0 sticky top-24 self-start z-30">
+          <div class="bg-white rounded-[18px] p-4 sm:p-5 shadow-[0_8px_30px_rgba(22,21,20,0.06)] border border-ink/[0.08] max-h-[calc(100vh-100px)] overflow-y-auto filter-scroll" data-lenis-prevent>
+            
+            <!-- Filter Header -->
+            <div class="flex items-center justify-between pb-3 border-b border-ink/[0.08] mb-3.5">
+              <div class="flex items-center gap-2">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A8774A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                </svg>
+                <h3 class="text-[14.5px] font-semibold text-ink tracking-tight">Search &amp; Filter</h3>
+              </div>
+              <button id="resetFilterBtn" type="button" class="text-[11px] text-copper hover:text-copperDark font-medium transition underline">
+                Reset All
+              </button>
+            </div>
+
+            <form id="filterForm" class="space-y-3" onsubmit="return false;">
+              
+              <!-- 1. Search Properties -->
+              <div>
+                <label for="searchInput" class="block text-[10.5px] uppercase tracking-[0.14em] font-medium text-ink/70 mb-1.5">
+                  Search Properties
+                </label>
+                <div class="relative">
+                  <input type="text" id="searchInput" placeholder="Search by name, sector..."
+                    class="w-full pl-8 pr-3 py-1.5 text-[12px] bg-sand/60 rounded-xl border border-ink/[0.1] focus:outline-none focus:border-copper focus:bg-white transition" />
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                    class="absolute left-2.5 top-2.5 text-ink/40">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- 2. Select City -->
+              <div>
+                <label for="citySelect" class="block text-[10.5px] uppercase tracking-[0.14em] font-medium text-ink/70 mb-1.5">
+                  Select City
+                </label>
+                <select id="citySelect"
+                  class="w-full px-3 py-1.5 text-[12px] bg-sand/60 rounded-xl border border-ink/[0.1] focus:outline-none focus:border-copper focus:bg-white text-ink transition cursor-pointer">
+                  <option value="all">All Cities (NCR)</option>
+                  <option value="Gurugram">Gurugram</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Noida">Noida</option>
+                  <option value="Greater Noida">Greater Noida</option>
+                  <option value="Faridabad">Faridabad</option>
+                </select>
+              </div>
+
+              <!-- 3. Property Type (Segments) -->
+              <div>
+                <label class="block text-[10.5px] uppercase tracking-[0.14em] font-medium text-ink/70 mb-1.5">
+                  Segment / Type
+                </label>
+                <div class="grid grid-cols-2 gap-1.5 text-[11.5px]">
+                  <label class="flex items-center gap-1.5 p-1.5 px-2 rounded-lg bg-sand/40 hover:bg-sand cursor-pointer transition">
+                    <input type="radio" name="propertyType" value="all" checked class="custom-check" />
+                    <span>All</span>
+                  </label>
+                  <label class="flex items-center gap-1.5 p-1.5 px-2 rounded-lg bg-sand/40 hover:bg-sand cursor-pointer transition">
+                    <input type="radio" name="propertyType" value="Residential" class="custom-check" />
+                    <span>Residential</span>
+                  </label>
+                  <label class="flex items-center gap-1.5 p-1.5 px-2 rounded-lg bg-sand/40 hover:bg-sand cursor-pointer transition">
+                    <input type="radio" name="propertyType" value="Commercial" class="custom-check" />
+                    <span>Commercial</span>
+                  </label>
+                  <label class="flex items-center gap-1.5 p-1.5 px-2 rounded-lg bg-sand/40 hover:bg-sand cursor-pointer transition">
+                    <input type="radio" name="propertyType" value="Villas" class="custom-check" />
+                    <span>Villas / Plots</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- 4. Budget Range -->
+              <div>
+                <label class="block text-[10.5px] uppercase tracking-[0.14em] font-medium text-ink/70 mb-1.5">
+                  Budget (Cr)
+                </label>
+                <div class="grid grid-cols-2 gap-1.5">
+                  <select id="minBudget"
+                    class="w-full px-2 py-1.5 text-[11px] bg-sand/60 rounded-xl border border-ink/[0.1] focus:outline-none focus:border-copper text-ink">
+                    <option value="0">Min Price (Any)</option>
+                    <option value="1">₹1 Cr</option>
+                    <option value="2">₹2 Cr</option>
+                    <option value="3">₹3 Cr</option>
+                    <option value="5">₹5 Cr</option>
+                    <option value="10">₹10 Cr</option>
+                  </select>
+                  <select id="maxBudget"
+                    class="w-full px-2 py-1.5 text-[11px] bg-sand/60 rounded-xl border border-ink/[0.1] focus:outline-none focus:border-copper text-ink">
+                    <option value="all">Max Price (Any)</option>
+                    <option value="3">₹3 Cr</option>
+                    <option value="5">₹5 Cr</option>
+                    <option value="10">₹10 Cr</option>
+                    <option value="25">₹25 Cr</option>
+                    <option value="50">₹50 Cr</option>
+                    <option value="100">₹100 Cr</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- 5. Construction Status -->
+              <div>
+                <label class="block text-[10.5px] uppercase tracking-[0.14em] font-medium text-ink/70 mb-1.5">
+                  Construction Status
+                </label>
+                <div class="grid grid-cols-2 gap-x-2 gap-y-1 text-[11px] text-ink/80">
+                  <label class="flex items-center gap-1.5 cursor-pointer hover:text-ink">
+                    <input type="checkbox" name="status" value="New Launch" class="custom-check rounded" />
+                    <span>New Launch</span>
+                  </label>
+                  <label class="flex items-center gap-1.5 cursor-pointer hover:text-ink">
+                    <input type="checkbox" name="status" value="Under Construction" class="custom-check rounded" />
+                    <span>Under Const.</span>
+                  </label>
+                  <label class="flex items-center gap-1.5 cursor-pointer hover:text-ink">
+                    <input type="checkbox" name="status" value="Ready To Move" class="custom-check rounded" />
+                    <span>Ready Move</span>
+                  </label>
+                  <label class="flex items-center gap-1.5 cursor-pointer hover:text-ink">
+                    <input type="checkbox" name="status" value="RERA Approved" class="custom-check rounded" />
+                    <span>RERA Approved</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- 6. Bedrooms (BHK) -->
+              <div>
+                <label class="block text-[10.5px] uppercase tracking-[0.14em] font-medium text-ink/70 mb-1.5">
+                  Bedrooms (BHK)
+                </label>
+                <div class="flex flex-wrap gap-1" id="bhkFilterGroup">
+                  <button type="button" data-bhk="all" class="bhk-btn px-2.5 py-1 rounded-lg text-[11px] font-medium bg-copper text-white transition">All</button>
+                  <button type="button" data-bhk="2" class="bhk-btn px-2.5 py-1 rounded-lg text-[11px] font-medium bg-sand/60 text-ink/75 hover:bg-sand transition">2 BHK</button>
+                  <button type="button" data-bhk="3" class="bhk-btn px-2.5 py-1 rounded-lg text-[11px] font-medium bg-sand/60 text-ink/75 hover:bg-sand transition">3 BHK</button>
+                  <button type="button" data-bhk="4" class="bhk-btn px-2.5 py-1 rounded-lg text-[11px] font-medium bg-sand/60 text-ink/75 hover:bg-sand transition">4 BHK</button>
+                  <button type="button" data-bhk="5" class="bhk-btn px-2.5 py-1 rounded-lg text-[11px] font-medium bg-sand/60 text-ink/75 hover:bg-sand transition">5+ BHK</button>
+                </div>
+              </div>
+
+              <!-- Action button -->
+              <div class="pt-1.5">
+                <button type="button" id="applyFilterBtn"
+                  class="w-full py-2 bg-copper hover:bg-copperDark text-white text-[12px] font-medium rounded-xl shadow-[0_4px_12px_rgba(168,119,74,0.25)] transition-all duration-300">
+                  Apply Filter
+                </button>
+              </div>
+
+            </form>
+
+            <div class="mt-3 pt-2 border-t border-ink/[0.08] text-center">
+              <a href="tel:+911234567890" class="inline-flex items-center gap-1 text-copper text-[11px] font-medium hover:underline">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                Advisory: +91 99-2820-3900
+              </a>
+            </div>
+
+          </div>
+        </aside>
+
+        <!-- ================= RIGHT COLUMN: PROPERTY CARDS ================= -->
+        <section class="flex-1 w-full space-y-6" id="propertyCardsContainer">
+
+          <!-- ── Loading Skeletons (shown while API fetches) ── -->
+          <div id="loadingSkeletons" class="space-y-6">
+            <!-- Skeleton 1 -->
+            <div class="bg-white rounded-[16px] overflow-hidden border border-ink/[0.08] flex flex-col sm:flex-row animate-pulse">
+              <div class="w-full sm:w-[339.5px] shrink-0 h-[220px] sm:h-[256px] bg-sand/80"></div>
+              <div class="p-5 flex-1 space-y-3">
+                <div class="h-4 bg-sand/80 rounded w-1/3"></div>
+                <div class="h-7 bg-sand/80 rounded w-3/4"></div>
+                <div class="h-4 bg-sand/80 rounded w-1/2"></div>
+                <div class="h-4 bg-sand/80 rounded w-1/4 mt-4"></div>
+                <div class="flex gap-3 mt-6">
+                  <div class="h-8 bg-sand/80 rounded-lg w-20"></div>
+                  <div class="h-8 bg-sand/80 rounded-lg w-20"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Skeleton 2 -->
+            <div class="bg-white rounded-[16px] overflow-hidden border border-ink/[0.08] flex flex-col sm:flex-row animate-pulse">
+              <div class="w-full sm:w-[339.5px] shrink-0 h-[220px] sm:h-[256px] bg-sand/80"></div>
+              <div class="p-5 flex-1 space-y-3">
+                <div class="h-4 bg-sand/80 rounded w-1/3"></div>
+                <div class="h-7 bg-sand/80 rounded w-2/3"></div>
+                <div class="h-4 bg-sand/80 rounded w-1/2"></div>
+                <div class="h-4 bg-sand/80 rounded w-1/4 mt-4"></div>
+                <div class="flex gap-3 mt-6">
+                  <div class="h-8 bg-sand/80 rounded-lg w-20"></div>
+                  <div class="h-8 bg-sand/80 rounded-lg w-20"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Skeleton 3 -->
+            <div class="bg-white rounded-[16px] overflow-hidden border border-ink/[0.08] flex flex-col sm:flex-row animate-pulse">
+              <div class="w-full sm:w-[339.5px] shrink-0 h-[220px] sm:h-[256px] bg-sand/80"></div>
+              <div class="p-5 flex-1 space-y-3">
+                <div class="h-4 bg-sand/80 rounded w-1/3"></div>
+                <div class="h-7 bg-sand/80 rounded w-3/4"></div>
+                <div class="h-4 bg-sand/80 rounded w-1/2"></div>
+                <div class="h-4 bg-sand/80 rounded w-1/4 mt-4"></div>
+                <div class="flex gap-3 mt-6">
+                  <div class="h-8 bg-sand/80 rounded-lg w-20"></div>
+                  <div class="h-8 bg-sand/80 rounded-lg w-24"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- No results message -->
+          <div id="noResultsMsg" class="hidden text-center py-16 bg-white rounded-[20px] border border-ink/[0.08] p-8">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#A8774A" stroke-width="1.5" class="mx-auto mb-3">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <h3 class="text-[17px] font-semibold text-ink">No matching properties found</h3>
+            <p class="text-[13px] text-muted mt-1">Try relaxing your search query or reset your filters.</p>
+            <button id="resetFromEmptyBtn" class="mt-4 px-5 py-2 rounded-xl bg-copper text-white text-[12.5px] font-medium hover:bg-copperDark transition">
+              Reset All Filters
+            </button>
+          </div>
+
+          <!-- ================= PAGINATION ================= -->
+          <div class="pt-6 pb-4 flex items-center justify-center gap-2 select-none hidden" id="paginationBar">
+            <button class="w-9 h-9 rounded-lg border border-ink/[0.12] bg-white text-ink/60 hover:border-copper hover:text-copper flex items-center justify-center transition text-[13px]">
+              &lt;
+            </button>
+            <button class="w-9 h-9 rounded-lg bg-copper text-white font-medium flex items-center justify-center shadow-sm text-[13px]">
+              1
+            </button>
+            <button class="w-9 h-9 rounded-lg border border-ink/[0.12] bg-white text-ink/80 hover:border-copper hover:text-copper flex items-center justify-center transition text-[13px]">
+              &gt;
+            </button>
+          </div>
+
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+
+                <!-- ================= FOOTER (EXACT GOLDEN PROPERTIES WEBSITE FOOTER) ================= -->
+  <footer id="contact" class="w-full bg-ink text-white overflow-hidden">
+    <div class="container-x pt-14 md:pt-20">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-10">
+        <div>
+          <span class="inline-flex items-center gap-2 text-[11px] tracking-[0.22em] uppercase text-copperLight font-medium">
+            <span class="w-4 h-px bg-copperLight"></span>
+            Let's Talk
+          </span>
+          <h2 class="mt-5 text-[26px] sm:text-[32px] md:text-[38px] font-light tracking-[-0.03em] leading-[1.12]">
+            Ready To Work<br /><span class="font-normal text-copperLight">With Us?</span>
+          </h2>
+          <p class="mt-4 text-white/60 text-[13px] md:text-[14px] max-w-[400px] leading-[1.65]" data-aos="fade-up">
+            Experience seamless advisory and bespoke service tailored to your property goals.
+          </p>
+        </div>
+        
+        <a href="mailto:hello@goldenproperties.com"
+          class="relative w-[100px] h-[100px] shrink-0 rounded-full bg-copper grid place-items-center group">
+          <svg class="absolute inset-0 animate-spin-slow w-full h-full" viewBox="0 0 100 100">
+            <defs>
+              <path id="circProps" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0" />
+            </defs>
+            <text font-size="10.5" letter-spacing="3.8" fill="#fff" font-family="Poppins">
+              <textPath href="#circProps">CONTACT US • CONTACT US • </textPath>
+            </text>
+          </svg>
+          <svg class="transition duration-500 group-hover:rotate-45" width="22" height="22" fill="none" stroke="#fff" stroke-width="2">
+            <path d="M7 21 21 7M10 7h11v11" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="my-10 md:my-12 h-px bg-white/10"></div>
+
+      <div class="grid lg:grid-cols-[1.3fr_2fr] gap-8 md:gap-10 pb-12 md:pb-16">
+        <div data-aos="fade-up">
+          <a href="index.html" class="inline-block py-2" aria-label="Golden Properties">
+            <img src="/assest/Golden-Properties-Luxury-Logo.png" alt="Golden Properties" class="h-16 sm:h-20 md:h-24 w-auto object-contain" />
+          </a>
+          <p class="mt-3.5 text-[13px] text-white/55 leading-[1.65] max-w-[290px]">
+            A cutting-edge real estate boutique offering a refined and immersive experience for discovering landmark properties.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <p class="text-[12px] uppercase tracking-[.18em] text-white/40 mb-4">Navigation</p>
+            <ul class="space-y-2.5 text-[13px]">
+              <li><a href="index.html" class="footer-link">Home</a></li>
+              <li><a href="about.html" class="footer-link">About Us</a></li>
+              <li><a href="properties.html" class="footer-link text-copperLight font-medium">Properties</a></li>
+              <li><a href="blogs.html" class="footer-link">Blog</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-[12px] uppercase tracking-[.18em] text-white/40 mb-4">Security</p>
+            <ul class="space-y-2.5 text-[13px]">
+              <li><a href="#" class="footer-link">Privacy Policy</a></li>
+              <li><a href="#" class="footer-link">User Agreements</a></li>
+              <li><a href="#" class="footer-link">Copyright</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-[12px] uppercase tracking-[.18em] text-white/40 mb-4">Social Media</p>
+            <ul class="space-y-2.5 text-[13px]">
+              <li><a href="#" class="footer-link">Instagram</a></li>
+              <li><a href="#" class="footer-link">Facebook</a></li>
+              <li><a href="#" class="footer-link">Twitter</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brand Signature Banner (Giant Full Width Display) -->
+    <div class="w-full overflow-hidden border-t border-white/10 pt-6 sm:pt-8 md:pt-10 pb-2 sm:pb-3 md:pb-4 text-center select-none">
+      <p class="font-bold tracking-[-0.035em] leading-none text-white/15 text-[11.8vw] sm:text-[11.5vw] md:text-[11.2vw] whitespace-nowrap px-1 transition-colors duration-500 hover:text-white/25">
+        Golden Properties
+      </p>
+    </div>
+
+    <div class="container-x">
+      <div class="pt-5 pb-8 md:pb-10 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-[11px] text-white/40">
+        <p>© 2026 Golden Properties. All rights reserved.</p>
+        <a href="#" id="backToTop" class="hover:text-white transition">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Action Buttons (Call & Message) -->
+  <div class="fixed bottom-5 right-5 z-40 flex flex-col gap-2.5">
+    <a href="tel:+911234567890" aria-label="Call Us"
+      class="w-10 h-10 rounded-full bg-copper hover:bg-copperLight text-white shadow-[0_6px_20px_rgba(168,119,74,0.35)] flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-300">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+      </svg>
+    </a>
+    <a href="index.html#contact" aria-label="Inquire / Message Us"
+      class="w-10 h-10 rounded-full bg-copper hover:bg-copperLight text-white shadow-[0_6px_20px_rgba(168,119,74,0.35)] flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-300">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        <line x1="9" y1="10" x2="15" y2="10"></line>
+        <line x1="12" y1="7" x2="12" y2="13"></line>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Initialize AOS
+    AOS.init({
+      duration: 750,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 40
+    });
+
+    // Lenis Smooth Scroll
+    const lenis = new Lenis({
+      duration: 1.25,
+      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      touchMultiplier: 1.5
+    });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(t => lenis.raf(t * 1000));
+    gsap.ticker.lagSmoothing(0);
+
+    // Navbar scroll state
+    const nav = document.getElementById('nav');
+    lenis.on('scroll', ({ scroll }) => {
+      if (scroll > 40) {
+        nav.classList.add('is-scrolled');
+      } else {
+        nav.classList.remove('is-scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Back to top smooth scroll
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+      backToTop.addEventListener('click', (e) => {
+        e.preventDefault();
+        lenis.scrollTo(0, { duration: 1.4 });
+      });
+    }
+
+    // Favorite heart button toggle
+    document.querySelectorAll('.favorite-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const svg = btn.querySelector('svg');
+        const isFav = btn.getAttribute('data-fav') === 'true';
+        if (isFav) {
+          btn.setAttribute('data-fav', 'false');
+          btn.classList.remove('text-red-500');
+          btn.classList.add('text-ink/70');
+          svg.setAttribute('fill', 'none');
+        } else {
+          btn.setAttribute('data-fav', 'true');
+          btn.classList.add('text-red-500');
+          btn.classList.remove('text-ink/70');
+          svg.setAttribute('fill', 'currentColor');
+        }
+      });
+    });
+
+    // ================= CLIENT-SIDE FILTER ENGINE =================
+    const searchInput = document.getElementById('searchInput');
+    const citySelect = document.getElementById('citySelect');
+    const minBudget = document.getElementById('minBudget');
+    const maxBudget = document.getElementById('maxBudget');
+    const resetFilterBtn = document.getElementById('resetFilterBtn');
+    const resetFromEmptyBtn = document.getElementById('resetFromEmptyBtn');
+    const applyFilterBtn = document.getElementById('applyFilterBtn');
+    const resultsCount = document.getElementById('resultsCount');
+    const noResultsMsg = document.getElementById('noResultsMsg');
+    const paginationBar = document.getElementById('paginationBar');
+    let cards = Array.from(document.querySelectorAll('.property-card'));
+
+    let activeBhk = 'all';
+
+    // Helper to calculate price in Cr for filtering
+    function parsePropertyPriceInCr(p) {
+      const num = parseFloat(p.priceNumeric);
+      if (!isNaN(num) && num > 0) {
+        if (num > 100000) return num / 10000000;
+        if (num > 100) {
+          const match = (p.price || '').match(/(\d+(?:\.\d+)?)/);
+          if (match && parseFloat(match[1]) <= 100) return parseFloat(match[1]);
+        }
+        return num;
+      }
+      const match = (p.price || '').match(/(\d+(?:\.\d+)?)/);
+      if (match) return parseFloat(match[1]);
+      return 0;
+    }
+
+    // Backend Dynamic Connection with Resilient Fallback
+    async function loadDynamicProperties() {
+      try {
+        let properties = null;
+        try {
+          const res = await fetch('/api/properties');
+          if (res.ok) properties = await res.json();
+        } catch (e) {}
+
+        if (!properties || !properties.length) {
+          try {
+            const fallbackRes = await fetch('/data/properties.json');
+            if (fallbackRes.ok) properties = await fallbackRes.json();
+          } catch (e) {}
+        }
+
+        if (!properties || !properties.length) return;
+
+        // Dynamically add any missing cities to citySelect
+        if (citySelect) {
+          const currentOptions = Array.from(citySelect.options).map(o => o.value.toLowerCase());
+          properties.forEach(p => {
+            const c = (p.city || '').trim();
+            if (c && !currentOptions.includes(c.toLowerCase())) {
+              const opt = document.createElement('option');
+              opt.value = c;
+              opt.textContent = c;
+              citySelect.appendChild(opt);
+              currentOptions.push(c.toLowerCase());
+            }
+          });
+        }
+
+        const container = document.getElementById('propertyCardsContainer');
+        if (!container) return;
+
+        container.innerHTML = properties.map(p => {
+          const statusList = (p.status || '').split(',').map(s => s.trim()).filter(Boolean);
+          const badgesHtml = statusList.map(st => `
+            <span class="inline-flex items-center px-2.5 py-1 rounded-md text-[10px] font-semibold tracking-wider uppercase bg-[#8E5E34] text-white shadow-sm">
+              ${st}
+            </span>
+          `).join('');
+
+          const projectUrl = `/project/${p.slug || p.id}`;
+          const propTitle = p.name || p.title || 'Landmark Residence';
+          const propDev = p.developer || 'Golden Developers';
+          const priceInCr = parsePropertyPriceInCr(p);
+          const bhkRaw = (p.bhk || '').toString();
+          const bhkDisplay = bhkRaw ? (bhkRaw.toLowerCase().includes('bhk') ? bhkRaw : bhkRaw + ' BHK') : 'Luxury';
+
+          return `
+            <article class="property-card bg-white rounded-[16px] overflow-hidden border border-ink/[0.08] shadow-[0_4px_18px_rgba(22,21,20,0.04)] hover:shadow-xl hover:border-copper/40 transition-all duration-300 flex flex-col sm:flex-row group"
+              data-city="${p.city || 'Gurugram'}"
+              data-type="${p.type || 'Residential'}"
+              data-price="${priceInCr}"
+              data-status="${p.status || ''}"
+              data-bhk="${bhkRaw}">
+              <a href="${projectUrl}" class="property-image-container relative w-full sm:w-[339.5px] shrink-0 h-[220px] sm:h-[256px] overflow-hidden bg-ink block">
+                <img src="${p.image || 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80'}" alt="${propTitle}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div class="absolute top-3.5 left-3.5 flex flex-col gap-1.5">
+                  ${badgesHtml}
+                </div>
+                <button type="button" class="favorite-btn absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-white/80 hover:bg-white backdrop-blur grid place-items-center text-ink/70 hover:text-red-500 transition shadow-sm" aria-label="Favorite" onclick="event.preventDefault(); event.stopPropagation();">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+              </a>
+
+              <div class="p-4 sm:p-4.5 flex-1 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <a href="${projectUrl}">
+                        <h2 class="text-[19px] sm:text-[21px] font-semibold text-ink group-hover:text-copper transition leading-snug">
+                          ${propTitle}
+                        </h2>
+                      </a>
+                      <p class="text-[12px] text-muted font-normal mt-0.5">by ${propDev}</p>
+                    </div>
+                    <div class="px-2 py-1 rounded border border-ink/[0.08] bg-sand/30 flex items-center justify-center text-[10px] font-bold text-copper uppercase tracking-wider shrink-0">
+                      ${propDev.split(' ')[0]}
+                    </div>
+                  </div>
+
+                  <div class="mt-2.5">
+                    <span class="text-[20px] sm:text-[22px] font-bold text-emerald-700 tracking-tight">
+                      ${p.price || '₹ On Request'}
+                    </span>
+                  </div>
+
+                  <div class="flex items-center gap-1.5 mt-2 text-[12.5px] text-ink/75">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A8774A" stroke-width="2" class="shrink-0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span>${p.location || (p.city || 'Gurugram')}</span>
+                  </div>
+
+                  <div class="mt-4 pt-3 border-t border-ink/[0.07] flex flex-wrap items-center gap-x-5 gap-y-2 text-[12px] text-ink/70">
+                    <div class="flex items-center gap-1.5">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"></path></svg>
+                      <span class="font-medium text-ink">${bhkDisplay}</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path></svg>
+                      <span>${p.area || p.totalArea || 'Spacious Units'}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4 pt-3.5 border-t border-ink/[0.07] flex items-center justify-between">
+                  <a href="${projectUrl}" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-copper text-white text-[12px] font-medium hover:bg-copperDark transition">
+                    View Project Details →
+                  </a>
+                  <a href="tel:+919928203900" class="text-xs text-copper font-medium hover:underline">
+                    Call Advisor
+                  </a>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join('');
+
+        cards = Array.from(document.querySelectorAll('.property-card'));
+
+        // Apply URL query parameters if present (e.g. ?type=Residential, ?city=Gurugram, ?bhk=3)
+        const params = new URLSearchParams(window.location.search);
+        const urlType = params.get('type');
+        if (urlType) {
+          const matchingRadio = document.querySelector(`input[name="propertyType"][value="${urlType}"]`) ||
+                                document.querySelector(`input[name="propertyType"][value="${urlType.toLowerCase()}"]`);
+          if (matchingRadio) matchingRadio.checked = true;
+        }
+        const urlCity = params.get('city');
+        if (urlCity && citySelect) {
+          Array.from(citySelect.options).forEach(opt => {
+            if (opt.value.toLowerCase() === urlCity.toLowerCase()) {
+              citySelect.value = opt.value;
+            }
+          });
+        }
+        const urlBhk = params.get('bhk');
+        if (urlBhk) {
+          const matchingBhkBtn = document.querySelector(`.bhk-btn[data-bhk="${urlBhk}"]`);
+          if (matchingBhkBtn) {
+            document.querySelectorAll('.bhk-btn').forEach(b => {
+              b.classList.remove('bg-copper', 'text-white');
+              b.classList.add('bg-sand/60', 'text-ink/75');
+            });
+            matchingBhkBtn.classList.add('bg-copper', 'text-white');
+            matchingBhkBtn.classList.remove('bg-sand/60', 'text-ink/75');
+            activeBhk = urlBhk;
+          }
+        }
+        const urlSearch = params.get('search');
+        if (urlSearch && searchInput) {
+          searchInput.value = urlSearch;
+        }
+
+        filterProperties();
+      } catch (err) {
+        console.warn('Backend API note: using static properties.', err);
+      }
+    }
+    loadDynamicProperties();
+
+    // BHK buttons group
+    document.querySelectorAll('.bhk-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.bhk-btn').forEach(b => {
+          b.classList.remove('bg-copper', 'text-white');
+          b.classList.add('bg-sand/60', 'text-ink/75');
+        });
+        btn.classList.add('bg-copper', 'text-white');
+        btn.classList.remove('bg-sand/60', 'text-ink/75');
+        activeBhk = btn.getAttribute('data-bhk');
+        filterProperties();
+      });
+    });
+
+    function filterProperties() {
+      const query = (searchInput ? searchInput.value : '').trim().toLowerCase();
+      const city = citySelect ? citySelect.value : 'all';
+      const typeRadio = document.querySelector('input[name="propertyType"]:checked');
+      const type = typeRadio ? typeRadio.value : 'all';
+
+      const minVal = minBudget ? minBudget.value : '0';
+      const minP = (minVal && minVal !== '0') ? parseFloat(minVal) : 0;
+
+      const maxVal = maxBudget ? maxBudget.value : 'all';
+      const maxP = (maxVal && maxVal !== 'all' && maxVal !== '100') ? parseFloat(maxVal) : Infinity;
+
+      // Status checkboxes
+      const checkedStatuses = Array.from(document.querySelectorAll('input[name="status"]:checked')).map(cb => cb.value.toLowerCase());
+
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const cardText = card.innerText.toLowerCase();
+        const cardCity = (card.getAttribute('data-city') || '').toLowerCase();
+        const cardType = (card.getAttribute('data-type') || '').toLowerCase();
+        const cardPrice = parseFloat(card.getAttribute('data-price')) || 0;
+        const cardStatus = (card.getAttribute('data-status') || '').toLowerCase();
+        const cardBhkStr = (card.getAttribute('data-bhk') || '').toLowerCase();
+
+        let matchesSearch = !query || cardText.includes(query);
+        let matchesCity = (city === 'all') || cardCity.includes(city.toLowerCase()) || city.toLowerCase().includes(cardCity);
+        let matchesType = (type === 'all') || (cardType === type.toLowerCase());
+
+        let matchesPrice = true;
+        if (minP > 0 || maxP !== Infinity) {
+          if (cardPrice > 0) {
+            matchesPrice = (cardPrice >= minP && cardPrice <= maxP);
+          }
+        }
+
+        let matchesStatus = true;
+        if (checkedStatuses.length > 0) {
+          matchesStatus = checkedStatuses.some(st => cardStatus.includes(st));
+        }
+
+        let matchesBhk = true;
+        if (activeBhk !== 'all') {
+          const digitRegex = new RegExp(`(^|[^0-9])${activeBhk}([^0-9]|$)`);
+          matchesBhk = digitRegex.test(cardBhkStr);
+        }
+
+        if (matchesSearch && matchesCity && matchesType && matchesPrice && matchesStatus && matchesBhk) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      if (resultsCount) resultsCount.innerText = `Showing ${visibleCount}`;
+
+      if (visibleCount === 0) {
+        if (noResultsMsg) noResultsMsg.classList.remove('hidden');
+        if (paginationBar) paginationBar.classList.add('hidden');
+      } else {
+        if (noResultsMsg) noResultsMsg.classList.add('hidden');
+        if (paginationBar) paginationBar.classList.remove('hidden');
+      }
+
+      // Refresh ScrollTrigger and Lenis calculation
+      if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+    }
+
+    // Event Listeners for live filtering
+    if (searchInput) searchInput.addEventListener('input', filterProperties);
+    if (citySelect) citySelect.addEventListener('change', filterProperties);
+    if (minBudget) minBudget.addEventListener('change', filterProperties);
+    if (maxBudget) maxBudget.addEventListener('change', filterProperties);
+    document.querySelectorAll('input[name="propertyType"]').forEach(r => r.addEventListener('change', filterProperties));
+    document.querySelectorAll('input[name="status"]').forEach(c => c.addEventListener('change', filterProperties));
+    if (applyFilterBtn) applyFilterBtn.addEventListener('click', filterProperties);
+
+    function resetFilters() {
+      if (searchInput) searchInput.value = '';
+      if (citySelect) citySelect.value = 'all';
+      if (minBudget) minBudget.value = '0';
+      if (maxBudget) maxBudget.value = 'all';
+      const allType = document.querySelector('input[name="propertyType"][value="all"]');
+      if (allType) allType.checked = true;
+      document.querySelectorAll('input[name="status"]').forEach(c => c.checked = false);
+
+      document.querySelectorAll('.bhk-btn').forEach(b => {
+        b.classList.remove('bg-copper', 'text-white');
+        b.classList.add('bg-sand/60', 'text-ink/75');
+      });
+      const allBhkBtn = document.querySelector('.bhk-btn[data-bhk="all"]');
+      if (allBhkBtn) {
+        allBhkBtn.classList.add('bg-copper', 'text-white');
+        allBhkBtn.classList.remove('bg-sand/60', 'text-ink/75');
+      }
+      activeBhk = 'all';
+      filterProperties();
+    }
+
+    if (resetFilterBtn) resetFilterBtn.addEventListener('click', resetFilters);
+    if (resetFromEmptyBtn) resetFromEmptyBtn.addEventListener('click', resetFilters);
+  </script>
+</body>
+
+</html>

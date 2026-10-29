@@ -1,0 +1,77 @@
+[
+  {
+    "id": "bptp-parklands-pride-3951",
+    "slug": "bptp-parklands-pride",
+    "name": "BPTP Parklands Pride",
+    "title": "BPTP Parklands Pride",
+    "developer": "BPTP Limited",
+    "location": "Delhi-Faridabad Expressway, Sector 77, Faridabad",
+    "city": "Faridabad",
+    "type": "Residential",
+    "price": "₹ 1.10 - 1.40 Cr*",
+    "priceNumeric": 1.10,
+    "bhk": "3 & 4 BHK",
+    "area": "1103 - 1803 Sq. Ft",
+    "totalArea": "17 Acres",
+    "possessionStatus": "Ready To Move In",
+    "reraNo": "HRERA-PKL-FBD-641-2024",
+    "overlooking": "Landscaped Green Parks",
+    "carParking": "Reserved Basement",
+    "powerBackup": "100% 24x7 Backup",
+    "status": "Ready To Move In, RERA Approved, Verified",
+    "image": "/uploads/1792860063911-753071913.jpg",
+    "secondaryImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+    "brochureUrl": "",
+    "featured": true,
+    "overview": "BPTP Parklands Pride, located in the prime corridor of Faridabad along the expressway, is a premium residential development offering luxury 3 and 4 BHK apartments with modern architectural sensibilities and world-class amenities.\r\n\r\nDesigned to cater to discerning families, the project seamlessly combines elegance, expansive landscaped parks, and cutting-edge conveniences. The apartments boast cross-ventilated layouts, generous balconies, modular kitchens, and elegant imported fittings.\r\n\r\nResidents enjoy a private clubhouse, temperature-controlled swimming pool, children's play areas, multi-tier biometric security, and dedicated basement parking. Located close to premier healthcare institutions, educational hubs, and the Delhi Metro, this project delivers optimal comfort and long-term capital appreciation.",
+    "amenities": [
+      "Clubhouse",
+      "Swimming Pool",
+      "Gymnasium",
+      "Landscaped Garden",
+      "Power Backup",
+      "24/7 Security",
+      "CCTV Surveillance",
+      "Kids Play Area",
+      "Jogging Track",
+      "Water Supply"
+    ],
+    "floorPlans": [
+      {
+        "title": "Ground / Typical 3 BHK Floor Plan",
+        "bhk": "3 BHK",
+        "area": "1103 Sq. Ft",
+        "price": "₹ 1.10 Cr",
+        "layoutUrl": ""
+      },
+      {
+        "title": "Executive 3 BHK + Lounge Floor Plan",
+        "bhk": "3 BHK + Lounge",
+        "area": "1382 Sq. Ft",
+        "price": "₹ 1.25 Cr",
+        "layoutUrl": ""
+      },
+      {
+        "title": "Royal 4 BHK Penthouse Floor Plan",
+        "bhk": "4 BHK Luxury",
+        "area": "1803 Sq. Ft",
+        "price": "₹ 1.40 Cr",
+        "layoutUrl": ""
+      }
+    ],
+    "priceList": "GROUND / TYPICAL 3 BHK FLOOR PLAN\n1103 Sq. Ft\n₹ 1.10 Cr\n\nEXECUTIVE 3 BHK + LOUNGE FLOOR PLAN\n1382 Sq. Ft\n₹ 1.25 Cr\n\nROYAL 4 BHK PENTHOUSE FLOOR PLAN\n1803 Sq. Ft\n₹ 1.40 Cr",
+    "specifications": "Type: Luxury Apartments\nArea: 1103 - 1803 Sq. Ft\nTotal Area: 17 Acres Reserve\nCurrent Status: Ready To Move In\nConstruction Partner: BPTP Limited\nRera No.: HRERA-PKL-FBD-641-2024\nFlooring: Premium Vitrified Tiles & Wooden Laminated Master\nAir Conditioning: Split AC Provisions in All Rooms\nKitchen: European Modular with Granite Countertops\nSecurity: 3-Tier Guarded Gated Complex with CCTV",
+    "siteLayout": {
+      "image": "/uploads/1792860063945-880701346.jpg",
+      "description": "Master layout plan showcasing low-rise residential towers, central landscaped parklands, and smooth peripheral loop driveways."
+    },
+    "locationAdvantages": [
+      "Delhi-Faridabad Expressway, 0 KM",
+      "Bata Chowk Metro Station, 8 Min",
+      "DPS Faridabad & Leading Schools, 3 KM",
+      "Amrita & Fortis Multi-Specialty Hospitals, 10 Min",
+      "Badarpur Border & South Delhi, 20 Min"
+    ],
+    "createdAt": "2026-10-24T16:41:03.951Z"
+  }
+]
