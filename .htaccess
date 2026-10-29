@@ -1,0 +1,23 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Route /project/slug to project-details.html?slug=slug
+    RewriteRule ^project/([^/]+)/?$ project-details.html?slug=$1 [QSA,L]
+    RewriteRule ^property/([^/]+)/?$ project-details.html?slug=$1 [QSA,L]
+
+    # Route /blog/slug to blog-details.html?slug=slug
+    RewriteRule ^blog/([^/]+)/?$ blog-details.html?slug=$1 [QSA,L]
+</IfModule>
+
+# Enable CORS for JSON data if accessed externally
+<IfModule mod_headers.c>
+    <FilesMatch "\.(json|jpg|jpeg|png|webp|svg|pdf)$">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+</IfModule>
+
+# MIME types
+<IfModule mod_mime.c>
+    AddType application/json .json
+</IfModule>
