@@ -451,6 +451,10 @@
             </div>
           </div>
 
+          
+          <!-- ── Active Property Cards List ── -->
+          <div id="propertyCardsList" class="space-y-6"></div>
+
           <!-- No results message -->
           <div id="noResultsMsg" class="hidden text-center py-16 bg-white rounded-[20px] border border-ink/[0.08] p-8">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#A8774A" stroke-width="1.5" class="mx-auto mb-3">
@@ -713,6 +717,13 @@
             if (fallbackRes.ok) properties = await fallbackRes.json();
           } catch (e) {}
         }
+        if (!properties || !properties.length) {
+          try {
+            const relRes = await fetch('data/properties.json');
+            if (relRes.ok) properties = await relRes.json();
+          } catch (e) {}
+        }
+        }
 
         if (!properties || !properties.length) return;
 
@@ -731,7 +742,9 @@
           });
         }
 
-        const container = document.getElementById('propertyCardsContainer');
+        const skeleton = document.getElementById('loadingSkeletons');
+        if (skeleton) skeleton.classList.add('hidden');
+        const container = document.getElementById('propertyCardsList') || document.getElementById('propertyCardsContainer');
         if (!container) return;
 
         container.innerHTML = properties.map(p => {
@@ -902,7 +915,15 @@
 
         let matchesSearch = !query || cardText.includes(query);
         let matchesCity = (city === 'all') || cardCity.includes(city.toLowerCase()) || city.toLowerCase().includes(cardCity);
-        let matchesType = (type === 'all') || (cardType === type.toLowerCase());
+        let matchesType = (type === 'all');
+        if (!matchesType) {
+          const tLower = type.toLowerCase();
+          if (tLower === 'villas' || tLower === 'plots') {
+            matchesType = cardType.includes('villa') || cardType.includes('plot');
+          } else {
+            matchesType = cardType.includes(tLower) || tLower.includes(cardType);
+          }
+        }
 
         let matchesPrice = true;
         if (minP > 0 || maxP !== Infinity) {
@@ -931,6 +952,9 @@
       });
 
       if (resultsCount) resultsCount.innerText = `Showing ${visibleCount}`;
+      if (applyFilterBtn) {
+        applyFilterBtn.textContent = visibleCount > 0 ? `Show ${visibleCount} ${visibleCount === 1 ? 'Property' : 'Properties'} ↓` : 'No Matches (Reset)';
+      }
 
       if (visibleCount === 0) {
         if (noResultsMsg) noResultsMsg.classList.remove('hidden');
@@ -951,7 +975,18 @@
     if (maxBudget) maxBudget.addEventListener('change', filterProperties);
     document.querySelectorAll('input[name="propertyType"]').forEach(r => r.addEventListener('change', filterProperties));
     document.querySelectorAll('input[name="status"]').forEach(c => c.addEventListener('change', filterProperties));
-    if (applyFilterBtn) applyFilterBtn.addEventListener('click', filterProperties);
+    if (applyFilterBtn) {
+      applyFilterBtn.addEventListener('click', () => {
+        filterProperties();
+        // On mobile / tablet screens, smoothly scroll down to results
+        if (window.innerWidth < 1024) {
+          const targetEl = document.getElementById('propertyCardsList') || document.getElementById('propertyCardsContainer');
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    }
 
     function resetFilters() {
       if (searchInput) searchInput.value = '';
