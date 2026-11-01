@@ -717,12 +717,12 @@
             if (fallbackRes.ok) properties = await fallbackRes.json();
           } catch (e) {}
         }
+
         if (!properties || !properties.length) {
           try {
             const relRes = await fetch('data/properties.json');
             if (relRes.ok) properties = await relRes.json();
           } catch (e) {}
-        }
         }
 
         if (!properties || !properties.length) return;
