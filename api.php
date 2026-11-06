@@ -505,3 +505,4 @@ if ($route === 'blogs' || preg_match('#^blogs/(.+)$#', $route, $matches)) {
 http_response_code(404);
 echo json_encode(['success' => false, 'message' => 'Route not found: ' . $route]);
 exit;
+
