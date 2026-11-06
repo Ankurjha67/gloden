@@ -171,31 +171,86 @@
       -webkit-text-stroke: 1px #161514;
     }
 
-    /* Nav states */
+    /* Master Floating Navbar Styles */
+    #nav {
+      transition: top 0.4s ease, transform 0.4s ease;
+    }
+
     #nav .nav-inner {
-      color: #fff;
-      --star: #161514;
-      transition: all .6s cubic-bezier(.2, .8, .2, 1);
+      background: rgba(22, 21, 20, 0.55);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    #nav .nav-link {
+      color: rgba(255, 255, 255, 0.88);
+      transition: color 0.25s ease;
+    }
+    #nav .nav-link:hover,
+    #nav .nav-link.active {
+      color: #C9996B !important;
     }
 
     #nav .nav-cta {
-      background: #fff;
+      background: #ffffff;
       color: #161514;
+      transition: all 0.25s ease;
+    }
+    #nav .nav-cta:hover {
+      background: #A8774A;
+      color: #ffffff;
+    }
+
+    #nav #menuBtn {
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.08);
+      transition: all 0.25s ease;
+    }
+
+    /* Scrolled State: Compact Luxury Frosted Pearl Pill */
+    #nav.is-scrolled {
+      top: 14px;
     }
 
     #nav.is-scrolled .nav-inner {
+      max-width: 1040px;
+      height: 68px;
+      background: rgba(251, 250, 247, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-color: rgba(22, 21, 20, 0.09);
+      box-shadow: 0 12px 35px -8px rgba(22, 21, 20, 0.12);
       color: #161514;
-      --star: #fff;
-      max-width: 980px;
-      background: rgba(251, 250, 247, .82);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      box-shadow: 0 12px 40px -16px rgba(0, 0, 0, .18);
+    }
+
+    #nav.is-scrolled .nav-link {
+      color: #161514;
+    }
+    #nav.is-scrolled .nav-link:hover,
+    #nav.is-scrolled .nav-link.active {
+      color: #A8774A !important;
     }
 
     #nav.is-scrolled .nav-cta {
       background: #161514;
-      color: #fff;
+      color: #ffffff;
+    }
+    #nav.is-scrolled .nav-cta:hover {
+      background: #A8774A;
+    }
+
+    #nav.is-scrolled #menuBtn {
+      color: #161514;
+      border-color: rgba(22, 21, 20, 0.15);
+      background: rgba(22, 21, 20, 0.04);
+    }
+
+    #mobileMenu {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
 
@@ -225,19 +280,16 @@
 
       <ul class="hidden md:flex items-center gap-10 text-[14px]">
         <li class="nav-anim">
-          <a href="index.html" class="hover:text-copper transition text-copperLight font-semibold">Home</a>
+          <a href="index.html" class="nav-link active font-semibold">Home</a>
         </li>
         <li class="nav-anim">
-          <a href="about.html" class="hover:text-copper transition text-ink/80">About Us</a>
+          <a href="about.html" class="nav-link font-medium">About Us</a>
         </li>
         <li class="nav-anim">
-          <a href="properties.html" class="hover:text-copper transition flex items-center gap-1.5 text-ink/80">
-            Properties
-            
-          </a>
+          <a href="properties.html" class="nav-link font-medium">Properties</a>
         </li>
         <li class="nav-anim">
-          <a href="blogs.html" class="hover:text-copper transition text-ink/80">Blog</a>
+          <a href="blogs.html" class="nav-link font-medium">Blog</a>
         </li>
       </ul>
 
@@ -555,346 +607,31 @@
         class="flex gap-4 md:gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar pb-4 pt-1 cursor-grab active:cursor-grabbing select-none"
         data-cursor>
 
-        <!-- Property Card: BPTP Parklands Pride -->
-        <div class="card relative shrink-0 w-[84%] sm:w-[300px] md:w-[330px] lg:w-[350px] snap-start rounded-[22px] bg-white border border-ink/[0.08] shadow-[0_4px_20px_rgba(22,21,20,0.06)] hover:shadow-2xl hover:border-copper/40 transition-all duration-300 flex flex-col justify-between overflow-hidden group">
-          <div class="relative aspect-[16/10] overflow-hidden bg-sand/40">
-            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1000&q=80" alt="BPTP Parklands Pride" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-            <div class="absolute top-3 left-3 flex flex-wrap gap-1.5 z-10">
-              <span class="px-2.5 py-1 rounded-full bg-copper text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">Residential</span>
-              <span class="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md text-ink text-[10px] font-semibold">3 & 4 BHK</span>
-            </div>
-            <div class="absolute bottom-2.5 left-3.5 right-3.5 flex items-center justify-between text-white text-xs z-10">
-              <span class="font-medium flex items-center gap-1 drop-shadow-sm truncate max-w-[65%]">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="text-copperLight shrink-0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                Faridabad
-              </span>
-              <span class="text-[10px] font-semibold bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm border border-white/10 shrink-0">Ready To Move In</span>
-            </div>
-          </div>
-          <div class="p-4 sm:p-5 flex flex-col justify-between flex-1">
-            <div>
-              <h3 class="font-bold text-[17px] sm:text-[18px] text-ink group-hover:text-copper transition-colors truncate" title="BPTP Parklands Pride">
-                BPTP Parklands Pride
-              </h3>
-              <p class="text-xs text-muted line-clamp-1 mt-1 mb-3.5" title="Delhi-Faridabad Expressway, Sector 77, Faridabad">Delhi-Faridabad Expressway, Sector 77, Faridabad</p>
-              <div class="py-2.5 px-3 rounded-xl bg-[#FAF8F5] border border-ink/[0.06] flex items-center justify-between text-xs mb-4">
-                <div>
-                  <span class="text-[10px] uppercase tracking-wider text-muted font-medium block">Price</span>
-                  <span class="text-sm sm:text-[15px] font-bold text-copper">₹ 1.10 - 1.40 Cr*</span>
-                </div>
-                <div class="text-right">
-                  <span class="text-[10px] uppercase tracking-wider text-muted font-medium block">Configuration</span>
-                  <span class="font-semibold text-ink">3 & 4 BHK</span>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-center gap-2 pt-1 border-t border-ink/[0.06]">
-              <a href="project-details.html?slug=bptp-parklands-pride" class="flex-1 py-2.5 rounded-xl bg-ink hover:bg-copper text-white text-xs font-semibold text-center transition-all duration-300 flex items-center justify-center gap-1.5 shadow-xs">
-                <span>View Details</span>
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-              <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties%2C%20I%20am%20interested%20in%20BPTP%20Parklands%20Pride%20(Delhi-Faridabad%20Expressway%2C%20Sector%2077%2C%20Faridabad).%20Please%20share%20price%20breakdown%20and%20brochure." target="_blank" rel="noopener noreferrer" aria-label="Inquire on WhatsApp" class="w-10 h-10 rounded-xl bg-emerald-50 hover:bg-[#25D366] text-[#25D366] hover:text-white border border-emerald-200 flex items-center justify-center transition-all duration-300 shrink-0 shadow-xs" title="WhatsApp Enquiry">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-              </a>
-            </div>
+        <!-- Dynamic Shimmer Skeletons (Replaced automatically by live database properties) -->
+        <div class="card relative shrink-0 w-[84%] sm:w-[300px] md:w-[330px] lg:w-[350px] snap-start rounded-[22px] bg-white border border-ink/[0.08] p-4 shadow-sm animate-pulse">
+          <div class="aspect-[16/10] w-full rounded-[16px] bg-sand/80"></div>
+          <div class="p-2 space-y-2.5 mt-3">
+            <div class="h-5 bg-sand/80 rounded w-2/3"></div>
+            <div class="h-3.5 bg-sand/70 rounded w-1/2"></div>
+            <div class="h-10 bg-sand/60 rounded-xl w-full mt-3"></div>
           </div>
         </div>
-
-        <!-- Property Card: Omaxe World Street SCO -->
-        <div class="card relative shrink-0 w-[84%] sm:w-[300px] md:w-[330px] lg:w-[350px] snap-start rounded-[22px] bg-white border border-ink/[0.08] shadow-[0_4px_20px_rgba(22,21,20,0.06)] hover:shadow-2xl hover:border-copper/40 transition-all duration-300 flex flex-col justify-between overflow-hidden group">
-          <div class="relative aspect-[16/10] overflow-hidden bg-sand/40">
-            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80" alt="Omaxe World Street SCO" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-            <div class="absolute top-3 left-3 flex flex-wrap gap-1.5 z-10">
-              <span class="px-2.5 py-1 rounded-full bg-copper text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">Commercial</span>
-              <span class="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md text-ink text-[10px] font-semibold">SCO / Retail</span>
-            </div>
-            <div class="absolute bottom-2.5 left-3.5 right-3.5 flex items-center justify-between text-white text-xs z-10">
-              <span class="font-medium flex items-center gap-1 drop-shadow-sm truncate max-w-[65%]">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="text-copperLight shrink-0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                Faridabad
-              </span>
-              <span class="text-[10px] font-semibold bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm border border-white/10 shrink-0">Ready To Move In</span>
-            </div>
-          </div>
-          <div class="p-4 sm:p-5 flex flex-col justify-between flex-1">
-            <div>
-              <h3 class="font-bold text-[17px] sm:text-[18px] text-ink group-hover:text-copper transition-colors truncate" title="Omaxe World Street SCO">
-                Omaxe World Street SCO
-              </h3>
-              <p class="text-xs text-muted line-clamp-1 mt-1 mb-3.5" title="Sector 79, Greater Faridabad">Sector 79, Greater Faridabad</p>
-              <div class="py-2.5 px-3 rounded-xl bg-[#FAF8F5] border border-ink/[0.06] flex items-center justify-between text-xs mb-4">
-                <div>
-                  <span class="text-[10px] uppercase tracking-wider text-muted font-medium block">Price</span>
-                  <span class="text-sm sm:text-[15px] font-bold text-copper">₹ 1.45 - 3.20 Cr*</span>
-                </div>
-                <div class="text-right">
-                  <span class="text-[10px] uppercase tracking-wider text-muted font-medium block">Configuration</span>
-                  <span class="font-semibold text-ink">SCO / Retail</span>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-center gap-2 pt-1 border-t border-ink/[0.06]">
-              <a href="project-details.html?slug=omaxe-world-street-sco" class="flex-1 py-2.5 rounded-xl bg-ink hover:bg-copper text-white text-xs font-semibold text-center transition-all duration-300 flex items-center justify-center gap-1.5 shadow-xs">
-                <span>View Details</span>
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-              <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties%2C%20I%20am%20interested%20in%20Omaxe%20World%20Street%20SCO%20(Sector%2079%2C%20Greater%20Faridabad).%20Please%20share%20price%20breakdown%20and%20brochure." target="_blank" rel="noopener noreferrer" aria-label="Inquire on WhatsApp" class="w-10 h-10 rounded-xl bg-emerald-50 hover:bg-[#25D366] text-[#25D366] hover:text-white border border-emerald-200 flex items-center justify-center transition-all duration-300 shrink-0 shadow-xs" title="WhatsApp Enquiry">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-              </a>
-            </div>
+        <div class="card relative shrink-0 w-[84%] sm:w-[300px] md:w-[330px] lg:w-[350px] snap-start rounded-[22px] bg-white border border-ink/[0.08] p-4 shadow-sm animate-pulse">
+          <div class="aspect-[16/10] w-full rounded-[16px] bg-sand/80"></div>
+          <div class="p-2 space-y-2.5 mt-3">
+            <div class="h-5 bg-sand/80 rounded w-2/3"></div>
+            <div class="h-3.5 bg-sand/70 rounded w-1/2"></div>
+            <div class="h-10 bg-sand/60 rounded-xl w-full mt-3"></div>
           </div>
         </div>
-
-        <!-- Property Card: Puri The Pranayam -->
-        <div class="card relative shrink-0 w-[84%] sm:w-[300px] md:w-[330px] lg:w-[350px] snap-start rounded-[22px] bg-white border border-ink/[0.08] shadow-[0_4px_20px_rgba(22,21,20,0.06)] hover:shadow-2xl hover:border-copper/40 transition-all duration-300 flex flex-col justify-between overflow-hidden group">
-          <div class="relative aspect-[16/10] overflow-hidden bg-sand/40">
-            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1000&q=80" alt="Puri The Pranayam" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-            <div class="absolute top-3 left-3 flex flex-wrap gap-1.5 z-10">
-              <span class="px-2.5 py-1 rounded-full bg-copper text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">Residential</span>
-              <span class="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md text-ink text-[10px] font-semibold">3 & 4 BHK</span>
-            </div>
-            <div class="absolute bottom-2.5 left-3.5 right-3.5 flex items-center justify-between text-white text-xs z-10">
-              <span class="font-medium flex items-center gap-1 drop-shadow-sm truncate max-w-[65%]">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="text-copperLight shrink-0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                Faridabad
-              </span>
-              <span class="text-[10px] font-semibold bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm border border-white/10 shrink-0">Ready To Move In</span>
-            </div>
+        <div class="card relative shrink-0 w-[84%] sm:w-[300px] md:w-[330px] lg:w-[350px] snap-start rounded-[22px] bg-white border border-ink/[0.08] p-4 shadow-sm animate-pulse hidden sm:block">
+          <div class="aspect-[16/10] w-full rounded-[16px] bg-sand/80"></div>
+          <div class="p-2 space-y-2.5 mt-3">
+            <div class="h-5 bg-sand/80 rounded w-2/3"></div>
+            <div class="h-3.5 bg-sand/70 rounded w-1/2"></div>
+            <div class="h-10 bg-sand/60 rounded-xl w-full mt-3"></div>
           </div>
-          <div class="p-4 sm:p-5 flex flex-col justify-between flex-1">
-            <div>
-              <h3 class="font-bold text-[17px] sm:text-[18px] text-ink group-hover:text-copper transition-colors truncate" title="Puri The Pranayam">
-                Puri The Pranayam
-              </h3>
-              <p class="text-xs text-muted line-clamp-1 mt-1 mb-3.5" title="Sector 82-85, Greater Faridabad">Sector 82-85, Greater Faridabad</p>
-              <div class="py-2.5 px-3 rounded-xl bg-[#FAF8F5] border border-ink/[0.06] flex items-center justify-between text-xs mb-4">
-                <div>
-                  <span class="text-[10px] uppercase tracking-wider text-muted font-medium block">Price</span>
-                  <span class="text-sm sm:text-[15px] font-bold text-copper">₹ 1.35 - 1.95 Cr*</span>
-                </div>
-                <div class="text-right">
-                  <span class="text-[10px] uppercase tracking-wider text-muted font-medium block">Configuration</span>
-                  <span class="font-semibold text-ink">3 & 4 BHK</span>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-center gap-2 pt-1 border-t border-ink/[0.06]">
-              <a href="project-details.html?slug=puri-the-pranayam" class="flex-1 py-2.5 rounded-xl bg-ink hover:bg-copper text-white text-xs font-semibold text-center transition-all duration-300 flex items-center justify-center gap-1.5 shadow-xs">
-                <span>View Details</span>
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-              <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties%2C%20I%20am%20interested%20in%20Puri%20The%20Pranayam%20(Sector%2082-85%2C%20Greater%20Faridabad).%20Please%20share%20price%20breakdown%20and%20brochure." target="_blank" rel="noopener noreferrer" aria-label="Inquire on WhatsApp" class="w-10 h-10 rounded-xl bg-emerald-50 hover:bg-[#25D366] text-[#25D366] hover:text-white border border-emerald-200 flex items-center justify-center transition-all duration-300 shrink-0 shadow-xs" title="WhatsApp Enquiry">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Property Card: BPTP Discovery Park -->
-        <div class="card relative shrink-0 w-[84%] sm:w-[300px] md:w-[330px] lg:w-[350px] snap-start rounded-[22px] bg-white border border-ink/[0.08] shadow-[0_4px_20px_rgba(22,21,20,0.06)] hover:shadow-2xl hover:border-copper/40 transition-all duration-300 flex flex-col justify-between overflow-hidden group">
-          <div class="relative aspect-[16/10] overflow-hidden bg-sand/40">
-            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&q=80" alt="BPTP Discovery Park" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-            <div class="absolute top-3 left-3 flex flex-wrap gap-1.5 z-10">
-              <span class="px-2.5 py-1 rounded-full bg-copper text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">Residential</span>
-              <span class="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md text-ink text-[10px] font-semibold">2 & 3 BHK</span>
-            </div>
-            <div class="absolute bottom-2.5 left-3.5 right-3.5 flex items-center justify-between text-white text-xs z-10">
-              <span class="font-medium flex items-center gap-1 drop-shadow-sm truncate max-w-[65%]">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="text-copperLight shrink-0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                Faridabad
-              </span>
-              <span class="text-[10px] font-semibold bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm border border-white/10 shrink-0">Ready To Move In</span>
-            </div>
-          </div>
-          <div class="p-4 sm:p-5 flex flex-col justify-between flex-1">
-            <div>
-              <h3 class="font-bold text-[17px] sm:text-[18px] text-ink group-hover:text-copper transition-colors truncate" title="BPTP Discovery Park">
-                BPTP Discovery Park
-              </h3>
-              <p class="text-xs text-muted line-clamp-1 mt-1 mb-3.5" title="Sector 80, Greater Faridabad">Sector 80, Greater Faridabad</p>
-              <div class="py-2.5 px-3 rounded-xl bg-[#FAF8F5] border border-ink/[0.06] flex items-center justify-between text-xs mb-4">
-                <div>
-                  <span class="text-[10px] uppercase tracking-wider text-muted font-medium block">Price</span>
-                  <span class="text-sm sm:text-[15px] font-bold text-copper">₹ 85 Lakhs - 1.25 Cr*</span>
-                </div>
-                <div class="text-right">
-                  <span class="text-[10px] uppercase tracking-wider text-muted font-medium block">Configuration</span>
-                  <span class="font-semibold text-ink">2 & 3 BHK</span>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-center gap-2 pt-1 border-t border-ink/[0.06]">
-              <a href="project-details.html?slug=bptp-discovery-park" class="flex-1 py-2.5 rounded-xl bg-ink hover:bg-copper text-white text-xs font-semibold text-center transition-all duration-300 flex items-center justify-center gap-1.5 shadow-xs">
-                <span>View Details</span>
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-              <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties%2C%20I%20am%20interested%20in%20BPTP%20Discovery%20Park%20(Sector%2080%2C%20Greater%20Faridabad).%20Please%20share%20price%20breakdown%20and%20brochure." target="_blank" rel="noopener noreferrer" aria-label="Inquire on WhatsApp" class="w-10 h-10 rounded-xl bg-emerald-50 hover:bg-[#25D366] text-[#25D366] hover:text-white border border-emerald-200 flex items-center justify-center transition-all duration-300 shrink-0 shadow-xs" title="WhatsApp Enquiry">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Property Card: Godrej Aristocrat -->
-        <div class="card relative shrink-0 w-[84%] sm:w-[300px] md:w-[330px] lg:w-[350px] snap-start rounded-[22px] bg-white border border-ink/[0.08] shadow-[0_4px_20px_rgba(22,21,20,0.06)] hover:shadow-2xl hover:border-copper/40 transition-all duration-300 flex flex-col justify-between overflow-hidden group">
-          <div class="relative aspect-[16/10] overflow-hidden bg-sand/40">
-            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1000&q=80" alt="Godrej Aristocrat" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-            <div class="absolute top-3 left-3 flex flex-wrap gap-1.5 z-10">
-              <span class="px-2.5 py-1 rounded-full bg-copper text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">Residential</span>
-              <span class="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md text-ink text-[10px] font-semibold">3 & 4 BHK</span>
-            </div>
-            <div class="absolute bottom-2.5 left-3.5 right-3.5 flex items-center justify-between text-white text-xs z-10">
-              <span class="font-medium flex items-center gap-1 drop-shadow-sm truncate max-w-[65%]">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="text-copperLight shrink-0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                Gurugram
-              </span>
-              <span class="text-[10px] font-semibold bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm border border-white/10 shrink-0">Under Construction</span>
-            </div>
-          </div>
-          <div class="p-4 sm:p-5 flex flex-col justify-between flex-1">
-            <div>
-              <h3 class="font-bold text-[17px] sm:text-[18px] text-ink group-hover:text-copper transition-colors truncate" title="Godrej Aristocrat">
-                Godrej Aristocrat
-              </h3>
-              <p class="text-xs text-muted line-clamp-1 mt-1 mb-3.5" title="Sector 49, Golf Course Ext. Road, Gurugram">Sector 49, Golf Course Ext. Road, Gurugram</p>
-              <div class="py-2.5 px-3 rounded-xl bg-[#FAF8F5] border border-ink/[0.06] flex items-center justify-between text-xs mb-4">
-                <div>
-                  <span class="text-[10px] uppercase tracking-wider text-muted font-medium block">Price</span>
-                  <span class="text-sm sm:text-[15px] font-bold text-copper">₹ 3.85 - 5.50 Cr*</span>
-                </div>
-                <div class="text-right">
-                  <span class="text-[10px] uppercase tracking-wider text-muted font-medium block">Configuration</span>
-                  <span class="font-semibold text-ink">3 & 4 BHK</span>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-center gap-2 pt-1 border-t border-ink/[0.06]">
-              <a href="project-details.html?slug=godrej-aristocrat" class="flex-1 py-2.5 rounded-xl bg-ink hover:bg-copper text-white text-xs font-semibold text-center transition-all duration-300 flex items-center justify-center gap-1.5 shadow-xs">
-                <span>View Details</span>
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-              <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties%2C%20I%20am%20interested%20in%20Godrej%20Aristocrat%20(Sector%2049%2C%20Golf%20Course%20Ext.%20Road%2C%20Gurugram).%20Please%20share%20price%20breakdown%20and%20brochure." target="_blank" rel="noopener noreferrer" aria-label="Inquire on WhatsApp" class="w-10 h-10 rounded-xl bg-emerald-50 hover:bg-[#25D366] text-[#25D366] hover:text-white border border-emerald-200 flex items-center justify-center transition-all duration-300 shrink-0 shadow-xs" title="WhatsApp Enquiry">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Property Card: BPTP District Gated Plots -->
-        <div class="card relative shrink-0 w-[84%] sm:w-[300px] md:w-[330px] lg:w-[350px] snap-start rounded-[22px] bg-white border border-ink/[0.08] shadow-[0_4px_20px_rgba(22,21,20,0.06)] hover:shadow-2xl hover:border-copper/40 transition-all duration-300 flex flex-col justify-between overflow-hidden group">
-          <div class="relative aspect-[16/10] overflow-hidden bg-sand/40">
-            <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1000&q=80" alt="BPTP District Gated Plots" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-            <div class="absolute top-3 left-3 flex flex-wrap gap-1.5 z-10">
-              <span class="px-2.5 py-1 rounded-full bg-copper text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">Villas</span>
-              <span class="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md text-ink text-[10px] font-semibold">Plots / Villas</span>
-            </div>
-            <div class="absolute bottom-2.5 left-3.5 right-3.5 flex items-center justify-between text-white text-xs z-10">
-              <span class="font-medium flex items-center gap-1 drop-shadow-sm truncate max-w-[65%]">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="text-copperLight shrink-0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                Faridabad
-              </span>
-              <span class="text-[10px] font-semibold bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm border border-white/10 shrink-0">Ready To Move In</span>
-            </div>
-          </div>
-          <div class="p-4 sm:p-5 flex flex-col justify-between flex-1">
-            <div>
-              <h3 class="font-bold text-[17px] sm:text-[18px] text-ink group-hover:text-copper transition-colors truncate" title="BPTP District Gated Plots">
-                BPTP District Gated Plots
-              </h3>
-              <p class="text-xs text-muted line-clamp-1 mt-1 mb-3.5" title="Sector 81 & 84, Greater Faridabad">Sector 81 & 84, Greater Faridabad</p>
-              <div class="py-2.5 px-3 rounded-xl bg-[#FAF8F5] border border-ink/[0.06] flex items-center justify-between text-xs mb-4">
-                <div>
-                  <span class="text-[10px] uppercase tracking-wider text-muted font-medium block">Price</span>
-                  <span class="text-sm sm:text-[15px] font-bold text-copper">₹ 1.15 - 2.80 Cr*</span>
-                </div>
-                <div class="text-right">
-                  <span class="text-[10px] uppercase tracking-wider text-muted font-medium block">Configuration</span>
-                  <span class="font-semibold text-ink">Plots / Villas</span>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-center gap-2 pt-1 border-t border-ink/[0.06]">
-              <a href="project-details.html?slug=bptp-district-plots" class="flex-1 py-2.5 rounded-xl bg-ink hover:bg-copper text-white text-xs font-semibold text-center transition-all duration-300 flex items-center justify-center gap-1.5 shadow-xs">
-                <span>View Details</span>
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-              <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties%2C%20I%20am%20interested%20in%20BPTP%20District%20Gated%20Plots%20(Sector%2081%20%26%2084%2C%20Greater%20Faridabad).%20Please%20share%20price%20breakdown%20and%20brochure." target="_blank" rel="noopener noreferrer" aria-label="Inquire on WhatsApp" class="w-10 h-10 rounded-xl bg-emerald-50 hover:bg-[#25D366] text-[#25D366] hover:text-white border border-emerald-200 flex items-center justify-center transition-all duration-300 shrink-0 shadow-xs" title="WhatsApp Enquiry">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Property Card: M3M Jewel High-Street Retail -->
-        <div class="card relative shrink-0 w-[84%] sm:w-[300px] md:w-[330px] lg:w-[350px] snap-start rounded-[22px] bg-white border border-ink/[0.08] shadow-[0_4px_20px_rgba(22,21,20,0.06)] hover:shadow-2xl hover:border-copper/40 transition-all duration-300 flex flex-col justify-between overflow-hidden group">
-          <div class="relative aspect-[16/10] overflow-hidden bg-sand/40">
-            <img src="https://images.unsplash.com/photo-1582037928769-181f2644ecb7?auto=format&fit=crop&w=1000&q=80" alt="M3M Jewel High-Street Retail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-            <div class="absolute top-3 left-3 flex flex-wrap gap-1.5 z-10">
-              <span class="px-2.5 py-1 rounded-full bg-copper text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">Commercial</span>
-              <span class="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md text-ink text-[10px] font-semibold">Retail / F&B</span>
-            </div>
-            <div class="absolute bottom-2.5 left-3.5 right-3.5 flex items-center justify-between text-white text-xs z-10">
-              <span class="font-medium flex items-center gap-1 drop-shadow-sm truncate max-w-[65%]">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="text-copperLight shrink-0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                Gurugram
-              </span>
-              <span class="text-[10px] font-semibold bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm border border-white/10 shrink-0">Under Construction</span>
-            </div>
-          </div>
-          <div class="p-4 sm:p-5 flex flex-col justify-between flex-1">
-            <div>
-              <h3 class="font-bold text-[17px] sm:text-[18px] text-ink group-hover:text-copper transition-colors truncate" title="M3M Jewel High-Street Retail">
-                M3M Jewel High-Street Retail
-              </h3>
-              <p class="text-xs text-muted line-clamp-1 mt-1 mb-3.5" title="Sector 25, MG Road, Gurugram">Sector 25, MG Road, Gurugram</p>
-              <div class="py-2.5 px-3 rounded-xl bg-[#FAF8F5] border border-ink/[0.06] flex items-center justify-between text-xs mb-4">
-                <div>
-                  <span class="text-[10px] uppercase tracking-wider text-muted font-medium block">Price</span>
-                  <span class="text-sm sm:text-[15px] font-bold text-copper">₹ 95 Lakhs - 2.50 Cr*</span>
-                </div>
-                <div class="text-right">
-                  <span class="text-[10px] uppercase tracking-wider text-muted font-medium block">Configuration</span>
-                  <span class="font-semibold text-ink">Retail / F&B</span>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-center gap-2 pt-1 border-t border-ink/[0.06]">
-              <a href="project-details.html?slug=m3m-jewel-mg-road" class="flex-1 py-2.5 rounded-xl bg-ink hover:bg-copper text-white text-xs font-semibold text-center transition-all duration-300 flex items-center justify-center gap-1.5 shadow-xs">
-                <span>View Details</span>
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-              <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties%2C%20I%20am%20interested%20in%20M3M%20Jewel%20High-Street%20Retail%20(Sector%2025%2C%20MG%20Road%2C%20Gurugram).%20Please%20share%20price%20breakdown%20and%20brochure." target="_blank" rel="noopener noreferrer" aria-label="Inquire on WhatsApp" class="w-10 h-10 rounded-xl bg-emerald-50 hover:bg-[#25D366] text-[#25D366] hover:text-white border border-emerald-200 flex items-center justify-center transition-all duration-300 shrink-0 shadow-xs" title="WhatsApp Enquiry">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Explore All Card -->
-        <div class="card relative shrink-0 w-[72%] sm:w-[270px] md:w-[290px] snap-start rounded-[22px] bg-gradient-to-br from-[#161514] to-[#2B231D] text-white p-6 sm:p-7 flex flex-col justify-between border border-copper/30 shadow-xl group">
-          <div>
-            <span class="w-11 h-11 rounded-xl bg-copper/20 text-copperLight flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-copper group-hover:text-white transition-all duration-300">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-            </span>
-            <span class="text-[11px] uppercase tracking-widest text-copperLight font-bold block mb-1">Full Portfolio</span>
-            <h3 class="text-[20px] font-bold leading-snug">Explore Entire NCR Collection</h3>
-            <p class="text-xs text-white/70 mt-2.5 leading-relaxed">Filter verified residential, commercial, plotted, and villa assets across Faridabad, Gurugram & Noida.</p>
-          </div>
-          <div class="pt-6">
-            <a href="properties.html" class="w-full py-3 rounded-xl bg-copper hover:bg-copperLight text-white text-xs font-semibold text-center transition flex items-center justify-center gap-2 shadow-md">
-              <span>View All 10+ Properties</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
+        </div>      </div>
 
       <!-- Bottom View All Button -->
       <div class="mt-8 md:mt-10 flex justify-center" data-aos="fade-up">
@@ -1238,7 +975,7 @@
         <!-- Article 1: Faridabad Corridor -->
         <article class="reveal relative rounded-[18px] overflow-hidden h-[340px] md:h-[370px] group" data-cursor>
           <div class="img-zoom"><img class="parallax-img w-full h-full object-cover"
-              src="/assest/blogs/blog-faridabad-expressway.webp"
+              src="assest/blogs/blog-faridabad-expressway.webp"
               alt="Faridabad Expressway Real Estate Growth" /></div>
           <div class="absolute left-3 right-3 bottom-3 bg-ink/80 backdrop-blur-xl rounded-[14px] p-4 text-white border border-white/10">
             <div class="flex items-start justify-between gap-2.5">
@@ -1257,7 +994,7 @@
         <!-- Article 2: RERA & Homebuyer Checklist -->
         <article class="reveal relative rounded-[18px] overflow-hidden h-[340px] md:h-[370px] group" data-cursor>
           <div class="img-zoom"><img class="parallax-img w-full h-full object-cover"
-              src="/assest/blogs/blog-homebuyer-checklist.webp"
+              src="assest/blogs/blog-homebuyer-checklist.webp"
               alt="Homebuyer Legal Advisory Checklist" /></div>
           <div class="absolute left-3 right-3 bottom-3 bg-ink/80 backdrop-blur-xl rounded-[14px] p-4 text-white border border-white/10">
             <div class="flex items-start justify-between gap-2.5">
@@ -1276,7 +1013,7 @@
         <!-- Article 3: Commercial SCOs & Retail -->
         <article class="reveal relative rounded-[18px] overflow-hidden h-[340px] md:h-[370px] group" data-cursor>
           <div class="img-zoom"><img class="parallax-img w-full h-full object-cover"
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80"
+              src="assest/blogs/blog-commercial-sco.webp"
               alt="Commercial Real Estate Investment SCO" /></div>
           <div class="absolute left-3 right-3 bottom-3 bg-ink/80 backdrop-blur-xl rounded-[14px] p-4 text-white border border-white/10">
             <div class="flex items-start justify-between gap-2.5">
@@ -1592,6 +1329,76 @@
 
   <script>
     gsap.registerPlugin(ScrollTrigger);
+
+    // ================= NAVBAR ANIMATION & MOBILE MENU TOGGLE =================
+    const nav = document.getElementById('nav');
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    // Nav entrance reveal animation
+    gsap.from('.nav-anim', {
+      y: -22,
+      opacity: 0,
+      duration: 0.85,
+      stagger: 0.08,
+      ease: 'power3.out',
+      delay: 0.1
+    });
+
+    // Nav scroll transformation handler
+    function updateNavScroll() {
+      if (!nav) return;
+      if (window.scrollY > 40) {
+        nav.classList.add('is-scrolled');
+      } else {
+        nav.classList.remove('is-scrolled');
+      }
+    }
+    window.addEventListener('scroll', updateNavScroll, { passive: true });
+    updateNavScroll();
+
+    // Mobile menu toggle animation
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          gsap.fromTo(mobileMenu, 
+            { opacity: 0, y: -12, scale: 0.98 }, 
+            { opacity: 1, y: 0, scale: 1, duration: 0.32, ease: 'power2.out' }
+          );
+        } else {
+          gsap.to(mobileMenu, {
+            opacity: 0,
+            y: -10,
+            scale: 0.98,
+            duration: 0.2,
+            ease: 'power2.in',
+            onComplete: () => mobileMenu.classList.add('hidden')
+          });
+        }
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+          gsap.to(mobileMenu, {
+            opacity: 0,
+            y: -10,
+            duration: 0.2,
+            onComplete: () => mobileMenu.classList.add('hidden')
+          });
+        }
+      });
+
+      // Close mobile menu when clicking any link
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+    }
 
     // Initialize AOS Animation Engine
     AOS.init({
