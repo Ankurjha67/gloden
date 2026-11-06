@@ -81,10 +81,16 @@
         </div>
       </div>
 
-      <button onclick="openPropertyModal()" class="px-4 py-2.5 bg-copper hover:bg-copperDark text-white text-xs font-medium rounded-xl transition shadow flex items-center gap-2">
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-        <span>+ Add New Property</span>
-      </button>
+      <div class="flex items-center gap-2.5">
+        <button onclick="restoreSamplePortfolio()" class="px-3 py-2 bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white text-xs font-medium rounded-xl transition border border-white/10 flex items-center gap-1.5" title="Load sample verified portfolio into database">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span class="hidden sm:inline">Load Sample Portfolio</span>
+        </button>
+        <button onclick="openPropertyModal()" class="px-4 py-2.5 bg-copper hover:bg-copperDark text-white text-xs font-medium rounded-xl transition shadow flex items-center gap-2">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          <span>+ Add New Property</span>
+        </button>
+      </div>
     </header>
 
     <!-- Page Body -->
@@ -1143,13 +1149,21 @@
 
       const targetId = pendingDeleteId;
       try {
-        const res = await fetch(`/api/properties/${encodeURIComponent(targetId)}`, {
+        let res = await fetch(`../api.php?route=properties/${encodeURIComponent(targetId)}`, {
           method: 'DELETE',
           headers: { 'Content-Type': 'application/json' }
-        });
-        const data = await res.json().catch(() => ({}));
+        }).catch(() => null);
 
-        if (res.ok && data.success !== false) {
+        if (!res || !res.ok) {
+          res = await fetch(`/api/properties/${encodeURIComponent(targetId)}`, {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' }
+          }).catch(() => null);
+        }
+
+        const data = res ? await res.json().catch(() => ({})) : {};
+
+        if (res && res.ok && data.success !== false) {
           closeDeleteModal();
           showToast('Property deleted successfully!');
           await loadProperties();
@@ -1162,6 +1176,31 @@
       } finally {
         btn.disabled = false;
         text.textContent = 'Yes, Delete Property';
+      }
+    }
+
+    async function restoreSamplePortfolio() {
+      if (!confirm('Load 10 verified landmark sample properties into the database? You can edit or delete them anytime.')) return;
+      try {
+        const res = await fetch('../data/sample_properties_backup.json');
+        if (!res.ok) throw new Error('Could not read sample properties backup file');
+        const backupProps = await res.json();
+        
+        // Post each sample property to api.php
+        let count = 0;
+        for (const p of backupProps) {
+          const fd = new FormData();
+          Object.keys(p).forEach(k => {
+            if (typeof p[k] === 'object') fd.append(k, JSON.stringify(p[k]));
+            else fd.append(k, p[k]);
+          });
+          const postRes = await fetch('../api.php?route=properties', { method: 'POST', body: fd }).catch(() => null);
+          if (postRes && postRes.ok) count++;
+        }
+        showToast(`Loaded ${count} landmark properties!`);
+        await loadProperties();
+      } catch (e) {
+        alert('Notice loading sample properties: ' + e.message);
       }
     }
 
