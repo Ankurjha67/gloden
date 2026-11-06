@@ -1,0 +1,8 @@
+# Block direct browser access to sensitive data files
+<FilesMatch "^(admin|leads|properties\.backup)\.json$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Prevent directory index listing
+Options -Indexes

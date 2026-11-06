@@ -123,26 +123,33 @@
   <div id="progressBar"></div>
 
   <!-- ================= NAV ================= -->
+  <!-- ================= MASTER HEADER / NAV ================= -->
   <header id="nav" class="fixed top-5 md:top-7 inset-x-5 md:inset-x-10 z-50">
     <div class="nav-inner max-w-[1240px] mx-auto h-20 sm:h-22 md:h-24 px-4 pl-6 md:pl-8 rounded-full flex items-center justify-between">
-      <a href="index.html" class="flex items-center py-1.5" aria-label="Golden Properties">
+      <a href="index.html" class="nav-anim flex items-center py-1.5" aria-label="Golden Properties">
         <img src="/assest/Golden-Properties-Luxury-Logo.png" alt="Golden Properties" class="h-12 sm:h-14 md:h-16 lg:h-[72px] w-auto object-contain" />
       </a>
 
       <ul class="hidden md:flex items-center gap-10 text-[14px]">
-        <li><a href="index.html" class="hover:opacity-60 transition">Home</a></li>
-        <li><a href="about.html" class="hover:opacity-60 transition">About Us</a></li>
-        <li><a href="properties.html" class="hover:opacity-60 transition">Properties</a></li>
-        <li>
-          <a href="blogs.html" class="text-copperLight font-medium flex items-center gap-1.5 transition">
-            Blog
-            <span class="w-1.5 h-1.5 rounded-full bg-copper"></span>
+        <li class="nav-anim">
+          <a href="index.html" class="hover:text-copper transition text-ink/80">Home</a>
+        </li>
+        <li class="nav-anim">
+          <a href="about.html" class="hover:text-copper transition text-ink/80">About Us</a>
+        </li>
+        <li class="nav-anim">
+          <a href="properties.html" class="hover:text-copper transition flex items-center gap-1.5 text-ink/80">
+            Properties
+            
           </a>
+        </li>
+        <li class="nav-anim">
+          <a href="blogs.html" class="hover:text-copper transition text-copperLight font-semibold">Blog</a>
         </li>
       </ul>
 
       <a href="index.html#contact"
-        class="nav-cta hidden md:inline-flex items-center gap-2 pl-5 pr-2 py-2 rounded-full text-[13px] font-medium transition">
+        class="nav-anim nav-cta hidden md:inline-flex items-center gap-2 pl-5 pr-2 py-2 rounded-full text-[13px] font-medium transition">
         Contact Us
         <span class="w-7 h-7 rounded-full bg-copper grid place-items-center">
           <svg width="12" height="12" fill="none" stroke="#fff" stroke-width="2">
@@ -163,8 +170,8 @@
       <a href="index.html" class="block px-4 py-3 rounded-2xl hover:bg-sand">Home</a>
       <a href="about.html" class="block px-4 py-3 rounded-2xl hover:bg-sand">About Us</a>
       <a href="properties.html" class="block px-4 py-3 rounded-2xl hover:bg-sand">Properties</a>
-      <a href="blogs.html" class="block px-4 py-3 rounded-2xl bg-copper/10 text-copper font-medium">Blog</a>
-      <a href="index.html#contact" class="block mt-2 px-4 py-3 rounded-2xl bg-copper text-white text-center hover:bg-copperLight transition">Contact Us</a>
+      <a href="blogs.html" class="block px-4 py-3 rounded-2xl bg-copper/10 text-copper font-semibold">Blog</a>
+      <a href="index.html#contact" class="block mt-2 px-4 py-3 rounded-2xl bg-copper text-white text-center hover:bg-copperLight transition font-medium">Contact Us</a>
     </div>
   </header>
 
@@ -694,49 +701,112 @@
 
   <!-- ================= FOOTER ================= -->
   <!-- Matching official Golden Properties footer -->
-  <footer class="w-full bg-[#0F0E0D] text-white pt-14 sm:pt-16 md:pt-20">
-    <div class="container-x">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr] gap-10 md:gap-14 pb-12 sm:pb-16 border-b border-white/10">
-        <div data-aos="fade-up">
+  <!-- ================= MASTER FOOTER ================= -->
+  <footer id="contact" class="w-full bg-ink text-white overflow-hidden">
+    <div class="container-x pt-14 md:pt-20">
+      
+      <!-- Contact Header -->
+      <div class="max-w-[700px] mb-12">
+        <span class="inline-flex items-center gap-2 text-[11px] tracking-[0.22em] uppercase text-copperLight font-semibold">
+          <span class="w-4 h-px bg-copperLight"></span>
+          Connect with Fiduciary Advisory
+        </span>
+        <h2 class="text-[28px] sm:text-[38px] md:text-[46px] font-light tracking-[-0.03em] leading-[1.12] mt-3">
+          Ready to Find Your <br /><span class="font-normal text-copperLight">Next Landmark Property?</span>
+        </h2>
+        <p class="mt-3 text-white/70 text-[14px] leading-relaxed">
+          Speak directly with our senior advisors for verified project inventory, transparent pricing, private site tours, and legal documentation guidance across Faridabad &amp; Delhi NCR.
+        </p>
+      </div>
+
+      <!-- 4 Direct Contact Methods Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-14">
+        
+        <!-- Phone -->
+        <a href="tel:+919928203900" class="p-5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-copper hover:bg-white/[0.07] transition group block">
+          <div class="w-10 h-10 rounded-xl bg-copper/20 text-copperLight flex items-center justify-center mb-3 group-hover:bg-copper group-hover:text-white transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <span class="text-[11px] text-white/50 uppercase tracking-wider block">Call Direct Line</span>
+          <span class="text-[15px] font-semibold text-white group-hover:text-copperLight transition mt-0.5 block">+91 99-2820-3900</span>
+          <span class="text-[11px] text-emerald-400 mt-1 block">Mon - Sun (9 AM - 8 PM)</span>
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties,%20I%20am%20exploring%20properties%20on%20your%20website%20and%20would%20like%20to%20consult%20with%20an%20advisor." target="_blank" rel="noopener noreferrer" class="p-5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-[#25D366] hover:bg-white/[0.07] transition group block">
+          <div class="w-10 h-10 rounded-xl bg-[#25D366]/20 text-[#25D366] flex items-center justify-center mb-3 group-hover:bg-[#25D366] group-hover:text-white transition">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          </div>
+          <span class="text-[11px] text-white/50 uppercase tracking-wider block">Instant WhatsApp</span>
+          <span class="text-[15px] font-semibold text-white group-hover:text-[#25D366] transition mt-0.5 block">Chat with Advisor</span>
+          <span class="text-[11px] text-emerald-400 mt-1 block">⚡ Instant Response</span>
+        </a>
+
+        <!-- Office Address -->
+        <a href="https://maps.google.com/?q=Sector+77+Faridabad+Delhi+NCR" target="_blank" rel="noopener noreferrer" class="p-5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-copper hover:bg-white/[0.07] transition group block">
+          <div class="w-10 h-10 rounded-xl bg-copper/20 text-copperLight flex items-center justify-center mb-3 group-hover:bg-copper group-hover:text-white transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <span class="text-[11px] text-white/50 uppercase tracking-wider block">Corporate Office</span>
+          <span class="text-[13px] font-semibold text-white group-hover:text-copperLight transition mt-0.5 block leading-snug">Faridabad Expressway Corridor</span>
+          <span class="text-[11px] text-white/60 mt-1 block">Sector 77, Faridabad, NCR ↗</span>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:contact@goldenproperties.co" class="p-5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-copper hover:bg-white/[0.07] transition group block">
+          <div class="w-10 h-10 rounded-xl bg-copper/20 text-copperLight flex items-center justify-center mb-3 group-hover:bg-copper group-hover:text-white transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <span class="text-[11px] text-white/50 uppercase tracking-wider block">Official Email</span>
+          <span class="text-[13px] font-semibold text-white group-hover:text-copperLight transition mt-0.5 block leading-snug">contact@goldenproperties.co</span>
+          <span class="text-[11px] text-white/60 mt-1 block">24-Hour Response</span>
+        </a>
+
+      </div>
+
+      <div class="my-10 h-px bg-white/10"></div>
+
+      <div class="grid lg:grid-cols-[1.3fr_2fr] gap-8 md:gap-10 pb-12 md:pb-16">
+        <div>
           <a href="index.html" class="inline-block py-2" aria-label="Golden Properties">
             <img src="/assest/Golden-Properties-Luxury-Logo.png" alt="Golden Properties" class="h-16 sm:h-20 md:h-24 w-auto object-contain" />
           </a>
-          <p class="mt-4 text-[13.5px] text-white/55 leading-[1.7] max-w-[340px]">
-            India’s premier real estate advisory boutique, bringing institutional fiduciary standards, bespoke advisory, and landmark residential acquisitions to life.
+          <p class="mt-3.5 text-[13px] text-white/55 leading-[1.65] max-w-[290px]">
+            A premier fiduciary real estate advisory helping families and investors discover verified landmark properties across Delhi NCR.
           </p>
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="100">
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-8">
           <div>
             <p class="text-[12px] uppercase tracking-[.18em] text-white/40 mb-4">Navigation</p>
             <ul class="space-y-2.5 text-[13px]">
-              <li><a href="index.html" class="footer-link">Home</a></li>
-              <li><a href="about.html" class="footer-link">About Us</a></li>
-              <li><a href="properties.html" class="footer-link">Properties</a></li>
-              <li><a href="blogs.html" class="footer-link text-copperLight font-medium">Blog</a></li>
+              <li><a href="index.html" class="hover:text-copperLight transition">Home</a></li>
+              <li><a href="about.html" class="hover:text-copperLight transition">About Us</a></li>
+              <li><a href="properties.html" class="hover:text-copperLight transition">Properties</a></li>
+              <li><a href="blogs.html" class="hover:text-copperLight transition">Blog &amp; Insights</a></li>
             </ul>
           </div>
           <div>
-            <p class="text-[12px] uppercase tracking-[.18em] text-white/40 mb-4">Security</p>
+            <p class="text-[12px] uppercase tracking-[.18em] text-white/40 mb-4">Security &amp; Legal</p>
             <ul class="space-y-2.5 text-[13px]">
-              <li><a href="#" class="footer-link">Privacy Policy</a></li>
-              <li><a href="#" class="footer-link">User Agreements</a></li>
-              <li><a href="#" class="footer-link">Copyright</a></li>
+              <li><a href="#" class="hover:text-copperLight transition">RERA Verification</a></li>
+              <li><a href="#" class="hover:text-copperLight transition">Privacy Policy</a></li>
+              <li><a href="#" class="hover:text-copperLight transition">Terms of Service</a></li>
             </ul>
           </div>
           <div>
-            <p class="text-[12px] uppercase tracking-[.18em] text-white/40 mb-4">Social Media</p>
+            <p class="text-[12px] uppercase tracking-[.18em] text-white/40 mb-4">Connect</p>
             <ul class="space-y-2.5 text-[13px]">
-              <li><a href="#" class="footer-link">Instagram</a></li>
-              <li><a href="#" class="footer-link">Facebook</a></li>
-              <li><a href="#" class="footer-link">LinkedIn</a></li>
+              <li><a href="tel:+919928203900" class="hover:text-copperLight transition">+91 99-2820-3900</a></li>
+              <li><a href="https://wa.me/919928203900" target="_blank" rel="noopener noreferrer" class="hover:text-[#25D366] transition">WhatsApp Advisory</a></li>
+              <li><a href="admin/login.html" class="text-white/30 hover:text-white/60 transition text-[11px]">Partner Portal</a></li>
             </ul>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Brand Signature Banner (Giant Full Width Display) -->
+    <!-- Giant Brand Signature Banner -->
     <div class="w-full overflow-hidden border-t border-white/10 pt-6 sm:pt-8 md:pt-10 pb-2 sm:pb-3 md:pb-4 text-center select-none">
       <p class="font-bold tracking-[-0.035em] leading-none text-white/15 text-[11.8vw] sm:text-[11.5vw] md:text-[11.2vw] whitespace-nowrap px-1 transition-colors duration-500 hover:text-white/25">
         Golden Properties
@@ -745,8 +815,8 @@
 
     <div class="container-x">
       <div class="pt-5 pb-8 md:pb-10 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-[11px] text-white/40">
-        <p>© 2026 Golden Properties Pvt. Ltd. All rights reserved.</p>
-        <a href="#" id="backToTop" class="hover:text-white transition">Back to top ↑</a>
+        <p>© 2026 Golden Properties. All rights reserved.</p>
+        <a href="#" class="hover:text-white transition" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">Back to top ↑</a>
       </div>
     </div>
   </footer>

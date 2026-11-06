@@ -1,15 +1,70 @@
 [
   {
+    "id": "faridabad-expressway-roi",
+    "slug": "faridabad-expressway-roi",
+    "title": "Why Faridabad Expressway (Sec 77-85) Is NCR's Fastest Growing High-ROI Corridor",
+    "category": "MARKET CORRIDOR",
+    "date": "24 October 2026",
+    "readTime": "5 Min Read",
+    "badge": "CORRIDOR REPORT • FARIDABAD",
+    "image": "/assest/blogs/blog-faridabad-expressway.webp",
+    "subLocation": "Delhi-Faridabad Expressway & DND-KMP Link",
+    "excerpt": "With the operational Delhi-Mumbai Expressway link and Jewar Airport connectivity, Greater Faridabad sectors 77 to 85 have recorded a 28% capital appreciation over the last 18 months.",
+    "featured": true,
+    "author": {
+      "name": "Devansh Singhania",
+      "role": "Principal Advisory Desk",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
+    }
+  },
+  {
+    "id": "homebuyer-legal-checklist",
+    "slug": "homebuyer-legal-checklist",
+    "title": "First-Time Homebuyer Checklist in NCR: RERA, Registry & Legal Due Diligence",
+    "category": "BUYER ADVISORY",
+    "date": "18 October 2026",
+    "readTime": "7 Min Read",
+    "badge": "LEGAL & DUE DILIGENCE",
+    "image": "/assest/blogs/blog-homebuyer-checklist.webp",
+    "subLocation": "RERA Title Verification & Registry Guidance",
+    "excerpt": "Essential 7-point fiduciary checklist covering builder-buyer agreements, occupancy certificates, encumbrance checks, and stamp duty optimization across Haryana and Delhi.",
+    "featured": true,
+    "author": {
+      "name": "Pooja Malhotra",
+      "role": "Senior Fiduciary Consultant",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80"
+    }
+  },
+  {
+    "id": "commercial-sco-vs-retail",
+    "slug": "commercial-sco-vs-retail",
+    "title": "Commercial SCO Plots vs High-Street Retail: Where Are NCR Investors Yielding 8-9%?",
+    "category": "COMMERCIAL ASSETS",
+    "date": "15 October 2026",
+    "readTime": "6 Min Read",
+    "badge": "COMMERCIAL YIELDS",
+    "image": "/assest/blogs/blog-commercial-sco.webp",
+    "subLocation": "Shop-Cum-Offices & High Street Retail Corridors",
+    "excerpt": "A deep dive comparative study between freehold SCO ownership and mall lock-in retail spaces, highlighting lease rental yields, tenant lock-in periods, and capital appreciation.",
+    "featured": true,
+    "author": {
+      "name": "Aarav Sharma",
+      "role": "Head of Commercial Transactions",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
+    }
+  },
+  {
     "id": "gurugram-outlook-2026",
+    "slug": "gurugram-outlook-2026",
     "title": "Gurugram Real Estate Outlook 2026: The Super-Luxury Paradigm Shift",
     "category": "MARKET INSIGHTS",
     "date": "12 October 2026",
     "readTime": "6 Min Read",
     "badge": "COVER ESSAY • GURUGRAM",
-    "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=85",
+    "image": "/assest/blogs/blog-gurugram-luxury.webp",
     "subLocation": "Golf Course Road & Dwarka Expressway Enclaves",
     "excerpt": "An in-depth analysis of emerging infrastructure corridors, ultra-luxury enclave appreciation, and why institutional capital is concentrating along Golf Course Road and Dwarka Expressway.",
-    "featured": true,
+    "featured": false,
     "author": {
       "name": "Aarav Sharma",
       "role": "Principal Research Analyst",
@@ -18,12 +73,13 @@
   },
   {
     "id": "nri-investment-guide-2026",
+    "slug": "nri-investment-guide-2026",
     "title": "NRI Investment Blueprint 2026: Navigating FEMA, TDS & High-Yield Assets",
     "category": "LEGAL & TAX",
     "date": "08 October 2026",
     "readTime": "8 Min Read",
     "badge": "REGULATORY BRIEF",
-    "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
+    "image": "/assest/blogs/blog-nri-blueprint.webp",
     "subLocation": "Cross-Border Wealth Advisory",
     "excerpt": "A definitive fiduciary guide for non-resident investors seeking Grade-A commercial assets, REIT allocations, and repatriable capital structuring in India.",
     "featured": false,
@@ -35,12 +91,13 @@
   },
   {
     "id": "biophilic-architecture-luxury",
+    "slug": "biophilic-architecture-luxury",
     "title": "Biophilic Architecture: How Sustainable Estates Command 24% Premium",
     "category": "ARCHITECTURE",
     "date": "02 October 2026",
     "readTime": "5 Min Read",
     "badge": "DESIGN REPORT",
-    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+    "image": "/assest/blogs/blog-biophilic-architecture.webp",
     "subLocation": "Green Building Innovations",
     "excerpt": "Exploring why modern HNIs prioritize Net-Zero carbon villas, indoor micro-forests, and IGBC Platinum rated residences over traditional luxury.",
     "featured": false,

@@ -35,10 +35,126 @@ function writeData($file, $data) {
     return @file_put_contents($path, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE), LOCK_EX);
 }
 
+function sanitizeInput($data) {
+    if (is_array($data)) return array_map('sanitizeInput', $data);
+    if (!is_string($data)) return $data;
+    $data = trim($data);
+    $data = strip_tags($data);
+    return htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
+}
+
+function sendLeadEmail($lead) {
+    $admin = readData('admin.json');
+    $to = !empty($admin['adminEmail']) ? $admin['adminEmail'] : 'contact@goldenproperties.co';
+    $subject = "New Property Lead: " . ($lead['name'] ?? 'Visitor') . " - " . ($lead['property'] ?? 'General Enquiry');
+
+    $messageHtml = '
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="UTF-8">
+      <title>' . htmlspecialchars($subject) . '</title>
+    </head>
+    <body style="font-family: Arial, sans-serif; background-color: #F8F6F2; padding: 25px; margin: 0;">
+      <table align="center" width="600" style="background-color: #ffffff; border-radius: 14px; border: 1px solid #E2DCD5; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+        <tr style="background-color: #161514; color: #ffffff;">
+          <td style="padding: 24px; text-align: center;">
+            <h2 style="margin: 0; color: #A8774A; font-size: 22px; font-weight: normal; letter-spacing: 2px;">GOLDEN PROPERTIES</h2>
+            <p style="margin: 4px 0 0; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: #cccccc;">Fiduciary Real Estate Advisory • New Lead Notification</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 30px;">
+            <p style="font-size: 15px; color: #333333; margin-top: 0;">A new VIP property consultation request was received via the website:</p>
+            <table width="100%" style="border-collapse: collapse; margin-top: 15px; font-size: 13.5px;">
+              <tr style="border-bottom: 1px solid #eeeeee;">
+                <td style="padding: 10px 0; color: #77716A; font-weight: bold; width: 35%;">Client Name:</td>
+                <td style="padding: 10px 0; color: #161514; font-weight: 600;">' . htmlspecialchars($lead['name'] ?? 'N/A') . '</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #eeeeee;">
+                <td style="padding: 10px 0; color: #77716A; font-weight: bold;">Phone Number:</td>
+                <td style="padding: 10px 0; color: #161514; font-weight: 600;"><a href="tel:' . htmlspecialchars($lead['phone'] ?? '') . '" style="color: #A8774A; text-decoration: none;">' . htmlspecialchars($lead['phone'] ?? 'N/A') . '</a></td>
+              </tr>
+              <tr style="border-bottom: 1px solid #eeeeee;">
+                <td style="padding: 10px 0; color: #77716A; font-weight: bold;">Email Address:</td>
+                <td style="padding: 10px 0; color: #161514;"><a href="mailto:' . htmlspecialchars($lead['email'] ?? '') . '" style="color: #A8774A; text-decoration: none;">' . htmlspecialchars($lead['email'] ?? 'N/A') . '</a></td>
+              </tr>
+              <tr style="border-bottom: 1px solid #eeeeee;">
+                <td style="padding: 10px 0; color: #77716A; font-weight: bold;">Property / Segment:</td>
+                <td style="padding: 10px 0; color: #161514; font-weight: 600;">' . htmlspecialchars($lead['property'] ?? 'N/A') . '</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #eeeeee;">
+                <td style="padding: 10px 0; color: #77716A; font-weight: bold;">Consultation / Tour:</td>
+                <td style="padding: 10px 0; color: #161514;">' . htmlspecialchars($lead['tourType'] ?? 'Site Visit') . '</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #eeeeee;">
+                <td style="padding: 10px 0; color: #77716A; font-weight: bold;">Notes / Message:</td>
+                <td style="padding: 10px 0; color: #161514;">' . nl2br(htmlspecialchars($lead['message'] ?? 'None')) . '</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px 0; color: #77716A; font-weight: bold;">Date & Time:</td>
+                <td style="padding: 10px 0; color: #888888; font-size: 12px;">' . date('d M Y, h:i A') . ' (IST)</td>
+              </tr>
+            </table>
+
+            <div style="margin-top: 30px; text-align: center;">
+              <a href="https://wa.me/' . preg_replace('/[^0-9]/', '', $lead['phone'] ?? '') . '?text=' . urlencode("Hi " . ($lead['name'] ?? '') . ", thank you for inquiring with Golden Properties regarding " . ($lead['property'] ?? 'our properties') . ". I am pleased to assist you with complete details.") . '" style="display: inline-block; background-color: #25D366; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: bold; font-size: 13px;">
+                Chat With Client On WhatsApp →
+              </a>
+            </div>
+          </td>
+        </tr>
+        <tr style="background-color: #FBFAF7; border-top: 1px solid #E2DCD5;">
+          <td style="padding: 16px; text-align: center; font-size: 11px; color: #999999;">
+            © 2026 Golden Properties • Faridabad Expressway & Delhi NCR Luxury Real Estate Advisory
+          </td>
+        </tr>
+      </table>
+    </body>
+    </html>';
+
+    $headers = [];
+    $headers[] = 'MIME-Version: 1.0';
+    $headers[] = 'Content-Type: text/html; charset=UTF-8';
+    $headers[] = 'From: Golden Properties Concierge <no-reply@goldenproperties.co>';
+    if (!empty($lead['email']) && filter_var($lead['email'], FILTER_VALIDATE_EMAIL)) {
+        $headers[] = 'Reply-To: ' . $lead['name'] . ' <' . $lead['email'] . '>';
+    }
+    $headers[] = 'X-Mailer: PHP/' . phpversion();
+
+    @mail($to, $subject, $messageHtml, implode("
+", $headers));
+}
+
 function handleUpload($fileKey) {
     if (!isset($_FILES[$fileKey]) || $_FILES[$fileKey]['error'] !== UPLOAD_ERR_OK) {
         return null;
     }
+    $tmpName = $_FILES[$fileKey]['tmp_name'];
+    $origName = $_FILES[$fileKey]['name'];
+    $ext = strtolower(pathinfo($origName, PATHINFO_EXTENSION));
+
+    // Strict whitelist: Only safe images and documents
+    $allowed = ['jpg', 'jpeg', 'png', 'webp', 'gif', 'svg', 'pdf'];
+    if (!in_array($ext, $allowed, true)) {
+        return null;
+    }
+
+    // Block any hidden executable payloads
+    $dangerous = ['php', 'phtml', 'php3', 'php4', 'php5', 'phar', 'inc', 'cgi', 'pl', 'sh', 'exe', 'py'];
+    if (in_array($ext, $dangerous, true)) {
+        return null;
+    }
+
+    // Cryptographically secure randomized filename
+    $token = bin2hex(random_bytes(8));
+    $filename = round(microtime(true) * 1000) . '-' . $token . '.' . $ext;
+    $dest = UPLOADS_DIR . '/' . $filename;
+    if (@move_uploaded_file($tmpName, $dest)) {
+        return '/uploads/' . $filename;
+    }
+    return null;
+}
     $tmpName = $_FILES[$fileKey]['tmp_name'];
     $origName = $_FILES[$fileKey]['name'];
     $ext = strtolower(pathinfo($origName, PATHINFO_EXTENSION));
@@ -72,6 +188,7 @@ if (!empty($rawBody)) {
     if (is_array($parsed)) $inputJSON = $parsed;
 }
 $body = array_merge($inputJSON, $_POST);
+$body = sanitizeInput($body);
 
 // ==========================================
 // 1. AUTH APIs
@@ -416,7 +533,11 @@ if ($route === 'leads' || preg_match('#^leads/(.+?)(?:/(status))?$#', $route, $m
         ];
         array_unshift($leads, $newLead);
         writeData('leads.json', $leads);
-        echo json_encode(['success' => true, 'lead' => $newLead]);
+
+        // Dispatch email notification instantly
+        sendLeadEmail($newLead);
+
+        echo json_encode(['success' => true, 'lead' => $newLead, 'message' => 'Lead received and advisor notified!']);
         exit;
     }
 

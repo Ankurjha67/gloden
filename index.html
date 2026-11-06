@@ -216,25 +216,39 @@
   </div>
 
   <!-- ================= NAV ================= -->
+  <!-- ================= MASTER HEADER / NAV ================= -->
   <header id="nav" class="fixed top-5 md:top-7 inset-x-5 md:inset-x-10 z-50">
     <div class="nav-inner max-w-[1240px] mx-auto h-20 sm:h-22 md:h-24 px-4 pl-6 md:pl-8 rounded-full flex items-center justify-between">
-      <a href="/index.html" class="nav-anim flex items-center py-1.5" aria-label="Golden Properties">
+      <a href="index.html" class="nav-anim flex items-center py-1.5" aria-label="Golden Properties">
         <img src="/assest/Golden-Properties-Luxury-Logo.png" alt="Golden Properties" class="h-12 sm:h-14 md:h-16 lg:h-[72px] w-auto object-contain" />
       </a>
 
       <ul class="hidden md:flex items-center gap-10 text-[14px]">
-        <li class="nav-anim"><a href="about.html" class="hover:opacity-60 transition">About Us</a></li>
-        <li class="nav-anim"><a href="properties.html" class="hover:opacity-60 transition">Properties</a></li>
-        <li class="nav-anim"><a href="blogs.html" class="hover:opacity-60 transition">Blog</a></li>
+        <li class="nav-anim">
+          <a href="index.html" class="hover:text-copper transition text-copperLight font-semibold">Home</a>
+        </li>
+        <li class="nav-anim">
+          <a href="about.html" class="hover:text-copper transition text-ink/80">About Us</a>
+        </li>
+        <li class="nav-anim">
+          <a href="properties.html" class="hover:text-copper transition flex items-center gap-1.5 text-ink/80">
+            Properties
+            
+          </a>
+        </li>
+        <li class="nav-anim">
+          <a href="blogs.html" class="hover:text-copper transition text-ink/80">Blog</a>
+        </li>
       </ul>
 
-      <a href="#contact"
+      <a href="index.html#contact"
         class="nav-anim nav-cta hidden md:inline-flex items-center gap-2 pl-5 pr-2 py-2 rounded-full text-[13px] font-medium transition">
         Contact Us
-        <span class="w-7 h-7 rounded-full bg-copper grid place-items-center"><svg width="12" height="12" fill="none"
-            stroke="#fff" stroke-width="2">
+        <span class="w-7 h-7 rounded-full bg-copper grid place-items-center">
+          <svg width="12" height="12" fill="none" stroke="#fff" stroke-width="2">
             <path d="M2 10 10 2M4 2h6v6" />
-          </svg></span>
+          </svg>
+        </span>
       </a>
 
       <button id="menuBtn" class="md:hidden w-11 h-11 rounded-full grid place-items-center" aria-label="Menu">
@@ -244,11 +258,13 @@
       </button>
     </div>
 
+    <!-- Mobile dropdown menu -->
     <div id="mobileMenu" class="md:hidden hidden mt-3 bg-paper text-ink rounded-3xl p-3 shadow-2xl">
-      <a href="about.html" class="block px-4 py-3.5 rounded-2xl hover:bg-sand">About Us</a>
-      <a href="properties.html" class="block px-4 py-3.5 rounded-2xl hover:bg-sand">Properties</a>
-      <a href="blogs.html" class="block px-4 py-3.5 rounded-2xl hover:bg-sand">Blog</a>
-      <a href="#contact" class="block mt-1 px-4 py-3.5 rounded-2xl bg-copper text-white text-center hover:bg-copperLight transition">Contact Us</a>
+      <a href="index.html" class="block px-4 py-3 rounded-2xl bg-copper/10 text-copper font-semibold">Home</a>
+      <a href="about.html" class="block px-4 py-3 rounded-2xl hover:bg-sand">About Us</a>
+      <a href="properties.html" class="block px-4 py-3 rounded-2xl hover:bg-sand">Properties</a>
+      <a href="blogs.html" class="block px-4 py-3 rounded-2xl hover:bg-sand">Blog</a>
+      <a href="index.html#contact" class="block mt-2 px-4 py-3 rounded-2xl bg-copper text-white text-center hover:bg-copperLight transition font-medium">Contact Us</a>
     </div>
   </header>
 
@@ -373,26 +389,83 @@
     </div>
   </section>
 
-  <!-- ================= POPULAR LOCALITY HUBS ================= -->
-  <section class="bg-sand/40 border-b border-ink/[0.08] py-4">
-    <div class="container-x flex items-center justify-between flex-wrap gap-3">
-      <div class="flex items-center gap-2">
-        <span class="w-2.5 h-2.5 rounded-full bg-copper shadow-xs"></span>
-        <span class="text-xs font-semibold uppercase tracking-wider text-ink/80">Prime Focus Corridors:</span>
-      </div>
-      <div class="flex items-center gap-2 flex-wrap text-xs">
-        <a href="properties.html?city=Faridabad" class="px-3.5 py-1.5 rounded-full bg-white hover:bg-copper hover:text-white text-ink/85 border border-ink/10 transition shadow-2xs font-medium flex items-center gap-1.5">
-          <span>📍 Faridabad Expressway (Sec 77-89)</span>
-        </a>
-        <a href="properties.html?city=Faridabad" class="px-3.5 py-1.5 rounded-full bg-white hover:bg-copper hover:text-white text-ink/85 border border-ink/10 transition shadow-2xs font-medium flex items-center gap-1.5">
-          <span>📍 Greater Faridabad (Neharpar)</span>
-        </a>
-        <a href="properties.html?city=Gurugram" class="px-3.5 py-1.5 rounded-full bg-white hover:bg-copper hover:text-white text-ink/85 border border-ink/10 transition shadow-2xs font-medium flex items-center gap-1.5">
-          <span>📍 Golf Course Ext. Gurugram</span>
-        </a>
-        <a href="properties.html?city=Noida" class="px-3.5 py-1.5 rounded-full bg-white hover:bg-copper hover:text-white text-ink/85 border border-ink/10 transition shadow-2xs font-medium flex items-center gap-1.5">
-          <span>📍 Noida &amp; Greater Noida Expressway</span>
-        </a>
+  <!-- ================= PRIME FOCUS CORRIDORS (LUXURY HUBS) ================= -->
+  <section class="bg-[#FAF8F5] border-b border-ink/[0.08] py-5 sm:py-6">
+    <div class="container-x">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <!-- Label & Accent -->
+        <div class="flex items-center gap-3 shrink-0">
+          <div class="w-9 h-9 rounded-full bg-copper/10 border border-copper/25 flex items-center justify-center text-copper">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+            </svg>
+          </div>
+          <div>
+            <span class="text-[10.5px] uppercase tracking-[0.2em] font-semibold text-copper block leading-none">Prime Focus Corridors</span>
+            <span class="text-[13.5px] font-semibold text-ink leading-tight">High-ROI Investment Zones in NCR</span>
+          </div>
+        </div>
+
+        <!-- Corridors Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-2.5 sm:gap-3 flex-1 lg:max-w-[880px]">
+          
+          <!-- Corridor 1: Faridabad Expressway -->
+          <a href="properties.html?city=Faridabad" class="group px-3.5 py-2.5 rounded-xl bg-white hover:bg-copper border border-ink/[0.08] hover:border-copper transition-all duration-300 shadow-[0_2px_8px_rgba(22,21,20,0.03)] hover:shadow-md flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2.5 min-w-0">
+              <span class="w-7 h-7 rounded-lg bg-sand/60 group-hover:bg-white/20 flex items-center justify-center text-copper group-hover:text-white transition shrink-0">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </span>
+              <div class="truncate">
+                <p class="text-[12px] font-semibold text-ink group-hover:text-white transition leading-tight truncate">Faridabad Expressway</p>
+                <p class="text-[10px] text-muted group-hover:text-white/80 transition leading-tight">Sectors 77, 82, 85, 89</p>
+              </div>
+            </div>
+            <span class="text-copper group-hover:text-white text-xs transition group-hover:translate-x-0.5 shrink-0">→</span>
+          </a>
+
+          <!-- Corridor 2: Greater Faridabad (Neharpar) -->
+          <a href="properties.html?city=Faridabad" class="group px-3.5 py-2.5 rounded-xl bg-white hover:bg-copper border border-ink/[0.08] hover:border-copper transition-all duration-300 shadow-[0_2px_8px_rgba(22,21,20,0.03)] hover:shadow-md flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2.5 min-w-0">
+              <span class="w-7 h-7 rounded-lg bg-sand/60 group-hover:bg-white/20 flex items-center justify-center text-copper group-hover:text-white transition shrink-0">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </span>
+              <div class="truncate">
+                <p class="text-[12px] font-semibold text-ink group-hover:text-white transition leading-tight truncate">Greater Faridabad</p>
+                <p class="text-[10px] text-muted group-hover:text-white/80 transition leading-tight">BPTP Parklands &amp; Plots</p>
+              </div>
+            </div>
+            <span class="text-copper group-hover:text-white text-xs transition group-hover:translate-x-0.5 shrink-0">→</span>
+          </a>
+
+          <!-- Corridor 3: Golf Course Ext. Road -->
+          <a href="properties.html?city=Gurugram" class="group px-3.5 py-2.5 rounded-xl bg-white hover:bg-copper border border-ink/[0.08] hover:border-copper transition-all duration-300 shadow-[0_2px_8px_rgba(22,21,20,0.03)] hover:shadow-md flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2.5 min-w-0">
+              <span class="w-7 h-7 rounded-lg bg-sand/60 group-hover:bg-white/20 flex items-center justify-center text-copper group-hover:text-white transition shrink-0">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </span>
+              <div class="truncate">
+                <p class="text-[12px] font-semibold text-ink group-hover:text-white transition leading-tight truncate">Golf Course Ext. Road</p>
+                <p class="text-[10px] text-muted group-hover:text-white/80 transition leading-tight">Gurugram Luxury Hub</p>
+              </div>
+            </div>
+            <span class="text-copper group-hover:text-white text-xs transition group-hover:translate-x-0.5 shrink-0">→</span>
+          </a>
+
+          <!-- Corridor 4: Noida Expressway -->
+          <a href="properties.html?city=Noida" class="group px-3.5 py-2.5 rounded-xl bg-white hover:bg-copper border border-ink/[0.08] hover:border-copper transition-all duration-300 shadow-[0_2px_8px_rgba(22,21,20,0.03)] hover:shadow-md flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2.5 min-w-0">
+              <span class="w-7 h-7 rounded-lg bg-sand/60 group-hover:bg-white/20 flex items-center justify-center text-copper group-hover:text-white transition shrink-0">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </span>
+              <div class="truncate">
+                <p class="text-[12px] font-semibold text-ink group-hover:text-white transition leading-tight truncate">Noida Expressway</p>
+                <p class="text-[10px] text-muted group-hover:text-white/80 transition leading-tight">Sector 150 &amp; Sports City</p>
+              </div>
+            </div>
+            <span class="text-copper group-hover:text-white text-xs transition group-hover:translate-x-0.5 shrink-0">→</span>
+          </a>
+
+        </div>
       </div>
     </div>
   </section>
@@ -843,7 +916,7 @@
         <!-- Article 1: Faridabad Corridor -->
         <article class="reveal relative rounded-[18px] overflow-hidden h-[340px] md:h-[370px] group" data-cursor>
           <div class="img-zoom"><img class="parallax-img w-full h-full object-cover"
-              src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1000&q=80"
+              src="/assest/blogs/blog-faridabad-expressway.webp"
               alt="Faridabad Expressway Real Estate Growth" /></div>
           <div class="absolute left-3 right-3 bottom-3 bg-ink/80 backdrop-blur-xl rounded-[14px] p-4 text-white border border-white/10">
             <div class="flex items-start justify-between gap-2.5">
@@ -862,7 +935,7 @@
         <!-- Article 2: RERA & Homebuyer Checklist -->
         <article class="reveal relative rounded-[18px] overflow-hidden h-[340px] md:h-[370px] group" data-cursor>
           <div class="img-zoom"><img class="parallax-img w-full h-full object-cover"
-              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80"
+              src="/assest/blogs/blog-homebuyer-checklist.webp"
               alt="Homebuyer Legal Advisory Checklist" /></div>
           <div class="absolute left-3 right-3 bottom-3 bg-ink/80 backdrop-blur-xl rounded-[14px] p-4 text-white border border-white/10">
             <div class="flex items-start justify-between gap-2.5">
@@ -1035,10 +1108,8 @@
 
         <!-- WhatsApp -->
         <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties,%20I%20am%20exploring%20properties%20on%20your%20website%20and%20would%20like%20to%20consult%20with%20an%20advisor." target="_blank" rel="noopener" class="p-5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-emerald-500 hover:bg-white/[0.07] transition group block">
-          <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-3 group-hover:bg-[#25D366] group-hover:text-white transition">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/>
-            </svg>
+          <div class="w-10 h-10 rounded-xl bg-[#25D366]/20 text-[#25D366] flex items-center justify-center mb-3 group-hover:bg-[#25D366] group-hover:text-white transition">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
           </div>
           <span class="text-[11px] text-white/50 uppercase tracking-wider block">Instant WhatsApp</span>
           <span class="text-[15px] font-semibold text-white group-hover:text-emerald-400 transition mt-0.5 block">Chat with Advisor</span>
@@ -1171,28 +1242,22 @@
   </footer>
 
   <!-- Universal Floating Sticky WhatsApp & Call Concierge -->
-  <div class="fixed bottom-6 right-5 sm:right-6 z-50 flex flex-col items-end gap-2.5 pointer-events-auto">
+  <div id="floatingConcierge" class="fixed bottom-6 right-5 sm:right-6 z-50 flex flex-col items-end gap-2.5 pointer-events-auto">
     <!-- Call Pill -->
     <a href="tel:+919928203900" aria-label="Call Advisor"
-      class="w-11 h-11 rounded-full bg-copper hover:bg-copperLight text-white shadow-[0_8px_25px_rgba(168,119,74,0.4)] flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 group" title="Call Us Direct">
+      class="w-11 h-11 rounded-full bg-copper hover:bg-copperLight text-white shadow-[0_8px_25px_rgba(168,119,74,0.4)] flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 group" title="Call +91 99-2820-3900">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
       </svg>
     </a>
 
-    <!-- WhatsApp Floating Pill with Pulse -->
+    <!-- Official WhatsApp Floating Pill -->
     <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties,%20I%20am%20exploring%20properties%20on%20your%20website%20and%20would%20like%20to%20consult%20with%20an%20advisor." 
        target="_blank" 
-       rel="noopener"
+       rel="noopener noreferrer"
        aria-label="Chat on WhatsApp"
-       class="flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white px-4 py-2.5 rounded-full shadow-[0_8px_30px_rgba(37,211,102,0.45)] hover:shadow-[0_12px_40px_rgba(37,211,102,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 group">
-      <span class="relative flex h-3 w-3">
-        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-        <span class="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
-      </span>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/>
-      </svg>
+       class="flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white px-3.5 py-2.5 rounded-full shadow-[0_8px_30px_rgba(37,211,102,0.45)] hover:shadow-[0_12px_40px_rgba(37,211,102,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 group">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
       <span class="text-xs font-semibold tracking-wide">WhatsApp Us</span>
     </a>
   </div>
@@ -1206,312 +1271,61 @@
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
-    /* ---------- Lenis ---------- */
-    const lenis = new Lenis({ duration: 1.25, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true });
-    lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add(t => lenis.raf(t * 1000));
-    gsap.ticker.lagSmoothing(0);
+    // Quick VIP Lead Form Handler (Saves to Database & Dispatches Email)
+    async function handleHomeQuickLead(e) {
+      e.preventDefault();
+      const name = document.getElementById('quickLeadName')?.value || '';
+      const phone = document.getElementById('quickLeadPhone')?.value || '';
+      const segment = document.getElementById('quickLeadSegment')?.value || '';
+      const budget = document.getElementById('quickLeadBudget')?.value || '';
+      const msg = document.getElementById('quickLeadStatusMsg');
+      const submitBtn = document.getElementById('quickLeadSubmitBtn');
 
-    const menu = document.getElementById('mobileMenu');
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const id = a.getAttribute('href');
-        if (id.length > 1 && document.querySelector(id)) {
-          e.preventDefault();
-          lenis.scrollTo(id, { offset: id === '#hero' ? 0 : -30, duration: 1.6 });
-          menu.classList.add('hidden');
-        }
-      });
-    });
-    document.getElementById('menuBtn').addEventListener('click', () => menu.classList.toggle('hidden'));
-
-    /* ---------- Video sound toggle ---------- */
-    const soundBtn = document.getElementById('videoSoundBtn');
-    const heroVid = document.querySelector('.hero-media');
-    if (soundBtn && heroVid) {
-      soundBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        heroVid.muted = !heroVid.muted;
-        document.getElementById('soundMutedIcon').classList.toggle('hidden', !heroVid.muted);
-        document.getElementById('soundActiveIcon').classList.toggle('hidden', heroVid.muted);
-      });
-    }
-
-    /* ---------- Nav state on scroll ---------- */
-    const nav = document.getElementById('nav');
-    lenis.on('scroll', ({ scroll }) => nav.classList.toggle('is-scrolled', scroll > 80));
-
-    /* ---------- AOS ---------- */
-    AOS.init({ duration: 1000, easing: 'ease-out-cubic', once: true, offset: 70 });
-
-    /* ---------- Split helper (keeps <br>, <em>, images) ---------- */
-    function splitWords(el) {
-      const nodes = [...el.childNodes];
-      el.innerHTML = '';
-      nodes.forEach(n => {
-        if (n.nodeType === 3) {
-          n.textContent.split(/(\s+)/).forEach(part => {
-            if (!part) return;
-            if (/^\s+$/.test(part)) { el.appendChild(document.createTextNode(' ')); return; }
-            const line = document.createElement('span'); line.className = 'split-line';
-            const w = document.createElement('span'); w.className = 'split-word'; w.textContent = part;
-            line.appendChild(w); el.appendChild(line);
-          });
-        } else if (n.nodeType === 1 && n.tagName !== 'BR') {
-          const line = document.createElement('span');
-          line.className = 'split-line' + (n.classList.contains('pill-img') ? ' is-el' : '');
-          n.classList.add('split-word'); line.appendChild(n); el.appendChild(line);
-        } else el.appendChild(n);
-      });
-      return el.querySelectorAll('.split-word');
-    }
-
-    /* ---------- Hero intro ---------- */
-    const heroWords = splitWords(document.querySelector('.hero-title'));
-    gsap.timeline({ defaults: { ease: 'power4.out' } })
-      .from('.hero-wrap', { clipPath: 'inset(10% 8% 10% 8% round 40px)', duration: 1.6, ease: 'power4.inOut', clearProps: 'clipPath' })
-      .from('.hero-media', { scale: 1.35, duration: 2.2, ease: 'power3.out' }, 0)
-      .from('.nav-anim', { y: -24, opacity: 0, duration: .9, stagger: .07 }, .7)
-      .from(heroWords, { yPercent: 115, duration: 1.2, stagger: .08 }, .8)
-      .from('.hero-sub', { y: 30, opacity: 0, duration: 1 }, 1.15);
-
-    // Hero scroll: video parallax + content fade
-    gsap.to('.hero-media', { yPercent: 14, ease: 'none', scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true } });
-    gsap.to('.hero-content', { yPercent: -18, opacity: 0, ease: 'none', scrollTrigger: { trigger: '#hero', start: '20% top', end: 'bottom top', scrub: true } });
-
-    /* ---------- Marquee (speeds up with scroll velocity) ---------- */
-    const items = ['Resident House', 'Studio Apartment', 'Countryside', 'Farmland House', 'Luxury Villa', 'Penthouse'];
-    const star = '<svg class="w-3.5 h-3.5 md:w-4 md:h-4 text-copper shrink-0" viewBox="0 0 32 32"><path d="M16 2c1.3 7.6 6.4 12.7 14 14-7.6 1.3-12.7 6.4-14 14-1.3-7.6-6.4-12.7-14-14 7.6-1.3 12.7-6.4 14-14Z" fill="currentColor"/></svg>';
-    const group = items.map((t, i) => `<span class="${i % 2 ? 'outline-text' : ''}">${t}</span>${star}`).join('');
-    const track = document.querySelector('.marquee-track');
-    track.innerHTML = `<div class="flex items-center gap-8 md:gap-12 pr-8 md:pr-12">${group}</div>`.repeat(2);
-    const marquee = gsap.to(track, { xPercent: -50, repeat: -1, duration: 32, ease: 'none' });
-    let boost = 0;
-    lenis.on('scroll', ({ velocity }) => { boost = Math.min(Math.abs(velocity) / 3, 6); });
-    gsap.ticker.add(() => { boost *= 0.93; marquee.timeScale(1 + boost); });
-
-    /* ---------- Section title reveal ---------- */
-    document.querySelectorAll('.split:not(.hero-title)').forEach(el => {
-      gsap.from(splitWords(el), {
-        yPercent: 115, duration: 1.2, stagger: .06, ease: 'power4.out',
-        scrollTrigger: { trigger: el, start: 'top 85%' }
-      });
-    });
-
-    /* ---------- Property Card Slider (Automatic + Manual) ---------- */
-    const propSlider = document.getElementById('propSlider');
-    const propPrevBtn = document.getElementById('propPrevBtn');
-    const propNextBtn = document.getElementById('propNextBtn');
-
-    if (propSlider && propPrevBtn && propNextBtn) {
-      const getStep = () => {
-        const card = propSlider.querySelector('.card');
-        if (!card) return 360;
-        const gap = parseFloat(window.getComputedStyle(propSlider).gap) || 24;
-        return card.offsetWidth + gap;
-      };
-
-      const slideNext = () => {
-        const step = getStep();
-        const maxScroll = propSlider.scrollWidth - propSlider.clientWidth;
-        if (propSlider.scrollLeft >= maxScroll - 15) {
-          propSlider.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-          const next = propSlider.scrollLeft + step;
-          if (next >= maxScroll - 15) {
-            propSlider.scrollTo({ left: maxScroll, behavior: 'smooth' });
-          } else {
-            propSlider.scrollBy({ left: step, behavior: 'smooth' });
-          }
-        }
-      };
-
-      const slidePrev = () => {
-        const step = getStep();
-        if (propSlider.scrollLeft <= 15) {
-          const maxScroll = propSlider.scrollWidth - propSlider.clientWidth;
-          propSlider.scrollTo({ left: maxScroll, behavior: 'smooth' });
-        } else {
-          const prev = propSlider.scrollLeft - step;
-          if (prev <= 15) {
-            propSlider.scrollTo({ left: 0, behavior: 'smooth' });
-          } else {
-            propSlider.scrollBy({ left: -step, behavior: 'smooth' });
-          }
-        }
-      };
-
-      // Automatic sliding (every 3.2 seconds)
-      let autoSlideTimer = null;
-      const startAutoSlide = () => {
-        if (!autoSlideTimer) {
-          autoSlideTimer = setInterval(slideNext, 3200);
-        }
-      };
-
-      const stopAutoSlide = () => {
-        if (autoSlideTimer) {
-          clearInterval(autoSlideTimer);
-          autoSlideTimer = null;
-        }
-      };
-
-      const restartAutoSlide = () => {
-        stopAutoSlide();
-        startAutoSlide();
-      };
-
-      propNextBtn.addEventListener('click', () => {
-        slideNext();
-        restartAutoSlide();
-      });
-
-      propPrevBtn.addEventListener('click', () => {
-        slidePrev();
-        restartAutoSlide();
-      });
-
-      // Start automatic sliding
-      startAutoSlide();
-
-      // Pause on hover or touch so user can inspect card
-      propSlider.addEventListener('mouseenter', stopAutoSlide);
-      propSlider.addEventListener('mouseleave', startAutoSlide);
-      propSlider.addEventListener('touchstart', stopAutoSlide, { passive: true });
-      propSlider.addEventListener('touchend', startAutoSlide, { passive: true });
-
-      // Drag to scroll on desktop
-      let isDown = false;
-      let startX = 0;
-      let scrollLeft = 0;
-
-      propSlider.addEventListener('mousedown', (e) => {
-        if (e.target.closest('button') || e.target.closest('a')) return;
-        isDown = true;
-        stopAutoSlide();
-        startX = e.pageX - propSlider.offsetLeft;
-        scrollLeft = propSlider.scrollLeft;
-      });
-
-      window.addEventListener('mouseup', () => {
-        if (isDown) {
-          isDown = false;
-          startAutoSlide();
-        }
-      });
-
-      propSlider.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - propSlider.offsetLeft;
-        const walk = (x - startX) * 1.6;
-        propSlider.scrollLeft = scrollLeft - walk;
-      });
-    }
-
-    // Dynamic Property Loading for Home Page Slider
-    async function loadHomeProperties() {
-      try {
-        let properties = null;
-        try {
-          const res = await fetch('/api/properties');
-          if (res.ok) properties = await res.json();
-        } catch (e) {}
-        if (!properties || !properties.length) {
-          try {
-            const fallbackRes = await fetch('/data/properties.json');
-            if (fallbackRes.ok) properties = await fallbackRes.json();
-          } catch (e) {}
-        }
-
-
-        if (!properties || !properties.length) return;
-
-        const slider = document.getElementById('propSlider');
-        if (!slider) return;
-
-        // Display max 10 latest properties on home page
-        const displayProps = properties.slice(0, 10);
-
-        let cardsHtml = displayProps.map(p => {
-          const statusBadge = (p.status || 'Active').split(',')[0].trim();
-          const bhkRaw = p.bhk || '3,4';
-          const bhkText = bhkRaw.toLowerCase().includes('bhk') ? bhkRaw : `${bhkRaw} BHK`;
-          const projectUrl = `/project/${p.slug || p.id}`;
-          const propName = p.name || p.title || 'Landmark Residence';
-          const propImg = p.image || 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80';
-
-          return `
-            <div class="card relative shrink-0 w-[78%] sm:w-[280px] md:w-[310px] lg:w-[330px] snap-start rounded-[18px] bg-paper border border-ink/[0.08] p-3 shadow-[0_4px_16px_rgba(22,21,20,0.03)] hover:shadow-[0_10px_28px_rgba(22,21,20,0.07)] transition-all duration-500 group flex flex-col justify-between">
-              <a href="${projectUrl}" class="relative aspect-[16/11] w-full overflow-hidden rounded-[14px] bg-ink/5 block">
-                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  src="${propImg}"
-                  alt="${propName}" />
-                <div class="absolute bottom-2.5 left-2.5 z-10 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/95 backdrop-blur-md border border-ink/10 text-ink text-[11px] font-medium shadow-sm">
-                  <svg class="w-3 h-3 shrink-0 text-copper" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M4 22V4c0-1.1.9-2 2-2h12c1.1 0 2 .9 2 2v18H4zm4-16H6v2h2V6zm0 4H6v2h2v-2zm0 4H6v2h2v-2zm0 4H6v2h2v-2zm4-12h-2v2h2V6zm0 4h-2v2h2v-2zm0 4h-2v2h2v-2zm0 4h-2v2h2v-2zm4-12h-2v2h2V6zm0 4h-2v2h2v-2zm0 4h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
-                  </svg>
-                  <span>${statusBadge}</span>
-                </div>
-                ${p.featured ? '<div class="absolute top-2.5 left-2.5 z-10 px-2 py-0.5 rounded-md bg-copper text-white text-[9.5px] font-bold uppercase tracking-wider shadow-sm">Featured</div>' : ''}
-              </a>
-
-              <div class="px-1 pt-3 pb-0.5 flex flex-col justify-between flex-1">
-                <div>
-                  <p class="text-[17px] sm:text-[18px] font-semibold text-copper tracking-tight">
-                    ${p.price || '₹ On Request'}
-                  </p>
-                  <h3 class="text-[14px] sm:text-[15px] font-medium text-ink mt-1.5 leading-snug line-clamp-1 group-hover:text-copper transition-colors">
-                    <a href="${projectUrl}">${propName}</a>
-                  </h3>
-                  <p class="text-[12px] text-muted mt-0.5 capitalize line-clamp-1">
-                    ${p.location || (p.city || 'Gurugram')}
-                  </p>
-                </div>
-                <div class="mt-3 pt-2.5 border-t border-ink/[0.07] flex items-center justify-between text-[12px] sm:text-[13px] font-medium text-ink">
-                  <div class="flex items-center gap-1.5">
-                    <svg class="w-4 h-4 text-copper shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                      <rect x="3" y="5" width="18" height="14" rx="2" />
-                      <path d="M3 12h18" />
-                      <rect x="6" y="8" width="4" height="2" rx="0.5" />
-                      <rect x="14" y="8" width="4" height="2" rx="0.5" />
-                    </svg>
-                    <span>${bhkText}</span>
-                  </div>
-                  <a href="${projectUrl}" class="w-6 h-6 rounded-full border border-ink/15 grid place-items-center text-ink group-hover:bg-copper group-hover:text-white group-hover:border-copper transition" title="Explore Project Details">
-                    <svg width="9" height="9" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7 7 2M3 2h4v4"/></svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-          `;
-        }).join('');
-
-        // View All Card at the end of the slider
-        cardsHtml += `
-          <div class="card relative shrink-0 w-[78%] sm:w-[280px] md:w-[310px] lg:w-[330px] snap-start rounded-[18px] bg-gradient-to-br from-sand to-sandDark/70 border border-copper/30 p-6 shadow-[0_4px_16px_rgba(22,21,20,0.03)] hover:shadow-[0_10px_28px_rgba(22,21,20,0.07)] transition-all duration-500 group flex flex-col justify-between text-center items-center">
-            <div class="my-auto py-6">
-              <div class="w-14 h-14 rounded-full bg-copper/15 text-copper grid place-items-center mx-auto mb-4 group-hover:bg-copper group-hover:text-white transition-all duration-300">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </div>
-              <span class="text-[11px] font-bold text-copper uppercase tracking-wider">Full Collection</span>
-              <h3 class="text-lg font-semibold text-ink group-hover:text-copper transition mt-1">Explore All Properties</h3>
-              <p class="text-[12px] text-muted mt-2">Browse our complete collection of ${properties.length} luxury residences across Delhi NCR.</p>
-            </div>
-            <a href="properties.html" class="w-full py-2.5 rounded-xl bg-copper text-white text-xs font-semibold hover:bg-copperDark transition shadow-sm">
-              View All Properties (${properties.length}) →
-            </a>
-          </div>
-        `;
-
-        slider.innerHTML = cardsHtml;
-
-        if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
-      } catch (err) {
-        console.warn('Backend note: using default static cards on home slider.', err);
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Transmitting VIP Request...</span>';
       }
+
+      const payload = {
+        name,
+        phone,
+        property: segment + ' (' + budget + ')',
+        tourType: 'VIP In-Person Site Visit',
+        message: 'Client requested VIP tour via Homepage Quick Form. Budget: ' + budget
+      };
+
+      try {
+        let res = await fetch('api.php?route=leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).catch(() => null);
+
+        if (!res || !res.ok) {
+          res = await fetch('/api/leads', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          }).catch(() => null);
+        }
+      } catch (err) {
+        console.warn('API sync notice:', err);
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span>Confirm VIP Site Visit Request</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+        }
+      }
+
+      const waText = encodeURIComponent(`Hi Golden Properties, I would like to schedule a VIP Site Tour.\n\nName: ${name}\nPhone: ${phone}\nSegment: ${segment}\nBudget: ${budget}`);
+      window.open(`https://wa.me/919928203900?text=${waText}`, '_blank');
+
+      if (msg) {
+        msg.textContent = '✓ Request registered! Advisor notified via email & connecting to WhatsApp concierge...';
+        msg.classList.remove('hidden');
+      }
+      document.getElementById('homeQuickLeadForm')?.reset();
     }
-    loadHomeProperties();
 
     /* ---------- Image clip reveal ---------- */
     gsap.utils.toArray('.reveal').forEach(el => {

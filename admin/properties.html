@@ -532,11 +532,15 @@
 
     async function loadProperties() {
       try {
-        const res = await fetch('/api/properties');
-        allProperties = await res.json();
-        renderProperties(allProperties);
+        let res = await fetch('../api.php?route=properties').catch(() => null);
+        if (!res || !res.ok) res = await fetch('/api/properties').catch(() => null);
+        if (!res || !res.ok) res = await fetch('../data/properties.json').catch(() => null);
+        if (res && res.ok) {
+          allProperties = await res.json();
+          renderProperties(allProperties);
+        }
       } catch (err) {
-        console.error(err);
+        console.error('Error loading admin properties:', err);
       }
     }
 
@@ -1077,13 +1081,14 @@
       }
 
       try {
-        const url = propId ? `/api/properties/${propId}` : '/api/properties';
-        const method = propId ? 'PUT' : 'POST';
+        let url = propId ? `../api.php?route=properties/${encodeURIComponent(propId)}` : '../api.php?route=properties';
+        let res = await fetch(url, { method: 'POST', body: formData }).catch(() => null);
 
-        const res = await fetch(url, {
-          method,
-          body: formData
-        });
+        if (!res || !res.ok) {
+          const fallbackUrl = propId ? `/api/properties/${propId}` : '/api/properties';
+          const method = propId ? 'PUT' : 'POST';
+          res = await fetch(fallbackUrl, { method, body: formData }).catch(() => null);
+        }
 
         if (res.ok) {
           closePropertyModal();
