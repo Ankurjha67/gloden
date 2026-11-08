@@ -107,7 +107,7 @@
               <tr>
                 <th class="py-4 px-6">Article &amp; Cover</th>
                 <th class="py-4 px-6">Category</th>
-                <th class="py-4 px-6">Author</th>
+                <th class="py-4 px-6">Location / Region</th>
                 <th class="py-4 px-6">Date &amp; Read Time</th>
                 <th class="py-4 px-6">Badge / Featured</th>
                 <th class="py-4 px-6 text-right">Actions</th>
@@ -316,8 +316,8 @@
             </span>
           </td>
           <td class="py-4 px-6 text-gray-300">
-            <div>${b.author ? b.author.name : 'Golden Editorial'}</div>
-            <div class="text-[10px] text-gray-500">${b.author ? b.author.role : ''}</div>
+            <div>${b.subLocation || 'Delhi NCR'}</div>
+            <div class="text-[10px] text-gray-500">${b.badge || b.category}</div>
           </td>
           <td class="py-4 px-6 text-gray-400">
             <div>${b.date}</div>
@@ -345,7 +345,7 @@
       const filtered = allBlogs.filter(b =>
         b.title.toLowerCase().includes(q) ||
         b.category.toLowerCase().includes(q) ||
-        (b.author && b.author.name.toLowerCase().includes(q))
+        (b.subLocation && b.subLocation.toLowerCase().includes(q))
       );
       renderBlogs(filtered);
     }

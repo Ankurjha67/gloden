@@ -424,20 +424,6 @@
             </div>
           </div>
 
-          <!-- Author Box -->
-          <div class="p-6 sm:p-7 rounded-2xl bg-white border border-ink/[0.08] shadow-sm flex flex-col sm:flex-row items-center sm:items-start gap-5">
-            <div class="w-16 h-16 rounded-full bg-copper text-white flex items-center justify-center text-[20px] font-bold shrink-0 shadow-md">
-              GP
-            </div>
-            <div class="text-center sm:text-left">
-              <span class="text-[11px] uppercase tracking-wider text-copper font-semibold">Author &amp; Advisory Desk</span>
-              <h4 class="text-[17px] font-semibold text-ink mt-0.5">Golden Properties Research &amp; Advisory Desk</h4>
-              <p class="text-[13px] text-ink/70 mt-1 leading-relaxed">
-                Backed by 40+ years of institutional advisory, our senior research analysts track transaction trends, RERA registries, infrastructure timelines, and asset yields across India’s premier residential markets.
-              </p>
-            </div>
-          </div>
-
           <!-- Share & Tags -->
           <div class="pt-6 border-t border-ink/[0.08] flex flex-wrap items-center justify-between gap-4">
             <div class="flex flex-wrap items-center gap-2 text-[12px]">
@@ -911,9 +897,30 @@
       if (!id) return;
 
       try {
-        const res = await fetch(`/api/blogs/${id}`);
-        if (!res.ok) return;
-        const blog = await res.json();
+        let blog = null;
+        // Multi-tier fetch for robust compatibility across Apache, PHP server, and static setups
+        for (const ep of [`api.php?route=blogs/${encodeURIComponent(id)}`, `/api/blogs/${encodeURIComponent(id)}`]) {
+          try {
+            const res = await fetch(ep);
+            if (res.ok) {
+              const data = await res.json();
+              if (data && (data.id || data.title)) { blog = data; break; }
+            }
+          } catch(e) {}
+        }
+
+        if (!blog) {
+          try {
+            const res = await fetch('data/blogs.json');
+            if (res.ok) {
+              const allBlogs = await res.json();
+              if (Array.isArray(allBlogs)) {
+                blog = allBlogs.find(b => b.id === id || b.slug === id) || null;
+              }
+            }
+          } catch(e) {}
+        }
+
         if (!blog) return;
 
         // ── Page Title ──
@@ -961,48 +968,32 @@
         if (blog.content) {
           const articleEl = document.querySelector('article');
           if (articleEl) {
-            // Remove static sections (section-1 to section-4 divs) to replace with dynamic content
+            // Remove static placeholder sections
             ['section-1','section-2','section-3','section-4'].forEach(sid => {
               const el = articleEl.querySelector(`#${sid}`);
               if (el) el.remove();
             });
 
-            // Remove static key metrics grid and executive summary callout
+            // Remove static key metrics grid, executive summary callout, and TOC
             const metricsGrid = articleEl.querySelector('.grid.grid-cols-2.sm\\:grid-cols-4');
             if (metricsGrid) metricsGrid.remove();
             const execSummary = articleEl.querySelector('.bg-copper\\/5.border-l-4');
             if (execSummary) execSummary.remove();
-
-            // Remove TOC
             const toc = articleEl.querySelector('.p-6.rounded-2xl.bg-white.border');
             if (toc) toc.remove();
 
-            // Insert dynamic content
-            const authorBox = articleEl.querySelector('.p-6.sm\\:p-7.rounded-2xl.bg-white.border.border-ink');
+            // Insert rich dynamic editorial content before Share & Tags
+            const shareBox = articleEl.querySelector('.pt-6.border-t') || articleEl.lastElementChild;
             const dynamicDiv = document.createElement('div');
             dynamicDiv.className = 'text-[15px] sm:text-[16px] text-ink/85 leading-[1.85] space-y-5 pt-4';
             dynamicDiv.innerHTML = blog.content;
-            if (authorBox) {
-              articleEl.insertBefore(dynamicDiv, authorBox);
+            if (shareBox) {
+              articleEl.insertBefore(dynamicDiv, shareBox);
+            } else {
+              articleEl.appendChild(dynamicDiv);
             }
           }
         }
-
-        // ── Author Box ──
-        if (blog.author) {
-          const authorInitials = document.querySelector('article .w-16.h-16.rounded-full');
-          if (authorInitials && blog.author.avatar && !blog.author.avatar.includes('placeholder')) {
-            authorInitials.outerHTML = `<img src="${blog.author.avatar}" alt="${blog.author.name}" class="w-16 h-16 rounded-full object-cover shrink-0 shadow-md" />`;
-          } else if (authorInitials && blog.author.name) {
-            const initials = blog.author.name.split(' ').map(n => n[0]).join('').substring(0,2).toUpperCase();
-            authorInitials.textContent = initials;
-          }
-          const authorName = document.querySelector('article h4.text-\\[17px\\]');
-          if (authorName) authorName.textContent = blog.author.name || 'Golden Properties Research & Advisory Desk';
-          const authorRole = document.querySelector('article p.text-\\[13px\\].text-ink\\/70');
-          if (authorRole && blog.author.role) authorRole.textContent = blog.author.role;
-        }
-
       } catch (e) {
         console.warn('Using static article content.');
       }
@@ -1011,9 +1002,16 @@
     // Dynamic Related Blogs Loader (sidebar)
     async function loadRelatedBlogs() {
       try {
-        const res = await fetch('/api/blogs');
-        if (!res.ok) return;
-        const blogs = await res.json();
+        let blogs = null;
+        for (const ep of ['api.php?route=blogs', '/api/blogs', 'data/blogs.json']) {
+          try {
+            const res = await fetch(ep);
+            if (res.ok) {
+              const data = await res.json();
+              if (Array.isArray(data) && data.length) { blogs = data; break; }
+            }
+          } catch(e) {}
+        }
         if (!blogs || !blogs.length) return;
 
         const params = new URLSearchParams(window.location.search);
@@ -1041,9 +1039,16 @@
     // Dynamic Featured Properties in Sidebar
     async function loadSidebarProperties() {
       try {
-        const res = await fetch('/api/properties');
-        if (!res.ok) return;
-        const props = await res.json();
+        let props = null;
+        for (const ep of ['api.php?route=properties', '/api/properties', 'data/properties.json']) {
+          try {
+            const res = await fetch(ep);
+            if (res.ok) {
+              const data = await res.json();
+              if (Array.isArray(data) && data.length) { props = data; break; }
+            }
+          } catch(e) {}
+        }
         if (!props || !props.length) return;
 
         const featured = props.filter(p => p.featured).slice(0, 3);
@@ -1054,14 +1059,14 @@
         if (!propContainer) return;
 
         propContainer.innerHTML = display.map(p => {
-          const projectUrl = `/project/${p.slug || p.id}`;
+          const projectUrl = `property-details.html?id=${encodeURIComponent(p.id || p.slug)}`;
           return `
             <a href="${projectUrl}" class="flex items-center gap-3 p-2 rounded-xl hover:bg-sand/60 transition group">
-              <img src="${p.image || 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=160&q=80'}"
+              <img src="${p.image || 'assest/properties/sc-1.webp'}"
                 alt="${p.name || p.title}" class="w-14 h-14 rounded-lg object-cover shrink-0" />
               <div class="overflow-hidden">
                 <h5 class="text-[13px] font-semibold text-ink group-hover:text-copper transition truncate">${p.name || p.title}</h5>
-                <p class="text-[11.5px] text-muted">${p.location || p.city || 'Gurugram'}</p>
+                <p class="text-[11.5px] text-muted">${p.location || p.city || 'Faridabad'}</p>
                 <p class="text-[12px] font-bold text-emerald-700 mt-0.5">${p.price || '₹ On Request'}</p>
               </div>
             </a>

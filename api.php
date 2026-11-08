@@ -596,7 +596,7 @@ if ($route === 'blogs' || preg_match('#^blogs/(.+)$#', $route, $matches)) {
             'title' => trim($body['title'] ?? ''),
             'category' => trim($body['category'] ?? 'Trends'),
             'date' => date('d M Y'),
-            'author' => trim($body['author'] ?? 'Golden Advisory Desk'),
+            'author' => trim($body['author'] ?? ''),
             'readTime' => trim($body['readTime'] ?? '4 Min Read'),
             'badge' => trim($body['badge'] ?? ''),
             'subLocation' => trim($body['subLocation'] ?? ''),
