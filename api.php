@@ -540,8 +540,8 @@ if ($route === 'leads' || preg_match('#^leads/(.+?)(?:/(status))?$#', $route, $m
         echo json_encode(['success' => true, 'lead' => $newLead, 'message' => 'Lead received and advisor notified!']);
         exit;
     }
-
     if (($method === 'PATCH' || $method === 'PUT' || $method === 'POST') && $leadId) {
+
         foreach ($leads as &$l) {
             if (($l['id'] ?? '') === $leadId) {
                 if (isset($body['status'])) $l['status'] = $body['status'];

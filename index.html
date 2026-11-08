@@ -9,8 +9,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -96,6 +95,7 @@
     .no-scrollbar::-webkit-scrollbar {
       display: none;
     }
+
     .no-scrollbar {
       -ms-overflow-style: none;
       scrollbar-width: none;
@@ -189,6 +189,7 @@
       color: rgba(255, 255, 255, 0.88);
       transition: color 0.25s ease;
     }
+
     #nav .nav-link:hover,
     #nav .nav-link.active {
       color: #C9996B !important;
@@ -199,6 +200,7 @@
       color: #161514;
       transition: all 0.25s ease;
     }
+
     #nav .nav-cta:hover {
       background: #A8774A;
       color: #ffffff;
@@ -230,6 +232,7 @@
     #nav.is-scrolled .nav-link {
       color: #161514;
     }
+
     #nav.is-scrolled .nav-link:hover,
     #nav.is-scrolled .nav-link.active {
       color: #A8774A !important;
@@ -239,6 +242,7 @@
       background: #161514;
       color: #ffffff;
     }
+
     #nav.is-scrolled .nav-cta:hover {
       background: #A8774A;
     }
@@ -273,9 +277,11 @@
   <!-- ================= NAV ================= -->
   <!-- ================= MASTER HEADER / NAV ================= -->
   <header id="nav" class="fixed top-5 md:top-7 inset-x-5 md:inset-x-10 z-50">
-    <div class="nav-inner max-w-[1240px] mx-auto h-20 sm:h-22 md:h-24 px-4 pl-6 md:pl-8 rounded-full flex items-center justify-between">
+    <div
+      class="nav-inner max-w-[1240px] mx-auto h-20 sm:h-22 md:h-24 px-4 pl-6 md:pl-8 rounded-full flex items-center justify-between">
       <a href="index.html" class="nav-anim flex items-center py-1.5" aria-label="Golden Properties">
-        <img src="/assest/Golden-Properties-Luxury-Logo.png" alt="Golden Properties" class="h-12 sm:h-14 md:h-16 lg:h-[72px] w-auto object-contain" />
+        <img src="/assest/Golden-Properties-Luxury-Logo.png" alt="Golden Properties"
+          class="h-12 sm:h-14 md:h-16 lg:h-[72px] w-auto object-contain" />
       </a>
 
       <ul class="hidden md:flex items-center gap-10 text-[14px]">
@@ -316,7 +322,9 @@
       <a href="about.html" class="block px-4 py-3 rounded-2xl hover:bg-sand">About Us</a>
       <a href="properties.html" class="block px-4 py-3 rounded-2xl hover:bg-sand">Properties</a>
       <a href="blogs.html" class="block px-4 py-3 rounded-2xl hover:bg-sand">Blog</a>
-      <a href="index.html#contact" class="block mt-2 px-4 py-3 rounded-2xl bg-copper text-white text-center hover:bg-copperLight transition font-medium">Contact Us</a>
+      <a href="index.html#contact"
+        class="block mt-2 px-4 py-3 rounded-2xl bg-copper text-white text-center hover:bg-copperLight transition font-medium">Contact
+        Us</a>
     </div>
   </header>
 
@@ -336,12 +344,14 @@
       <!-- Sound toggle button (top-left) -->
       <button id="videoSoundBtn" aria-label="Toggle Sound"
         class="absolute top-4 left-4 md:top-6 md:left-6 z-20 w-9 h-9 rounded-full bg-black/45 hover:bg-black/65 backdrop-blur-md text-white grid place-items-center transition duration-300">
-        <svg id="soundMutedIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg id="soundMutedIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
           <line x1="23" y1="9" x2="17" y2="15"></line>
           <line x1="17" y1="9" x2="23" y2="15"></line>
         </svg>
-        <svg id="soundActiveIcon" class="hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg id="soundActiveIcon" class="hidden" width="16" height="16" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
           <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
         </svg>
@@ -350,27 +360,38 @@
       <div class="hero-content relative z-10 h-full flex items-end">
         <div class="w-full px-5 pb-8 md:px-10 md:pb-10 grid lg:grid-cols-[1.5fr_1.1fr] gap-6 lg:gap-10 items-end">
           <div>
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-copperLight text-[11px] font-semibold uppercase tracking-widest mb-3.5 shadow-sm">
+            <div
+              class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-copperLight text-[11px] font-semibold uppercase tracking-widest mb-3.5 shadow-sm">
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
               Faridabad &amp; Delhi NCR Premier Advisory
             </div>
-            <h1 class="hero-title text-white font-light tracking-[-0.03em] leading-[1.08] text-[32px] sm:text-[44px] lg:text-[52px]">
-              Discover Exceptional Properties.<br /><span class="font-normal text-copperLight">Invest in Your Future.</span>
+            <h1
+              class="hero-title text-white font-light tracking-[-0.03em] leading-[1.08] text-[32px] sm:text-[44px] lg:text-[52px]">
+              Discover Exceptional Properties.<br /><span class="font-normal text-copperLight">Invest in Your
+                Future.</span>
             </h1>
           </div>
           <div class="hero-sub lg:pb-2">
             <div class="h-px w-14 bg-copperLight/80 mb-3.5"></div>
             <p class="text-white/90 text-[13.5px] sm:text-[14.5px] leading-[1.65] max-w-[440px] font-light">
-              Explore premier residential communities, high-yield commercial SCOs, and gated freehold plots across <span class="font-medium text-white">Faridabad, Gurugram &amp; Delhi NCR</span> with 40+ years of trusted fiduciary guidance.
+              Explore premier residential communities, high-yield commercial SCOs, and gated freehold plots across <span
+                class="font-medium text-white">Faridabad, Gurugram &amp; Delhi NCR</span> with 40+ years of trusted
+              fiduciary guidance.
             </p>
             <div class="mt-5 flex flex-wrap items-center gap-3">
-              <a href="properties.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-copper text-white text-[13px] font-semibold hover:bg-copperLight hover:shadow-[0_8px_24px_rgba(168,119,74,0.4)] transition-all duration-300">
+              <a href="properties.html"
+                class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-copper text-white text-[13px] font-semibold hover:bg-copperLight hover:shadow-[0_8px_24px_rgba(168,119,74,0.4)] transition-all duration-300">
                 <span>Explore Properties</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
               </a>
-              <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties,%20I%20would%20like%20to%20consult%20with%20a%20property%20expert%20for%20Delhi%20NCR%20properties." target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/30 text-white text-[13px] font-medium transition duration-300">
+              <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties,%20I%20would%20like%20to%20consult%20with%20a%20property%20expert%20for%20Delhi%20NCR%20properties."
+                target="_blank" rel="noopener"
+                class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/30 text-white text-[13px] font-medium transition duration-300">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" class="text-emerald-400">
-                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/>
+                  <path
+                    d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z" />
                 </svg>
                 <span>Talk to Property Expert</span>
               </a>
@@ -388,8 +409,7 @@
         <!-- 40+ Years of legacy -->
         <div class="flex items-start gap-3.5 border-l-2 border-copper pl-3.5 md:pl-4" data-aos="fade-up">
           <div>
-            <div
-              class="text-[26px] sm:text-[30px] md:text-[34px] font-normal leading-none tracking-[-0.03em] text-ink">
+            <div class="text-[26px] sm:text-[30px] md:text-[34px] font-normal leading-none tracking-[-0.03em] text-ink">
               <span data-count="40">40</span><span class="text-copper font-light">+</span>
             </div>
             <p class="mt-2 text-[13px] sm:text-[14px] text-muted font-normal">Years of Trusted Legacy</p>
@@ -400,8 +420,7 @@
         <div class="flex items-start gap-3.5 border-l-2 border-copper pl-3.5 md:pl-4" data-aos="fade-up"
           data-aos-delay="80">
           <div>
-            <div
-              class="text-[26px] sm:text-[30px] md:text-[34px] font-normal leading-none tracking-[-0.03em] text-ink">
+            <div class="text-[26px] sm:text-[30px] md:text-[34px] font-normal leading-none tracking-[-0.03em] text-ink">
               <span data-count="200">200</span><span class="text-copper font-light">+</span>
             </div>
             <p class="mt-2 text-[13px] sm:text-[14px] text-muted font-normal">Verified NCR Projects</p>
@@ -412,8 +431,7 @@
         <div class="flex items-start gap-3.5 border-l-2 border-copper pl-3.5 md:pl-4" data-aos="fade-up"
           data-aos-delay="160">
           <div>
-            <div
-              class="text-[26px] sm:text-[30px] md:text-[34px] font-normal leading-none tracking-[-0.03em] text-ink">
+            <div class="text-[26px] sm:text-[30px] md:text-[34px] font-normal leading-none tracking-[-0.03em] text-ink">
               <span data-count="30">30</span><span class="text-copper font-light">K+</span>
             </div>
             <p class="mt-2 text-[13px] sm:text-[14px] text-muted font-normal">Happy Families Guided</p>
@@ -424,8 +442,7 @@
         <div class="flex items-start gap-3.5 border-l-2 border-copper pl-3.5 md:pl-4" data-aos="fade-up"
           data-aos-delay="240">
           <div>
-            <div
-              class="text-[26px] sm:text-[30px] md:text-[34px] font-normal leading-none tracking-[-0.03em] text-ink">
+            <div class="text-[26px] sm:text-[30px] md:text-[34px] font-normal leading-none tracking-[-0.03em] text-ink">
               <span data-count="12">12</span><span class="text-copper font-light">+</span>
             </div>
             <p class="mt-2 text-[13px] sm:text-[14px] text-muted font-normal">Prime NCR Corridors</p>
@@ -446,19 +463,24 @@
     <div class="container-x flex items-center justify-start lg:justify-between flex-wrap gap-3">
       <div class="flex items-center gap-2 shrink-0">
         <span class="w-2.5 h-2.5 rounded-full bg-copper shadow-xs"></span>
-        <span class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-copper">PRIME FOCUS CORRIDORS:</span>
+        <span class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-copper">PRIME FOCUS
+          CORRIDORS:</span>
       </div>
       <div class="flex items-center gap-2 flex-wrap text-[11.5px] sm:text-xs">
-        <a href="properties.html?city=Faridabad" class="px-3.5 py-1.5 rounded-full bg-white hover:bg-copper hover:text-white text-ink/85 border border-ink/10 transition flex items-center gap-1.5 shadow-[0_1px_4px_rgba(0,0,0,0.03)] font-medium">
+        <a href="properties.html?city=Faridabad"
+          class="px-3.5 py-1.5 rounded-full bg-white hover:bg-copper hover:text-white text-ink/85 border border-ink/10 transition flex items-center gap-1.5 shadow-[0_1px_4px_rgba(0,0,0,0.03)] font-medium">
           <span>📍</span> Faridabad Expressway (Sec 77-89)
         </a>
-        <a href="properties.html?city=Faridabad" class="px-3.5 py-1.5 rounded-full bg-white hover:bg-copper hover:text-white text-ink/85 border border-ink/10 transition flex items-center gap-1.5 shadow-[0_1px_4px_rgba(0,0,0,0.03)] font-medium">
+        <a href="properties.html?city=Faridabad"
+          class="px-3.5 py-1.5 rounded-full bg-white hover:bg-copper hover:text-white text-ink/85 border border-ink/10 transition flex items-center gap-1.5 shadow-[0_1px_4px_rgba(0,0,0,0.03)] font-medium">
           <span>📍</span> Greater Faridabad (Neharpar)
         </a>
-        <a href="properties.html?city=Gurugram" class="px-3.5 py-1.5 rounded-full bg-white hover:bg-copper hover:text-white text-ink/85 border border-ink/10 transition flex items-center gap-1.5 shadow-[0_1px_4px_rgba(0,0,0,0.03)] font-medium">
+        <a href="properties.html?city=Gurugram"
+          class="px-3.5 py-1.5 rounded-full bg-white hover:bg-copper hover:text-white text-ink/85 border border-ink/10 transition flex items-center gap-1.5 shadow-[0_1px_4px_rgba(0,0,0,0.03)] font-medium">
           <span>📍</span> Golf Course Ext. Gurugram
         </a>
-        <a href="properties.html?city=Noida" class="px-3.5 py-1.5 rounded-full bg-white hover:bg-copper hover:text-white text-ink/85 border border-ink/10 transition flex items-center gap-1.5 shadow-[0_1px_4px_rgba(0,0,0,0.03)] font-medium">
+        <a href="properties.html?city=Noida"
+          class="px-3.5 py-1.5 rounded-full bg-white hover:bg-copper hover:text-white text-ink/85 border border-ink/10 transition flex items-center gap-1.5 shadow-[0_1px_4px_rgba(0,0,0,0.03)] font-medium">
           <span>📍</span> Noida &amp; Greater Noida Expressway
         </a>
       </div>
@@ -468,18 +490,25 @@
   <!-- ================= 01 ABOUT ================= -->
   <section id="about" class="relative py-14 md:py-20 overflow-hidden text-white border-y border-white/20"
     style="background: linear-gradient(135deg, #7F5128 0%, #A8774A 38%, #BE8C59 68%, #88572D 100%);">
-    <div class="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-white/10 rounded-full blur-[90px]"></div>
+    <div
+      class="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-white/10 rounded-full blur-[90px]">
+    </div>
     <div class="container-x relative z-10">
       <div class="text-center mb-4 md:mb-5" data-aos="fade-up">
-        <span class="inline-flex items-center gap-2.5 text-[11px] tracking-[0.24em] uppercase text-white/75 font-medium">
+        <span
+          class="inline-flex items-center gap-2.5 text-[11px] tracking-[0.24em] uppercase text-white/75 font-medium">
           <span class="w-5 h-px bg-white/60"></span>
           01 — About Us
           <span class="w-5 h-px bg-white/60"></span>
         </span>
       </div>
       <div class="max-w-[840px] mx-auto text-center px-4">
-        <p class="scrub-text text-[17px] sm:text-[19px] md:text-[23px] font-normal leading-[1.75] md:leading-[1.85] tracking-[-0.01em] text-white">
-          At <span class="font-semibold text-white">Golden Properties</span>, we believe a building is only as good as what it leaves behind, the neighbourhoods it shapes, the businesses it grows, the families it holds. For four decades, that belief has guided every decision we make: where we build, how we build, and what we refuse to compromise on along the way.
+        <p
+          class="scrub-text text-[17px] sm:text-[19px] md:text-[23px] font-normal leading-[1.75] md:leading-[1.85] tracking-[-0.01em] text-white">
+          At <span class="font-semibold text-white">Golden Properties</span>, we believe a building is only as good as
+          what it leaves behind, the neighbourhoods it shapes, the businesses it grows, the families it holds. For four
+          decades, that belief has guided every decision we make: where we build, how we build, and what we refuse to
+          compromise on along the way.
         </p>
         <!-- Founder attribution pill -->
         <div class="mt-7 flex items-center justify-center gap-3.5" data-aos="fade-up">
@@ -493,10 +522,14 @@
         </div>
 
         <div class="mt-8 flex justify-center" data-aos="fade-up" data-aos-delay="100">
-          <a href="about.html" class="inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-white text-ink text-[13px] font-semibold hover:bg-paper hover:shadow-lg transition duration-300 group">
+          <a href="about.html"
+            class="inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-white text-ink text-[13px] font-semibold hover:bg-paper hover:shadow-lg transition duration-300 group">
             <span>Read Our Full Story &amp; Legacy</span>
-            <span class="w-6 h-6 rounded-full bg-copper text-white grid place-items-center group-hover:translate-x-0.5 transition-transform">
-              <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8 8 2M3 2h5v5"/></svg>
+            <span
+              class="w-6 h-6 rounded-full bg-copper text-white grid place-items-center group-hover:translate-x-0.5 transition-transform">
+              <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 8 8 2M3 2h5v5" />
+              </svg>
             </span>
           </a>
         </div>
@@ -510,19 +543,25 @@
       <div class="grid lg:grid-cols-[1.4fr_1fr] gap-5 md:gap-8 items-end mb-6 md:mb-8">
         <div>
           <span class="eyebrow">02 — Collection</span>
-          <h2 class="section-title split mt-2.5 md:mt-3">Discover Your Perfect<br class="hidden sm:block" /> Property Match</h2>
+          <h2 class="section-title split mt-2.5 md:mt-3">Discover Your Perfect<br class="hidden sm:block" /> Property
+            Match</h2>
         </div>
 
         <div class="flex flex-col md:items-end gap-4" data-aos="fade-up">
           <p class="section-desc md:text-right max-w-[400px]">
-            Embark on a journey of discovery through exclusive collections of homes and luxury properties to fulfill your aspirations.
+            Embark on a journey of discovery through exclusive collections of homes and luxury properties to fulfill
+            your aspirations.
           </p>
 
           <div class="flex items-center gap-3.5 shrink-0">
-            <a href="properties.html" class="inline-flex items-center gap-2 text-[13px] font-medium hover:text-copper transition group">
+            <a href="properties.html"
+              class="inline-flex items-center gap-2 text-[13px] font-medium hover:text-copper transition group">
               <span class="border-b border-ink group-hover:border-copper pb-0.5 transition">View all properties</span>
-              <span class="w-6 h-6 rounded-full border border-ink/20 grid place-items-center group-hover:bg-copper group-hover:border-copper group-hover:text-white transition">
-                <svg width="9" height="9" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7 7 2M3 2h4v4"/></svg>
+              <span
+                class="w-6 h-6 rounded-full border border-ink/20 grid place-items-center group-hover:bg-copper group-hover:border-copper group-hover:text-white transition">
+                <svg width="9" height="9" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 7 7 2M3 2h4v4" />
+                </svg>
               </span>
             </a>
 
@@ -530,13 +569,15 @@
             <div class="flex items-center gap-2">
               <button id="propPrevBtn" aria-label="Previous Property"
                 class="w-9 h-9 rounded-full border border-ink/20 bg-paper hover:bg-copper hover:text-white hover:border-copper flex items-center justify-center transition-all duration-300 active:scale-95 shadow-sm">
-                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" viewBox="0 0 24 24">
                   <path d="M15 18l-6-6 6-6" />
                 </svg>
               </button>
               <button id="propNextBtn" aria-label="Next Property"
                 class="w-9 h-9 rounded-full border border-ink/20 bg-paper hover:bg-copper hover:text-white hover:border-copper flex items-center justify-center transition-all duration-300 active:scale-95 shadow-sm">
-                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" viewBox="0 0 24 24">
                   <path d="M9 18l6-6-6-6" />
                 </svg>
               </button>
@@ -550,20 +591,30 @@
         class="flex gap-4 md:gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar pb-4 pt-1 cursor-grab active:cursor-grabbing select-none"
         data-cursor>
         <!-- Initial Dynamic Container (Populated by live database properties or bespoke advisory) -->
-        <div class="w-full max-w-[620px] p-8 sm:p-10 rounded-[22px] bg-white border border-ink/[0.08] shadow-sm text-center mx-auto my-3">
+        <div
+          class="w-full max-w-[620px] p-8 sm:p-10 rounded-[22px] bg-white border border-ink/[0.08] shadow-sm text-center mx-auto my-3">
           <div class="w-12 h-12 rounded-2xl bg-copper/10 text-copper flex items-center justify-center mx-auto mb-3">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            </svg>
           </div>
           <h3 class="text-[19px] font-bold text-ink">Bespoke Inventory Available On-Request</h3>
           <p class="text-[13px] text-muted mt-2 max-w-[460px] mx-auto leading-relaxed">
-            Curating new verified luxury developments across Delhi NCR. Contact our senior fiduciary advisors for off-market inventory and private project allocations.
+            Curating new verified luxury developments across Delhi NCR. Contact our senior fiduciary advisors for
+            off-market inventory and private project allocations.
           </p>
           <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
-            <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties,%20please%20share%20available%20exclusive%20property%20options%20in%20Delhi%20NCR." target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-[#25D366] text-white text-xs font-semibold hover:bg-[#20ba59] transition flex items-center gap-2 shadow-xs">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties,%20please%20share%20available%20exclusive%20property%20options%20in%20Delhi%20NCR."
+              target="_blank" rel="noopener noreferrer"
+              class="px-5 py-2.5 rounded-xl bg-[#25D366] text-white text-xs font-semibold hover:bg-[#20ba59] transition flex items-center gap-2 shadow-xs">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+              </svg>
               <span>WhatsApp Advisory</span>
             </a>
-            <a href="tel:+919928203900" class="px-5 py-2.5 rounded-xl bg-ink text-white text-xs font-semibold hover:bg-copper transition shadow-xs">
+            <a href="tel:+919928203900"
+              class="px-5 py-2.5 rounded-xl bg-ink text-white text-xs font-semibold hover:bg-copper transition shadow-xs">
               <span>Call Advisor</span>
             </a>
           </div>
@@ -572,10 +623,14 @@
 
       <!-- Bottom View All Button -->
       <div class="mt-8 md:mt-10 flex justify-center" data-aos="fade-up">
-        <a href="properties.html" class="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-copper text-white hover:bg-copperDark text-xs sm:text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-xl hover:scale-105 group">
+        <a href="properties.html"
+          class="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-copper text-white hover:bg-copperDark text-xs sm:text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-xl hover:scale-105 group">
           <span>View All Properties Collection</span>
-          <span class="w-6 h-6 rounded-full bg-white/20 text-white grid place-items-center group-hover:translate-x-1 transition-transform">
-            <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8 8 2M3 2h5v5"/></svg>
+          <span
+            class="w-6 h-6 rounded-full bg-white/20 text-white grid place-items-center group-hover:translate-x-1 transition-transform">
+            <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M2 8 8 2M3 2h5v5" />
+            </svg>
           </span>
         </a>
       </div>
@@ -583,16 +638,20 @@
   </section>
 
   <!-- ================= 03 SEGMENTS ================= -->
-  <section id="segments" class="relative scroll-mt-20 md:scroll-mt-24 pt-20 pb-20 md:pt-28 md:pb-28 overflow-hidden text-white border-y border-white/20"
+  <section id="segments"
+    class="relative scroll-mt-20 md:scroll-mt-24 pt-20 pb-20 md:pt-28 md:pb-28 overflow-hidden text-white border-y border-white/20"
     style="background: linear-gradient(135deg, #7F5128 0%, #A8774A 38%, #BE8C59 68%, #88572D 100%);">
-    
+
     <!-- Ambient top glow -->
-    <div class="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[360px] bg-white/10 rounded-full blur-[100px]"></div>
+    <div
+      class="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[360px] bg-white/10 rounded-full blur-[100px]">
+    </div>
 
     <div class="container-x relative z-10">
       <!-- Eyebrow -->
       <div class="text-center mb-2.5 sm:mb-3" data-aos="fade-up">
-        <span class="inline-flex items-center gap-2.5 text-[11px] tracking-[0.24em] uppercase text-white/75 font-medium">
+        <span
+          class="inline-flex items-center gap-2.5 text-[11px] tracking-[0.24em] uppercase text-white/75 font-medium">
           <span class="w-5 h-px bg-white/60"></span>
           03 — Defining Segments
           <span class="w-5 h-px bg-white/60"></span>
@@ -609,30 +668,39 @@
       <!-- Lead Statement -->
       <div class="max-w-[780px] mx-auto text-center mb-10 md:mb-14 px-4" data-aos="fade-up" data-aos-delay="80">
         <p class="text-[13px] sm:text-[15px] md:text-[16px] font-normal leading-[1.75] text-white/85">
-          For over four decades, <span class="font-semibold text-white">Golden Properties</span> has built across four defining segments: thoughtful residential communities, future-ready commercial destinations, prime plotted developments, and bespoke luxury villas. Every project, regardless of scale, is held to the same standard of design, construction, and delivery.
+          For over four decades, <span class="font-semibold text-white">Golden Properties</span> has built across four
+          defining segments: thoughtful residential communities, future-ready commercial destinations, prime plotted
+          developments, and bespoke luxury villas. Every project, regardless of scale, is held to the same standard of
+          design, construction, and delivery.
         </p>
       </div>
 
       <!-- 4 Segments Grid (Matching Reference UI) -->
       <div class="border-y border-white/20 max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2">
-        
+
         <!-- Segment 1: Residential -->
-        <a href="properties.html?type=Residential" class="segment-card group relative block text-center py-12 md:py-16 px-6 sm:px-10 border-b border-white/20 md:border-r hover:bg-white/[0.05] transition-all duration-500 cursor-pointer" data-cursor>
+        <a href="properties.html?type=Residential"
+          class="segment-card group relative block text-center py-12 md:py-16 px-6 sm:px-10 border-b border-white/20 md:border-r hover:bg-white/[0.05] transition-all duration-500 cursor-pointer"
+          data-cursor>
           <!-- Location Pin Icon -->
-          <div class="mb-3.5 sm:mb-4 flex justify-center text-white/80 group-hover:text-white group-hover:scale-110 transition-all duration-300">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-              <circle cx="12" cy="9" r="2.5"/>
+          <div
+            class="mb-3.5 sm:mb-4 flex justify-center text-white/80 group-hover:text-white group-hover:scale-110 transition-all duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+              <circle cx="12" cy="9" r="2.5" />
             </svg>
           </div>
 
           <!-- Title -->
-          <h3 class="text-white text-[19px] sm:text-[22px] md:text-[24px] font-normal tracking-[0.22em] uppercase leading-snug">
+          <h3
+            class="text-white text-[19px] sm:text-[22px] md:text-[24px] font-normal tracking-[0.22em] uppercase leading-snug">
             Residential
           </h3>
 
           <!-- Subtitle -->
-          <p class="mt-2.5 sm:mt-3 text-[11px] sm:text-[12px] tracking-[0.18em] uppercase text-white/80 font-normal leading-relaxed max-w-[380px] mx-auto">
+          <p
+            class="mt-2.5 sm:mt-3 text-[11px] sm:text-[12px] tracking-[0.18em] uppercase text-white/80 font-normal leading-relaxed max-w-[380px] mx-auto">
             The Ultra Luxury Segment
           </p>
           <p class="mt-1 text-[10px] sm:text-[11px] tracking-[0.14em] uppercase text-white/60 font-light">
@@ -641,8 +709,11 @@
 
           <!-- Round Arrow Button -->
           <div class="mt-6 sm:mt-7 flex justify-center">
-            <span class="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/40 bg-white/10 backdrop-blur-sm grid place-items-center text-white transition-all duration-300 group-hover:bg-white group-hover:text-copper group-hover:border-white group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)]">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:translate-x-0.5">
+            <span
+              class="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/40 bg-white/10 backdrop-blur-sm grid place-items-center text-white transition-all duration-300 group-hover:bg-white group-hover:text-copper group-hover:border-white group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)]">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="transition-transform duration-300 group-hover:translate-x-0.5">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
@@ -651,22 +722,28 @@
         </a>
 
         <!-- Segment 2: Commercial -->
-        <a href="properties.html?type=Commercial" class="segment-card group relative block text-center py-12 md:py-16 px-6 sm:px-10 border-b border-white/20 hover:bg-white/[0.05] transition-all duration-500 cursor-pointer" data-cursor>
+        <a href="properties.html?type=Commercial"
+          class="segment-card group relative block text-center py-12 md:py-16 px-6 sm:px-10 border-b border-white/20 hover:bg-white/[0.05] transition-all duration-500 cursor-pointer"
+          data-cursor>
           <!-- Location Pin Icon -->
-          <div class="mb-3.5 sm:mb-4 flex justify-center text-white/80 group-hover:text-white group-hover:scale-110 transition-all duration-300">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-              <circle cx="12" cy="9" r="2.5"/>
+          <div
+            class="mb-3.5 sm:mb-4 flex justify-center text-white/80 group-hover:text-white group-hover:scale-110 transition-all duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+              <circle cx="12" cy="9" r="2.5" />
             </svg>
           </div>
 
           <!-- Title -->
-          <h3 class="text-white text-[19px] sm:text-[22px] md:text-[24px] font-normal tracking-[0.22em] uppercase leading-snug">
+          <h3
+            class="text-white text-[19px] sm:text-[22px] md:text-[24px] font-normal tracking-[0.22em] uppercase leading-snug">
             Commercial
           </h3>
 
           <!-- Subtitle -->
-          <p class="mt-2.5 sm:mt-3 text-[11px] sm:text-[12px] tracking-[0.18em] uppercase text-white/80 font-normal leading-relaxed max-w-[380px] mx-auto">
+          <p
+            class="mt-2.5 sm:mt-3 text-[11px] sm:text-[12px] tracking-[0.18em] uppercase text-white/80 font-normal leading-relaxed max-w-[380px] mx-auto">
             Grade-A Retail & High-Street Hubs
           </p>
           <p class="mt-1 text-[10px] sm:text-[11px] tracking-[0.14em] uppercase text-white/60 font-light">
@@ -675,8 +752,11 @@
 
           <!-- Round Arrow Button -->
           <div class="mt-6 sm:mt-7 flex justify-center">
-            <span class="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/40 bg-white/10 backdrop-blur-sm grid place-items-center text-white transition-all duration-300 group-hover:bg-white group-hover:text-copper group-hover:border-white group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)]">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:translate-x-0.5">
+            <span
+              class="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/40 bg-white/10 backdrop-blur-sm grid place-items-center text-white transition-all duration-300 group-hover:bg-white group-hover:text-copper group-hover:border-white group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)]">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="transition-transform duration-300 group-hover:translate-x-0.5">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
@@ -685,22 +765,28 @@
         </a>
 
         <!-- Segment 3: Plots -->
-        <a href="properties.html?type=Plots" class="segment-card group relative block text-center py-12 md:py-16 px-6 sm:px-10 border-b md:border-b-0 border-white/20 md:border-r hover:bg-white/[0.05] transition-all duration-500 cursor-pointer" data-cursor>
+        <a href="properties.html?type=Plots"
+          class="segment-card group relative block text-center py-12 md:py-16 px-6 sm:px-10 border-b md:border-b-0 border-white/20 md:border-r hover:bg-white/[0.05] transition-all duration-500 cursor-pointer"
+          data-cursor>
           <!-- Location Pin Icon -->
-          <div class="mb-3.5 sm:mb-4 flex justify-center text-white/80 group-hover:text-white group-hover:scale-110 transition-all duration-300">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-              <circle cx="12" cy="9" r="2.5"/>
+          <div
+            class="mb-3.5 sm:mb-4 flex justify-center text-white/80 group-hover:text-white group-hover:scale-110 transition-all duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+              <circle cx="12" cy="9" r="2.5" />
             </svg>
           </div>
 
           <!-- Title -->
-          <h3 class="text-white text-[19px] sm:text-[22px] md:text-[24px] font-normal tracking-[0.22em] uppercase leading-snug">
+          <h3
+            class="text-white text-[19px] sm:text-[22px] md:text-[24px] font-normal tracking-[0.22em] uppercase leading-snug">
             Plots
           </h3>
 
           <!-- Subtitle -->
-          <p class="mt-2.5 sm:mt-3 text-[11px] sm:text-[12px] tracking-[0.18em] uppercase text-white/80 font-normal leading-relaxed max-w-[380px] mx-auto">
+          <p
+            class="mt-2.5 sm:mt-3 text-[11px] sm:text-[12px] tracking-[0.18em] uppercase text-white/80 font-normal leading-relaxed max-w-[380px] mx-auto">
             Gated Townships & Freehold Land
           </p>
           <p class="mt-1 text-[10px] sm:text-[11px] tracking-[0.14em] uppercase text-white/60 font-light">
@@ -709,8 +795,11 @@
 
           <!-- Round Arrow Button -->
           <div class="mt-6 sm:mt-7 flex justify-center">
-            <span class="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/40 bg-white/10 backdrop-blur-sm grid place-items-center text-white transition-all duration-300 group-hover:bg-white group-hover:text-copper group-hover:border-white group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)]">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:translate-x-0.5">
+            <span
+              class="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/40 bg-white/10 backdrop-blur-sm grid place-items-center text-white transition-all duration-300 group-hover:bg-white group-hover:text-copper group-hover:border-white group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)]">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="transition-transform duration-300 group-hover:translate-x-0.5">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
@@ -719,22 +808,28 @@
         </a>
 
         <!-- Segment 4: Villas -->
-        <a href="properties.html?type=Villas" class="segment-card group relative block text-center py-12 md:py-16 px-6 sm:px-10 hover:bg-white/[0.05] transition-all duration-500 cursor-pointer" data-cursor>
+        <a href="properties.html?type=Villas"
+          class="segment-card group relative block text-center py-12 md:py-16 px-6 sm:px-10 hover:bg-white/[0.05] transition-all duration-500 cursor-pointer"
+          data-cursor>
           <!-- Location Pin Icon -->
-          <div class="mb-3.5 sm:mb-4 flex justify-center text-white/80 group-hover:text-white group-hover:scale-110 transition-all duration-300">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-              <circle cx="12" cy="9" r="2.5"/>
+          <div
+            class="mb-3.5 sm:mb-4 flex justify-center text-white/80 group-hover:text-white group-hover:scale-110 transition-all duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+              <circle cx="12" cy="9" r="2.5" />
             </svg>
           </div>
 
           <!-- Title -->
-          <h3 class="text-white text-[19px] sm:text-[22px] md:text-[24px] font-normal tracking-[0.22em] uppercase leading-snug">
+          <h3
+            class="text-white text-[19px] sm:text-[22px] md:text-[24px] font-normal tracking-[0.22em] uppercase leading-snug">
             Villas
           </h3>
 
           <!-- Subtitle -->
-          <p class="mt-2.5 sm:mt-3 text-[11px] sm:text-[12px] tracking-[0.18em] uppercase text-white/80 font-normal leading-relaxed max-w-[380px] mx-auto">
+          <p
+            class="mt-2.5 sm:mt-3 text-[11px] sm:text-[12px] tracking-[0.18em] uppercase text-white/80 font-normal leading-relaxed max-w-[380px] mx-auto">
             Exclusive Independent Luxury Estates
           </p>
           <p class="mt-1 text-[10px] sm:text-[11px] tracking-[0.14em] uppercase text-white/60 font-light">
@@ -743,8 +838,11 @@
 
           <!-- Round Arrow Button -->
           <div class="mt-6 sm:mt-7 flex justify-center">
-            <span class="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/40 bg-white/10 backdrop-blur-sm grid place-items-center text-white transition-all duration-300 group-hover:bg-white group-hover:text-copper group-hover:border-white group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)]">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:translate-x-0.5">
+            <span
+              class="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/40 bg-white/10 backdrop-blur-sm grid place-items-center text-white transition-all duration-300 group-hover:bg-white group-hover:text-copper group-hover:border-white group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)]">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="transition-transform duration-300 group-hover:translate-x-0.5">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
@@ -756,37 +854,46 @@
     </div>
   </section>
 
-    <!-- ================= 03.5 REAL ESTATE INVESTMENT OPPORTUNITIES ================= -->
+  <!-- ================= 03.5 REAL ESTATE INVESTMENT OPPORTUNITIES ================= -->
   <section id="investments" class="bg-[#FAF8F5] py-16 md:py-24 border-b border-ink/[0.08] relative overflow-hidden">
     <!-- Ambient ambient gold glow -->
-    <div class="pointer-events-none absolute -top-24 right-10 w-[500px] h-[300px] bg-copper/10 rounded-full blur-[100px]"></div>
+    <div
+      class="pointer-events-none absolute -top-24 right-10 w-[500px] h-[300px] bg-copper/10 rounded-full blur-[100px]">
+    </div>
 
     <div class="container-x relative z-10">
       <div class="grid lg:grid-cols-[1.4fr_1fr] gap-6 lg:gap-12 items-end mb-12">
         <div>
-          <span class="inline-flex items-center gap-2 text-[11px] tracking-[0.24em] uppercase text-copper font-semibold">
+          <span
+            class="inline-flex items-center gap-2 text-[11px] tracking-[0.24em] uppercase text-copper font-semibold">
             <span class="w-4 h-px bg-copper"></span>
             03.5 — Capital Growth &amp; Wealth
           </span>
-          <h2 class="text-[28px] sm:text-[38px] md:text-[44px] font-normal tracking-[-0.02em] text-ink mt-2.5 leading-[1.16]">
+          <h2
+            class="text-[28px] sm:text-[38px] md:text-[44px] font-normal tracking-[-0.02em] text-ink mt-2.5 leading-[1.16]">
             Real Estate Investment <br /><span class="font-semibold text-copper">Opportunities in NCR</span>
           </h2>
         </div>
         <div>
           <p class="text-[14px] text-muted leading-relaxed">
-            Data-backed investment advisory focusing on high-capital-appreciation corridors and commercial retail assets offering up to <strong class="text-ink font-semibold">9% annual rental yields</strong> across Faridabad &amp; Gurugram.
+            Data-backed investment advisory focusing on high-capital-appreciation corridors and commercial retail assets
+            offering up to <strong class="text-ink font-semibold">9% annual rental yields</strong> across Faridabad
+            &amp; Gurugram.
           </p>
         </div>
       </div>
 
       <!-- 3 Pillar Investment Cards -->
       <div class="grid md:grid-cols-3 gap-6 md:gap-7">
-        
+
         <!-- Card 1: Commercial SCOs & Retail -->
-        <div class="bg-white rounded-[22px] p-6 sm:p-7 shadow-[0_8px_30px_rgba(22,21,20,0.04)] border border-ink/[0.08] hover:border-copper/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up">
+        <div
+          class="bg-white rounded-[22px] p-6 sm:p-7 shadow-[0_8px_30px_rgba(22,21,20,0.04)] border border-ink/[0.08] hover:border-copper/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+          data-aos="fade-up">
           <div>
             <div class="flex items-center justify-between mb-4">
-              <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-bold border border-emerald-200">
+              <span
+                class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-bold border border-emerald-200">
                 7.5% – 9% Rental Yield
               </span>
               <span class="text-[11px] text-muted uppercase font-semibold">Commercial</span>
@@ -795,7 +902,8 @@
               Commercial SCO Plots &amp; Retail Hubs
             </h3>
             <p class="text-[13px] text-muted mt-2.5 leading-relaxed">
-              Grade-A Shop-Cum-Offices (SCOs) and high-street retail along prime expressway corridors with robust footfall from 30,000+ ready residential families.
+              Grade-A Shop-Cum-Offices (SCOs) and high-street retail along prime expressway corridors with robust
+              footfall from 30,000+ ready residential families.
             </p>
             <div class="mt-5 pt-4 border-t border-ink/[0.06] space-y-2 text-xs text-ink/80">
               <div class="flex items-center gap-2">
@@ -807,17 +915,22 @@
             </div>
           </div>
           <div class="mt-6 pt-4 border-t border-ink/[0.06]">
-            <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties,%20I%20am%20interested%20in%20Commercial%20SCO%20and%20Retail%20investment%20options.%20Please%20share%20details." target="_blank" class="w-full py-2.5 rounded-xl bg-sand/60 hover:bg-copper hover:text-white text-ink text-xs font-semibold transition text-center block border border-ink/10">
+            <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties,%20I%20am%20interested%20in%20Commercial%20SCO%20and%20Retail%20investment%20options.%20Please%20share%20details."
+              target="_blank"
+              class="w-full py-2.5 rounded-xl bg-sand/60 hover:bg-copper hover:text-white text-ink text-xs font-semibold transition text-center block border border-ink/10">
               Inquire Commercial Assets →
             </a>
           </div>
         </div>
 
         <!-- Card 2: Freehold Residential Plots -->
-        <div class="bg-white rounded-[22px] p-6 sm:p-7 shadow-[0_8px_30px_rgba(22,21,20,0.04)] border border-ink/[0.08] hover:border-copper/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="80">
+        <div
+          class="bg-white rounded-[22px] p-6 sm:p-7 shadow-[0_8px_30px_rgba(22,21,20,0.04)] border border-ink/[0.08] hover:border-copper/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+          data-aos="fade-up" data-aos-delay="80">
           <div>
             <div class="flex items-center justify-between mb-4">
-              <span class="px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-[11px] font-bold border border-amber-200">
+              <span
+                class="px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-[11px] font-bold border border-amber-200">
                 14% – 18% YoY Growth
               </span>
               <span class="text-[11px] text-muted uppercase font-semibold">Gated Plots</span>
@@ -826,7 +939,8 @@
               Freehold Gated Residential Plots
             </h3>
             <p class="text-[13px] text-muted mt-2.5 leading-relaxed">
-              RERA-approved plotted developments in master-planned townships with multi-tier security, paved wide roads, underground utilities, and clubhouse access.
+              RERA-approved plotted developments in master-planned townships with multi-tier security, paved wide roads,
+              underground utilities, and clubhouse access.
             </p>
             <div class="mt-5 pt-4 border-t border-ink/[0.06] space-y-2 text-xs text-ink/80">
               <div class="flex items-center gap-2">
@@ -838,17 +952,22 @@
             </div>
           </div>
           <div class="mt-6 pt-4 border-t border-ink/[0.06]">
-            <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties,%20I%20am%20interested%20in%20Gated%20Residential%20Plots%20in%20Faridabad/NCR.%20Please%20share%20price%20list." target="_blank" class="w-full py-2.5 rounded-xl bg-sand/60 hover:bg-copper hover:text-white text-ink text-xs font-semibold transition text-center block border border-ink/10">
+            <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties,%20I%20am%20interested%20in%20Gated%20Residential%20Plots%20in%20Faridabad/NCR.%20Please%20share%20price%20list."
+              target="_blank"
+              class="w-full py-2.5 rounded-xl bg-sand/60 hover:bg-copper hover:text-white text-ink text-xs font-semibold transition text-center block border border-ink/10">
               Inquire Residential Plots →
             </a>
           </div>
         </div>
 
         <!-- Card 3: Pre-Leased & Institutional Assets -->
-        <div class="bg-white rounded-[22px] p-6 sm:p-7 shadow-[0_8px_30px_rgba(22,21,20,0.04)] border border-ink/[0.08] hover:border-copper/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="160">
+        <div
+          class="bg-white rounded-[22px] p-6 sm:p-7 shadow-[0_8px_30px_rgba(22,21,20,0.04)] border border-ink/[0.08] hover:border-copper/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+          data-aos="fade-up" data-aos-delay="160">
           <div>
             <div class="flex items-center justify-between mb-4">
-              <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-[11px] font-bold border border-blue-200">
+              <span
+                class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-[11px] font-bold border border-blue-200">
                 Zero Gestation Period
               </span>
               <span class="text-[11px] text-muted uppercase font-semibold">Pre-Leased</span>
@@ -857,7 +976,8 @@
               Pre-Leased Assets &amp; Penthouse Suites
             </h3>
             <p class="text-[13px] text-muted mt-2.5 leading-relaxed">
-              Immediate monthly cashflow from long-lease institutional tenants, corporate banks, and luxury serviced penthouses with steady annual rental escalations.
+              Immediate monthly cashflow from long-lease institutional tenants, corporate banks, and luxury serviced
+              penthouses with steady annual rental escalations.
             </p>
             <div class="mt-5 pt-4 border-t border-ink/[0.06] space-y-2 text-xs text-ink/80">
               <div class="flex items-center gap-2">
@@ -869,7 +989,9 @@
             </div>
           </div>
           <div class="mt-6 pt-4 border-t border-ink/[0.06]">
-            <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties,%20I%20am%20interested%20in%20Pre-Leased%20Income-Generating%20Properties.%20Please%20share%20available%20assets." target="_blank" class="w-full py-2.5 rounded-xl bg-sand/60 hover:bg-copper hover:text-white text-ink text-xs font-semibold transition text-center block border border-ink/10">
+            <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties,%20I%20am%20interested%20in%20Pre-Leased%20Income-Generating%20Properties.%20Please%20share%20available%20assets."
+              target="_blank"
+              class="w-full py-2.5 rounded-xl bg-sand/60 hover:bg-copper hover:text-white text-ink text-xs font-semibold transition text-center block border border-ink/10">
               Inquire Pre-Leased Assets →
             </a>
           </div>
@@ -878,51 +1000,70 @@
       </div>
 
       <!-- Quick Consultation Strip -->
-      <div class="mt-10 p-6 rounded-2xl bg-white border border-copper/30 flex flex-col sm:flex-row items-center justify-between gap-5 shadow-sm">
+      <div
+        class="mt-10 p-6 rounded-2xl bg-white border border-copper/30 flex flex-col sm:flex-row items-center justify-between gap-5 shadow-sm">
         <div class="flex items-center gap-4">
           <div class="w-12 h-12 rounded-2xl bg-copper/10 text-copper flex items-center justify-center shrink-0">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+            </svg>
           </div>
           <div>
             <h4 class="text-sm font-bold text-ink">Looking for custom investment portfolios in Delhi NCR?</h4>
-            <p class="text-xs text-muted mt-0.5">Speak with our senior investment analysts for capital growth projections and legal title scrutiny.</p>
+            <p class="text-xs text-muted mt-0.5">Speak with our senior investment analysts for capital growth
+              projections and legal title scrutiny.</p>
           </div>
         </div>
-        <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties,%20I%20would%20like%20a%20customized%20real%20estate%20investment%20portfolio%20consultation." target="_blank" class="px-6 py-2.5 rounded-xl bg-copper hover:bg-copperDark text-white text-xs font-semibold transition whitespace-nowrap shadow-xs flex items-center gap-2">
+        <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties,%20I%20would%20like%20a%20customized%20real%20estate%20investment%20portfolio%20consultation."
+          target="_blank"
+          class="px-6 py-2.5 rounded-xl bg-copper hover:bg-copperDark text-white text-xs font-semibold transition whitespace-nowrap shadow-xs flex items-center gap-2">
           <span>Book Investment Advisory Call</span>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
         </a>
       </div>
 
     </div>
   </section>
 
-<!-- ================= 04 STORIES ================= -->
+  <!-- ================= 04 STORIES ================= -->
   <section id="stories" class="bg-paper py-14 md:py-20 border-b border-ink/[0.08]">
     <div class="container-x">
       <div class="grid lg:grid-cols-[1.5fr_1fr] gap-6 lg:gap-12 items-end mb-8 md:mb-10">
         <div>
           <span class="eyebrow">04 — Market Insights</span>
-          <h2 class="section-title split mt-2.5 md:mt-3">NCR Real Estate<br class="hidden md:block" /> Intelligence &amp; Guides</h2>
+          <h2 class="section-title split mt-2.5 md:mt-3">NCR Real Estate<br class="hidden md:block" /> Intelligence
+            &amp; Guides</h2>
         </div>
-        <p class="section-desc" data-aos="fade-up">Stay informed with verified property insights, infrastructure growth analysis, and legal advisory for homebuyers across Faridabad &amp; Delhi NCR.</p>
+        <p class="section-desc" data-aos="fade-up">Stay informed with verified property insights, infrastructure growth
+          analysis, and legal advisory for homebuyers across Faridabad &amp; Delhi NCR.</p>
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
         <!-- Article 1: Faridabad Corridor -->
         <article class="reveal relative rounded-[18px] overflow-hidden h-[340px] md:h-[370px] group" data-cursor>
           <div class="img-zoom"><img class="parallax-img w-full h-full object-cover"
-              src="assest/blogs/blog-faridabad-expressway.webp"
-              alt="Faridabad Expressway Real Estate Growth" /></div>
-          <div class="absolute left-3 right-3 bottom-3 bg-ink/80 backdrop-blur-xl rounded-[14px] p-4 text-white border border-white/10">
+              src="assest/blogs/blog-faridabad-expressway.webp" alt="Faridabad Expressway Real Estate Growth" /></div>
+          <div
+            class="absolute left-3 right-3 bottom-3 bg-ink/80 backdrop-blur-xl rounded-[14px] p-4 text-white border border-white/10">
             <div class="flex items-start justify-between gap-2.5">
-              <span class="text-[10px] uppercase tracking-[.18em] text-copperLight font-semibold">Faridabad Corridor</span>
-              <a href="blog-details.html?id=faridabad-expressway-roi" class="w-8 h-8 rounded-full bg-copper grid place-items-center shrink-0 transition duration-300 group-hover:rotate-45" aria-label="Read Article"><svg width="13" height="13" fill="none" stroke="#fff" stroke-width="2">
-                  <path d="M4 12 12 4M6 4h6v6" />
-                </svg></a>
+              <span class="text-[10px] uppercase tracking-[.18em] text-copperLight font-semibold">Faridabad
+                Corridor</span>
+              <a href="blogs.html"
+                class="w-8 h-8 rounded-full bg-copper grid place-items-center shrink-0 transition duration-300 group-hover:rotate-45"
+                aria-label="Read Article"><svg width="13" height="13" fill="none" stroke="#fff" stroke-width="2">
+                  <a href="blog-details.html?id=faridabad-expressway-roi"
+                    class="w-8 h-8 rounded-full bg-copper grid place-items-center shrink-0 transition duration-300 group-hover:rotate-45"
+                    aria-label="Read Article"><svg width="13" height="13" fill="none" stroke="#fff" stroke-width="2">
+                      <path d="M4 12 12 4M6 4h6v6" />
+                    </svg></a>
             </div>
-            <h3 class="mt-1 text-[14.5px] font-semibold leading-snug pr-2 text-white group-hover:text-copperLight transition">
-              <a href="blog-details.html?id=faridabad-expressway-roi">Why Faridabad Expressway (Sec 77-85) Is NCR's Fastest Growing High-ROI Corridor</a>
+            <h3
+              class="mt-1 text-[14.5px] font-semibold leading-snug pr-2 text-white group-hover:text-copperLight transition">
+              <a href="blogs.html">Why Faridabad Expressway (Sec 77-85) Is NCR's Fastest Growing High-ROI Corridor</a>
+              <a href="blog-details.html?id=faridabad-expressway-roi">Why Faridabad Expressway (Sec 77-85) Is NCR's
+                Fastest Growing High-ROI Corridor</a>
             </h3>
             <p class="mt-2 text-[11px] text-white/60">Delhi-Mumbai Expressway Link • 4 Min Read</p>
           </div>
@@ -931,17 +1072,26 @@
         <!-- Article 2: RERA & Homebuyer Checklist -->
         <article class="reveal relative rounded-[18px] overflow-hidden h-[340px] md:h-[370px] group" data-cursor>
           <div class="img-zoom"><img class="parallax-img w-full h-full object-cover"
-              src="assest/blogs/blog-homebuyer-checklist.webp"
-              alt="Homebuyer Legal Advisory Checklist" /></div>
-          <div class="absolute left-3 right-3 bottom-3 bg-ink/80 backdrop-blur-xl rounded-[14px] p-4 text-white border border-white/10">
+              src="assest/blogs/blog-homebuyer-checklist.webp" alt="Homebuyer Legal Advisory Checklist" /></div>
+          <div
+            class="absolute left-3 right-3 bottom-3 bg-ink/80 backdrop-blur-xl rounded-[14px] p-4 text-white border border-white/10">
             <div class="flex items-start justify-between gap-2.5">
-              <span class="text-[10px] uppercase tracking-[.18em] text-copperLight font-semibold">Buyer's Advisory</span>
-              <a href="blog-details.html?id=homebuyer-legal-checklist" class="w-8 h-8 rounded-full bg-copper grid place-items-center shrink-0 transition duration-300 group-hover:rotate-45" aria-label="Read Article"><svg width="13" height="13" fill="none" stroke="#fff" stroke-width="2">
-                  <path d="M4 12 12 4M6 4h6v6" />
-                </svg></a>
+              <span class="text-[10px] uppercase tracking-[.18em] text-copperLight font-semibold">Buyer's
+                Advisory</span>
+              <a href="blogs.html"
+                class="w-8 h-8 rounded-full bg-copper grid place-items-center shrink-0 transition duration-300 group-hover:rotate-45"
+                aria-label="Read Article"><svg width="13" height="13" fill="none" stroke="#fff" stroke-width="2">
+                  <a href="blog-details.html?id=homebuyer-legal-checklist"
+                    class="w-8 h-8 rounded-full bg-copper grid place-items-center shrink-0 transition duration-300 group-hover:rotate-45"
+                    aria-label="Read Article"><svg width="13" height="13" fill="none" stroke="#fff" stroke-width="2">
+                      <path d="M4 12 12 4M6 4h6v6" />
+                    </svg></a>
             </div>
-            <h3 class="mt-1 text-[14.5px] font-semibold leading-snug pr-2 text-white group-hover:text-copperLight transition">
-              <a href="blog-details.html?id=homebuyer-legal-checklist">First-Time Homebuyer's Checklist in Delhi NCR: RERA, Carpet Area &amp; Registry</a>
+            <h3
+              class="mt-1 text-[14.5px] font-semibold leading-snug pr-2 text-white group-hover:text-copperLight transition">
+              <a href="blogs.html">First-Time Homebuyer's Checklist in Delhi NCR: RERA, Carpet Area &amp; Registry</a>
+              <a href="blog-details.html?id=homebuyer-legal-checklist">First-Time Homebuyer's Checklist in Delhi NCR:
+                RERA, Carpet Area &amp; Registry</a>
             </h3>
             <p class="mt-2 text-[11px] text-white/60">Legal Compliance • 5 Min Read</p>
           </div>
@@ -950,17 +1100,26 @@
         <!-- Article 3: Commercial SCOs & Retail -->
         <article class="reveal relative rounded-[18px] overflow-hidden h-[340px] md:h-[370px] group" data-cursor>
           <div class="img-zoom"><img class="parallax-img w-full h-full object-cover"
-              src="assest/blogs/blog-commercial-sco.webp"
-              alt="Commercial Real Estate Investment SCO" /></div>
-          <div class="absolute left-3 right-3 bottom-3 bg-ink/80 backdrop-blur-xl rounded-[14px] p-4 text-white border border-white/10">
+              src="assest/blogs/blog-commercial-sco.webp" alt="Commercial Real Estate Investment SCO" /></div>
+          <div
+            class="absolute left-3 right-3 bottom-3 bg-ink/80 backdrop-blur-xl rounded-[14px] p-4 text-white border border-white/10">
             <div class="flex items-start justify-between gap-2.5">
-              <span class="text-[10px] uppercase tracking-[.18em] text-copperLight font-semibold">Commercial Wealth</span>
-              <a href="blog-details.html?id=commercial-sco-vs-retail" class="w-8 h-8 rounded-full bg-copper grid place-items-center shrink-0 transition duration-300 group-hover:rotate-45" aria-label="Read Article"><svg width="13" height="13" fill="none" stroke="#fff" stroke-width="2">
-                  <path d="M4 12 12 4M6 4h6v6" />
-                </svg></a>
+              <span class="text-[10px] uppercase tracking-[.18em] text-copperLight font-semibold">Commercial
+                Wealth</span>
+              <a href="blogs.html"
+                class="w-8 h-8 rounded-full bg-copper grid place-items-center shrink-0 transition duration-300 group-hover:rotate-45"
+                aria-label="Read Article"><svg width="13" height="13" fill="none" stroke="#fff" stroke-width="2">
+                  <a href="blog-details.html?id=commercial-sco-vs-retail"
+                    class="w-8 h-8 rounded-full bg-copper grid place-items-center shrink-0 transition duration-300 group-hover:rotate-45"
+                    aria-label="Read Article"><svg width="13" height="13" fill="none" stroke="#fff" stroke-width="2">
+                      <path d="M4 12 12 4M6 4h6v6" />
+                    </svg></a>
             </div>
-            <h3 class="mt-1 text-[14.5px] font-semibold leading-snug pr-2 text-white group-hover:text-copperLight transition">
-              <a href="blog-details.html?id=commercial-sco-vs-retail">Commercial SCOs vs High-Street Retail: Where to Invest for Maximum Rental Yield</a>
+            <h3
+              class="mt-1 text-[14.5px] font-semibold leading-snug pr-2 text-white group-hover:text-copperLight transition">
+              <a href="blogs.html">Commercial SCOs vs High-Street Retail: Where to Invest for Maximum Rental Yield</a>
+              <a href="blog-details.html?id=commercial-sco-vs-retail">Commercial SCOs vs High-Street Retail: Where to
+                Invest for Maximum Rental Yield</a>
             </h3>
             <p class="mt-2 text-[11px] text-white/60">Rental Yield Analysis • 6 Min Read</p>
           </div>
@@ -968,9 +1127,12 @@
       </div>
 
       <div class="mt-8 text-center" data-aos="fade-up">
-        <a href="blogs.html" class="inline-flex items-center gap-2 text-xs font-semibold text-copper hover:text-copperDark transition uppercase tracking-wider">
+        <a href="blogs.html"
+          class="inline-flex items-center gap-2 text-xs font-semibold text-copper hover:text-copperDark transition uppercase tracking-wider">
           <span>Read All Market Insights &amp; Legal Guides</span>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
         </a>
       </div>
     </div>
@@ -979,13 +1141,16 @@
   <!-- ================= 05 TESTIMONIALS ================= -->
   <section id="testimonials" class="relative py-16 md:py-24 overflow-hidden text-white border-b border-white/20"
     style="background: linear-gradient(135deg, #7F5128 0%, #A8774A 38%, #BE8C59 68%, #88572D 100%);">
-    
+
     <!-- Ambient top glow -->
-    <div class="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[360px] bg-white/10 rounded-full blur-[100px]"></div>
+    <div
+      class="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[360px] bg-white/10 rounded-full blur-[100px]">
+    </div>
 
     <div class="container-x relative z-10">
       <div class="text-center mb-8 md:mb-12">
-        <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-[11px] font-semibold uppercase tracking-wider mb-3">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-[11px] font-semibold uppercase tracking-wider mb-3">
           <span>Google Review Verified</span>
           <span class="text-amber-300">★★★★★</span>
           <span class="text-white/80 font-normal">4.9 / 5.0 (180+ Reviews)</span>
@@ -1000,12 +1165,17 @@
 
       <div class="grid md:grid-cols-12 gap-5 md:gap-6">
         <!-- Review 1: Rajesh & Sunita Verma -->
-        <div class="md:col-span-7 relative bg-white/95 backdrop-blur-md rounded-[20px] p-6 md:p-8 pt-10 md:pt-12 text-ink shadow-[0_12px_32px_rgba(0,0,0,0.16)] border border-white/40" data-aos="fade-up">
-          <div class="absolute -top-6 left-6 md:left-7 w-12 h-12 rounded-full bg-gradient-to-tr from-copper to-amber-700 text-white font-bold text-sm grid place-items-center ring-[3px] ring-white shadow-md">
+        <div
+          class="md:col-span-7 relative bg-white/95 backdrop-blur-md rounded-[20px] p-6 md:p-8 pt-10 md:pt-12 text-ink shadow-[0_12px_32px_rgba(0,0,0,0.16)] border border-white/40"
+          data-aos="fade-up">
+          <div
+            class="absolute -top-6 left-6 md:left-7 w-12 h-12 rounded-full bg-gradient-to-tr from-copper to-amber-700 text-white font-bold text-sm grid place-items-center ring-[3px] ring-white shadow-md">
             RV
           </div>
           <p class="text-[13px] sm:text-[14px] font-normal leading-[1.7] text-ink/85">
-            "Choosing Golden Properties for our home in BPTP Parklands Pride along the Faridabad Expressway was the best decision. Their team verified all RERA approvals, handled the builder agreement without hidden charges, and made our registry completely stress-free. True 40 years of trusted legacy!"
+            "Choosing Golden Properties for our home in BPTP Parklands Pride along the Faridabad Expressway was the best
+            decision. Their team verified all RERA approvals, handled the builder agreement without hidden charges, and
+            made our registry completely stress-free. True 40 years of trusted legacy!"
           </p>
           <div class="mt-5 flex items-end justify-between border-t border-ink/[0.07] pt-3.5">
             <div>
@@ -1013,17 +1183,24 @@
               <p class="text-[11px] text-muted font-normal">Homeowners • 4 BHK, Sector 77 Faridabad</p>
               <div class="stars mt-1.5 flex gap-1 text-copper" data-rating="5"></div>
             </div>
-            <span class="text-[10px] uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-semibold">Verified Buyer</span>
+            <span
+              class="text-[10px] uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-semibold">Verified
+              Buyer</span>
           </div>
         </div>
 
         <!-- Review 2: Amitabh Goel -->
-        <div class="md:col-span-5 relative bg-white/95 backdrop-blur-md rounded-[20px] p-6 md:p-8 pt-10 md:pt-12 text-ink shadow-[0_12px_32px_rgba(0,0,0,0.16)] border border-white/40" data-aos="fade-up" data-aos-delay="100">
-          <div class="absolute -top-6 left-6 md:left-7 w-12 h-12 rounded-full bg-gradient-to-tr from-copper to-stone-800 text-white font-bold text-sm grid place-items-center ring-[3px] ring-white shadow-md">
+        <div
+          class="md:col-span-5 relative bg-white/95 backdrop-blur-md rounded-[20px] p-6 md:p-8 pt-10 md:pt-12 text-ink shadow-[0_12px_32px_rgba(0,0,0,0.16)] border border-white/40"
+          data-aos="fade-up" data-aos-delay="100">
+          <div
+            class="absolute -top-6 left-6 md:left-7 w-12 h-12 rounded-full bg-gradient-to-tr from-copper to-stone-800 text-white font-bold text-sm grid place-items-center ring-[3px] ring-white shadow-md">
             AG
           </div>
           <p class="text-[13px] sm:text-[14px] font-normal leading-[1.7] text-ink/85">
-            "Their commercial valuation and rental yield forecasting were spot-on. Golden Properties helped me secure a high-visibility retail shop on the expressway corridor with an immediate 8% rental yield. Exceptional fiduciary advisory."
+            "Their commercial valuation and rental yield forecasting were spot-on. Golden Properties helped me secure a
+            high-visibility retail shop on the expressway corridor with an immediate 8% rental yield. Exceptional
+            fiduciary advisory."
           </p>
           <div class="mt-5 flex items-end justify-between border-t border-ink/[0.07] pt-3.5">
             <div>
@@ -1031,17 +1208,23 @@
               <p class="text-[11px] text-muted font-normal">Senior VP, FinTech • Commercial SCO Investor</p>
               <div class="stars mt-1.5 flex gap-1 text-copper" data-rating="5"></div>
             </div>
-            <span class="text-[10px] uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-semibold">Verified Investor</span>
+            <span
+              class="text-[10px] uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-semibold">Verified
+              Investor</span>
           </div>
         </div>
 
         <!-- Review 3: Col. Sanjeev Rawat (Retd.) -->
-        <div class="md:col-span-5 relative bg-white/95 backdrop-blur-md rounded-[20px] p-6 md:p-8 pt-10 md:pt-12 text-ink shadow-[0_12px_32px_rgba(0,0,0,0.16)] border border-white/40" data-aos="fade-up">
-          <div class="absolute -top-6 left-6 md:left-7 w-12 h-12 rounded-full bg-gradient-to-tr from-copper to-emerald-800 text-white font-bold text-sm grid place-items-center ring-[3px] ring-white shadow-md">
+        <div
+          class="md:col-span-5 relative bg-white/95 backdrop-blur-md rounded-[20px] p-6 md:p-8 pt-10 md:pt-12 text-ink shadow-[0_12px_32px_rgba(0,0,0,0.16)] border border-white/40"
+          data-aos="fade-up">
+          <div
+            class="absolute -top-6 left-6 md:left-7 w-12 h-12 rounded-full bg-gradient-to-tr from-copper to-emerald-800 text-white font-bold text-sm grid place-items-center ring-[3px] ring-white shadow-md">
             SR
           </div>
           <p class="text-[13px] sm:text-[14px] font-normal leading-[1.7] text-ink/85">
-            "After retiring from service, I wanted a secure gated plot for my family. The team showed us 6 verified options without any dealer pressure. Complete clarity on circle rates, registry, and immediate possession."
+            "After retiring from service, I wanted a secure gated plot for my family. The team showed us 6 verified
+            options without any dealer pressure. Complete clarity on circle rates, registry, and immediate possession."
           </p>
           <div class="mt-5 flex items-end justify-between border-t border-ink/[0.07] pt-3.5">
             <div>
@@ -1049,17 +1232,24 @@
               <p class="text-[11px] text-muted font-normal">Plot Owner • Greater Faridabad Enclaves</p>
               <div class="stars mt-1.5 flex gap-1 text-copper" data-rating="5"></div>
             </div>
-            <span class="text-[10px] uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-semibold">Verified Buyer</span>
+            <span
+              class="text-[10px] uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-semibold">Verified
+              Buyer</span>
           </div>
         </div>
 
         <!-- Review 4: Dr. Meenakshi & Dr. Rohan Chawla -->
-        <div class="md:col-span-7 relative bg-white/95 backdrop-blur-md rounded-[20px] p-6 md:p-8 pt-10 md:pt-12 text-ink shadow-[0_12px_32px_rgba(0,0,0,0.16)] border border-white/40" data-aos="fade-up" data-aos-delay="100">
-          <div class="absolute -top-6 left-6 md:left-7 w-12 h-12 rounded-full bg-gradient-to-tr from-copper to-amber-900 text-white font-bold text-sm grid place-items-center ring-[3px] ring-white shadow-md">
+        <div
+          class="md:col-span-7 relative bg-white/95 backdrop-blur-md rounded-[20px] p-6 md:p-8 pt-10 md:pt-12 text-ink shadow-[0_12px_32px_rgba(0,0,0,0.16)] border border-white/40"
+          data-aos="fade-up" data-aos-delay="100">
+          <div
+            class="absolute -top-6 left-6 md:left-7 w-12 h-12 rounded-full bg-gradient-to-tr from-copper to-amber-900 text-white font-bold text-sm grid place-items-center ring-[3px] ring-white shadow-md">
             MC
           </div>
           <p class="text-[13px] sm:text-[14px] font-normal leading-[1.7] text-ink/85">
-            "We have consulted Golden Properties for over 8 years across multiple property acquisitions in Faridabad and Gurugram. Their institutional discipline, legal due diligence, and market insights make them completely distinct from typical brokers."
+            "We have consulted Golden Properties for over 8 years across multiple property acquisitions in Faridabad and
+            Gurugram. Their institutional discipline, legal due diligence, and market insights make them completely
+            distinct from typical brokers."
           </p>
           <div class="mt-5 flex items-end justify-between border-t border-ink/[0.07] pt-3.5">
             <div>
@@ -1067,7 +1257,9 @@
               <p class="text-[11px] text-muted font-normal">Portfolio Clients • Luxury High-Rise Residences</p>
               <div class="stars mt-1.5 flex gap-1 text-copper" data-rating="5"></div>
             </div>
-            <span class="text-[10px] uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-semibold">Long-Term Client</span>
+            <span
+              class="text-[10px] uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-semibold">Long-Term
+              Client</span>
           </div>
         </div>
       </div>
@@ -1077,7 +1269,7 @@
   <!-- ================= CTA + CONTACT HUB + FOOTER ================= -->
   <footer id="contact" class="w-full bg-ink text-white overflow-hidden">
     <div class="container-x pt-14 md:pt-20">
-      
+
       <!-- Contact Header -->
       <div class="max-w-[700px] mb-12" data-aos="fade-up">
         <span class="eyebrow light">Connect with Fiduciary Advisory</span>
@@ -1085,57 +1277,86 @@
           Ready to Find Your <br /><span class="font-normal text-copperLight">Next Landmark Property?</span>
         </h2>
         <p class="mt-3 text-white/70 text-[14px] leading-relaxed">
-          Speak directly with our senior advisors for verified project inventory, transparent pricing, private site tours, and legal documentation guidance across Faridabad &amp; Delhi NCR.
+          Speak directly with our senior advisors for verified project inventory, transparent pricing, private site
+          tours, and legal documentation guidance across Faridabad &amp; Delhi NCR.
         </p>
       </div>
 
       <!-- 4 Direct Contact Methods Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-14" data-aos="fade-up">
-        
+
         <!-- Phone -->
-        <a href="tel:+919928203900" class="p-5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-copper hover:bg-white/[0.07] transition group block">
-          <div class="w-10 h-10 rounded-xl bg-copper/20 text-copperLight flex items-center justify-center mb-3 group-hover:bg-copper group-hover:text-white transition">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <a href="tel:+919928203900"
+          class="p-5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-copper hover:bg-white/[0.07] transition group block">
+          <div
+            class="w-10 h-10 rounded-xl bg-copper/20 text-copperLight flex items-center justify-center mb-3 group-hover:bg-copper group-hover:text-white transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
           </div>
           <span class="text-[11px] text-white/50 uppercase tracking-wider block">Call Direct Line</span>
-          <span class="text-[15px] font-semibold text-white group-hover:text-copperLight transition mt-0.5 block">+91 99-2820-3900</span>
+          <span class="text-[15px] font-semibold text-white group-hover:text-copperLight transition mt-0.5 block">+91
+            99-2820-3900</span>
           <span class="text-[11px] text-emerald-400 mt-1 block">Mon - Sun (9 AM - 8 PM)</span>
         </a>
 
         <!-- WhatsApp -->
-        <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties,%20I%20am%20exploring%20properties%20on%20your%20website%20and%20would%20like%20to%20consult%20with%20an%20advisor." target="_blank" rel="noopener" class="p-5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-emerald-500 hover:bg-white/[0.07] transition group block">
-          <div class="w-10 h-10 rounded-xl bg-[#25D366]/20 text-[#25D366] flex items-center justify-center mb-3 group-hover:bg-[#25D366] group-hover:text-white transition">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties,%20I%20am%20exploring%20properties%20on%20your%20website%20and%20would%20like%20to%20consult%20with%20an%20advisor."
+          target="_blank" rel="noopener"
+          class="p-5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-emerald-500 hover:bg-white/[0.07] transition group block">
+          <div
+            class="w-10 h-10 rounded-xl bg-[#25D366]/20 text-[#25D366] flex items-center justify-center mb-3 group-hover:bg-[#25D366] group-hover:text-white transition">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+            </svg>
           </div>
           <span class="text-[11px] text-white/50 uppercase tracking-wider block">Instant WhatsApp</span>
-          <span class="text-[15px] font-semibold text-white group-hover:text-emerald-400 transition mt-0.5 block">Chat with Advisor</span>
+          <span class="text-[15px] font-semibold text-white group-hover:text-emerald-400 transition mt-0.5 block">Chat
+            with Advisor</span>
           <span class="text-[11px] text-emerald-400 mt-1 block">⚡ Instant Response</span>
         </a>
 
         <!-- Office Address -->
-        <a href="https://maps.google.com/?q=Sector+77+Faridabad+Delhi+NCR" target="_blank" rel="noopener" class="p-5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-copper hover:bg-white/[0.07] transition group block">
-          <div class="w-10 h-10 rounded-xl bg-copper/20 text-copperLight flex items-center justify-center mb-3 group-hover:bg-copper group-hover:text-white transition">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <a href="https://maps.google.com/?q=Sector+77+Faridabad+Delhi+NCR" target="_blank" rel="noopener"
+          class="p-5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-copper hover:bg-white/[0.07] transition group block">
+          <div
+            class="w-10 h-10 rounded-xl bg-copper/20 text-copperLight flex items-center justify-center mb-3 group-hover:bg-copper group-hover:text-white transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
           </div>
           <span class="text-[11px] text-white/50 uppercase tracking-wider block">Corporate Office</span>
-          <span class="text-[13px] font-semibold text-white group-hover:text-copperLight transition mt-0.5 block leading-snug">Faridabad Expressway Corridor</span>
+          <span
+            class="text-[13px] font-semibold text-white group-hover:text-copperLight transition mt-0.5 block leading-snug">Faridabad
+            Expressway Corridor</span>
           <span class="text-[11px] text-white/60 mt-1 block">Sector 77, Faridabad, NCR ↗</span>
         </a>
 
         <!-- Email -->
-        <a href="mailto:contact@goldenproperties.co" class="p-5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-copper hover:bg-white/[0.07] transition group block">
-          <div class="w-10 h-10 rounded-xl bg-copper/20 text-copperLight flex items-center justify-center mb-3 group-hover:bg-copper group-hover:text-white transition">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:contact@goldenproperties.co"
+          class="p-5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-copper hover:bg-white/[0.07] transition group block">
+          <div
+            class="w-10 h-10 rounded-xl bg-copper/20 text-copperLight flex items-center justify-center mb-3 group-hover:bg-copper group-hover:text-white transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
           </div>
           <span class="text-[11px] text-white/50 uppercase tracking-wider block">Email Advisory Desk</span>
-          <span class="text-[14px] font-semibold text-white group-hover:text-copperLight transition mt-0.5 block truncate">contact@goldenproperties.co</span>
+          <span
+            class="text-[14px] font-semibold text-white group-hover:text-copperLight transition mt-0.5 block truncate">contact@goldenproperties.co</span>
           <span class="text-[11px] text-white/60 mt-1 block">Replies within 2 Hours</span>
         </a>
 
       </div>
 
       <!-- Quick Consultation Form Strip -->
-      <div class="bg-gradient-to-br from-white/[0.06] to-white/[0.02] border border-white/15 rounded-3xl p-6 sm:p-10 mb-14" data-aos="fade-up">
+      <div
+        class="bg-gradient-to-br from-white/[0.06] to-white/[0.02] border border-white/15 rounded-3xl p-6 sm:p-10 mb-14"
+        data-aos="fade-up">
         <div class="grid lg:grid-cols-[1.2fr_1.8fr] gap-8 items-center">
           <div>
             <span class="text-xs uppercase tracking-widest text-copperLight font-bold">Fast Callback Service</span>
@@ -1143,19 +1364,23 @@
               Request a Bespoke Site Visit &amp; Price List
             </h3>
             <p class="text-xs text-white/70 mt-2 leading-relaxed">
-              Tell us your preferred property type or budget. Our senior regional advisor will share verified brochures, RERA legal checks, and schedule a private chauffeur-driven site visit.
+              Tell us your preferred property type or budget. Our senior regional advisor will share verified brochures,
+              RERA legal checks, and schedule a private chauffeur-driven site visit.
             </p>
           </div>
 
           <form id="homeQuickLeadForm" class="grid sm:grid-cols-2 gap-3" onsubmit="handleHomeQuickLead(event)">
             <div>
-              <input type="text" id="quickLeadName" required placeholder="Your Full Name *" class="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 text-xs focus:outline-none focus:border-copper" />
+              <input type="text" id="quickLeadName" required placeholder="Your Full Name *"
+                class="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 text-xs focus:outline-none focus:border-copper" />
             </div>
             <div>
-              <input type="tel" id="quickLeadPhone" required placeholder="Phone Number (WhatsApp) *" class="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 text-xs focus:outline-none focus:border-copper" />
+              <input type="tel" id="quickLeadPhone" required placeholder="Phone Number (WhatsApp) *"
+                class="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 text-xs focus:outline-none focus:border-copper" />
             </div>
             <div>
-              <select id="quickLeadSegment" class="w-full px-4 py-2.5 rounded-xl bg-ink/90 border border-white/20 text-white text-xs focus:outline-none focus:border-copper cursor-pointer">
+              <select id="quickLeadSegment"
+                class="w-full px-4 py-2.5 rounded-xl bg-ink/90 border border-white/20 text-white text-xs focus:outline-none focus:border-copper cursor-pointer">
                 <option value="Residential Apartments">Residential Apartments (3,4 BHK)</option>
                 <option value="Commercial SCOs & Retail">Commercial SCOs &amp; Retail</option>
                 <option value="Freehold Residential Plots">Freehold Residential Plots</option>
@@ -1163,7 +1388,8 @@
               </select>
             </div>
             <div>
-              <select id="quickLeadBudget" class="w-full px-4 py-2.5 rounded-xl bg-ink/90 border border-white/20 text-white text-xs focus:outline-none focus:border-copper cursor-pointer">
+              <select id="quickLeadBudget"
+                class="w-full px-4 py-2.5 rounded-xl bg-ink/90 border border-white/20 text-white text-xs focus:outline-none focus:border-copper cursor-pointer">
                 <option value="₹1 Cr – ₹2 Cr">Budget: ₹1 Cr – ₹2 Cr</option>
                 <option value="₹2 Cr – ₹3.5 Cr">Budget: ₹2 Cr – ₹3.5 Cr</option>
                 <option value="₹3.5 Cr – ₹5 Cr">Budget: ₹3.5 Cr – ₹5 Cr</option>
@@ -1171,9 +1397,12 @@
               </select>
             </div>
             <div class="sm:col-span-2 mt-1">
-              <button type="submit" id="quickLeadSubmitBtn" class="w-full py-3 rounded-xl bg-copper hover:bg-copperLight text-white font-semibold text-xs transition duration-300 shadow-md flex items-center justify-center gap-2">
+              <button type="submit" id="quickLeadSubmitBtn"
+                class="w-full py-3 rounded-xl bg-copper hover:bg-copperLight text-white font-semibold text-xs transition duration-300 shadow-md flex items-center justify-center gap-2">
                 <span>Confirm VIP Site Visit Request</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
               </button>
               <p id="quickLeadStatusMsg" class="hidden text-center text-xs font-medium text-emerald-400 pt-2"></p>
             </div>
@@ -1186,7 +1415,8 @@
       <div class="grid lg:grid-cols-[1.3fr_2fr] gap-8 md:gap-10 pb-12 md:pb-16">
         <div data-aos="fade-up">
           <a href="/index.html" class="inline-block py-2" aria-label="Golden Properties">
-            <img src="/assest/Golden-Properties-Luxury-Logo.png" alt="Golden Properties" class="h-16 sm:h-20 md:h-24 w-auto object-contain" />
+            <img src="/assest/Golden-Properties-Luxury-Logo.png" alt="Golden Properties"
+              class="h-16 sm:h-20 md:h-24 w-auto object-contain" />
           </a>
           <p class="mt-3.5 text-[13px] text-white/55 leading-[1.65] max-w-[290px]">A cutting-edge real estate boutique
             offering a refined and immersive experience for discovering landmark properties.</p>
@@ -1222,8 +1452,10 @@
     </div>
 
     <!-- Brand Signature Banner (Giant Full Width Display) -->
-    <div class="w-full overflow-hidden border-t border-white/10 pt-6 sm:pt-8 md:pt-10 pb-2 sm:pb-3 md:pb-4 text-center select-none">
-      <p class="font-bold tracking-[-0.035em] leading-none text-white/15 text-[11.8vw] sm:text-[11.5vw] md:text-[11.2vw] whitespace-nowrap px-1 transition-colors duration-500 hover:text-white/25">
+    <div
+      class="w-full overflow-hidden border-t border-white/10 pt-6 sm:pt-8 md:pt-10 pb-2 sm:pb-3 md:pb-4 text-center select-none">
+      <p
+        class="font-bold tracking-[-0.035em] leading-none text-white/15 text-[11.8vw] sm:text-[11.5vw] md:text-[11.2vw] whitespace-nowrap px-1 transition-colors duration-500 hover:text-white/25">
         Golden Properties
       </p>
     </div>
@@ -1237,27 +1469,32 @@
     </div>
   </footer>
 
-  <!-- Universal Floating Sticky WhatsApp & Call Concierge -->
-  <div id="floatingConcierge" class="fixed bottom-6 right-5 sm:right-6 z-50 flex flex-col items-end gap-2.5 pointer-events-auto">
+  <!-- Floating Action Buttons (Call & WhatsApp Us - Image 4 Design) -->
+  <div class="fixed bottom-5 right-5 z-40 flex items-center gap-2.5">
     <!-- Call Pill -->
     <a href="tel:+919928203900" aria-label="Call Advisor"
-      class="w-11 h-11 rounded-full bg-copper hover:bg-copperLight text-white shadow-[0_8px_25px_rgba(168,119,74,0.4)] flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 group" title="Call +91 99-2820-3900">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+      class="w-11 h-11 rounded-full bg-copper hover:bg-copperLight text-white shadow-[0_8px_25px_rgba(168,119,74,0.4)] flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 group"
+      title="Call +91 99-2820-3900">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+        </path>
       </svg>
     </a>
 
     <!-- Official WhatsApp Floating Pill (Image 4 Design) -->
-    <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties,%20I%20am%20exploring%20properties%20on%20your%20website%20and%20would%20like%20to%20consult%20with%20an%20advisor." 
-       target="_blank" 
-       rel="noopener noreferrer"
-       aria-label="Chat on WhatsApp"
-       class="flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white pl-4 pr-5 py-2.5 sm:py-3 rounded-full shadow-[0_8px_30px_rgba(37,211,102,0.45)] hover:shadow-[0_12px_40px_rgba(37,211,102,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 group">
+    <a href="https://wa.me/919928203900?text=Hi%20Golden%20Properties,%20I%20am%20exploring%20properties%20on%20your%20website%20and%20would%20like%20to%20consult%20with%20an%20advisor."
+      target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"
+      class="flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white pl-4 pr-5 py-2.5 sm:py-3 rounded-full shadow-[0_8px_30px_rgba(37,211,102,0.45)] hover:shadow-[0_12px_40px_rgba(37,211,102,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 group">
       <span class="relative flex h-2.5 w-2.5">
         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
         <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-white"></span>
       </span>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="shrink-0"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="shrink-0">
+        <path
+          d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+      </svg>
       <span class="text-[13px] sm:text-[14px] font-bold tracking-wide">WhatsApp Us</span>
     </a>
   </div>
@@ -1305,8 +1542,8 @@
         const isHidden = mobileMenu.classList.contains('hidden');
         if (isHidden) {
           mobileMenu.classList.remove('hidden');
-          gsap.fromTo(mobileMenu, 
-            { opacity: 0, y: -12, scale: 0.98 }, 
+          gsap.fromTo(mobileMenu,
+            { opacity: 0, y: -12, scale: 0.98 },
             { opacity: 1, y: 0, scale: 1, duration: 0.32, ease: 'power2.out' }
           );
         } else {
@@ -1391,14 +1628,14 @@
         try {
           const res = await fetch('api.php?route=properties');
           if (res.ok) properties = await res.json();
-        } catch (e) {}
+        } catch (e) { }
 
         // Tier 2: Apache Rewrite API
         if (!properties || !properties.length) {
           try {
             const res2 = await fetch('/api/properties');
             if (res2.ok) properties = await res2.json();
-          } catch (e) {}
+          } catch (e) { }
         }
 
         // Tier 3: Direct JSON Storage
@@ -1406,7 +1643,7 @@
           try {
             const res3 = await fetch('data/properties.json');
             if (res3.ok) properties = await res3.json();
-          } catch (e) {}
+          } catch (e) { }
         }
       } catch (err) {
         console.warn('Property sync notice:', err);
