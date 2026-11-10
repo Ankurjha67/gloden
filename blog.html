@@ -1046,19 +1046,7 @@
         }
 
         if (!props || !props.length) {
-          try {
-            const resBackup = await fetch('data/sample_properties_backup.json');
-            if (resBackup.ok) {
-              const backupData = await resBackup.json();
-              if (Array.isArray(backupData) && backupData.length) {
-                props = backupData;
-              }
-            }
-          } catch (e) {}
-        }
-
-        if (!props || !props.length) {
-          propContainer.innerHTML = '<p class="text-xs text-muted py-2">No active projects listed.</p>';
+          propContainer.innerHTML = '<p class="text-xs text-muted py-2">No active projects listed yet.</p>';
           return;
         }
 
