@@ -45,7 +45,7 @@ function sanitizeInput($data) {
 
 function sendLeadEmail($lead) {
     $admin = readData('admin.json');
-    $to = !empty($admin['adminEmail']) ? $admin['adminEmail'] : 'contact@goldenproperties.co';
+    $to = !empty($admin['adminEmail']) ? $admin['adminEmail'] : 'goldenproperties27@gmail.com';
     $subject = "New Property Lead: " . ($lead['name'] ?? 'Visitor') . " - " . ($lead['property'] ?? 'General Enquiry');
 
     $messageHtml = '
