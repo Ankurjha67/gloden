@@ -1096,12 +1096,22 @@
           res = await fetch(fallbackUrl, { method, body: formData }).catch(() => null);
         }
 
-        if (res.ok) {
+        if (res && res.ok) {
           closePropertyModal();
+          showToast(propId ? 'Property updated successfully!' : 'Property added successfully!');
           await loadProperties();
         } else {
-          const errData = await res.json().catch(() => ({}));
-          alert(errData.message || 'Failed to save property. Please check input values.');
+          let msg = 'Failed to save property. Please check input values.';
+          if (res) {
+            try {
+              const errData = await res.json();
+              if (errData && errData.message) msg = errData.message;
+            } catch (e) {
+              const txt = await res.text().catch(() => '');
+              if (txt && txt.length < 300) msg = txt;
+            }
+          }
+          alert(msg);
         }
       } catch (err) {
         console.error(err);

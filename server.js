@@ -50,7 +50,7 @@ const upload = multer({
       file.mimetype === 'application/msword' ||
       file.mimetype === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
       file.mimetype === 'application/octet-stream';
-    const isAllowedExt = /\.(jpe?g|png|webp|gif|svg|pdf|doc|docx)$/i.test(path.extname(file.originalname || ''));
+    const isAllowedExt = /\.(jpe?g|jfif|png|webp|avif|gif|svg|pdf|doc|docx)$/i.test(path.extname(file.originalname || ''));
 
     if (isImage || isDoc || isAllowedExt) {
       cb(null, true);

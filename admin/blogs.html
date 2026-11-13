@@ -473,11 +473,22 @@
           body: formData
         });
 
-        if (res.ok) {
+        if (res && res.ok) {
           closeBlogModal();
+          showToast(blogId ? 'Blog updated successfully!' : 'Blog published successfully!');
           await loadBlogs();
         } else {
-          alert('Failed to save article.');
+          let msg = 'Failed to save article.';
+          if (res) {
+            try {
+              const errData = await res.json();
+              if (errData && errData.message) msg = errData.message;
+            } catch(e) {
+              const txt = await res.text().catch(() => '');
+              if (txt && txt.length < 300) msg = txt;
+            }
+          }
+          alert(msg);
         }
       } catch (err) {
         console.error(err);

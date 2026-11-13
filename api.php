@@ -39,8 +39,12 @@ function sanitizeInput($data) {
     if (is_array($data)) return array_map('sanitizeInput', $data);
     if (!is_string($data)) return $data;
     $data = trim($data);
-    $data = strip_tags($data);
-    return htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
+    // Don't htmlspecialchars encode raw JSON strings (like floorPlans) so json_decode remains valid
+    if ((str_starts_with($data, '[') && str_ends_with($data, ']')) || 
+        (str_starts_with($data, '{') && str_ends_with($data, '}'))) {
+        return $data;
+    }
+    return strip_tags($data);
 }
 
 function sendLeadEmail($lead) {
@@ -134,8 +138,8 @@ function handleUpload($fileKey) {
     $origName = $_FILES[$fileKey]['name'];
     $ext = strtolower(pathinfo($origName, PATHINFO_EXTENSION));
 
-    // Strict whitelist: Only safe images and documents
-    $allowed = ['jpg', 'jpeg', 'png', 'webp', 'gif', 'svg', 'pdf'];
+    // Whitelist: Safe images and documents (including jfif, avif, doc, docx)
+    $allowed = ['jpg', 'jpeg', 'jfif', 'png', 'webp', 'avif', 'gif', 'svg', 'pdf', 'doc', 'docx'];
     if (!in_array($ext, $allowed, true)) {
         return null;
     }
@@ -146,26 +150,12 @@ function handleUpload($fileKey) {
         return null;
     }
 
-    // Cryptographically secure randomized filename
-    $token = bin2hex(random_bytes(8));
+    // Safe randomized filename
+    $token = bin2hex(random_bytes(6));
     $filename = round(microtime(true) * 1000) . '-' . $token . '.' . $ext;
     $dest = UPLOADS_DIR . '/' . $filename;
     if (@move_uploaded_file($tmpName, $dest)) {
-        return '/uploads/' . $filename;
-    }
-    return null;
-}
-    $tmpName = $_FILES[$fileKey]['tmp_name'];
-    $origName = $_FILES[$fileKey]['name'];
-    $ext = strtolower(pathinfo($origName, PATHINFO_EXTENSION));
-    $allowed = ['jpg', 'jpeg', 'png', 'webp', 'gif', 'svg', 'pdf', 'doc', 'docx'];
-    if (!in_array($ext, $allowed)) {
-        return null;
-    }
-    $filename = round(microtime(true) * 1000) . '-' . mt_rand(100000000, 999999999) . '.' . $ext;
-    $dest = UPLOADS_DIR . '/' . $filename;
-    if (@move_uploaded_file($tmpName, $dest)) {
-        return '/uploads/' . $filename;
+        return 'uploads/' . $filename;
     }
     return null;
 }
@@ -378,7 +368,12 @@ if ($route === 'properties' || preg_match('#^properties/(.+)$#', $route, $matche
         ];
 
         array_unshift($properties, $newProp);
-        writeData('properties.json', $properties);
+        $saved = writeData('properties.json', $properties);
+        if ($saved === false) {
+            http_response_code(500);
+            echo json_encode(['success' => false, 'message' => 'Failed to write to data/properties.json. Please check file write permissions on server.']);
+            exit;
+        }
 
         echo json_encode(['success' => true, 'property' => $newProp]);
         exit;
@@ -478,7 +473,12 @@ if ($route === 'properties' || preg_match('#^properties/(.+)$#', $route, $matche
         ]);
 
         $properties[$index] = $updated;
-        writeData('properties.json', $properties);
+        $saved = writeData('properties.json', $properties);
+        if ($saved === false) {
+            http_response_code(500);
+            echo json_encode(['success' => false, 'message' => 'Failed to write to data/properties.json. Please check file write permissions on server.']);
+            exit;
+        }
 
         echo json_encode(['success' => true, 'property' => $updated]);
         exit;
