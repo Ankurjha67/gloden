@@ -96,17 +96,39 @@
       btn.innerHTML = 'Signing in...';
 
       try {
-        const res = await fetch('/api/auth/login', {
+        let res = await fetch('../api.php?route=auth/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ username, password })
-        });
-        const data = await res.json();
+        }).catch(() => null);
+
+        if (!res || !res.ok) {
+          const resRewrite = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password })
+          }).catch(() => null);
+          if (resRewrite && (resRewrite.ok || !res)) {
+            res = resRewrite;
+          }
+        }
+
+        if (!res) {
+          throw new Error('Server connection error. Ensure server is running.');
+        }
+
+        let data = {};
+        try {
+          data = await res.json();
+        } catch (e) {
+          const txt = await res.text().catch(() => '');
+          data = { success: false, message: (txt && txt.length < 200) ? txt : 'Server returned status ' + res.status };
+        }
 
         if (data.success) {
           localStorage.setItem('golden_admin_token', data.token);
           localStorage.setItem('golden_admin_user', data.username);
-          window.location.href = '/admin/index.html';
+          window.location.href = 'index.html';
         } else {
           errMsg.textContent = data.message || 'Login failed';
           errBox.classList.remove('hidden');
@@ -114,7 +136,7 @@
           btn.innerHTML = 'Sign In to Dashboard';
         }
       } catch (err) {
-        errMsg.textContent = 'Server connection error. Ensure server is running.';
+        errMsg.textContent = err.message || 'Server connection error. Ensure server is running.';
         errBox.classList.remove('hidden');
         btn.disabled = false;
         btn.innerHTML = 'Sign In to Dashboard';

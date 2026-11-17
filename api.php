@@ -5,6 +5,10 @@
  * Handles file uploads to /uploads/ and stores records in /data/*.json
  */
 
+// Error handling: Catch any server error and output clean JSON instead of 500 HTML
+ini_set('display_errors', '0');
+error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING & ~E_DEPRECATED);
+
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE, OPTIONS");
@@ -13,6 +17,23 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-W
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit;
+}
+
+// PHP 7.x Polyfills for backwards compatibility
+if (!function_exists('str_starts_with')) {
+    function str_starts_with($haystack, $needle) {
+        return (string)$needle !== '' && strncmp($haystack, $needle, strlen($needle)) === 0;
+    }
+}
+if (!function_exists('str_ends_with')) {
+    function str_ends_with($haystack, $needle) {
+        return $needle === '' || $needle === substr($haystack, -strlen($needle));
+    }
+}
+if (!function_exists('str_contains')) {
+    function str_contains($haystack, $needle) {
+        return $needle !== '' && strpos($haystack, $needle) !== false;
+    }
 }
 
 define('BASE_DIR', __DIR__);
@@ -26,6 +47,7 @@ function readData($file) {
     $path = DATA_DIR . '/' . $file;
     if (!file_exists($path)) return [];
     $raw = @file_get_contents($path);
+    if ($raw === false || empty($raw)) return [];
     $data = json_decode($raw, true);
     return is_array($data) ? $data : [];
 }
@@ -39,10 +61,14 @@ function sanitizeInput($data) {
     if (is_array($data)) return array_map('sanitizeInput', $data);
     if (!is_string($data)) return $data;
     $data = trim($data);
+    $len = strlen($data);
     // Don't htmlspecialchars encode raw JSON strings (like floorPlans) so json_decode remains valid
-    if ((str_starts_with($data, '[') && str_ends_with($data, ']')) || 
-        (str_starts_with($data, '{') && str_ends_with($data, '}'))) {
-        return $data;
+    if ($len >= 2) {
+        $first = $data[0];
+        $last = $data[$len - 1];
+        if (($first === '[' && $last === ']') || ($first === '{' && $last === '}')) {
+            return $data;
+        }
     }
     return strip_tags($data);
 }
@@ -165,8 +191,8 @@ $method = $_SERVER['REQUEST_METHOD'];
 $route = isset($_GET['route']) ? trim($_GET['route'], '/') : '';
 
 if (empty($route)) {
-    $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-    $uri = preg_replace('#^/api/?#i', '', $uri);
+    $uri = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH);
+    $uri = preg_replace('#^.*?/api/?#i', '', $uri);
     $route = trim($uri, '/');
 }
 
