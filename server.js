@@ -93,9 +93,15 @@ app.post('/api/auth/login', (req, res) => {
   const { username, password } = req.body;
   const adminData = readData('admin.json') || {};
 
-  const isValid = (username === adminData.username && password === adminData.password) ||
-                  (username === 'admin' && password === 'password123') ||
-                  (username === 'golden_admin' && password === 'Golden@Secure#2026!');
+  const adminUser = adminData.username;
+  const adminPass = adminData.password;
+
+  let isValid = false;
+  if (adminUser && adminPass) {
+    isValid = (username === adminUser && password === adminPass);
+  } else {
+    isValid = (username === 'admin' && password === 'password123');
+  }
 
   if (isValid) {
     return res.json({
@@ -659,6 +665,5 @@ app.listen(PORT, () => {
   console.log(`  🌟 Golden Properties Server running on port ${PORT}`);
   console.log(`  🌐 Website:         http://localhost:${PORT}`);
   console.log(`  👑 Admin Dashboard: http://localhost:${PORT}/admin`);
-  console.log(`  🔑 Default Login:   Username: admin | Password: password123`);
   console.log(`=================================================\n`);
 });

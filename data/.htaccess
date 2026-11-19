@@ -1,7 +1,12 @@
 # Block direct browser access to sensitive data files
-<FilesMatch "^(admin|leads|properties\.backup)\.json$">
-    Order Allow,Deny
-    Deny from all
+<FilesMatch "^(admin|leads|properties\.backup|users)\.json$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order Allow,Deny
+        Deny from all
+    </IfModule>
 </FilesMatch>
 
 # Prevent directory index listing

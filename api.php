@@ -298,17 +298,16 @@ if ($route === 'auth/login' && $method === 'POST') {
     $pass = isset($body['password']) ? trim($body['password']) : '';
 
     $valid = false;
-    // Check against admin.json
-    if (!empty($admin['username']) && $user === ($admin['username'] ?? '') && $pass === ($admin['password'] ?? '')) {
-        $valid = true;
-    }
-    // Also accept admin / password123 as valid login
-    if ($user === 'admin' && $pass === 'password123') {
-        $valid = true;
-    }
-    // Also accept golden_admin / Golden@Secure#2026!
-    if ($user === 'golden_admin' && $pass === 'Golden@Secure#2026!') {
-        $valid = true;
+    // Check against admin.json (Primary & Secure)
+    if (!empty($admin['username']) && !empty($admin['password'])) {
+        if ($user === $admin['username'] && $pass === $admin['password']) {
+            $valid = true;
+        }
+    } else {
+        // Initial fallback only if admin.json is unconfigured
+        if ($user === 'admin' && $pass === 'password123') {
+            $valid = true;
+        }
     }
 
     if ($valid) {

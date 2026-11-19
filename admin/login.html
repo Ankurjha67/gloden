@@ -52,13 +52,13 @@
       <form id="loginForm" class="space-y-4">
         <div>
           <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1.5">Username</label>
-          <input type="text" id="username" required value="admin"
+          <input type="text" id="username" required autocomplete="username"
             class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-copper transition" placeholder="Enter username">
         </div>
 
         <div>
           <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-1.5">Password</label>
-          <input type="password" id="password" required value="password123"
+          <input type="password" id="password" required autocomplete="current-password"
             class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-copper transition" placeholder="••••••••">
         </div>
 
@@ -70,8 +70,7 @@
       </form>
 
       <div class="mt-6 pt-5 border-t border-white/10 text-center">
-        <p class="text-xs text-gray-400">Default demo credentials: <span class="text-copperLight font-mono">admin</span> / <span class="text-copperLight font-mono">password123</span></p>
-        <a href="/" class="mt-3 inline-block text-xs text-gray-400 hover:text-white transition">← Back to Golden Properties Website</a>
+        <a href="/" class="inline-block text-xs text-gray-400 hover:text-white transition">← Back to Golden Properties Website</a>
       </div>
     </div>
   </div>
