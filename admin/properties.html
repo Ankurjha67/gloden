@@ -1026,6 +1026,7 @@
 
       const propId = document.getElementById('propId').value;
       const formData = new FormData();
+      if (propId) formData.append('id', propId);
       formData.append('name', document.getElementById('propName').value);
       formData.append('title', document.getElementById('propName').value);
       formData.append('slug', document.getElementById('propSlug').value);
@@ -1087,30 +1088,54 @@
       }
 
       try {
-        let url = propId ? `../api.php?route=properties/${encodeURIComponent(propId)}` : '../api.php?route=properties';
-        let res = await fetch(url, { method: 'POST', body: formData }).catch(() => null);
+        const candidateEndpoints = [
+          propId ? `../api.php?route=properties/${encodeURIComponent(propId)}` : '../api.php?route=properties',
+          propId ? `/api.php?route=properties/${encodeURIComponent(propId)}` : '/api.php?route=properties',
+          propId ? `api.php?route=properties/${encodeURIComponent(propId)}` : 'api.php?route=properties',
+          propId ? `/api/properties/${encodeURIComponent(propId)}` : '/api/properties'
+        ];
 
-        if (!res || !res.ok) {
-          const fallbackUrl = propId ? `/api/properties/${propId}` : '/api/properties';
-          const method = propId ? 'PUT' : 'POST';
-          res = await fetch(fallbackUrl, { method, body: formData }).catch(() => null);
+        let success = false;
+        let lastErrorMessage = '';
+        let lastStatus = 0;
+
+        for (const ep of candidateEndpoints) {
+          try {
+            const method = (ep.startsWith('/api/properties') && propId) ? 'PUT' : 'POST';
+            const res = await fetch(ep, { method, body: formData });
+            lastStatus = res.status;
+            if (res.ok) {
+              success = true;
+              break;
+            }
+            const txt = await res.text().catch(() => '');
+            if (txt) {
+              try {
+                const j = JSON.parse(txt);
+                if (j && (j.message || j.error)) {
+                  lastErrorMessage = j.message || j.error;
+                }
+              } catch (_) {
+                const cleanTxt = txt.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+                if (cleanTxt && cleanTxt.length < 250) {
+                  lastErrorMessage = cleanTxt;
+                }
+              }
+            }
+            if (res.status !== 404 && lastErrorMessage) {
+              break;
+            }
+          } catch (netErr) {
+            console.warn('Network issue reaching endpoint', ep, netErr);
+          }
         }
 
-        if (res && res.ok) {
+        if (success) {
           closePropertyModal();
           showToast(propId ? 'Property updated successfully!' : 'Property added successfully!');
           await loadProperties();
         } else {
-          let msg = 'Failed to save property. Please check input values.';
-          if (res) {
-            try {
-              const errData = await res.json();
-              if (errData && errData.message) msg = errData.message;
-            } catch (e) {
-              const txt = await res.text().catch(() => '');
-              if (txt && txt.length < 300) msg = txt;
-            }
-          }
+          let msg = lastErrorMessage || `Failed to save property (Status ${lastStatus || 'error'}). Please check server write permissions for data/properties.json or uploads folder.`;
           alert(msg);
         }
       } catch (err) {

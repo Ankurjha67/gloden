@@ -9,6 +9,33 @@
 ini_set('display_errors', '0');
 error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING & ~E_DEPRECATED);
 
+set_exception_handler(function($e) {
+    if (!headers_sent()) {
+        http_response_code(500);
+        header("Content-Type: application/json; charset=UTF-8");
+    }
+    echo json_encode([
+        'success' => false,
+        'message' => 'API Error: ' . $e->getMessage()
+    ]);
+    exit;
+});
+
+register_shutdown_function(function() {
+    $err = error_get_last();
+    if ($err && ($err['type'] === E_ERROR || $err['type'] === E_PARSE || $err['type'] === E_COMPILE_ERROR || $err['type'] === E_CORE_ERROR)) {
+        if (!headers_sent()) {
+            http_response_code(500);
+            header("Content-Type: application/json; charset=UTF-8");
+        }
+        echo json_encode([
+            'success' => false,
+            'message' => 'Server Fatal Error: ' . $err['message'] . ' on line ' . $err['line']
+        ]);
+        exit;
+    }
+});
+
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE, OPTIONS");
@@ -40,8 +67,14 @@ define('BASE_DIR', __DIR__);
 define('DATA_DIR', BASE_DIR . '/data');
 define('UPLOADS_DIR', BASE_DIR . '/uploads');
 
-if (!is_dir(DATA_DIR)) @mkdir(DATA_DIR, 0755, true);
-if (!is_dir(UPLOADS_DIR)) @mkdir(UPLOADS_DIR, 0755, true);
+if (!is_dir(DATA_DIR)) {
+    @mkdir(DATA_DIR, 0777, true);
+    @chmod(DATA_DIR, 0777);
+}
+if (!is_dir(UPLOADS_DIR)) {
+    @mkdir(UPLOADS_DIR, 0777, true);
+    @chmod(UPLOADS_DIR, 0777);
+}
 
 function readData($file) {
     $path = DATA_DIR . '/' . $file;
@@ -54,7 +87,37 @@ function readData($file) {
 
 function writeData($file, $data) {
     $path = DATA_DIR . '/' . $file;
-    return @file_put_contents($path, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE), LOCK_EX);
+    $dir = dirname($path);
+    if (!is_dir($dir)) {
+        @mkdir($dir, 0777, true);
+        @chmod($dir, 0777);
+    }
+    if (file_exists($path) && !is_writable($path)) {
+        @chmod($path, 0666);
+    }
+    $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+    if ($json === false) {
+        $json = json_encode($data);
+    }
+
+    // 1. Try with LOCK_EX
+    $ret = @file_put_contents($path, $json, LOCK_EX);
+    // 2. If LOCK_EX failed (blocked on some shared hosting), retry without lock
+    if ($ret === false) {
+        $ret = @file_put_contents($path, $json);
+    }
+    // 3. Fallback using direct fopen/fwrite if file_put_contents fails
+    if ($ret === false) {
+        $fp = @fopen($path, 'w');
+        if ($fp) {
+            $ret = @fwrite($fp, $json);
+            @fclose($fp);
+        }
+    }
+    if ($ret !== false) {
+        @chmod($path, 0666);
+    }
+    return $ret;
 }
 
 function sanitizeInput($data) {
@@ -152,8 +215,7 @@ function sendLeadEmail($lead) {
     }
     $headers[] = 'X-Mailer: PHP/' . phpversion();
 
-    @mail($to, $subject, $messageHtml, implode("
-", $headers));
+    @mail($to, $subject, $messageHtml, implode("\r\n", $headers));
 }
 
 function handleUpload($fileKey) {
@@ -176,11 +238,32 @@ function handleUpload($fileKey) {
         return null;
     }
 
-    // Safe randomized filename
-    $token = bin2hex(random_bytes(6));
+    if (!is_dir(UPLOADS_DIR)) {
+        @mkdir(UPLOADS_DIR, 0777, true);
+        @chmod(UPLOADS_DIR, 0777);
+    }
+
+    // Safe token generator with fallback if random_bytes is unavailable
+    $token = '';
+    if (function_exists('random_bytes')) {
+        try {
+            $token = bin2hex(random_bytes(6));
+        } catch (Exception $e) {} catch (Throwable $t) {}
+    }
+    if (empty($token)) {
+        $token = substr(md5(uniqid(mt_rand(), true)), 0, 12);
+    }
+
     $filename = round(microtime(true) * 1000) . '-' . $token . '.' . $ext;
     $dest = UPLOADS_DIR . '/' . $filename;
     if (@move_uploaded_file($tmpName, $dest)) {
+        @chmod($dest, 0666);
+        return 'uploads/' . $filename;
+    }
+    // Fallback if move_uploaded_file fails due to host path issues
+    if (@copy($tmpName, $dest)) {
+        @chmod($dest, 0666);
+        @unlink($tmpName);
         return 'uploads/' . $filename;
     }
     return null;
@@ -286,8 +369,9 @@ if ($route === 'stats' && $method === 'GET') {
 // 3. PROPERTIES APIs
 // ==========================================
 if ($route === 'properties' || preg_match('#^properties/(.+)$#', $route, $matches)) {
-    $propId = isset($matches[1]) ? urldecode($matches[1]) : null;
+    $propId = isset($matches[1]) ? urldecode($matches[1]) : (!empty($body['id']) ? trim($body['id']) : null);
     $properties = readData('properties.json');
+    if (!is_array($properties)) $properties = [];
 
     // GET /api/properties
     if ($method === 'GET' && !$propId) {

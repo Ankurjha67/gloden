@@ -465,34 +465,59 @@
       }
 
       try {
-        const url = blogId ? `/api/blogs/${blogId}` : '/api/blogs';
-        const method = blogId ? 'PUT' : 'POST';
+        const candidateEndpoints = [
+          blogId ? `../api.php?route=blogs/${encodeURIComponent(blogId)}` : '../api.php?route=blogs',
+          blogId ? `/api.php?route=blogs/${encodeURIComponent(blogId)}` : '/api.php?route=blogs',
+          blogId ? `api.php?route=blogs/${encodeURIComponent(blogId)}` : 'api.php?route=blogs',
+          blogId ? `/api/blogs/${encodeURIComponent(blogId)}` : '/api/blogs'
+        ];
 
-        const res = await fetch(url, {
-          method,
-          body: formData
-        });
+        let success = false;
+        let lastErrorMessage = '';
+        let lastStatus = 0;
 
-        if (res && res.ok) {
+        for (const ep of candidateEndpoints) {
+          try {
+            const method = (ep.startsWith('/api/blogs') && blogId) ? 'PUT' : 'POST';
+            const res = await fetch(ep, { method, body: formData });
+            lastStatus = res.status;
+            if (res.ok) {
+              success = true;
+              break;
+            }
+            const txt = await res.text().catch(() => '');
+            if (txt) {
+              try {
+                const j = JSON.parse(txt);
+                if (j && (j.message || j.error)) {
+                  lastErrorMessage = j.message || j.error;
+                }
+              } catch (_) {
+                const cleanTxt = txt.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+                if (cleanTxt && cleanTxt.length < 250) {
+                  lastErrorMessage = cleanTxt;
+                }
+              }
+            }
+            if (res.status !== 404 && lastErrorMessage) {
+              break;
+            }
+          } catch (netErr) {
+            console.warn('Network issue reaching endpoint', ep, netErr);
+          }
+        }
+
+        if (success) {
           closeBlogModal();
           showToast(blogId ? 'Blog updated successfully!' : 'Blog published successfully!');
           await loadBlogs();
         } else {
-          let msg = 'Failed to save article.';
-          if (res) {
-            try {
-              const errData = await res.json();
-              if (errData && errData.message) msg = errData.message;
-            } catch(e) {
-              const txt = await res.text().catch(() => '');
-              if (txt && txt.length < 300) msg = txt;
-            }
-          }
+          let msg = lastErrorMessage || `Failed to save article (Status ${lastStatus || 'error'}). Please check write permissions.`;
           alert(msg);
         }
       } catch (err) {
         console.error(err);
-        alert('Server error saving article.');
+        alert('Server connection error saving article.');
       } finally {
         saveBtn.disabled = false;
         saveBtn.textContent = 'Publish Article';

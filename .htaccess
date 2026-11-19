@@ -25,3 +25,15 @@
 <IfModule mod_mime.c>
     AddType application/json .json
 </IfModule>
+
+# Increase upload file size limits for cPanel / mod_php
+<IfModule mod_php7.c>
+    php_value upload_max_filesize 64M
+    php_value post_max_size 64M
+    php_value memory_limit 128M
+</IfModule>
+<IfModule mod_php.c>
+    php_value upload_max_filesize 64M
+    php_value post_max_size 64M
+    php_value memory_limit 128M
+</IfModule>

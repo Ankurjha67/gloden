@@ -520,7 +520,7 @@
         <!-- Specifications & Architectural Highlights Grid -->
         <div class="pt-2">
           <h3 class="text-sm font-bold text-ink uppercase tracking-wider text-muted mb-4">Furnishing &amp; Architectural Specifications</h3>
-          <div id="specPillsGrid" class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+          <div id="specPillsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2.5 sm:gap-3 text-xs">
             <!-- Dynamically populated -->
           </div>
         </div>
@@ -1309,9 +1309,11 @@
           ];
         }
         specPillsGrid.innerHTML = parsedSpecsList.map(sp => `
-          <div class="p-3 rounded-xl bg-sand/40 border border-ink/[0.06] flex items-center gap-2 text-ink/80 font-medium">
-            <span class="w-5 h-5 rounded-full bg-copper/15 text-copper grid place-items-center shrink-0 text-[10px]">✓</span>
-            <span class="truncate text-xs">${sp}</span>
+          <div class="p-3 sm:p-3.5 rounded-xl bg-sand/35 hover:bg-white border border-ink/[0.08] hover:border-copper/40 flex items-start gap-2.5 text-ink/90 transition shadow-2xs group">
+            <span class="w-5 h-5 rounded-full bg-copper/15 text-copper grid place-items-center shrink-0 text-[10px] font-bold mt-0.5 group-hover:bg-copper group-hover:text-white transition">✓</span>
+            <div class="min-w-0 flex-1 text-xs sm:text-[13px] leading-relaxed break-words">
+              ${sp}
+            </div>
           </div>
         `).join('');
 
